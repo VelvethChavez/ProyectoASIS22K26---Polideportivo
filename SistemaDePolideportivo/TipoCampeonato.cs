@@ -18,7 +18,7 @@ namespace SistemaDePolideportivo
             InitializeComponent();
         }
 
-       /* cargar formulario */
+        /* cargar formulario */
         private void TipoCampeonato_Load(object sender, EventArgs e)
         {
             dataGridView1.Enabled = true;
@@ -173,7 +173,7 @@ namespace SistemaDePolideportivo
                 Descripcion.Text = fila.Cells["descripcion"].Value.ToString();
             }
         }
-        
+
 
         /*BOTON DE ELIMINAR VELVETH CHAVEZ */
         private void BtnEliminar_Click(object sender, EventArgs e)
@@ -230,7 +230,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        
+
         /* METODO PARA LIMPIAR CAMPOS */
         private void LimpiarCampos()
         {
@@ -315,6 +315,15 @@ namespace SistemaDePolideportivo
                 }
             }
 
+        }
+
+        private void BtnNuevo_Click(object sender, EventArgs e)
+        {
+            // Limpia las cajas de texto y resetea el ID a 0
+            LimpiarCampos();
+
+            // Coloca el cursor directamente en el campo de texto del nombre
+            NomTipoCampeonato.Focus();
         }
     }
 }

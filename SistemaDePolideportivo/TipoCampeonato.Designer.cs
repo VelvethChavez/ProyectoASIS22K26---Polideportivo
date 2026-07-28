@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TipoCampeonato));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
+            BtnNuevo = new Button();
             label5 = new Label();
             label4 = new Label();
             pictureBox1 = new PictureBox();
@@ -49,6 +51,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(BtnNuevo);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(pictureBox1);
@@ -64,6 +67,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(694, 455);
             panel1.TabIndex = 15;
+            // 
+            // BtnNuevo
+            // 
+            BtnNuevo.BackgroundImage = Properties.Resources.nuevo;
+            BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNuevo.Location = new Point(614, 191);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(58, 47);
+            BtnNuevo.TabIndex = 17;
+            BtnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
             // label5
             // 
@@ -94,7 +108,7 @@
             // 
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
-            pictureBox1.Image = Properties.Resources.Trofeo;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(15, 13);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(40, 39);
@@ -244,5 +258,6 @@
         private Label label1;
         private Button BtnEditar;
         private Button BtnGuardar;
+        private Button BtnNuevo;
     }
 }

@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenú));
             panel2 = new Panel();
+            btnAyuda = new Button();
             lblTitulo = new Label();
             btnSeguridad = new Button();
             btnAdministracion = new Button();
@@ -46,7 +48,6 @@
             pictureBox5 = new PictureBox();
             btnReportes = new Button();
             pictureBox1 = new PictureBox();
-            btnAyuda = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pboxReportes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pboxCampeonatos).BeginInit();
@@ -69,11 +70,23 @@
             panel2.Size = new Size(1000, 80);
             panel2.TabIndex = 2;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Anchor = AnchorStyles.None;
+            btnAyuda.BackgroundImage = SistemaDePolideportivo.Properties.Resources.ayuda;
+            btnAyuda.BackgroundImageLayout = ImageLayout.Zoom;
+            btnAyuda.Location = new Point(898, 17);
+            btnAyuda.Margin = new Padding(0);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(50, 50);
+            btnAyuda.TabIndex = 20;
+            btnAyuda.UseVisualStyleBackColor = true;
+            // 
             // lblTitulo
             // 
             lblTitulo.Anchor = AnchorStyles.None;
             lblTitulo.FlatStyle = FlatStyle.System;
-            lblTitulo.Font = new Font("OpenSymbol", 24F, FontStyle.Bold);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold);
             lblTitulo.Location = new Point(50, 17);
             lblTitulo.Margin = new Padding(0);
             lblTitulo.Name = "lblTitulo";
@@ -88,7 +101,7 @@
             btnSeguridad.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnSeguridad.BackColor = Color.RoyalBlue;
             btnSeguridad.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnSeguridad.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSeguridad.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSeguridad.ForeColor = SystemColors.ControlLightLight;
             btnSeguridad.Location = new Point(50, 262);
             btnSeguridad.Margin = new Padding(0);
@@ -97,6 +110,7 @@
             btnSeguridad.TabIndex = 7;
             btnSeguridad.Text = "Seguridad";
             btnSeguridad.UseVisualStyleBackColor = false;
+            btnSeguridad.Click += btnSeguridad_Click;
             // 
             // btnAdministracion
             // 
@@ -104,7 +118,7 @@
             btnAdministracion.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnAdministracion.BackColor = Color.RoyalBlue;
             btnAdministracion.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnAdministracion.Font = new Font("OpenSymbol", 12F);
+            btnAdministracion.Font = new Font("Microsoft Sans Serif", 12F);
             btnAdministracion.ForeColor = SystemColors.ControlLightLight;
             btnAdministracion.Location = new Point(287, 262);
             btnAdministracion.Margin = new Padding(0);
@@ -121,7 +135,7 @@
             btnReglas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnReglas.BackColor = Color.RoyalBlue;
             btnReglas.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnReglas.Font = new Font("OpenSymbol", 12F);
+            btnReglas.Font = new Font("Microsoft Sans Serif", 12F);
             btnReglas.ForeColor = SystemColors.ControlLightLight;
             btnReglas.Location = new Point(50, 492);
             btnReglas.Margin = new Padding(0);
@@ -138,7 +152,7 @@
             btnCompetencias.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnCompetencias.BackColor = Color.RoyalBlue;
             btnCompetencias.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnCompetencias.Font = new Font("OpenSymbol", 12F);
+            btnCompetencias.Font = new Font("Microsoft Sans Serif", 12F);
             btnCompetencias.ForeColor = SystemColors.ControlLightLight;
             btnCompetencias.Location = new Point(761, 262);
             btnCompetencias.Margin = new Padding(0);
@@ -154,7 +168,7 @@
             btnRRHH.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnRRHH.BackColor = Color.RoyalBlue;
             btnRRHH.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnRRHH.Font = new Font("OpenSymbol", 12F);
+            btnRRHH.Font = new Font("Microsoft Sans Serif", 12F);
             btnRRHH.ForeColor = SystemColors.ControlLightLight;
             btnRRHH.Location = new Point(524, 492);
             btnRRHH.Margin = new Padding(0);
@@ -170,7 +184,7 @@
             btnEstadisticas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEstadisticas.BackColor = Color.RoyalBlue;
             btnEstadisticas.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnEstadisticas.Font = new Font("OpenSymbol", 12F);
+            btnEstadisticas.Font = new Font("Microsoft Sans Serif", 12F);
             btnEstadisticas.ForeColor = SystemColors.ControlLightLight;
             btnEstadisticas.Location = new Point(287, 492);
             btnEstadisticas.Margin = new Padding(0);
@@ -186,7 +200,7 @@
             btnEquipos.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEquipos.BackColor = Color.RoyalBlue;
             btnEquipos.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnEquipos.Font = new Font("OpenSymbol", 12F);
+            btnEquipos.Font = new Font("Microsoft Sans Serif", 12F);
             btnEquipos.ForeColor = SystemColors.ControlLightLight;
             btnEquipos.Location = new Point(524, 262);
             btnEquipos.Margin = new Padding(0);
@@ -208,50 +222,62 @@
             // 
             // pboxCampeonatos
             // 
+            pboxCampeonatos.Image = (Image)resources.GetObject("pboxCampeonatos.Image");
             pboxCampeonatos.Location = new Point(50, 97);
             pboxCampeonatos.Name = "pboxCampeonatos";
             pboxCampeonatos.Size = new Size(187, 150);
+            pboxCampeonatos.SizeMode = PictureBoxSizeMode.Zoom;
             pboxCampeonatos.TabIndex = 15;
             pboxCampeonatos.TabStop = false;
             // 
             // pboxEquipos
             // 
+            pboxEquipos.Image = (Image)resources.GetObject("pboxEquipos.Image");
             pboxEquipos.Location = new Point(287, 97);
             pboxEquipos.Name = "pboxEquipos";
             pboxEquipos.Size = new Size(187, 150);
+            pboxEquipos.SizeMode = PictureBoxSizeMode.Zoom;
             pboxEquipos.TabIndex = 16;
             pboxEquipos.TabStop = false;
             // 
             // pboxReglamento
             // 
             pboxReglamento.BackgroundImageLayout = ImageLayout.Zoom;
+            pboxReglamento.Image = (Image)resources.GetObject("pboxReglamento.Image");
             pboxReglamento.Location = new Point(524, 97);
             pboxReglamento.Name = "pboxReglamento";
             pboxReglamento.Size = new Size(187, 150);
+            pboxReglamento.SizeMode = PictureBoxSizeMode.Zoom;
             pboxReglamento.TabIndex = 17;
             pboxReglamento.TabStop = false;
             // 
             // pboxEmpleados
             // 
+            pboxEmpleados.Image = (Image)resources.GetObject("pboxEmpleados.Image");
             pboxEmpleados.Location = new Point(761, 97);
             pboxEmpleados.Name = "pboxEmpleados";
             pboxEmpleados.Size = new Size(187, 150);
+            pboxEmpleados.SizeMode = PictureBoxSizeMode.Zoom;
             pboxEmpleados.TabIndex = 18;
             pboxEmpleados.TabStop = false;
             // 
             // pboxAyuda
             // 
+            pboxAyuda.Image = (Image)resources.GetObject("pboxAyuda.Image");
             pboxAyuda.Location = new Point(524, 329);
             pboxAyuda.Name = "pboxAyuda";
             pboxAyuda.Size = new Size(187, 150);
+            pboxAyuda.SizeMode = PictureBoxSizeMode.Zoom;
             pboxAyuda.TabIndex = 19;
             pboxAyuda.TabStop = false;
             // 
             // pictureBox5
             // 
+            pictureBox5.Image = SistemaDePolideportivo.Properties.Resources.Estadistica;
             pictureBox5.Location = new Point(287, 329);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(187, 150);
+            pictureBox5.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox5.TabIndex = 20;
             pictureBox5.TabStop = false;
             // 
@@ -261,7 +287,7 @@
             btnReportes.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnReportes.BackColor = Color.RoyalBlue;
             btnReportes.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnReportes.Font = new Font("OpenSymbol", 12F);
+            btnReportes.Font = new Font("Microsoft Sans Serif", 12F);
             btnReportes.ForeColor = SystemColors.ControlLightLight;
             btnReportes.Location = new Point(761, 492);
             btnReportes.Margin = new Padding(0);
@@ -273,23 +299,13 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
             pictureBox1.Location = new Point(761, 329);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(187, 150);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
-            // 
-            // btnAyuda
-            // 
-            btnAyuda.Anchor = AnchorStyles.None;
-            btnAyuda.BackgroundImage = SistemaDePolideportivo.Properties.Resources.ayuda;
-            btnAyuda.BackgroundImageLayout = ImageLayout.Zoom;
-            btnAyuda.Location = new Point(898, 17);
-            btnAyuda.Margin = new Padding(0);
-            btnAyuda.Name = "btnAyuda";
-            btnAyuda.Size = new Size(50, 50);
-            btnAyuda.TabIndex = 20;
-            btnAyuda.UseVisualStyleBackColor = true;
             // 
             // frmMenú
             // 
@@ -314,6 +330,8 @@
             Controls.Add(btnAdministracion);
             Controls.Add(btnSeguridad);
             Controls.Add(panel2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmMenú";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Menú Principal";

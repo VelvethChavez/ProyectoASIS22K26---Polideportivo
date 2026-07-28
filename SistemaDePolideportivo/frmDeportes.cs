@@ -321,5 +321,27 @@ namespace SistemaDePolideportivo
                 new frmMenú().Show();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // 1. Instancias (creas) el formulario al que quieres ir
+            // Cambia "NombreDelOtroFormulario" por el nombre real de tu form (ej. FormularioPrincipal)
+            TipoCampeonato nuevoForm = new TipoCampeonato();
+
+            // 2. Muestras el nuevo formulario
+            nuevoForm.Show();
+
+            // 3. (Opcional) Ocultas el formulario actual para que no se queden ventanas acumuladas
+            this.Hide();
+        }
+
+        private void BtnNuevo_Click_1(object sender, EventArgs e)
+        {
+            // Limpia las cajas de texto y resetea el ID a 0
+            LimpiarCampos();
+
+            // Coloca el cursor directamente en el campo de texto del nombre
+            NombreDeporte.Focus();
+        }
     }
 }

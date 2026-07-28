@@ -24,5 +24,10 @@ namespace ProyectoASIS22K26___Polideportivo
             nuevoForm.Show();
             Hide();
         }
+
+        private void btnSeguridad_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
