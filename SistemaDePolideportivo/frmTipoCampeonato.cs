@@ -6,14 +6,14 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class TipoCampeonato : Form
+    public partial class frmTipoCampeonato : Form
     {
-        ConexionBD conexionBD = new ConexionBD();
+        CConexion conexionBD = new CConexion();
 
         // Guarda el ID del tipo de campeonato seleccionado
         private int idTipo = 0;
 
-        public TipoCampeonato()
+        public frmTipoCampeonato()
         {
             InitializeComponent();
         }
