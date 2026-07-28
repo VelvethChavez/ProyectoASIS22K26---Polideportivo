@@ -39,6 +39,7 @@
             Descripcion = new RichTextBox();
             dataGridView1 = new DataGridView();
             panel1 = new Panel();
+            button1 = new Button();
             label5 = new Label();
             label4 = new Label();
             pictureBox1 = new PictureBox();
@@ -169,6 +170,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(pictureBox1);
@@ -184,6 +186,17 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(694, 455);
             panel1.TabIndex = 14;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.RosyBrown;
+            button1.Location = new Point(284, 16);
+            button1.Name = "button1";
+            button1.Size = new Size(133, 23);
+            button1.TabIndex = 17;
+            button1.Text = "tipo campeonato";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label5
             // 
@@ -240,6 +253,7 @@
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "Deportes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Deportes";
             Load += Deportes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -266,5 +280,6 @@
         private Label label4;
         private Label label5;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private Button button1;
     }
 }

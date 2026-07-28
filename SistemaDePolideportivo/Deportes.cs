@@ -34,9 +34,8 @@ namespace SistemaDePolideportivo
 
 
 
-        //==========================
-        // GUARDAR
-        //==========================
+
+        /* BOTON GUARDAR REALIZADO POR VELVETH CHAVEZ*/
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -100,12 +99,7 @@ namespace SistemaDePolideportivo
         }
 
 
-        //==========================
-        // EDITAR
-        //==========================
-        //==========================
-        // EDITAR
-        //==========================
+        /* BOTON EDITAR VELVETH CHAVEZ */ 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             // Validar que se haya seleccionado un registro previamente
@@ -308,6 +302,17 @@ namespace SistemaDePolideportivo
                                     "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TipoCampeonato nuevoForm = new TipoCampeonato();
+
+            // 2. Muestras el nuevo formulario
+            nuevoForm.Show();
+
+            // 3. (Opcional) Ocultas el formulario actual para que no se queden ventanas acumuladas
+            this.Hide();
         }
     }
 }
