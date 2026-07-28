@@ -1,3 +1,5 @@
+using ProyectoASIS22K26___Polideportivo;
+
 namespace SistemaDePolideportivo
 {
     internal static class Program
@@ -11,7 +13,7 @@ namespace SistemaDePolideportivo
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Application.Run(new frmLogin());
         }
     }
 }

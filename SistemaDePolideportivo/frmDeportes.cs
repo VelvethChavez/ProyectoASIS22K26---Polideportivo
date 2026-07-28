@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using ProyectoASIS22K26___Polideportivo;
 using SistemaDePolideportivo.Conexion;
 using System;
 using System.Data;
@@ -6,18 +7,17 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class Deportes : Form
+    public partial class frmDeportes : Form
     {
-        ConexionBD conexionBD = new ConexionBD();
+        CConexion conexionBD = new CConexion();
 
         // Guarda el ID del deporte seleccionado
         private int idDeporte = 0;
 
-        public Deportes()
+        public frmDeportes()
         {
             InitializeComponent();
         }
-
 
         //==========================
         // CARGA DEL FORMULARIO
@@ -34,8 +34,9 @@ namespace SistemaDePolideportivo
 
 
 
-
-        /* BOTON GUARDAR REALIZADO POR VELVETH CHAVEZ*/
+        //==========================
+        // GUARDAR
+        //==========================
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             try
@@ -99,7 +100,12 @@ namespace SistemaDePolideportivo
         }
 
 
-        /* BOTON EDITAR VELVETH CHAVEZ */ 
+        //==========================
+        // EDITAR
+        //==========================
+        //==========================
+        // EDITAR
+        //==========================
         private void BtnEditar_Click(object sender, EventArgs e)
         {
             // Validar que se haya seleccionado un registro previamente
@@ -304,15 +310,16 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Deportes_FormClosed(object sender, FormClosedEventArgs e)
         {
-            TipoCampeonato nuevoForm = new TipoCampeonato();
-
-            // 2. Muestras el nuevo formulario
-            nuevoForm.Show();
-
-            // 3. (Opcional) Ocultas el formulario actual para que no se queden ventanas acumuladas
-            this.Hide();
+            if (Owner != null)
+            {
+                Owner.Show();
+            }
+            else
+            {
+                new frmMenú().Show();
+            }
         }
     }
 }
