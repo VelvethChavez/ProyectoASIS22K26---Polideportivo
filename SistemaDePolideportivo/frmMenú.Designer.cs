@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel2 = new Panel();
+            btnAyuda = new Button();
             lblTitulo = new Label();
             btnSeguridad = new Button();
             btnAdministracion = new Button();
@@ -46,7 +47,6 @@
             pictureBox5 = new PictureBox();
             btnReportes = new Button();
             pictureBox1 = new PictureBox();
-            btnAyuda = new Button();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pboxReportes).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pboxCampeonatos).BeginInit();
@@ -69,11 +69,23 @@
             panel2.Size = new Size(1000, 80);
             panel2.TabIndex = 2;
             // 
+            // btnAyuda
+            // 
+            btnAyuda.Anchor = AnchorStyles.None;
+            btnAyuda.BackgroundImage = SistemaDePolideportivo.Properties.Resources.ayuda;
+            btnAyuda.BackgroundImageLayout = ImageLayout.Zoom;
+            btnAyuda.Location = new Point(898, 17);
+            btnAyuda.Margin = new Padding(0);
+            btnAyuda.Name = "btnAyuda";
+            btnAyuda.Size = new Size(50, 50);
+            btnAyuda.TabIndex = 20;
+            btnAyuda.UseVisualStyleBackColor = true;
+            // 
             // lblTitulo
             // 
             lblTitulo.Anchor = AnchorStyles.None;
             lblTitulo.FlatStyle = FlatStyle.System;
-            lblTitulo.Font = new Font("OpenSymbol", 24F, FontStyle.Bold);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold);
             lblTitulo.Location = new Point(50, 17);
             lblTitulo.Margin = new Padding(0);
             lblTitulo.Name = "lblTitulo";
@@ -88,7 +100,7 @@
             btnSeguridad.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnSeguridad.BackColor = Color.RoyalBlue;
             btnSeguridad.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnSeguridad.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnSeguridad.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSeguridad.ForeColor = SystemColors.ControlLightLight;
             btnSeguridad.Location = new Point(50, 262);
             btnSeguridad.Margin = new Padding(0);
@@ -104,7 +116,7 @@
             btnAdministracion.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnAdministracion.BackColor = Color.RoyalBlue;
             btnAdministracion.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnAdministracion.Font = new Font("OpenSymbol", 12F);
+            btnAdministracion.Font = new Font("Microsoft Sans Serif", 12F);
             btnAdministracion.ForeColor = SystemColors.ControlLightLight;
             btnAdministracion.Location = new Point(287, 262);
             btnAdministracion.Margin = new Padding(0);
@@ -121,7 +133,7 @@
             btnReglas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnReglas.BackColor = Color.RoyalBlue;
             btnReglas.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnReglas.Font = new Font("OpenSymbol", 12F);
+            btnReglas.Font = new Font("Microsoft Sans Serif", 12F);
             btnReglas.ForeColor = SystemColors.ControlLightLight;
             btnReglas.Location = new Point(50, 492);
             btnReglas.Margin = new Padding(0);
@@ -138,7 +150,7 @@
             btnCompetencias.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnCompetencias.BackColor = Color.RoyalBlue;
             btnCompetencias.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnCompetencias.Font = new Font("OpenSymbol", 12F);
+            btnCompetencias.Font = new Font("Microsoft Sans Serif", 12F);
             btnCompetencias.ForeColor = SystemColors.ControlLightLight;
             btnCompetencias.Location = new Point(761, 262);
             btnCompetencias.Margin = new Padding(0);
@@ -154,7 +166,7 @@
             btnRRHH.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnRRHH.BackColor = Color.RoyalBlue;
             btnRRHH.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnRRHH.Font = new Font("OpenSymbol", 12F);
+            btnRRHH.Font = new Font("Microsoft Sans Serif", 12F);
             btnRRHH.ForeColor = SystemColors.ControlLightLight;
             btnRRHH.Location = new Point(524, 492);
             btnRRHH.Margin = new Padding(0);
@@ -170,7 +182,7 @@
             btnEstadisticas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEstadisticas.BackColor = Color.RoyalBlue;
             btnEstadisticas.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnEstadisticas.Font = new Font("OpenSymbol", 12F);
+            btnEstadisticas.Font = new Font("Microsoft Sans Serif", 12F);
             btnEstadisticas.ForeColor = SystemColors.ControlLightLight;
             btnEstadisticas.Location = new Point(287, 492);
             btnEstadisticas.Margin = new Padding(0);
@@ -186,7 +198,7 @@
             btnEquipos.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEquipos.BackColor = Color.RoyalBlue;
             btnEquipos.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnEquipos.Font = new Font("OpenSymbol", 12F);
+            btnEquipos.Font = new Font("Microsoft Sans Serif", 12F);
             btnEquipos.ForeColor = SystemColors.ControlLightLight;
             btnEquipos.Location = new Point(524, 262);
             btnEquipos.Margin = new Padding(0);
@@ -261,7 +273,7 @@
             btnReportes.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnReportes.BackColor = Color.RoyalBlue;
             btnReportes.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnReportes.Font = new Font("OpenSymbol", 12F);
+            btnReportes.Font = new Font("Microsoft Sans Serif", 12F);
             btnReportes.ForeColor = SystemColors.ControlLightLight;
             btnReportes.Location = new Point(761, 492);
             btnReportes.Margin = new Padding(0);
@@ -270,6 +282,7 @@
             btnReportes.TabIndex = 21;
             btnReportes.Text = "Reportes";
             btnReportes.UseVisualStyleBackColor = false;
+            btnReportes.Click += btnReportes_Click;
             // 
             // pictureBox1
             // 
@@ -278,18 +291,6 @@
             pictureBox1.Size = new Size(187, 150);
             pictureBox1.TabIndex = 22;
             pictureBox1.TabStop = false;
-            // 
-            // btnAyuda
-            // 
-            btnAyuda.Anchor = AnchorStyles.None;
-            btnAyuda.BackgroundImage = SistemaDePolideportivo.Properties.Resources.ayuda;
-            btnAyuda.BackgroundImageLayout = ImageLayout.Zoom;
-            btnAyuda.Location = new Point(898, 17);
-            btnAyuda.Margin = new Padding(0);
-            btnAyuda.Name = "btnAyuda";
-            btnAyuda.Size = new Size(50, 50);
-            btnAyuda.TabIndex = 20;
-            btnAyuda.UseVisualStyleBackColor = true;
             // 
             // frmMenú
             // 
