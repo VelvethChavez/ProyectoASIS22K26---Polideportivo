@@ -209,6 +209,7 @@
             btnEquipos.TabIndex = 11;
             btnEquipos.Text = "Equipos";
             btnEquipos.UseVisualStyleBackColor = false;
+            btnEquipos.Click += btnEquipos_Click;
             // 
             // pboxReportes
             // 
@@ -296,6 +297,7 @@
             btnReportes.TabIndex = 21;
             btnReportes.Text = "Reportes";
             btnReportes.UseVisualStyleBackColor = false;
+            btnReportes.Click += btnReportes_Click;
             // 
             // pictureBox1
             // 
