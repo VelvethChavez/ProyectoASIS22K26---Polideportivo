@@ -27,7 +27,8 @@ namespace ProyectoASIS22K26___Polideportivo
 
         private void btnSeguridad_Click(object sender, EventArgs e)
         {
-
+            ModuloSeguridad modulo = new ModuloSeguridad();
+            modulo.Show();
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
