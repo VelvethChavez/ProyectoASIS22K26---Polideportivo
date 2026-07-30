@@ -161,6 +161,7 @@
             btnCompetencias.TabIndex = 10;
             btnCompetencias.Text = "Competencias";
             btnCompetencias.UseVisualStyleBackColor = false;
+            btnCompetencias.Click += btnCompetencias_Click;
             // 
             // btnRRHH
             // 

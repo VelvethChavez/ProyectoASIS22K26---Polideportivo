@@ -42,5 +42,12 @@ namespace ProyectoASIS22K26___Polideportivo
         {
 
         }
+
+        private void btnCompetencias_Click(object sender, EventArgs e)
+        {
+            frmCompeticiones nuevoForm = new frmCompeticiones();
+            nuevoForm.Show();
+            Hide();
+        }
     }
 }
