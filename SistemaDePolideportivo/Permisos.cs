@@ -35,9 +35,6 @@ namespace SistemaDePolideportivo
             CargarDatos();
         }
 
-
-
-
         //==========================
         // MOSTRAR PERMISOS
         //==========================
@@ -49,19 +46,14 @@ namespace SistemaDePolideportivo
 
                 conexion.Open();
 
-
                 string sql = "SELECT * FROM Permiso";
-
 
                 MySqlDataAdapter da =
                     new MySqlDataAdapter(sql, conexion);
 
-
                 DataTable dt = new DataTable();
 
-
                 da.Fill(dt);
-
 
                 dgvPermisos.DataSource = dt;
 
@@ -77,47 +69,36 @@ namespace SistemaDePolideportivo
         //==========================
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-
+            if (string.IsNullOrWhiteSpace(nombrepermiso.Text) ||
+                string.IsNullOrWhiteSpace(descripcionpermiso.Text))
+            {
+                MessageBox.Show("Error: Hay campos vacíos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
-
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
 
                     conexion.Open();
-
 
                     string sql = @"INSERT INTO Permiso
                     (nombre, descripcion)
                     VALUES
                     (@nombre,@descripcion)";
 
-
                     MySqlCommand cmd =
                     new MySqlCommand(sql, conexion);
-
-
 
                     cmd.Parameters.AddWithValue("@nombre",
                     nombrepermiso.Text);
 
-
-
                     cmd.Parameters.AddWithValue("@descripcion",
                     descripcionpermiso.Text);
 
-
-
                     cmd.ExecuteNonQuery();
-
-                    Bitacora.Registrar(
-                        "Permiso",
-                        "Agregó el permiso: " + nombrepermiso.Text
-                    );
-
-                    MessageBox.Show("Permiso agregado correctamente");
+                    
                     CargarDatos();
-
                     LimpiarCampos();
 
                 }
@@ -139,25 +120,17 @@ namespace SistemaDePolideportivo
         //==========================
         private void dgvPermisos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             if (e.RowIndex >= 0)
             {
-
                 DataGridViewRow fila =
                 dgvPermisos.Rows[e.RowIndex];
-
-
 
                 idPermiso =
                 Convert.ToInt32(
                 fila.Cells["id_permiso"].Value);
 
-
-
                 nombrepermiso.Text =
                 fila.Cells["nombre"].Value.ToString();
-
-
 
                 descripcionpermiso.Text =
                 fila.Cells["descripcion"].Value.ToString();
@@ -165,10 +138,6 @@ namespace SistemaDePolideportivo
             }
 
         }
-
-
-
-
 
         //==========================
         // EDITAR
@@ -187,11 +156,8 @@ namespace SistemaDePolideportivo
             dgvPermisos.SelectedRows[0]
             .Cells["id_permiso"].Value);
 
-
-
             using (MySqlConnection conexion = conexionBD.ObtenerConexion())
             {
-
                 conexion.Open();
 
                 string sql = @"UPDATE Permiso SET
@@ -244,7 +210,6 @@ namespace SistemaDePolideportivo
             Convert.ToInt32(
             dgvPermisos.SelectedRows[0]
             .Cells["id_permiso"].Value);
-
 
             using (MySqlConnection conexion = conexionBD.ObtenerConexion())
             {

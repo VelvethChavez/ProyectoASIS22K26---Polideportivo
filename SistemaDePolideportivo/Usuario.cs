@@ -232,6 +232,14 @@ namespace SistemaDePolideportivo
 
         private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(nombreusu.Text) ||
+       string.IsNullOrWhiteSpace(contrasenausu.Text) ||
+       estadousu.SelectedIndex == -1 ||
+       rolusu.SelectedIndex == -1)
+            {
+                MessageBox.Show("Error: Hay campos vacíos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())

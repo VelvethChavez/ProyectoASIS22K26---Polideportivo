@@ -43,6 +43,12 @@ namespace SistemaDePolideportivo
 
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(nombrerol.Text) ||
+       string.IsNullOrWhiteSpace(descripcionrol.Text)) 
+            {
+                MessageBox.Show("Error: Hay campos vacíos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
@@ -153,12 +159,10 @@ namespace SistemaDePolideportivo
             LimpiarCampos();
             nombrerol.Focus();
         }
-
         private void BtnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
-
         private void LimpiarCampos()
         {
             idRol = 0;
