@@ -20,7 +20,7 @@ namespace ProyectoASIS22K26___Polideportivo
 
         private void btnAdministracion_Click(object sender, EventArgs e)
         {
-            frmDeportes nuevoForm = new frmDeportes { Owner = this };
+            frmCampeonato nuevoForm = new frmCampeonato { Owner = this };
             nuevoForm.Show();
             Hide();
         }
