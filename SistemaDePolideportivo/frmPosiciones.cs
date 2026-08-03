@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class Entrenadores : Form
+    public partial class frmPosiciones : Form
     {
-        public Entrenadores()
+        public frmPosiciones()
         {
             InitializeComponent();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

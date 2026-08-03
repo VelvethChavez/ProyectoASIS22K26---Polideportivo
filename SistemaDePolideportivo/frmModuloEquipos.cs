@@ -36,29 +36,17 @@ namespace SistemaDePolideportivo
 
         private void btnEntrenadores_Click(object? sender, EventArgs e)
         {
-            MessageBox.Show(
-                "El formulario de entrenadores todavía no ha sido creado.",
-                "Módulo de equipos",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            AbrirFormulario(new frmEntrenadores());
         }
 
         private void btnJugadores_Click(object? sender, EventArgs e)
         {
-            MessageBox.Show(
-                "El formulario de jugadores todavía no ha sido creado.",
-                "Módulo de equipos",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            AbrirFormulario(new frmJugadores());
         }
 
         private void btnPosiciones_Click(object? sender, EventArgs e)
         {
-            MessageBox.Show(
-                "El formulario de posiciones todavía no ha sido creado.",
-                "Módulo de equipos",
-                MessageBoxButtons.OK,
-                MessageBoxIcon.Information);
+            AbrirFormulario(new frmPosiciones());
         }
 
         private void label1_Click(object sender, EventArgs e)

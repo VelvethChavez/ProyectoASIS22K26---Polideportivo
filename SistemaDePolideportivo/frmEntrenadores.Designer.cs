@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class Entrenadores
+    partial class frmEntrenadores
     {
         /// <summary>
         /// Required designer variable.
