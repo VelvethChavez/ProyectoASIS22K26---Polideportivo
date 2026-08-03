@@ -1,4 +1,5 @@
-﻿using SistemaDePolideportivo.DAO;
+﻿using ProyectoASIS22K26___Polideportivo;
+using SistemaDePolideportivo.DAO;
 using SistemaDePolideportivo.Modelos;
 using System;
 using System.Data;
@@ -692,6 +693,13 @@ namespace SistemaDePolideportivo
                 "Sistema Polideportivo",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
+        }
+
+        private void BtnMenu_Click(object sender, EventArgs e)
+        {
+            frmMenú nuevoform = new frmMenú();
+            nuevoform.Show();
+            Hide();
         }
     }
 }

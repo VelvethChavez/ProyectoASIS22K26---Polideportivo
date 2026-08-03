@@ -178,6 +178,7 @@
             btnRRHH.TabIndex = 13;
             btnRRHH.Text = "Recursos Humanos";
             btnRRHH.UseVisualStyleBackColor = false;
+            btnRRHH.Click += btnRRHH_Click;
             // 
             // btnEstadisticas
             // 
@@ -194,6 +195,7 @@
             btnEstadisticas.TabIndex = 12;
             btnEstadisticas.Text = "Estadísticas";
             btnEstadisticas.UseVisualStyleBackColor = false;
+            btnEstadisticas.Click += btnEstadisticas_Click;
             // 
             // btnEquipos
             // 

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using ProyectoASIS22K26___Polideportivo;
+using SistemaDePolideportivo.DAO;
+using SistemaDePolideportivo.Modelos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,8 +10,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SistemaDePolideportivo.DAO;
-using SistemaDePolideportivo.Modelos;
 
 namespace SistemaDePolideportivo
 {
@@ -31,7 +32,7 @@ namespace SistemaDePolideportivo
 
             CargarEmpleados();
 
-             EstiloDataGridView();
+            EstiloDataGridView();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -196,7 +197,7 @@ namespace SistemaDePolideportivo
 
         private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
 
         private void dgvEmpleados_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -311,6 +312,13 @@ namespace SistemaDePolideportivo
 
             // Altura de encabezados
             dgvEmpleados.ColumnHeadersHeight = 40;
+        }
+
+        private void BtnMenu_Click(object sender, EventArgs e)
+        {
+            frmMenú nuevoform = new frmMenú();
+            nuevoform.Show();
+            Hide();
         }
     }
 }

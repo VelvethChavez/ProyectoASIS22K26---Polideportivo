@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEstadistica));
             cmbJugador = new ComboBox();
             cmbPartido = new ComboBox();
             cmbDeporte = new ComboBox();
@@ -54,6 +55,7 @@
             lblDeporte = new Label();
             lblObservaciones = new Label();
             txtObservaciones = new TextBox();
+            BtnMenu = new Button();
             grpEstadisticas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudCampo4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudCampo3).BeginInit();
@@ -66,9 +68,10 @@
             // 
             cmbJugador.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbJugador.FormattingEnabled = true;
-            cmbJugador.Location = new Point(208, 164);
+            cmbJugador.Location = new Point(102, 81);
+            cmbJugador.Margin = new Padding(3, 2, 3, 2);
             cmbJugador.Name = "cmbJugador";
-            cmbJugador.Size = new Size(304, 28);
+            cmbJugador.Size = new Size(266, 23);
             cmbJugador.TabIndex = 1;
             cmbJugador.SelectedIndexChanged += cmbJugador_SelectedIndexChanged;
             // 
@@ -76,9 +79,10 @@
             // 
             cmbPartido.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPartido.FormattingEnabled = true;
-            cmbPartido.Location = new Point(208, 206);
+            cmbPartido.Location = new Point(102, 112);
+            cmbPartido.Margin = new Padding(3, 2, 3, 2);
             cmbPartido.Name = "cmbPartido";
-            cmbPartido.Size = new Size(304, 28);
+            cmbPartido.Size = new Size(266, 23);
             cmbPartido.TabIndex = 2;
             cmbPartido.SelectedIndexChanged += cmbPartido_SelectedIndexChanged;
             // 
@@ -87,9 +91,10 @@
             cmbDeporte.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDeporte.FormattingEnabled = true;
             cmbDeporte.Items.AddRange(new object[] { "Fútbol", "Baloncesto", "Voleibol", "Tenis" });
-            cmbDeporte.Location = new Point(208, 249);
+            cmbDeporte.Location = new Point(102, 145);
+            cmbDeporte.Margin = new Padding(3, 2, 3, 2);
             cmbDeporte.Name = "cmbDeporte";
-            cmbDeporte.Size = new Size(304, 28);
+            cmbDeporte.Size = new Size(266, 23);
             cmbDeporte.TabIndex = 3;
             cmbDeporte.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -104,9 +109,11 @@
             grpEstadisticas.Controls.Add(lblCampo2);
             grpEstadisticas.Controls.Add(lblCampo1);
             grpEstadisticas.ForeColor = Color.ForestGreen;
-            grpEstadisticas.Location = new Point(89, 443);
+            grpEstadisticas.Location = new Point(143, 198);
+            grpEstadisticas.Margin = new Padding(3, 2, 3, 2);
             grpEstadisticas.Name = "grpEstadisticas";
-            grpEstadisticas.Size = new Size(620, 223);
+            grpEstadisticas.Padding = new Padding(3, 2, 3, 2);
+            grpEstadisticas.Size = new Size(542, 167);
             grpEstadisticas.TabIndex = 5;
             grpEstadisticas.TabStop = false;
             grpEstadisticas.Text = "Estadísticas";
@@ -114,40 +121,44 @@
             // 
             // nudCampo4
             // 
-            nudCampo4.Location = new Point(137, 175);
+            nudCampo4.Location = new Point(120, 131);
+            nudCampo4.Margin = new Padding(3, 2, 3, 2);
             nudCampo4.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             nudCampo4.Name = "nudCampo4";
-            nudCampo4.Size = new Size(286, 27);
+            nudCampo4.Size = new Size(250, 23);
             nudCampo4.TabIndex = 7;
             nudCampo4.TextAlign = HorizontalAlignment.Center;
             nudCampo4.ValueChanged += nudCampo4_ValueChanged;
             // 
             // nudCampo3
             // 
-            nudCampo3.Location = new Point(137, 130);
+            nudCampo3.Location = new Point(120, 98);
+            nudCampo3.Margin = new Padding(3, 2, 3, 2);
             nudCampo3.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             nudCampo3.Name = "nudCampo3";
-            nudCampo3.Size = new Size(286, 27);
+            nudCampo3.Size = new Size(250, 23);
             nudCampo3.TabIndex = 6;
             nudCampo3.TextAlign = HorizontalAlignment.Center;
             nudCampo3.ValueChanged += nudCampo3_ValueChanged;
             // 
             // nudCampo2
             // 
-            nudCampo2.Location = new Point(137, 83);
+            nudCampo2.Location = new Point(120, 62);
+            nudCampo2.Margin = new Padding(3, 2, 3, 2);
             nudCampo2.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             nudCampo2.Name = "nudCampo2";
-            nudCampo2.Size = new Size(286, 27);
+            nudCampo2.Size = new Size(250, 23);
             nudCampo2.TabIndex = 5;
             nudCampo2.TextAlign = HorizontalAlignment.Center;
             nudCampo2.ValueChanged += nudCampo2_ValueChanged;
             // 
             // nudCampo1
             // 
-            nudCampo1.Location = new Point(137, 39);
+            nudCampo1.Location = new Point(120, 29);
+            nudCampo1.Margin = new Padding(3, 2, 3, 2);
             nudCampo1.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
             nudCampo1.Name = "nudCampo1";
-            nudCampo1.Size = new Size(286, 27);
+            nudCampo1.Size = new Size(250, 23);
             nudCampo1.TabIndex = 4;
             nudCampo1.TextAlign = HorizontalAlignment.Center;
             nudCampo1.ValueChanged += nudCampo1_ValueChanged;
@@ -155,9 +166,9 @@
             // lblCampo4
             // 
             lblCampo4.AutoSize = true;
-            lblCampo4.Location = new Point(6, 177);
+            lblCampo4.Location = new Point(5, 133);
             lblCampo4.Name = "lblCampo4";
-            lblCampo4.Size = new Size(99, 20);
+            lblCampo4.Size = new Size(78, 15);
             lblCampo4.TabIndex = 3;
             lblCampo4.Text = "Tarjetas Rojas";
             lblCampo4.Click += lblCampo4_Click;
@@ -165,9 +176,9 @@
             // lblCampo3
             // 
             lblCampo3.AutoSize = true;
-            lblCampo3.Location = new Point(6, 132);
+            lblCampo3.Location = new Point(5, 99);
             lblCampo3.Name = "lblCampo3";
-            lblCampo3.Size = new Size(125, 20);
+            lblCampo3.Size = new Size(99, 15);
             lblCampo3.TabIndex = 2;
             lblCampo3.Text = "Tarjetas Amarillas";
             lblCampo3.Click += lblCampo3_Click;
@@ -175,9 +186,9 @@
             // lblCampo2
             // 
             lblCampo2.AutoSize = true;
-            lblCampo2.Location = new Point(6, 90);
+            lblCampo2.Location = new Point(5, 68);
             lblCampo2.Name = "lblCampo2";
-            lblCampo2.Size = new Size(81, 20);
+            lblCampo2.Size = new Size(65, 15);
             lblCampo2.TabIndex = 1;
             lblCampo2.Text = "Asistencias";
             lblCampo2.Click += lblCampo2_Click;
@@ -185,9 +196,9 @@
             // lblCampo1
             // 
             lblCampo1.AutoSize = true;
-            lblCampo1.Location = new Point(6, 41);
+            lblCampo1.Location = new Point(5, 31);
             lblCampo1.Name = "lblCampo1";
-            lblCampo1.Size = new Size(49, 20);
+            lblCampo1.Size = new Size(39, 15);
             lblCampo1.TabIndex = 0;
             lblCampo1.Text = "Goles:";
             lblCampo1.Click += lblCampo1_Click;
@@ -195,11 +206,13 @@
             // btnNuevo
             // 
             btnNuevo.BackColor = Color.ForestGreen;
+            btnNuevo.Cursor = Cursors.Hand;
             btnNuevo.FlatStyle = FlatStyle.Flat;
             btnNuevo.ForeColor = Color.White;
-            btnNuevo.Location = new Point(89, 692);
+            btnNuevo.Location = new Point(152, 387);
+            btnNuevo.Margin = new Padding(3, 2, 3, 2);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(94, 29);
+            btnNuevo.Size = new Size(82, 37);
             btnNuevo.TabIndex = 6;
             btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = false;
@@ -208,11 +221,13 @@
             // btnGuardar
             // 
             btnGuardar.BackColor = Color.ForestGreen;
+            btnGuardar.Cursor = Cursors.Hand;
             btnGuardar.FlatStyle = FlatStyle.Flat;
             btnGuardar.ForeColor = Color.White;
-            btnGuardar.Location = new Point(208, 692);
+            btnGuardar.Location = new Point(256, 387);
+            btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(94, 29);
+            btnGuardar.Size = new Size(82, 37);
             btnGuardar.TabIndex = 7;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = false;
@@ -221,11 +236,13 @@
             // btnEditar
             // 
             btnEditar.BackColor = Color.ForestGreen;
+            btnEditar.Cursor = Cursors.Hand;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.ForeColor = Color.White;
-            btnEditar.Location = new Point(327, 692);
+            btnEditar.Location = new Point(360, 387);
+            btnEditar.Margin = new Padding(3, 2, 3, 2);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(94, 29);
+            btnEditar.Size = new Size(82, 37);
             btnEditar.TabIndex = 8;
             btnEditar.Text = "Editar";
             btnEditar.UseVisualStyleBackColor = false;
@@ -234,11 +251,13 @@
             // btnEliminar
             // 
             btnEliminar.BackColor = Color.ForestGreen;
+            btnEliminar.Cursor = Cursors.Hand;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.Location = new Point(446, 692);
+            btnEliminar.Location = new Point(464, 387);
+            btnEliminar.Margin = new Padding(3, 2, 3, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(94, 29);
+            btnEliminar.Size = new Size(82, 37);
             btnEliminar.TabIndex = 9;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
@@ -247,11 +266,13 @@
             // btnBuscar
             // 
             btnBuscar.BackColor = Color.ForestGreen;
+            btnBuscar.Cursor = Cursors.Hand;
             btnBuscar.FlatStyle = FlatStyle.Flat;
             btnBuscar.ForeColor = Color.White;
-            btnBuscar.Location = new Point(559, 692);
+            btnBuscar.Location = new Point(563, 387);
+            btnBuscar.Margin = new Padding(3, 2, 3, 2);
             btnBuscar.Name = "btnBuscar";
-            btnBuscar.Size = new Size(94, 29);
+            btnBuscar.Size = new Size(82, 37);
             btnBuscar.TabIndex = 10;
             btnBuscar.Text = "Buscar";
             btnBuscar.UseVisualStyleBackColor = false;
@@ -259,9 +280,10 @@
             // 
             // txtBuscar
             // 
-            txtBuscar.Location = new Point(208, 746);
+            txtBuscar.Location = new Point(315, 453);
+            txtBuscar.Margin = new Padding(3, 2, 3, 2);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(304, 27);
+            txtBuscar.Size = new Size(266, 23);
             txtBuscar.TabIndex = 11;
             txtBuscar.TextChanged += txtBuscar_TextChanged;
             // 
@@ -269,9 +291,9 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.ForestGreen;
-            label1.Location = new Point(95, 753);
+            label1.Location = new Point(216, 458);
             label1.Name = "label1";
-            label1.Size = new Size(55, 20);
+            label1.Size = new Size(45, 15);
             label1.TabIndex = 12;
             label1.Text = "Buscar:";
             label1.Click += label1_Click;
@@ -279,10 +301,11 @@
             // dgvEstadisticas
             // 
             dgvEstadisticas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEstadisticas.Location = new Point(95, 800);
+            dgvEstadisticas.Location = new Point(148, 496);
+            dgvEstadisticas.Margin = new Padding(3, 2, 3, 2);
             dgvEstadisticas.Name = "dgvEstadisticas";
             dgvEstadisticas.RowHeadersWidth = 51;
-            dgvEstadisticas.Size = new Size(614, 188);
+            dgvEstadisticas.Size = new Size(537, 141);
             dgvEstadisticas.TabIndex = 13;
             dgvEstadisticas.CellContentClick += dgvEstadisticas_CellContentClick;
             // 
@@ -291,9 +314,9 @@
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.ForeColor = Color.ForestGreen;
-            lblTitulo.Location = new Point(274, 9);
+            lblTitulo.Location = new Point(240, 7);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(341, 41);
+            lblTitulo.Size = new Size(277, 32);
             lblTitulo.TabIndex = 14;
             lblTitulo.Text = "Gestión De Estadísticas";
             lblTitulo.Click += lblTitulo_Click;
@@ -302,20 +325,20 @@
             // 
             lblJugador.AutoSize = true;
             lblJugador.ForeColor = Color.ForestGreen;
-            lblJugador.Location = new Point(122, 167);
+            lblJugador.Location = new Point(27, 83);
             lblJugador.Name = "lblJugador";
-            lblJugador.Size = new Size(64, 20);
+            lblJugador.Size = new Size(52, 15);
             lblJugador.TabIndex = 15;
-            lblJugador.Text = "jugador:";
+            lblJugador.Text = "Jugador:";
             lblJugador.Click += label2_Click;
             // 
             // lblPartido
             // 
             lblPartido.AutoSize = true;
             lblPartido.ForeColor = Color.ForestGreen;
-            lblPartido.Location = new Point(122, 209);
+            lblPartido.Location = new Point(27, 115);
             lblPartido.Name = "lblPartido";
-            lblPartido.Size = new Size(59, 20);
+            lblPartido.Size = new Size(48, 15);
             lblPartido.TabIndex = 16;
             lblPartido.Text = "Partido:";
             lblPartido.Click += label3_Click;
@@ -324,9 +347,9 @@
             // 
             lblDeporte.AutoSize = true;
             lblDeporte.ForeColor = Color.ForestGreen;
-            lblDeporte.Location = new Point(119, 252);
+            lblDeporte.Location = new Point(24, 147);
             lblDeporte.Name = "lblDeporte";
-            lblDeporte.Size = new Size(67, 20);
+            lblDeporte.Size = new Size(52, 15);
             lblDeporte.TabIndex = 17;
             lblDeporte.Text = "Deporte:";
             lblDeporte.Click += label4_Click;
@@ -335,28 +358,42 @@
             // 
             lblObservaciones.AutoSize = true;
             lblObservaciones.ForeColor = Color.ForestGreen;
-            lblObservaciones.Location = new Point(356, 314);
+            lblObservaciones.Location = new Point(430, 81);
             lblObservaciones.Name = "lblObservaciones";
-            lblObservaciones.Size = new Size(108, 20);
+            lblObservaciones.Size = new Size(87, 15);
             lblObservaciones.TabIndex = 18;
             lblObservaciones.Text = "Observaciones:";
             lblObservaciones.Click += label5_Click;
             // 
             // txtObservaciones
             // 
-            txtObservaciones.Location = new Point(89, 358);
+            txtObservaciones.Location = new Point(430, 98);
+            txtObservaciones.Margin = new Padding(3, 2, 3, 2);
             txtObservaciones.Multiline = true;
             txtObservaciones.Name = "txtObservaciones";
-            txtObservaciones.Size = new Size(620, 60);
+            txtObservaciones.Size = new Size(346, 70);
             txtObservaciones.TabIndex = 19;
             txtObservaciones.TextChanged += textBox1_TextChanged;
             // 
+            // BtnMenu
+            // 
+            BtnMenu.BackgroundImage = (Image)resources.GetObject("BtnMenu.BackgroundImage");
+            BtnMenu.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnMenu.Cursor = Cursors.Hand;
+            BtnMenu.Location = new Point(12, 12);
+            BtnMenu.Name = "BtnMenu";
+            BtnMenu.Size = new Size(62, 51);
+            BtnMenu.TabIndex = 20;
+            BtnMenu.UseVisualStyleBackColor = true;
+            BtnMenu.Click += BtnMenu_Click;
+            // 
             // FormEstadistica
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.WhiteSmoke;
-            ClientSize = new Size(800, 1006);
+            BackColor = Color.White;
+            ClientSize = new Size(813, 667);
+            Controls.Add(BtnMenu);
             Controls.Add(txtObservaciones);
             Controls.Add(lblObservaciones);
             Controls.Add(lblDeporte);
@@ -376,9 +413,11 @@
             Controls.Add(cmbPartido);
             Controls.Add(cmbJugador);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "FormEstadistica";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormEstadistica";
             Load += FormEstadistica_Load;
             grpEstadisticas.ResumeLayout(false);
@@ -438,5 +477,6 @@
         private void label4_Click(object sender, EventArgs e) { }
         private void label5_Click(object sender, EventArgs e) { }
         private void textBox1_TextChanged(object sender, EventArgs e) { }
+        private Button BtnMenu;
     }
 }
