@@ -43,12 +43,23 @@ namespace SistemaDePolideportivo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            
+            frmArbitro nuevoForm = new frmArbitro();
+            nuevoForm.Show();
+            Hide();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           
+            frmJornada nuevoForm = new frmJornada();
+            nuevoForm.Show();
+            Hide();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            frmProgramarPartido nuevoForm = new frmProgramarPartido();
+            nuevoForm.Show();
+            Hide();
         }
     }
 }
