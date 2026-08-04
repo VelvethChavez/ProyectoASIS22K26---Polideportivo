@@ -50,14 +50,16 @@
             label7 = new Label();
             label8 = new Label();
             label9 = new Label();
-            dataGridView1 = new DataGridView();
+            dgvJugadores = new DataGridView();
+            ptbFotoJugador = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)nudDorsalJugadores).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvJugadores).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ptbFotoJugador).BeginInit();
             SuspendLayout();
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(31, 333);
+            btnGuardar.Location = new Point(28, 485);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(94, 29);
             btnGuardar.TabIndex = 0;
@@ -66,7 +68,7 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(245, 333);
+            btnEliminar.Location = new Point(242, 485);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(94, 29);
             btnEliminar.TabIndex = 1;
@@ -75,7 +77,7 @@
             // 
             // btnEditar
             // 
-            btnEditar.Location = new Point(460, 333);
+            btnEditar.Location = new Point(457, 485);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(94, 29);
             btnEditar.TabIndex = 2;
@@ -84,7 +86,7 @@
             // 
             // btnNuevo
             // 
-            btnNuevo.Location = new Point(675, 333);
+            btnNuevo.Location = new Point(672, 485);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(94, 29);
             btnNuevo.TabIndex = 3;
@@ -95,7 +97,7 @@
             // ckbEstadoJugadores
             // 
             ckbEstadoJugadores.AutoSize = true;
-            ckbEstadoJugadores.Location = new Point(144, 289);
+            ckbEstadoJugadores.Location = new Point(141, 441);
             ckbEstadoJugadores.Name = "ckbEstadoJugadores";
             ckbEstadoJugadores.Size = new Size(73, 24);
             ckbEstadoJugadores.TabIndex = 4;
@@ -105,7 +107,7 @@
             // cmbPosicionJugadores
             // 
             cmbPosicionJugadores.FormattingEnabled = true;
-            cmbPosicionJugadores.Location = new Point(144, 221);
+            cmbPosicionJugadores.Location = new Point(141, 373);
             cmbPosicionJugadores.Name = "cmbPosicionJugadores";
             cmbPosicionJugadores.Size = new Size(283, 28);
             cmbPosicionJugadores.TabIndex = 5;
@@ -113,14 +115,14 @@
             // cmbEquipoJugadores
             // 
             cmbEquipoJugadores.FormattingEnabled = true;
-            cmbEquipoJugadores.Location = new Point(144, 255);
+            cmbEquipoJugadores.Location = new Point(141, 407);
             cmbEquipoJugadores.Name = "cmbEquipoJugadores";
             cmbEquipoJugadores.Size = new Size(283, 28);
             cmbEquipoJugadores.TabIndex = 6;
             // 
             // nudDorsalJugadores
             // 
-            nudDorsalJugadores.Location = new Point(144, 187);
+            nudDorsalJugadores.Location = new Point(141, 339);
             nudDorsalJugadores.Name = "nudDorsalJugadores";
             nudDorsalJugadores.Size = new Size(46, 27);
             nudDorsalJugadores.TabIndex = 7;
@@ -211,7 +213,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(31, 186);
+            label6.Location = new Point(28, 338);
             label6.Name = "label6";
             label6.Size = new Size(52, 20);
             label6.TabIndex = 18;
@@ -220,7 +222,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(31, 224);
+            label7.Location = new Point(28, 376);
             label7.Name = "label7";
             label7.Size = new Size(63, 20);
             label7.TabIndex = 19;
@@ -229,7 +231,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(31, 258);
+            label8.Location = new Point(28, 410);
             label8.Name = "label8";
             label8.Size = new Size(56, 20);
             label8.TabIndex = 20;
@@ -238,27 +240,36 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(31, 293);
+            label9.Location = new Point(28, 445);
             label9.Name = "label9";
             label9.Size = new Size(54, 20);
             label9.TabIndex = 21;
             label9.Text = "Estado";
             // 
-            // dataGridView1
+            // dgvJugadores
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(34, 368);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(735, 162);
-            dataGridView1.TabIndex = 22;
+            dgvJugadores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvJugadores.Location = new Point(31, 520);
+            dgvJugadores.Name = "dgvJugadores";
+            dgvJugadores.RowHeadersWidth = 51;
+            dgvJugadores.Size = new Size(735, 228);
+            dgvJugadores.TabIndex = 22;
+            // 
+            // ptbFotoJugador
+            // 
+            ptbFotoJugador.Location = new Point(217, 196);
+            ptbFotoJugador.Name = "ptbFotoJugador";
+            ptbFotoJugador.Size = new Size(130, 132);
+            ptbFotoJugador.TabIndex = 23;
+            ptbFotoJugador.TabStop = false;
             // 
             // frmJugadores
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 542);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(800, 773);
+            Controls.Add(ptbFotoJugador);
+            Controls.Add(dgvJugadores);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -285,7 +296,8 @@
             Text = "frmJugadores";
             Load += frmJugadores_Load;
             ((System.ComponentModel.ISupportInitialize)nudDorsalJugadores).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvJugadores).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ptbFotoJugador).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -314,6 +326,7 @@
         private Label label7;
         private Label label8;
         private Label label9;
-        private DataGridView dataGridView1;
+        private DataGridView dgvJugadores;
+        private PictureBox ptbFotoJugador;
     }
 }
