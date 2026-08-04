@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoASIS22K26___Polideportivo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -43,13 +44,16 @@ namespace SistemaDePolideportivo
 
         private void button3_Click(object sender, EventArgs e)
         {
+
             frmArbitro nuevoForm = new frmArbitro();
             nuevoForm.Show();
             Hide();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             frmJornada nuevoForm = new frmJornada();
             nuevoForm.Show();
             Hide();
@@ -60,6 +64,23 @@ namespace SistemaDePolideportivo
             frmProgramarPartido nuevoForm = new frmProgramarPartido();
             nuevoForm.Show();
             Hide();
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmMenú newform = new frmMenú();
+            newform.Show();
+            this.Hide();
+        }
+
+        private void BtnMenu_Click(object sender, EventArgs e)
+        {
+            frmMenú nuevoForm = new frmMenú();
+            nuevoForm.Show();
+            this.Hide();
+
         }
     }
 }

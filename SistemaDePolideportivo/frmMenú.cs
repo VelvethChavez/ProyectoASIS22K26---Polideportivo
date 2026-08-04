@@ -20,7 +20,7 @@ namespace ProyectoASIS22K26___Polideportivo
 
         private void btnAdministracion_Click(object sender, EventArgs e)
         {
-            frmDeportes nuevoForm = new frmDeportes { Owner = this };
+            frmCampeonato nuevoForm = new frmCampeonato { Owner = this };
             nuevoForm.Show();
             Hide();
         }
@@ -47,6 +47,20 @@ namespace ProyectoASIS22K26___Polideportivo
         {
             frmCompeticiones nuevoForm = new frmCompeticiones();
             nuevoForm.Show();
+            Hide();
+        }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            FormEstadistica nuevoform = new FormEstadistica();
+            nuevoform.Show();
+            Hide();
+        }
+
+        private void btnRRHH_Click(object sender, EventArgs e)
+        {
+            FormEmpleado nuevoform = new FormEmpleado();
+            nuevoform.Show();
             Hide();
         }
     }
