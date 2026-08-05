@@ -3,21 +3,20 @@ using SistemaDePolideportivo.Conexion;
 using System;
 using System.Data;
 using System.Drawing;
-using System.Net.Mail;
 using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmEntrenadores : Form
+    public partial class frmPosiciones : Form
     {
         private readonly ConexionBD conexionBD = new ConexionBD();
-        private int idEntrenadorSeleccionado = 0;
+        private int idPosicionSeleccionada = 0;
 
-        public frmEntrenadores()
+        public frmPosiciones()
         {
             InitializeComponent();
 
-            Load += frmEntrenadores_Load;
+            Load += frmPosiciones_Load;
 
             btnGuardar.Click += btnGuardar_Click;
             btnEditar.Click += btnEditar_Click;
@@ -27,13 +26,13 @@ namespace SistemaDePolideportivo
             dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
-        private void frmEntrenadores_Load(object? sender, EventArgs e)
+        private void frmPosiciones_Load(object? sender, EventArgs e)
         {
             try
             {
                 ConfigurarFormulario();
-                CargarEntrenadores();
-                LimpiarFormulario();
+                CargarPosiciones();
+                LimpiarCampos();
             }
             catch (Exception ex)
             {
@@ -45,7 +44,7 @@ namespace SistemaDePolideportivo
         {
             BackColor = Color.FromArgb(241, 248, 233);
 
-            label1.Text = "GESTIÓN DE ENTRENADORES";
+            label1.Text = "GESTIÓN DE POSICIONES";
             label1.ForeColor = Color.FromArgb(27, 94, 32);
             label1.Font = new Font("Segoe UI", 16, FontStyle.Bold);
 
@@ -58,10 +57,10 @@ namespace SistemaDePolideportivo
             dataGridView1.BorderStyle = BorderStyle.None;
             dataGridView1.ReadOnly = true;
             dataGridView1.MultiSelect = false;
+            dataGridView1.RowHeadersVisible = false;
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.RowHeadersVisible = false;
 
             dataGridView1.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
@@ -96,7 +95,7 @@ namespace SistemaDePolideportivo
 
         private void AplicarEstiloBoton(Button boton)
         {
-            boton.BackColor = Color.White;
+            boton.BackColor = Color.FromArgb(56, 142, 60);
             boton.ForeColor = Color.White;
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
@@ -104,7 +103,7 @@ namespace SistemaDePolideportivo
             boton.Cursor = Cursors.Hand;
         }
 
-        private void CargarEntrenadores()
+        private void CargarPosiciones()
         {
             DataTable tabla = new DataTable();
 
@@ -117,13 +116,11 @@ namespace SistemaDePolideportivo
 
                     string consulta = @"
                         SELECT
-                            id_entrenador AS ID,
-                            nombres_entrenador AS Nombres,
-                            apellidos_entrenador AS Apellidos,
-                            telefono AS Teléfono,
-                            correo AS Correo
-                        FROM Entrenador
-                        ORDER BY id_entrenador DESC;";
+                            id_posicion AS ID,
+                            nombre_posicion AS Posición,
+                            descripcion AS Descripción
+                        FROM Posicion
+                        ORDER BY id_posicion DESC;";
 
                     using (MySqlDataAdapter adaptador =
                            new MySqlDataAdapter(consulta, conexion))
@@ -139,83 +136,73 @@ namespace SistemaDePolideportivo
                 {
                     dataGridView1.Columns["ID"].FillWeight = 35;
                 }
-
-                if (dataGridView1.Columns.Contains("Teléfono"))
-                {
-                    dataGridView1.Columns["Teléfono"].FillWeight = 70;
-                }
             }
             catch (Exception ex)
             {
-                MostrarError("Error al cargar los entrenadores.", ex);
+                MostrarError("Error al cargar las posiciones.", ex);
             }
         }
 
         private bool ValidarFormulario()
         {
-            if (string.IsNullOrWhiteSpace(txtNombreEntrenador.Text))
+            if (string.IsNullOrWhiteSpace(NombrePosicion.Text))
             {
                 MessageBox.Show(
-                    "Ingrese los nombres del entrenador.",
+                    "Ingrese el nombre de la posición.",
                     "Validación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombreEntrenador.Focus();
+                NombrePosicion.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtApellidoEntrenador.Text))
+            if (NombrePosicion.Text.Trim().Length > 50)
             {
                 MessageBox.Show(
-                    "Ingrese los apellidos del entrenador.",
+                    "El nombre de la posición no puede superar 50 caracteres.",
                     "Validación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtApellidoEntrenador.Focus();
+                NombrePosicion.Focus();
                 return false;
             }
 
-            if (!string.IsNullOrWhiteSpace(txtTelefonoEntrenador.Text) &&
-                txtTelefonoEntrenador.Text.Trim().Length < 8)
+            if (txtDescripcion.Text.Trim().Length > 255)
             {
                 MessageBox.Show(
-                    "El teléfono debe contener al menos 8 caracteres.",
+                    "La descripción no puede superar 255 caracteres.",
                     "Validación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtTelefonoEntrenador.Focus();
-                return false;
-            }
-
-            if (!string.IsNullOrWhiteSpace(txtCorreoEntrenador.Text) &&
-                !CorreoValido(txtCorreoEntrenador.Text.Trim()))
-            {
-                MessageBox.Show(
-                    "Ingrese una dirección de correo válida.",
-                    "Validación",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Warning);
-
-                txtCorreoEntrenador.Focus();
+                txtDescripcion.Focus();
                 return false;
             }
 
             return true;
         }
 
-        private bool CorreoValido(string correo)
+        private bool PosicionDuplicada(
+            MySqlConnection conexion,
+            string nombre,
+            int idExcluir = 0)
         {
-            try
+            string consulta = @"
+                SELECT COUNT(*)
+                FROM Posicion
+                WHERE LOWER(TRIM(nombre_posicion)) =
+                      LOWER(TRIM(@nombre))
+                  AND id_posicion <> @idExcluir;";
+
+            using (MySqlCommand comando =
+                   new MySqlCommand(consulta, conexion))
             {
-                MailAddress direccion = new MailAddress(correo);
-                return direccion.Address == correo;
-            }
-            catch
-            {
-                return false;
+                comando.Parameters.AddWithValue("@nombre", nombre);
+                comando.Parameters.AddWithValue("@idExcluir", idExcluir);
+
+                return Convert.ToInt32(comando.ExecuteScalar()) > 0;
             }
         }
 
@@ -231,72 +218,70 @@ namespace SistemaDePolideportivo
                 {
                     conexion.Open();
 
+                    string nombre = NombrePosicion.Text.Trim();
+
+                    if (PosicionDuplicada(conexion, nombre))
+                    {
+                        MessageBox.Show(
+                            "Ya existe una posición con ese nombre.",
+                            "Registro duplicado",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+
+                        NombrePosicion.Focus();
+                        return;
+                    }
+
                     string consulta = @"
-                        INSERT INTO Entrenador
+                        INSERT INTO Posicion
                         (
-                            nombres_entrenador,
-                            apellidos_entrenador,
-                            telefono,
-                            correo
+                            nombre_posicion,
+                            descripcion
                         )
                         VALUES
                         (
-                            @nombres,
-                            @apellidos,
-                            @telefono,
-                            @correo
+                            @nombre,
+                            @descripcion
                         );";
 
                     using (MySqlCommand comando =
                            new MySqlCommand(consulta, conexion))
                     {
                         comando.Parameters.AddWithValue(
-                            "@nombres",
-                            txtNombreEntrenador.Text.Trim());
+                            "@nombre",
+                            nombre);
 
                         comando.Parameters.AddWithValue(
-                            "@apellidos",
-                            txtApellidoEntrenador.Text.Trim());
-
-                        comando.Parameters.AddWithValue(
-                            "@telefono",
-                            string.IsNullOrWhiteSpace(
-                                txtTelefonoEntrenador.Text)
+                            "@descripcion",
+                            string.IsNullOrWhiteSpace(txtDescripcion.Text)
                                 ? DBNull.Value
-                                : txtTelefonoEntrenador.Text.Trim());
-
-                        comando.Parameters.AddWithValue(
-                            "@correo",
-                            string.IsNullOrWhiteSpace(
-                                txtCorreoEntrenador.Text)
-                                ? DBNull.Value
-                                : txtCorreoEntrenador.Text.Trim());
+                                : txtDescripcion.Text.Trim());
 
                         comando.ExecuteNonQuery();
                     }
                 }
 
                 MessageBox.Show(
-                    "Entrenador registrado correctamente.",
+                    "Posición registrada correctamente.",
                     "Sistema Polideportivo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                CargarEntrenadores();
-                LimpiarFormulario();
+                CargarPosiciones();
+                LimpiarCampos();
             }
             catch (MySqlException ex)
             {
-                MostrarError("Error al guardar el entrenador.", ex);
+                MostrarError("Error al guardar la posición.", ex);
             }
         }
 
         private void btnEditar_Click(object? sender, EventArgs e)
         {
-            if (idEntrenadorSeleccionado == 0)
+            if (idPosicionSeleccionada == 0)
             {
                 MessageBox.Show(
-                    "Seleccione un entrenador en la tabla.",
+                    "Seleccione una posición en la tabla.",
                     "Validación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -314,50 +299,53 @@ namespace SistemaDePolideportivo
                 {
                     conexion.Open();
 
+                    string nombre = NombrePosicion.Text.Trim();
+
+                    if (PosicionDuplicada(
+                            conexion,
+                            nombre,
+                            idPosicionSeleccionada))
+                    {
+                        MessageBox.Show(
+                            "Ya existe otra posición con ese nombre.",
+                            "Registro duplicado",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Warning);
+
+                        NombrePosicion.Focus();
+                        return;
+                    }
+
                     string consulta = @"
-                        UPDATE Entrenador
+                        UPDATE Posicion
                         SET
-                            nombres_entrenador = @nombres,
-                            apellidos_entrenador = @apellidos,
-                            telefono = @telefono,
-                            correo = @correo
-                        WHERE id_entrenador = @idEntrenador;";
+                            nombre_posicion = @nombre,
+                            descripcion = @descripcion
+                        WHERE id_posicion = @idPosicion;";
 
                     using (MySqlCommand comando =
                            new MySqlCommand(consulta, conexion))
                     {
                         comando.Parameters.AddWithValue(
-                            "@nombres",
-                            txtNombreEntrenador.Text.Trim());
+                            "@nombre",
+                            nombre);
 
                         comando.Parameters.AddWithValue(
-                            "@apellidos",
-                            txtApellidoEntrenador.Text.Trim());
-
-                        comando.Parameters.AddWithValue(
-                            "@telefono",
-                            string.IsNullOrWhiteSpace(
-                                txtTelefonoEntrenador.Text)
+                            "@descripcion",
+                            string.IsNullOrWhiteSpace(txtDescripcion.Text)
                                 ? DBNull.Value
-                                : txtTelefonoEntrenador.Text.Trim());
+                                : txtDescripcion.Text.Trim());
 
                         comando.Parameters.AddWithValue(
-                            "@correo",
-                            string.IsNullOrWhiteSpace(
-                                txtCorreoEntrenador.Text)
-                                ? DBNull.Value
-                                : txtCorreoEntrenador.Text.Trim());
-
-                        comando.Parameters.AddWithValue(
-                            "@idEntrenador",
-                            idEntrenadorSeleccionado);
+                            "@idPosicion",
+                            idPosicionSeleccionada);
 
                         int filasActualizadas = comando.ExecuteNonQuery();
 
                         if (filasActualizadas == 0)
                         {
                             MessageBox.Show(
-                                "No se encontró el entrenador seleccionado.",
+                                "No se encontró la posición seleccionada.",
                                 "Aviso",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
@@ -368,26 +356,26 @@ namespace SistemaDePolideportivo
                 }
 
                 MessageBox.Show(
-                    "Entrenador actualizado correctamente.",
+                    "Posición actualizada correctamente.",
                     "Sistema Polideportivo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                CargarEntrenadores();
-                LimpiarFormulario();
+                CargarPosiciones();
+                LimpiarCampos();
             }
             catch (MySqlException ex)
             {
-                MostrarError("Error al actualizar el entrenador.", ex);
+                MostrarError("Error al actualizar la posición.", ex);
             }
         }
 
         private void btnEliminar_Click(object? sender, EventArgs e)
         {
-            if (idEntrenadorSeleccionado == 0)
+            if (idPosicionSeleccionada == 0)
             {
                 MessageBox.Show(
-                    "Seleccione un entrenador en la tabla.",
+                    "Seleccione una posición en la tabla.",
                     "Validación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -396,7 +384,7 @@ namespace SistemaDePolideportivo
             }
 
             DialogResult respuesta = MessageBox.Show(
-                "¿Está seguro de que desea eliminar al entrenador?",
+                "¿Está seguro de que desea eliminar la posición?",
                 "Confirmar eliminación",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question);
@@ -413,8 +401,8 @@ namespace SistemaDePolideportivo
 
                     string consultaVerificacion = @"
                         SELECT COUNT(*)
-                        FROM Equipo
-                        WHERE id_entrenador = @idEntrenador;";
+                        FROM Jugador
+                        WHERE id_posicion = @idPosicion;";
 
                     using (MySqlCommand verificar =
                            new MySqlCommand(
@@ -422,17 +410,17 @@ namespace SistemaDePolideportivo
                                conexion))
                     {
                         verificar.Parameters.AddWithValue(
-                            "@idEntrenador",
-                            idEntrenadorSeleccionado);
+                            "@idPosicion",
+                            idPosicionSeleccionada);
 
-                        int equiposAsignados =
+                        int jugadoresAsignados =
                             Convert.ToInt32(verificar.ExecuteScalar());
 
-                        if (equiposAsignados > 0)
+                        if (jugadoresAsignados > 0)
                         {
                             MessageBox.Show(
-                                "No se puede eliminar al entrenador porque " +
-                                "tiene uno o más equipos asignados.",
+                                "No se puede eliminar la posición porque " +
+                                "tiene uno o más jugadores asignados.",
                                 "Eliminación no permitida",
                                 MessageBoxButtons.OK,
                                 MessageBoxIcon.Warning);
@@ -442,8 +430,8 @@ namespace SistemaDePolideportivo
                     }
 
                     string consultaEliminar = @"
-                        DELETE FROM Entrenador
-                        WHERE id_entrenador = @idEntrenador;";
+                        DELETE FROM Posicion
+                        WHERE id_posicion = @idPosicion;";
 
                     using (MySqlCommand eliminar =
                            new MySqlCommand(
@@ -451,31 +439,31 @@ namespace SistemaDePolideportivo
                                conexion))
                     {
                         eliminar.Parameters.AddWithValue(
-                            "@idEntrenador",
-                            idEntrenadorSeleccionado);
+                            "@idPosicion",
+                            idPosicionSeleccionada);
 
                         eliminar.ExecuteNonQuery();
                     }
                 }
 
                 MessageBox.Show(
-                    "Entrenador eliminado correctamente.",
+                    "Posición eliminada correctamente.",
                     "Sistema Polideportivo",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
 
-                CargarEntrenadores();
-                LimpiarFormulario();
+                CargarPosiciones();
+                LimpiarCampos();
             }
             catch (MySqlException ex)
             {
-                MostrarError("Error al eliminar el entrenador.", ex);
+                MostrarError("Error al eliminar la posición.", ex);
             }
         }
 
         private void btnNuevo_Click(object? sender, EventArgs e)
         {
-            LimpiarFormulario();
+            LimpiarCampos();
         }
 
         private void dataGridView1_CellClick(
@@ -490,24 +478,16 @@ namespace SistemaDePolideportivo
                 DataGridViewRow fila =
                     dataGridView1.Rows[e.RowIndex];
 
-                idEntrenadorSeleccionado =
+                idPosicionSeleccionada =
                     Convert.ToInt32(fila.Cells["ID"].Value);
 
-                txtNombreEntrenador.Text =
+                NombrePosicion.Text =
                     Convert.ToString(
-                        fila.Cells["Nombres"].Value) ?? "";
+                        fila.Cells["Posición"].Value) ?? "";
 
-                txtApellidoEntrenador.Text =
+                txtDescripcion.Text =
                     Convert.ToString(
-                        fila.Cells["Apellidos"].Value) ?? "";
-
-                txtTelefonoEntrenador.Text =
-                    Convert.ToString(
-                        fila.Cells["Teléfono"].Value) ?? "";
-
-                txtCorreoEntrenador.Text =
-                    Convert.ToString(
-                        fila.Cells["Correo"].Value) ?? "";
+                        fila.Cells["Descripción"].Value) ?? "";
 
                 btnGuardar.Enabled = false;
                 btnEditar.Enabled = true;
@@ -516,19 +496,17 @@ namespace SistemaDePolideportivo
             catch (Exception ex)
             {
                 MostrarError(
-                    "No se pudo cargar el entrenador seleccionado.",
+                    "No se pudo cargar la posición seleccionada.",
                     ex);
             }
         }
 
-        private void LimpiarFormulario()
+        private void LimpiarCampos()
         {
-            idEntrenadorSeleccionado = 0;
+            idPosicionSeleccionada = 0;
 
-            txtNombreEntrenador.Clear();
-            txtApellidoEntrenador.Clear();
-            txtTelefonoEntrenador.Clear();
-            txtCorreoEntrenador.Clear();
+            NombrePosicion.Clear();
+            txtDescripcion.Clear();
 
             dataGridView1.ClearSelection();
 
@@ -536,17 +514,7 @@ namespace SistemaDePolideportivo
             btnEditar.Enabled = false;
             btnEliminar.Enabled = false;
 
-            txtNombreEntrenador.Focus();
-        }
-
-        private void dataGridView1_CellContentClick(
-            object sender,
-            DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
+            NombrePosicion.Focus();
         }
 
         private void MostrarError(string mensaje, Exception ex)
@@ -556,16 +524,6 @@ namespace SistemaDePolideportivo
                 "Sistema Polideportivo",
                 MessageBoxButtons.OK,
                 MessageBoxIcon.Error);
-        }
-
-        private void btnGuardar_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnEditar_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

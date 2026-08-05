@@ -40,13 +40,29 @@ namespace ProyectoASIS22K26___Polideportivo
 
         private void btnEquipos_Click(object sender, EventArgs e)
         {
-
+            frmModuloEquipos nuevoForm = new frmModuloEquipos { Owner = this };
+            nuevoForm.Show();
+            Hide();
         }
 
         private void btnCompetencias_Click(object sender, EventArgs e)
         {
             frmCompeticiones nuevoForm = new frmCompeticiones();
             nuevoForm.Show();
+            Hide();
+        }
+
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            FormEstadistica nuevoform = new FormEstadistica();
+            nuevoform.Show();
+            Hide();
+        }
+
+        private void btnRRHH_Click(object sender, EventArgs e)
+        {
+            FormEmpleado nuevoform = new FormEmpleado();
+            nuevoform.Show();
             Hide();
         }
     }

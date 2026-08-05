@@ -37,6 +37,7 @@ namespace SistemaDePolideportivo
             dataGridView1 = new DataGridView();
             lblResultados = new Label();
             panel1 = new Panel();
+            BtnMenu = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -141,6 +142,7 @@ namespace SistemaDePolideportivo
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(BtnMenu);
             panel1.Controls.Add(lblResultados);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(BtnExportarPDF);
@@ -152,6 +154,18 @@ namespace SistemaDePolideportivo
             panel1.Name = "panel1";
             panel1.Size = new Size(790, 515);
             panel1.TabIndex = 7;
+            // 
+            // BtnMenu
+            // 
+            BtnMenu.BackgroundImage = Properties.Resources.Menu;
+            BtnMenu.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnMenu.Cursor = Cursors.Hand;
+            BtnMenu.Location = new Point(723, 13);
+            BtnMenu.Name = "BtnMenu";
+            BtnMenu.Size = new Size(52, 52);
+            BtnMenu.TabIndex = 7;
+            BtnMenu.UseVisualStyleBackColor = true;
+            BtnMenu.Click += BtnMenu_Click;
             // 
             // Reportes
             // 
@@ -183,5 +197,6 @@ namespace SistemaDePolideportivo
         private DataGridView dataGridView1;
         private Label lblResultados;
         private Panel panel1;
+        private Button BtnMenu;
     }
 }

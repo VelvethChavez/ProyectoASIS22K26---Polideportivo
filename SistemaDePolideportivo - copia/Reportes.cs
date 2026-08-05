@@ -1,4 +1,5 @@
 using MySql.Data.MySqlClient;
+using ProyectoASIS22K26___Polideportivo;
 using SistemaDePolideportivo.Conexion;
 using System;
 using System.Collections.Generic;
@@ -422,6 +423,13 @@ namespace SistemaDePolideportivo
 
                 pd.Print();
             }
+        }
+
+        private void BtnMenu_Click(object sender, EventArgs e)
+        {
+            frmMenú nuevoForm = new frmMenú();
+            nuevoForm.Show();
+            Hide();
         }
     }
 }
