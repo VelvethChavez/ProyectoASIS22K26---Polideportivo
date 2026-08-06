@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmloginarbitro));
             label1 = new Label();
             button1 = new Button();
             label2 = new Label();
             label3 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
+            button2 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.ForeColor = SystemColors.ActiveCaptionText;
+            label1.ForeColor = Color.DarkBlue;
             label1.Location = new Point(137, 77);
             label1.Name = "label1";
             label1.Size = new Size(165, 28);
@@ -50,12 +52,16 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.DarkBlue;
+            button1.Cursor = Cursors.Hand;
+            button1.ForeColor = SystemColors.ControlLightLight;
             button1.Location = new Point(173, 328);
             button1.Name = "button1";
             button1.Size = new Size(104, 34);
             button1.TabIndex = 1;
             button1.Text = "Iniciar Sesión";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // label2
             // 
@@ -92,19 +98,35 @@
             textBox2.Size = new Size(168, 23);
             textBox2.TabIndex = 6;
             // 
+            // button2
+            // 
+            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Location = new Point(12, 12);
+            button2.Name = "button2";
+            button2.Size = new Size(43, 41);
+            button2.TabIndex = 7;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // frmloginarbitro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(440, 424);
+            Controls.Add(button2);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(button1);
             Controls.Add(label1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmloginarbitro";
-            Text = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Login Arbitro";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -117,5 +139,6 @@
         private Label label3;
         private TextBox textBox1;
         private TextBox textBox2;
+        private Button button2;
     }
 }

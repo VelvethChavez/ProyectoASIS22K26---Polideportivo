@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProyectoASIS22K26___Polideportivo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,16 @@ namespace SistemaDePolideportivo
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Reportes nuevoform = new Reportes();
+            nuevoform.Show();
+            Hide();
+        }
 
+        private void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            frmLogin nuevoform = new frmLogin();
+            nuevoform.Show();
+            Hide();
         }
     }
 }

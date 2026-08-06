@@ -28,19 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmlogingerente));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
             button1 = new Button();
+            BtnRegresar = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(120, 86);
+            label1.ForeColor = Color.DarkBlue;
+            label1.Location = new Point(114, 75);
             label1.Name = "label1";
             label1.Size = new Size(155, 24);
             label1.TabIndex = 0;
@@ -82,27 +85,46 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.DarkBlue;
+            button1.Cursor = Cursors.Hand;
+            button1.ForeColor = Color.WhiteSmoke;
             button1.Location = new Point(132, 293);
             button1.Name = "button1";
             button1.Size = new Size(111, 39);
             button1.TabIndex = 5;
             button1.Text = "Iniciar Sesión";
-            button1.UseVisualStyleBackColor = true;
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // Form1
+            // BtnRegresar
+            // 
+            BtnRegresar.BackgroundImage = (Image)resources.GetObject("BtnRegresar.BackgroundImage");
+            BtnRegresar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRegresar.Location = new Point(19, 22);
+            BtnRegresar.Name = "BtnRegresar";
+            BtnRegresar.Size = new Size(41, 39);
+            BtnRegresar.TabIndex = 6;
+            BtnRegresar.UseVisualStyleBackColor = true;
+            BtnRegresar.Click += BtnRegresar_Click;
+            // 
+            // frmlogingerente
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(392, 399);
+            Controls.Add(BtnRegresar);
             Controls.Add(button1);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "Form1";
-            Text = "Form1";
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "frmlogingerente";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Login Gerente";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -115,5 +137,6 @@
         private TextBox textBox1;
         private TextBox textBox2;
         private Button button1;
+        private Button BtnRegresar;
     }
 }

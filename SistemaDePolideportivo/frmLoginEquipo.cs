@@ -11,24 +11,14 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmloginarbitro : Form
+    public partial class frmLoginEquipo : Form
     {
-        public frmloginarbitro()
+        public frmLoginEquipo()
         {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnRegresarLogin_Click(object sender, EventArgs e)
         {
             frmLogin nuevoform = new frmLogin();
             nuevoform.Show();
@@ -37,7 +27,9 @@ namespace SistemaDePolideportivo
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            Reportes nuevoform = new Reportes();
+            nuevoform.Show();
+            Hide();
         }
     }
 }
