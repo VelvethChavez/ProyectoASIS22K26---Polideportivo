@@ -3,6 +3,7 @@ using SistemaDePolideportivo.Conexion;
 using System;
 using System.Data;
 using System.Drawing;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
@@ -24,6 +25,8 @@ namespace SistemaDePolideportivo
             btnNuevo.Click += btnNuevo_Click;
 
             dataGridView1.CellClick += dataGridView1_CellClick;
+
+            NombrePosicion.KeyPress += SoloLetras_KeyPress;
         }
 
         private void frmPosiciones_Load(object? sender, EventArgs e)
@@ -36,7 +39,9 @@ namespace SistemaDePolideportivo
             }
             catch (Exception ex)
             {
-                MostrarError("No se pudo iniciar el formulario.", ex);
+                MostrarError(
+                    "No se pudo iniciar el formulario.",
+                    ex);
             }
         }
 
@@ -46,7 +51,11 @@ namespace SistemaDePolideportivo
 
             label1.Text = "GESTIÓN DE POSICIONES";
             label1.ForeColor = Color.FromArgb(27, 94, 32);
-            label1.Font = new Font("Segoe UI", 16, FontStyle.Bold);
+            label1.Font =
+                new Font("Segoe UI", 16, FontStyle.Bold);
+
+            NombrePosicion.MaxLength = 50;
+            txtDescripcion.MaxLength = 255;
 
             AplicarEstiloBoton(btnNuevo);
             AplicarEstiloBoton(btnGuardar);
@@ -99,8 +108,21 @@ namespace SistemaDePolideportivo
             boton.ForeColor = Color.White;
             boton.FlatStyle = FlatStyle.Flat;
             boton.FlatAppearance.BorderSize = 0;
-            boton.Font = new Font("Segoe UI", 9, FontStyle.Bold);
+            boton.Font =
+                new Font("Segoe UI", 9, FontStyle.Bold);
             boton.Cursor = Cursors.Hand;
+        }
+
+        private void SoloLetras_KeyPress(
+            object? sender,
+            KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
 
         private void CargarPosiciones()
@@ -123,7 +145,9 @@ namespace SistemaDePolideportivo
                         ORDER BY id_posicion DESC;";
 
                     using (MySqlDataAdapter adaptador =
-                           new MySqlDataAdapter(consulta, conexion))
+                           new MySqlDataAdapter(
+                               consulta,
+                               conexion))
                     {
                         adaptador.Fill(tabla);
                     }
@@ -139,13 +163,18 @@ namespace SistemaDePolideportivo
             }
             catch (Exception ex)
             {
-                MostrarError("Error al cargar las posiciones.", ex);
+                MostrarError(
+                    "Error al cargar las posiciones.",
+                    ex);
             }
         }
 
         private bool ValidarFormulario()
         {
-            if (string.IsNullOrWhiteSpace(NombrePosicion.Text))
+            string nombre = NombrePosicion.Text.Trim();
+            string descripcion = txtDescripcion.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nombre))
             {
                 MessageBox.Show(
                     "Ingrese el nombre de la posición.",
@@ -157,27 +186,57 @@ namespace SistemaDePolideportivo
                 return false;
             }
 
-            if (NombrePosicion.Text.Trim().Length > 50)
+            if (!Regex.IsMatch(nombre, @"^[\p{L}\s]+$"))
             {
                 MessageBox.Show(
-                    "El nombre de la posición no puede superar 50 caracteres.",
+                    "El nombre de la posición solamente puede " +
+                    "contener letras y espacios.",
                     "Validación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
                 NombrePosicion.Focus();
+                NombrePosicion.SelectAll();
                 return false;
             }
 
-            if (txtDescripcion.Text.Trim().Length > 255)
+            if (nombre.Length > 50)
             {
                 MessageBox.Show(
-                    "La descripción no puede superar 255 caracteres.",
+                    "El nombre de la posición no puede superar " +
+                    "los 50 caracteres.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                NombrePosicion.Focus();
+                NombrePosicion.SelectAll();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(descripcion))
+            {
+                MessageBox.Show(
+                    "Ingrese la descripción de la posición.",
                     "Validación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
                 txtDescripcion.Focus();
+                return false;
+            }
+
+            if (descripcion.Length > 255)
+            {
+                MessageBox.Show(
+                    "La descripción no puede superar " +
+                    "los 255 caracteres.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtDescripcion.Focus();
+                txtDescripcion.SelectAll();
                 return false;
             }
 
@@ -199,10 +258,16 @@ namespace SistemaDePolideportivo
             using (MySqlCommand comando =
                    new MySqlCommand(consulta, conexion))
             {
-                comando.Parameters.AddWithValue("@nombre", nombre);
-                comando.Parameters.AddWithValue("@idExcluir", idExcluir);
+                comando.Parameters.AddWithValue(
+                    "@nombre",
+                    nombre);
 
-                return Convert.ToInt32(comando.ExecuteScalar()) > 0;
+                comando.Parameters.AddWithValue(
+                    "@idExcluir",
+                    idExcluir);
+
+                return Convert.ToInt32(
+                    comando.ExecuteScalar()) > 0;
             }
         }
 
