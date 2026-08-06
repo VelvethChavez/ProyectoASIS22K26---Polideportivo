@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using SistemaDePolideportivo.DAO;
 using SistemaDePolideportivo.Modelos;
+using System.Text.RegularExpressions;
+using System.Net.Mail;
 
 namespace SistemaDePolideportivo
 {
@@ -19,6 +21,9 @@ namespace SistemaDePolideportivo
         public FormEmpleado()
         {
             InitializeComponent();
+            txtNombres.KeyPress += SoloLetras_KeyPress;
+            txtApellidos.KeyPress += SoloLetras_KeyPress;
+            txtTelefono.KeyPress += SoloNumeros_KeyPress;
         }
 
         private void FormEmpleado_Load(object sender, EventArgs e)
@@ -41,7 +46,7 @@ namespace SistemaDePolideportivo
 
         private void checkBoxEstado_CheckedChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -312,6 +317,162 @@ namespace SistemaDePolideportivo
             // Altura de encabezados
             dgvEmpleados.ColumnHeadersHeight = 40;
         }
+
+        private void SoloLetras_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void SoloNumeros_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private bool CorreoValido(string correo)
+        {
+            try
+            {
+                MailAddress direccion = new MailAddress(correo);
+                return direccion.Address == correo;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool ValidarFormulario()
+        {
+            string nombres = txtNombres.Text.Trim();
+            string apellidos = txtApellidos.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            string correo = txtCorreo.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nombres))
+            {
+                MessageBox.Show(
+                    "Ingrese los nombres del empleado.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtNombres.Focus();
+                return false;
+            }
+
+            if (!Regex.IsMatch(nombres, @"^[\p{L}\s]+$"))
+            {
+                MessageBox.Show(
+                    "Los nombres solo pueden contener letras y espacios.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtNombres.Focus();
+                txtNombres.SelectAll();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(apellidos))
+            {
+                MessageBox.Show(
+                    "Ingrese los apellidos del empleado.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtApellidos.Focus();
+                return false;
+            }
+
+            if (!Regex.IsMatch(apellidos, @"^[\p{L}\s]+$"))
+            {
+                MessageBox.Show(
+                    "Los apellidos solo pueden contener letras y espacios.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtApellidos.Focus();
+                txtApellidos.SelectAll();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(telefono))
+            {
+                MessageBox.Show(
+                    "Ingrese el teléfono del empleado.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtTelefono.Focus();
+                return false;
+            }
+
+            if (!Regex.IsMatch(telefono, @"^\d{8}$"))
+            {
+                MessageBox.Show(
+                    "El teléfono debe contener exactamente 8 números.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtTelefono.Focus();
+                txtTelefono.SelectAll();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(correo))
+            {
+                MessageBox.Show(
+                    "Ingrese el correo del empleado.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtCorreo.Focus();
+                return false;
+            }
+
+            if (!CorreoValido(correo))
+            {
+                MessageBox.Show(
+                    "Ingrese un correo electrónico válido.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtCorreo.Focus();
+                txtCorreo.SelectAll();
+                return false;
+            }
+
+            if (cmbPuesto.SelectedIndex < 0)
+            {
+                MessageBox.Show(
+                    "Seleccione un puesto.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmbPuesto.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+
     }
 }
     

@@ -258,6 +258,8 @@ namespace SistemaDePolideportivo
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (!ValidarFormulario())
+                return;
             try
             {
                 if (!ValidarFormulario())
@@ -291,6 +293,8 @@ namespace SistemaDePolideportivo
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            if (!ValidarFormulario())
+                return;
             try
             {
                 if (idEstadisticaSeleccionada == 0)
