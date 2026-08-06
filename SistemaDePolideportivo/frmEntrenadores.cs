@@ -4,6 +4,7 @@ using System;
 using System.Data;
 using System.Drawing;
 using System.Net.Mail;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
@@ -25,6 +26,10 @@ namespace SistemaDePolideportivo
             btnNuevo.Click += btnNuevo_Click;
 
             dataGridView1.CellClick += dataGridView1_CellClick;
+
+            txtNombreEntrenador.KeyPress += SoloLetras_KeyPress;
+            txtApellidoEntrenador.KeyPress += SoloLetras_KeyPress;
+            txtTelefonoEntrenador.KeyPress += SoloNumeros_KeyPress;
         }
 
         private void frmEntrenadores_Load(object? sender, EventArgs e)
@@ -48,6 +53,11 @@ namespace SistemaDePolideportivo
             label1.Text = "GESTIÓN DE ENTRENADORES";
             label1.ForeColor = Color.FromArgb(27, 94, 32);
             label1.Font = new Font("Segoe UI", 16, FontStyle.Bold);
+
+            txtNombreEntrenador.MaxLength = 100;
+            txtApellidoEntrenador.MaxLength = 100;
+            txtTelefonoEntrenador.MaxLength = 8;
+            txtCorreoEntrenador.MaxLength = 100;
 
             AplicarEstiloBoton(btnNuevo);
             AplicarEstiloBoton(btnGuardar);
@@ -104,6 +114,25 @@ namespace SistemaDePolideportivo
             boton.Cursor = Cursors.Hand;
         }
 
+        private void SoloLetras_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) &&
+                !char.IsWhiteSpace(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void SoloNumeros_KeyPress(object? sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) &&
+                !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void CargarEntrenadores()
         {
             DataTable tabla = new DataTable();
@@ -153,7 +182,12 @@ namespace SistemaDePolideportivo
 
         private bool ValidarFormulario()
         {
-            if (string.IsNullOrWhiteSpace(txtNombreEntrenador.Text))
+            string nombres = txtNombreEntrenador.Text.Trim();
+            string apellidos = txtApellidoEntrenador.Text.Trim();
+            string telefono = txtTelefonoEntrenador.Text.Trim();
+            string correo = txtCorreoEntrenador.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nombres))
             {
                 MessageBox.Show(
                     "Ingrese los nombres del entrenador.",
@@ -165,7 +199,20 @@ namespace SistemaDePolideportivo
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtApellidoEntrenador.Text))
+            if (!Regex.IsMatch(nombres, @"^[\p{L}\s]+$"))
+            {
+                MessageBox.Show(
+                    "El nombre solamente puede contener letras y espacios.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtNombreEntrenador.Focus();
+                txtNombreEntrenador.SelectAll();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(apellidos))
             {
                 MessageBox.Show(
                     "Ingrese los apellidos del entrenador.",
@@ -177,11 +224,23 @@ namespace SistemaDePolideportivo
                 return false;
             }
 
-            if (!string.IsNullOrWhiteSpace(txtTelefonoEntrenador.Text) &&
-                txtTelefonoEntrenador.Text.Trim().Length < 8)
+            if (!Regex.IsMatch(apellidos, @"^[\p{L}\s]+$"))
             {
                 MessageBox.Show(
-                    "El teléfono debe contener al menos 8 caracteres.",
+                    "Los apellidos solamente pueden contener letras y espacios.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtApellidoEntrenador.Focus();
+                txtApellidoEntrenador.SelectAll();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(telefono))
+            {
+                MessageBox.Show(
+                    "Ingrese el número de teléfono.",
                     "Validación",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
@@ -190,8 +249,32 @@ namespace SistemaDePolideportivo
                 return false;
             }
 
-            if (!string.IsNullOrWhiteSpace(txtCorreoEntrenador.Text) &&
-                !CorreoValido(txtCorreoEntrenador.Text.Trim()))
+            if (!Regex.IsMatch(telefono, @"^\d{8}$"))
+            {
+                MessageBox.Show(
+                    "El teléfono debe contener exactamente 8 números, sin letras, espacios ni guiones.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtTelefonoEntrenador.Focus();
+                txtTelefonoEntrenador.SelectAll();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(correo))
+            {
+                MessageBox.Show(
+                    "Ingrese el correo electrónico.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtCorreoEntrenador.Focus();
+                return false;
+            }
+
+            if (!CorreoValido(correo))
             {
                 MessageBox.Show(
                     "Ingrese una dirección de correo válida.",
@@ -200,6 +283,7 @@ namespace SistemaDePolideportivo
                     MessageBoxIcon.Warning);
 
                 txtCorreoEntrenador.Focus();
+                txtCorreoEntrenador.SelectAll();
                 return false;
             }
 
@@ -260,17 +344,11 @@ namespace SistemaDePolideportivo
 
                         comando.Parameters.AddWithValue(
                             "@telefono",
-                            string.IsNullOrWhiteSpace(
-                                txtTelefonoEntrenador.Text)
-                                ? DBNull.Value
-                                : txtTelefonoEntrenador.Text.Trim());
+                            txtTelefonoEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@correo",
-                            string.IsNullOrWhiteSpace(
-                                txtCorreoEntrenador.Text)
-                                ? DBNull.Value
-                                : txtCorreoEntrenador.Text.Trim());
+                            txtCorreoEntrenador.Text.Trim());
 
                         comando.ExecuteNonQuery();
                     }
@@ -288,6 +366,10 @@ namespace SistemaDePolideportivo
             catch (MySqlException ex)
             {
                 MostrarError("Error al guardar el entrenador.", ex);
+            }
+            catch (Exception ex)
+            {
+                MostrarError("Ocurrió un error al guardar el entrenador.", ex);
             }
         }
 
@@ -336,17 +418,11 @@ namespace SistemaDePolideportivo
 
                         comando.Parameters.AddWithValue(
                             "@telefono",
-                            string.IsNullOrWhiteSpace(
-                                txtTelefonoEntrenador.Text)
-                                ? DBNull.Value
-                                : txtTelefonoEntrenador.Text.Trim());
+                            txtTelefonoEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@correo",
-                            string.IsNullOrWhiteSpace(
-                                txtCorreoEntrenador.Text)
-                                ? DBNull.Value
-                                : txtCorreoEntrenador.Text.Trim());
+                            txtCorreoEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@idEntrenador",
@@ -379,6 +455,10 @@ namespace SistemaDePolideportivo
             catch (MySqlException ex)
             {
                 MostrarError("Error al actualizar el entrenador.", ex);
+            }
+            catch (Exception ex)
+            {
+                MostrarError("Ocurrió un error al actualizar el entrenador.", ex);
             }
         }
 
@@ -470,6 +550,10 @@ namespace SistemaDePolideportivo
             catch (MySqlException ex)
             {
                 MostrarError("Error al eliminar el entrenador.", ex);
+            }
+            catch (Exception ex)
+            {
+                MostrarError("Ocurrió un error al eliminar el entrenador.", ex);
             }
         }
 

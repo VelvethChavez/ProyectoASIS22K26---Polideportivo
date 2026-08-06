@@ -64,30 +64,23 @@ namespace SistemaDePolideportivo
             dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeRows = false;
-
             dataGridView1.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
-
             dataGridView1.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
 
             dataGridView1.EnableHeadersVisualStyles = false;
-
             dataGridView1.ColumnHeadersDefaultCellStyle.BackColor =
                 Color.FromArgb(46, 125, 50);
-
             dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor =
                 Color.White;
-
             dataGridView1.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
 
             dataGridView1.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(165, 214, 167);
-
             dataGridView1.DefaultCellStyle.SelectionForeColor =
                 Color.Black;
-
             dataGridView1.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(241, 248, 233);
 
@@ -232,6 +225,43 @@ namespace SistemaDePolideportivo
                 return false;
             }
 
+            if (string.IsNullOrWhiteSpace(txtLogo.Text))
+            {
+                MessageBox.Show(
+                    "Ingrese o seleccione el logo del equipo.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                txtLogo.Focus();
+                return false;
+            }
+
+            if (cmbEntrenador.SelectedIndex < 0 ||
+                cmbEntrenador.SelectedValue == null)
+            {
+                MessageBox.Show(
+                    "Seleccione un entrenador.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmbEntrenador.Focus();
+                return false;
+            }
+
+            if (!chkEstado.Checked)
+            {
+                MessageBox.Show(
+                    "El equipo debe registrarse como activo.",
+                    "Validación",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                chkEstado.Focus();
+                return false;
+            }
+
             return true;
         }
 
@@ -272,9 +302,7 @@ namespace SistemaDePolideportivo
 
                         comando.Parameters.AddWithValue(
                             "@logo",
-                            string.IsNullOrWhiteSpace(txtLogo.Text)
-                                ? DBNull.Value
-                                : txtLogo.Text.Trim());
+                            txtLogo.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@estado",
@@ -282,9 +310,8 @@ namespace SistemaDePolideportivo
 
                         comando.Parameters.AddWithValue(
                             "@entrenador",
-                            cmbEntrenador.SelectedIndex < 0
-                                ? DBNull.Value
-                                : cmbEntrenador.SelectedValue);
+                            Convert.ToInt32(
+                                cmbEntrenador.SelectedValue));
 
                         comando.ExecuteNonQuery();
                     }
@@ -302,6 +329,10 @@ namespace SistemaDePolideportivo
             catch (MySqlException ex)
             {
                 MostrarError("Error al guardar el equipo.", ex);
+            }
+            catch (Exception ex)
+            {
+                MostrarError("Ocurrió un error al guardar el equipo.", ex);
             }
         }
 
@@ -346,9 +377,7 @@ namespace SistemaDePolideportivo
 
                         comando.Parameters.AddWithValue(
                             "@logo",
-                            string.IsNullOrWhiteSpace(txtLogo.Text)
-                                ? DBNull.Value
-                                : txtLogo.Text.Trim());
+                            txtLogo.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@estado",
@@ -356,15 +385,15 @@ namespace SistemaDePolideportivo
 
                         comando.Parameters.AddWithValue(
                             "@entrenador",
-                            cmbEntrenador.SelectedIndex < 0
-                                ? DBNull.Value
-                                : cmbEntrenador.SelectedValue);
+                            Convert.ToInt32(
+                                cmbEntrenador.SelectedValue));
 
                         comando.Parameters.AddWithValue(
                             "@idEquipo",
                             idEquipoSeleccionado);
 
-                        int filasActualizadas = comando.ExecuteNonQuery();
+                        int filasActualizadas =
+                            comando.ExecuteNonQuery();
 
                         if (filasActualizadas == 0)
                         {
@@ -391,6 +420,10 @@ namespace SistemaDePolideportivo
             catch (MySqlException ex)
             {
                 MostrarError("Error al actualizar el equipo.", ex);
+            }
+            catch (Exception ex)
+            {
+                MostrarError("Ocurrió un error al actualizar el equipo.", ex);
             }
         }
 
@@ -435,7 +468,8 @@ namespace SistemaDePolideportivo
                             "@idEquipo",
                             idEquipoSeleccionado);
 
-                        int filasActualizadas = comando.ExecuteNonQuery();
+                        int filasActualizadas =
+                            comando.ExecuteNonQuery();
 
                         if (filasActualizadas == 0)
                         {
@@ -463,6 +497,10 @@ namespace SistemaDePolideportivo
             {
                 MostrarError("Error al desactivar el equipo.", ex);
             }
+            catch (Exception ex)
+            {
+                MostrarError("Ocurrió un error al desactivar el equipo.", ex);
+            }
         }
 
         private void BtnNuevo_Click(object? sender, EventArgs e)
@@ -483,7 +521,8 @@ namespace SistemaDePolideportivo
                     dataGridView1.Rows[e.RowIndex];
 
                 idEquipoSeleccionado =
-                    Convert.ToInt32(fila.Cells["ID"].Value);
+                    Convert.ToInt32(
+                        fila.Cells["ID"].Value);
 
                 txtNombreEquipo.Text =
                     Convert.ToString(
@@ -493,7 +532,8 @@ namespace SistemaDePolideportivo
                     Convert.ToString(
                         fila.Cells["Logo"].Value) ?? "";
 
-                if (fila.Cells["id_entrenador"].Value == DBNull.Value)
+                if (fila.Cells["id_entrenador"].Value ==
+                    DBNull.Value)
                 {
                     cmbEntrenador.SelectedIndex = -1;
                 }
@@ -544,7 +584,9 @@ namespace SistemaDePolideportivo
             txtNombreEquipo.Focus();
         }
 
-        private void MostrarError(string mensaje, Exception ex)
+        private void MostrarError(
+            string mensaje,
+            Exception ex)
         {
             MessageBox.Show(
                 mensaje + "\n\n" + ex.Message,
