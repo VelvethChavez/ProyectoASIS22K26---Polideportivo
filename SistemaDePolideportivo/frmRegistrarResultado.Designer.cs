@@ -136,6 +136,7 @@
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(158, 27);
             textBox2.TabIndex = 9;
+            textBox2.Text = "Datos del encuentro";
             // 
             // btnNuevo
             // 
