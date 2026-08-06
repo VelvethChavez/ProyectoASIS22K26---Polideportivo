@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using ProyectoASIS22K26___Polideportivo;
 using SistemaDePolideportivo.Conexion;
 using System;
 using System.Data;
@@ -15,7 +14,7 @@ namespace SistemaDePolideportivo
             MostrarBitacora();
         }
 
-        public static void Registrar(string modulo, string accion)
+        public static void Registrar(int idUsuario, string modulo, string accion)
         {
             try
             {
@@ -25,17 +24,16 @@ namespace SistemaDePolideportivo
                 {
                     conexion.Open();
 
-                    string sql = @"
-                    INSERT INTO Bitacora
-                    (modulo, fecha_hora, accion)
+                    string sql = @"INSERT INTO Bitacora
+                    (id_usuario, accion, modulo)
                     VALUES
-                    (@modulo,@fecha,@accion)";
+                    (@id_usuario,@accion,@modulo)";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conexion);
 
-                    cmd.Parameters.AddWithValue("@modulo", modulo);
-                    cmd.Parameters.AddWithValue("@fecha", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@id_usuario", idUsuario);
                     cmd.Parameters.AddWithValue("@accion", accion);
+                    cmd.Parameters.AddWithValue("@modulo", modulo);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -56,7 +54,15 @@ namespace SistemaDePolideportivo
                 {
                     conexion.Open();
 
-                    string consulta = "SELECT * FROM Bitacora";
+                    string consulta = @"SELECT 
+                    b.id_bitacora,
+                    u.nombre_usuario,
+                    b.accion,
+                    b.modulo,
+                    b.fecha_hora
+                    FROM Bitacora b
+                    INNER JOIN Usuario u ON b.id_usuario=u.id_usuario
+                    ORDER BY b.fecha_hora DESC";
 
                     MySqlDataAdapter adaptador = new MySqlDataAdapter(consulta, conexion);
 

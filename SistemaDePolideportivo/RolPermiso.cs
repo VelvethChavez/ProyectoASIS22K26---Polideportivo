@@ -31,6 +31,11 @@ namespace SistemaDePolideportivo
             CargarRoles();
             CargarPermisos();
             CargarDatos();
+
+            //Permisos
+            BtnGuardar.Enabled = GestorPermisos.TienePermiso("Crear");
+            BtnEditar.Enabled = GestorPermisos.TienePermiso("Modificar");
+            BtnEliminar.Enabled = GestorPermisos.TienePermiso("Eliminar");
         }
 
 
@@ -189,6 +194,11 @@ namespace SistemaDePolideportivo
                         item["id_permiso"]);
 
                         cmd.ExecuteNonQuery();
+                        Bitacora.Registrar(
+                            Sesion.IdUsuario,
+                            "RolPermiso",
+                            "INSERT: Asignó permisos al rol " + rolrp.Text
+                            );
 
                     }
 
@@ -256,6 +266,11 @@ namespace SistemaDePolideportivo
 
 
                         cmd.ExecuteNonQuery();
+                        Bitacora.Registrar(
+                            Sesion.IdUsuario,
+                            "RolPermiso",
+                            "UPDATE: Actualizó permisos del rol " + rolrp.Text
+                            );
 
                     }
 

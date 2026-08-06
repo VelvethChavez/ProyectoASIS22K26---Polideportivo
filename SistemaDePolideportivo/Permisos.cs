@@ -33,6 +33,12 @@ namespace SistemaDePolideportivo
 
 
             CargarDatos();
+
+            //Permisos
+            BtnGuardar.Enabled = GestorPermisos.TienePermiso("Crear");
+            BtnEditar.Enabled = GestorPermisos.TienePermiso("Modificar");
+            BtnEliminar.Enabled = GestorPermisos.TienePermiso("Eliminar");
+            BtnNuevo.Enabled = GestorPermisos.TienePermiso("Crear");
         }
 
         //==========================
@@ -45,24 +51,17 @@ namespace SistemaDePolideportivo
             {
 
                 conexion.Open();
-
                 string sql = "SELECT * FROM Permiso";
-
                 MySqlDataAdapter da =
                     new MySqlDataAdapter(sql, conexion);
 
                 DataTable dt = new DataTable();
-
                 da.Fill(dt);
-
                 dgvPermisos.DataSource = dt;
 
             }
 
         }
-
-
-
 
         //==========================
         // GUARDAR
@@ -97,7 +96,11 @@ namespace SistemaDePolideportivo
                     descripcionpermiso.Text);
 
                     cmd.ExecuteNonQuery();
-                    
+                    Bitacora.Registrar(
+                    Sesion.IdUsuario,
+                    "Permiso",
+                    "INSERT: Creó el permiso " + nombrepermiso.Text
+);
                     CargarDatos();
                     LimpiarCampos();
 
@@ -110,10 +113,6 @@ namespace SistemaDePolideportivo
             }
 
         }
-
-
-
-
 
         //==========================
         // SELECCIONAR GRID
@@ -178,11 +177,10 @@ namespace SistemaDePolideportivo
                 id);
 
                 cmd.ExecuteNonQuery();
-
                 Bitacora.Registrar(
+                    Sesion.IdUsuario,
                     "Permiso",
-                    "Editó el permiso: " + nombrepermiso.Text
-                );
+                    "UPDATE: Editó el permiso " + nombrepermiso.Text);
 
                 MessageBox.Show("Permiso actualizado correctamente");
 
@@ -224,6 +222,11 @@ namespace SistemaDePolideportivo
 
                 cmd.Parameters.AddWithValue("@id", id);
                 cmd.ExecuteNonQuery();
+                Bitacora.Registrar(  
+                    Sesion.IdUsuario,
+                    "Permiso",
+                    "DELETE: Eliminó el permiso"
+                    );
 
                 MessageBox.Show("Permiso eliminado correctamente");
 
@@ -235,10 +238,6 @@ namespace SistemaDePolideportivo
 
         }
 
-
-
-
-
         //==========================
         // NUEVO
         //==========================
@@ -248,10 +247,6 @@ namespace SistemaDePolideportivo
 
             nombrepermiso.Focus();
         }
-
-
-
-
 
         //==========================
         // LIMPIAR
@@ -267,13 +262,8 @@ namespace SistemaDePolideportivo
         {
 
             idPermiso = 0;
-
-
             nombrepermiso.Clear();
-
             descripcionpermiso.Clear();
-
-
             dgvPermisos.ClearSelection();
 
         }

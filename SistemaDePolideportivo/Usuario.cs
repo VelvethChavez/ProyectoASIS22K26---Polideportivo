@@ -9,40 +9,36 @@ namespace SistemaDePolideportivo
 {
     public partial class usuario : Form
     {
-
         ConexionBD conexionBD = new ConexionBD();
-
         private int idUsuario = 0;
-
 
         public usuario()
         {
             InitializeComponent();
         }
 
-
-
         private void usuario_Load(object sender, EventArgs e)
         {
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUsuarios.MultiSelect = false;
             dgvUsuarios.ReadOnly = true;
-
             CargarRoles();
             CargarEstado();
             CargarDatos();
+
+            //permisos
+            BtnGuardar.Enabled = GestorPermisos.TienePermiso("Crear");
+            BtnEditar.Enabled = GestorPermisos.TienePermiso("Modificar");
+            BtnEliminar.Enabled = GestorPermisos.TienePermiso("Eliminar");
+            BtnNuevo.Enabled = GestorPermisos.TienePermiso("Crear");
         }
-
-
 
         private void CargarDatos()
         {
             using (MySqlConnection conexion = conexionBD.ObtenerConexion())
             {
                 conexion.Open();
-
                 string sql = "SELECT * FROM Usuario";
-
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conexion);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -50,29 +46,20 @@ namespace SistemaDePolideportivo
             }
         }
 
-
-
         private void CargarRoles()
         {
             using (MySqlConnection conexion = conexionBD.ObtenerConexion())
             {
                 conexion.Open();
-
                 string sql = "SELECT id_rol,nombre_rol FROM Rol";
-
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, conexion);
-
                 DataTable dt = new DataTable();
-
                 da.Fill(dt);
-
                 rolusu.DataSource = dt;
                 rolusu.DisplayMember = "nombre_rol";
                 rolusu.ValueMember = "id_rol";
             }
         }
-
-
 
         private void CargarEstado()
         {
@@ -81,8 +68,6 @@ namespace SistemaDePolideportivo
             estadousu.Items.Add("Inactivo");
         }
 
-
-
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
@@ -90,13 +75,11 @@ namespace SistemaDePolideportivo
                 DataGridViewRow fila = dgvUsuarios.Rows[e.RowIndex];
                 idUsuario = Convert.ToInt32(fila.Cells["id_usuario"].Value);
                 nombreusu.Text = fila.Cells["nombre_usuario"].Value.ToString();
-                contrasenausu.Text = fila.Cells["contraseña"].Value.ToString();
+                contrasenausu.Text = fila.Cells["contrasena"].Value.ToString();
                 estadousu.SelectedItem = fila.Cells["estado"].Value.ToString();
                 rolusu.SelectedValue = fila.Cells["id_rol"].Value;
             }
         }
-
-
 
         private void LimpiarCampos()
         {
@@ -108,58 +91,48 @@ namespace SistemaDePolideportivo
             dgvUsuarios.ClearSelection();
         }
 
-
-
         private void BtnNuevo_Click_1(object sender, EventArgs e)
         {
             LimpiarCampos();
             nombreusu.Focus();
         }
 
-
-
         private void BtnLimpiar_Click_1(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
 
-
-
         private void BtnEliminar_Click_1(object sender, EventArgs e)
         {
             try
             {
-                int id = Convert.ToInt32(
-                    dgvUsuarios.SelectedRows[0].Cells["id_usuario"].Value
-                );
+                int id = Convert.ToInt32(dgvUsuarios.SelectedRows[0].Cells["id_usuario"].Value);
 
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
                     conexion.Open();
-
                     string sql = "DELETE FROM Usuario WHERE id_usuario=@id";
-
                     MySqlCommand cmd = new MySqlCommand(sql, conexion);
-
                     cmd.Parameters.AddWithValue("@id", id);
-
                     cmd.ExecuteNonQuery();
+                    Bitacora.Registrar(    
+                        Sesion.IdUsuario,
+                        "Usuarios",
+                        "DELETE: Eliminó un usuario"
+                        );
+
+                    Bitacora.Registrar(Sesion.IdUsuario, "Usuarios", "DELETE");
 
                     MessageBox.Show("Usuario eliminado correctamente");
-
                     CargarDatos();
-
                     LimpiarCampos();
                 }
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error al eliminar: " + ex.Message);
             }
         }
-
-
 
         private void BtnEditar_Click_1(object sender, EventArgs e)
         {
@@ -171,48 +144,39 @@ namespace SistemaDePolideportivo
                     return;
                 }
 
-
-                int id = Convert.ToInt32(
-                    dgvUsuarios.SelectedRows[0].Cells["id_usuario"].Value
-                );
-
+                int id = Convert.ToInt32(dgvUsuarios.SelectedRows[0].Cells["id_usuario"].Value);
 
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
                     conexion.Open();
 
-
                     string sql = @"UPDATE Usuario SET
-                           nombre_usuario=@nombre,
-                           contraseña=@pass,
-                           estado=@estado,
-                           id_rol=@rol
-                           WHERE id_usuario=@id";
-
+                    nombre_usuario=@nombre,
+                    contrasena=@pass,
+                    estado=@estado,
+                    id_rol=@rol
+                    WHERE id_usuario=@id";
 
                     MySqlCommand cmd = new MySqlCommand(sql, conexion);
-
-
                     cmd.Parameters.AddWithValue("@nombre", nombreusu.Text);
-
-                    cmd.Parameters.AddWithValue("@pass", contrasenausu.Text);
-
+                    cmd.Parameters.AddWithValue("@pass", Encriptar.HashPassword(contrasenausu.Text));
                     cmd.Parameters.AddWithValue("@estado", estadousu.SelectedItem);
-
                     cmd.Parameters.AddWithValue("@rol", rolusu.SelectedValue);
-
                     cmd.Parameters.AddWithValue("@id", id);
 
-
                     int filas = cmd.ExecuteNonQuery();
-                    
+
 
                     if (filas > 0)
                     {
-                        MessageBox.Show("Usuario actualizado correctamente.");
+                        Bitacora.Registrar(
+                            Sesion.IdUsuario,
+                            "Usuarios",
+                            "UPDATE: Editó el usuario " + nombreusu.Text
+                            );
 
+                    MessageBox.Show("Usuario actualizado correctamente.");
                         CargarDatos();
-
                         LimpiarCampos();
                     }
                     else
@@ -220,7 +184,6 @@ namespace SistemaDePolideportivo
                         MessageBox.Show("No se pudo actualizar el usuario.");
                     }
                 }
-
             }
             catch (Exception ex)
             {
@@ -228,55 +191,43 @@ namespace SistemaDePolideportivo
             }
         }
 
-
-
         private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(nombreusu.Text) ||
-       string.IsNullOrWhiteSpace(contrasenausu.Text) ||
-       estadousu.SelectedIndex == -1 ||
-       rolusu.SelectedIndex == -1)
+                string.IsNullOrWhiteSpace(contrasenausu.Text) ||
+                estadousu.SelectedIndex == -1 ||
+                rolusu.SelectedIndex == -1)
             {
-                MessageBox.Show("Error: Hay campos vacíos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error: Hay campos vacíos");
                 return;
             }
+
             try
             {
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
                     conexion.Open();
 
-
                     string sql = @"INSERT INTO Usuario
-                    (nombre_usuario, contraseña, estado, id_rol)
+                    (nombre_usuario, contrasena, estado, id_rol)
                     VALUES
                     (@nombre,@pass,@estado,@rol)";
 
-
                     MySqlCommand cmd = new MySqlCommand(sql, conexion);
 
-
                     cmd.Parameters.AddWithValue("@nombre", nombreusu.Text);
-
-                    cmd.Parameters.AddWithValue("@pass", contrasenausu.Text);
-
+                    cmd.Parameters.AddWithValue("@pass", Encriptar.HashPassword(contrasenausu.Text));
                     cmd.Parameters.AddWithValue("@estado", estadousu.SelectedItem.ToString());
-
                     cmd.Parameters.AddWithValue("@rol", rolusu.SelectedValue);
-
 
                     cmd.ExecuteNonQuery();
 
+                    Bitacora.Registrar(Sesion.IdUsuario, "Usuarios", "INSERT");
 
                     MessageBox.Show("Usuario agregado correctamente");
-
-
                     CargarDatos();
-
                     LimpiarCampos();
-
                 }
-
             }
             catch (Exception ex)
             {

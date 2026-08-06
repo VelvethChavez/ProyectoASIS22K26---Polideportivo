@@ -23,6 +23,12 @@ namespace SistemaDePolideportivo
             dgvRoles.MultiSelect = false;
             dgvRoles.ReadOnly = true;
             CargarDatos();
+
+            //Permisos
+            BtnGuardar.Enabled = GestorPermisos.TienePermiso("Crear");
+            BtnEditar.Enabled = GestorPermisos.TienePermiso("Modificar");
+            BtnEliminar.Enabled = GestorPermisos.TienePermiso("Eliminar");
+            BtnNuevo.Enabled = GestorPermisos.TienePermiso("Crear");
         }
 
         private void CargarDatos()
@@ -66,6 +72,12 @@ namespace SistemaDePolideportivo
                     cmd.Parameters.AddWithValue("@descripcion", descripcionrol.Text);
 
                     cmd.ExecuteNonQuery();
+                    Bitacora.Registrar(
+                        Sesion.IdUsuario,
+                        "Rol",
+                        "INSERT: Creó el rol " + nombrerol.Text
+                        );
+
 
                     MessageBox.Show("Rol agregado correctamente");
 
@@ -117,6 +129,11 @@ namespace SistemaDePolideportivo
                 cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.ExecuteNonQuery();
+                Bitacora.Registrar(
+                    Sesion.IdUsuario,
+                    "Rol",
+                    "UPDATE: Editó el rol " + nombrerol.Text
+                    );
 
                 MessageBox.Show("Rol actualizado correctamente");
 
@@ -146,6 +163,11 @@ namespace SistemaDePolideportivo
                 cmd.Parameters.AddWithValue("@id", id);
 
                 cmd.ExecuteNonQuery();
+                Bitacora.Registrar(
+                    Sesion.IdUsuario,
+                    "Rol",
+                    "DELETE: Eliminó un rol"
+                    );
 
                 MessageBox.Show("Rol eliminado correctamente");
 

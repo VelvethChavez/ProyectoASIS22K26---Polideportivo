@@ -47,7 +47,7 @@
             this.label1.Size = new System.Drawing.Size(113, 41);
             this.label1.TabIndex = 22;
             this.label1.Text = "Bitacora";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+          
             // 
             // panel1
             // 
