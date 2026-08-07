@@ -71,7 +71,7 @@
             cboDeporte.Items.AddRange(new object[] { "Fútbol", "Basquetbol", "Voleibol", "Tenis" });
             cboDeporte.Location = new Point(406, 33);
             cboDeporte.Name = "cboDeporte";
-            cboDeporte.Size = new Size(198, 31);
+            cboDeporte.Size = new Size(198, 27);
             cboDeporte.TabIndex = 12;
             cboDeporte.Text = "Eliga un deporte ...";
             cboDeporte.SelectedIndexChanged += cboDeporte_SelectedIndexChanged;
@@ -81,11 +81,11 @@
             lblTitulo.Anchor = AnchorStyles.None;
             lblTitulo.AutoSize = true;
             lblTitulo.FlatStyle = FlatStyle.System;
-            lblTitulo.Font = new Font("OpenSymbol", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.Font = new Font("Microsoft Sans Serif", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitulo.Location = new Point(50, 26);
             lblTitulo.Margin = new Padding(0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(313, 37);
+            lblTitulo.Size = new Size(243, 29);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Reglas y Sanciones";
             lblTitulo.TextAlign = ContentAlignment.MiddleLeft;
@@ -108,7 +108,7 @@
             btnAyuda.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnAyuda.BackColor = Color.Gray;
             btnAyuda.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnAyuda.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnAyuda.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnAyuda.ForeColor = SystemColors.ControlLightLight;
             btnAyuda.Location = new Point(50, 422);
             btnAyuda.Margin = new Padding(0);
@@ -124,7 +124,7 @@
             btnActualizar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnActualizar.BackColor = Color.Orange;
             btnActualizar.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnActualizar.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnActualizar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnActualizar.ForeColor = SystemColors.ControlLightLight;
             btnActualizar.Location = new Point(50, 326);
             btnActualizar.Margin = new Padding(0);
@@ -140,7 +140,7 @@
             btnLeer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnLeer.BackColor = Color.RoyalBlue;
             btnLeer.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnLeer.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnLeer.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnLeer.ForeColor = SystemColors.ControlLightLight;
             btnLeer.Location = new Point(50, 230);
             btnLeer.Margin = new Padding(0);
@@ -154,32 +154,34 @@
             // btnEliminar
             // 
             btnEliminar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnEliminar.BackColor = Color.Red;
+            btnEliminar.BackColor = Color.White;
+            btnEliminar.BackgroundImage = SistemaDePolideportivo.Properties.Resources.eliminar;
+            btnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
             btnEliminar.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnEliminar.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btnEliminar.ForeColor = SystemColors.ControlLightLight;
+            btnEliminar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnEliminar.ForeColor = SystemColors.ControlDarkDark;
             btnEliminar.Location = new Point(50, 134);
             btnEliminar.Margin = new Padding(0);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(187, 58);
+            btnEliminar.Size = new Size(62, 58);
             btnEliminar.TabIndex = 9;
-            btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // btnNuevo
             // 
             btnNuevo.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnNuevo.BackColor = Color.Green;
+            btnNuevo.BackColor = Color.Transparent;
+            btnNuevo.BackgroundImage = SistemaDePolideportivo.Properties.Resources.nuevo;
+            btnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
             btnNuevo.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnNuevo.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnNuevo.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnNuevo.ForeColor = SystemColors.ControlLightLight;
             btnNuevo.Location = new Point(50, 38);
             btnNuevo.Margin = new Padding(0);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(187, 58);
+            btnNuevo.Size = new Size(62, 58);
             btnNuevo.TabIndex = 8;
-            btnNuevo.Text = "Nuevo";
             btnNuevo.UseVisualStyleBackColor = false;
             btnNuevo.Click += btnNuevo_Click;
             // 
@@ -198,7 +200,7 @@
             lblNombreRegla.AutoSize = true;
             lblNombreRegla.Location = new Point(282, 121);
             lblNombreRegla.Name = "lblNombreRegla";
-            lblNombreRegla.Size = new Size(123, 20);
+            lblNombreRegla.Size = new Size(99, 15);
             lblNombreRegla.TabIndex = 6;
             lblNombreRegla.Text = "Nombre Sanción:";
             // 
@@ -208,7 +210,7 @@
             txtNombreRegla.Enabled = false;
             txtNombreRegla.Location = new Point(409, 118);
             txtNombreRegla.Name = "txtNombreRegla";
-            txtNombreRegla.Size = new Size(396, 27);
+            txtNombreRegla.Size = new Size(396, 23);
             txtNombreRegla.TabIndex = 7;
             // 
             // lblDescripcion
@@ -238,7 +240,7 @@
             btnGuardar.BackColor = Color.RoyalBlue;
             btnGuardar.Enabled = false;
             btnGuardar.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnGuardar.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnGuardar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = SystemColors.ControlLightLight;
             btnGuardar.Location = new Point(829, 107);
             btnGuardar.Margin = new Padding(0);
@@ -255,7 +257,7 @@
             btnCancelar.BackColor = Color.RoyalBlue;
             btnCancelar.Enabled = false;
             btnCancelar.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnCancelar.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnCancelar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnCancelar.ForeColor = SystemColors.ControlLightLight;
             btnCancelar.Location = new Point(829, 160);
             btnCancelar.Margin = new Padding(0);
@@ -271,7 +273,7 @@
             txtBuscar.BackColor = Color.WhiteSmoke;
             txtBuscar.Location = new Point(368, 307);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(437, 27);
+            txtBuscar.Size = new Size(437, 23);
             txtBuscar.TabIndex = 21;
             // 
             // lblBuscar
@@ -287,7 +289,7 @@
             btnBuscar.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnBuscar.BackColor = Color.RoyalBlue;
             btnBuscar.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnBuscar.Font = new Font("OpenSymbol", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btnBuscar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnBuscar.ForeColor = SystemColors.ControlLightLight;
             btnBuscar.Location = new Point(829, 296);
             btnBuscar.Margin = new Padding(0);
@@ -316,6 +318,8 @@
             Controls.Add(dgvReglas);
             Controls.Add(panel1);
             Controls.Add(panel2);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmReglamento";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Reglamento";

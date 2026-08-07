@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TipoCampeonato));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TipoCampeonato));
             panel1 = new Panel();
             BtnNuevo = new Button();
             label5 = new Label();
@@ -43,6 +43,7 @@
             label1 = new Label();
             BtnEditar = new Button();
             BtnGuardar = new Button();
+            BtnRegresar = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -51,6 +52,7 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(BtnRegresar);
             panel1.Controls.Add(BtnNuevo);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
@@ -130,7 +132,7 @@
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(58, 269);
+            dataGridView1.Location = new Point(107, 267);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -225,6 +227,17 @@
             BtnGuardar.UseVisualStyleBackColor = false;
             BtnGuardar.Click += BtnGuardar_Click;
             // 
+            // BtnRegresar
+            // 
+            BtnRegresar.BackgroundImage = (Image)resources.GetObject("BtnRegresar.BackgroundImage");
+            BtnRegresar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRegresar.Location = new Point(15, 374);
+            BtnRegresar.Name = "BtnRegresar";
+            BtnRegresar.Size = new Size(53, 43);
+            BtnRegresar.TabIndex = 18;
+            BtnRegresar.UseVisualStyleBackColor = true;
+            BtnRegresar.Click += BtnRegresar_Click;
+            // 
             // TipoCampeonato
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -259,5 +272,6 @@
         private Button BtnEditar;
         private Button BtnGuardar;
         private Button BtnNuevo;
+        private Button BtnRegresar;
     }
 }

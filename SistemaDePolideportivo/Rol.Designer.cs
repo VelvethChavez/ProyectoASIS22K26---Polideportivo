@@ -29,204 +29,207 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Rol));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.dgvRoles = new System.Windows.Forms.DataGridView();
-            this.descripcionrol = new System.Windows.Forms.TextBox();
-            this.nombrerol = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.BtnNuevo = new System.Windows.Forms.Button();
-            this.BtnLimpiar = new System.Windows.Forms.Button();
-            this.BtnEditar = new System.Windows.Forms.Button();
-            this.BtnGuardar = new System.Windows.Forms.Button();
-            this.BtnEliminar = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            panel1 = new Panel();
+            dgvRoles = new DataGridView();
+            descripcionrol = new TextBox();
+            nombrerol = new TextBox();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            BtnNuevo = new Button();
+            BtnLimpiar = new Button();
+            BtnEliminar = new Button();
+            BtnEditar = new Button();
+            BtnGuardar = new Button();
+            panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.dgvRoles);
-            this.panel1.Controls.Add(this.descripcionrol);
-            this.panel1.Controls.Add(this.nombrerol);
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.BtnNuevo);
-            this.panel1.Controls.Add(this.BtnLimpiar);
-            this.panel1.Controls.Add(this.BtnEliminar);
-            this.panel1.Controls.Add(this.BtnEditar);
-            this.panel1.Controls.Add(this.BtnGuardar);
-            this.panel1.Location = new System.Drawing.Point(-1, -1);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1026, 574);
-            this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(this.Rol_Load);
+            panel1.BackColor = Color.White;
+            panel1.Controls.Add(dgvRoles);
+            panel1.Controls.Add(descripcionrol);
+            panel1.Controls.Add(nombrerol);
+            panel1.Controls.Add(label4);
+            panel1.Controls.Add(label3);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(BtnNuevo);
+            panel1.Controls.Add(BtnLimpiar);
+            panel1.Controls.Add(BtnEliminar);
+            panel1.Controls.Add(BtnEditar);
+            panel1.Controls.Add(BtnGuardar);
+            panel1.Location = new Point(-1, -1);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(898, 538);
+            panel1.TabIndex = 0;
+            panel1.Click += Rol_Load;
             // 
             // dgvRoles
             // 
-            this.dgvRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRoles.Location = new System.Drawing.Point(65, 331);
-            this.dgvRoles.Name = "dgvRoles";
-            this.dgvRoles.RowHeadersWidth = 51;
-            this.dgvRoles.RowTemplate.Height = 24;
-            this.dgvRoles.Size = new System.Drawing.Size(463, 195);
-            this.dgvRoles.TabIndex = 28;
+            dgvRoles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvRoles.Location = new Point(57, 310);
+            dgvRoles.Name = "dgvRoles";
+            dgvRoles.RowHeadersWidth = 51;
+            dgvRoles.RowTemplate.Height = 24;
+            dgvRoles.Size = new Size(405, 183);
+            dgvRoles.TabIndex = 28;
             // 
             // descripcionrol
             // 
-            this.descripcionrol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.descripcionrol.Font = new System.Drawing.Font("Bell MT", 9F);
-            this.descripcionrol.Location = new System.Drawing.Point(224, 190);
-            this.descripcionrol.Multiline = true;
-            this.descripcionrol.Name = "descripcionrol";
-            this.descripcionrol.Size = new System.Drawing.Size(333, 109);
-            this.descripcionrol.TabIndex = 27;
-            this.descripcionrol.Text = "Ingrese descripcion de rol";
+            descripcionrol.BorderStyle = BorderStyle.FixedSingle;
+            descripcionrol.Font = new Font("Bell MT", 9F);
+            descripcionrol.Location = new Point(196, 178);
+            descripcionrol.Multiline = true;
+            descripcionrol.Name = "descripcionrol";
+            descripcionrol.Size = new Size(292, 102);
+            descripcionrol.TabIndex = 27;
+            descripcionrol.Text = "Ingrese descripcion de rol";
             // 
             // nombrerol
             // 
-            this.nombrerol.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.nombrerol.Font = new System.Drawing.Font("Bell MT", 9F);
-            this.nombrerol.Location = new System.Drawing.Point(224, 129);
-            this.nombrerol.Name = "nombrerol";
-            this.nombrerol.Size = new System.Drawing.Size(192, 24);
-            this.nombrerol.TabIndex = 26;
-            this.nombrerol.Text = "Ingrese el rol";
+            nombrerol.BorderStyle = BorderStyle.FixedSingle;
+            nombrerol.Font = new Font("Bell MT", 9F);
+            nombrerol.Location = new Point(196, 121);
+            nombrerol.Name = "nombrerol";
+            nombrerol.Size = new Size(168, 21);
+            nombrerol.TabIndex = 26;
+            nombrerol.Text = "Ingrese el rol";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(13, 188);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(176, 24);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Descripcion de rol:";
+            label4.AutoSize = true;
+            label4.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            label4.Location = new Point(11, 176);
+            label4.Name = "label4";
+            label4.Size = new Size(144, 19);
+            label4.TabIndex = 25;
+            label4.Text = "Descripcion de rol:";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(13, 129);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 24);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "Nombre de rol:";
+            label3.AutoSize = true;
+            label3.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            label3.Location = new Point(11, 121);
+            label3.Name = "label3";
+            label3.Size = new Size(117, 19);
+            label3.TabIndex = 24;
+            label3.Text = "Nombre de rol:";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(13, 86);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 24);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Datos de rol";
+            label2.AutoSize = true;
+            label2.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            label2.Location = new Point(11, 81);
+            label2.Name = "label2";
+            label2.Size = new Size(97, 19);
+            label2.TabIndex = 23;
+            label2.Text = "Datos de rol";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(13, 17);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(46, 52);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.BackgroundImageLayout = ImageLayout.Center;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(11, 16);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(40, 49);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 22;
+            pictureBox1.TabStop = false;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift Condensed", 20.25F);
-            this.label1.Location = new System.Drawing.Point(58, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 41);
-            this.label1.TabIndex = 21;
-            this.label1.Text = "Roles";
+            label1.AutoSize = true;
+            label1.Font = new Font("Bahnschrift Condensed", 20.25F);
+            label1.Location = new Point(51, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(63, 33);
+            label1.TabIndex = 21;
+            label1.Text = "Roles";
             // 
             // BtnNuevo
             // 
-            this.BtnNuevo.BackColor = System.Drawing.Color.Transparent;
-            this.BtnNuevo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnNuevo.BackgroundImage")));
-            this.BtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnNuevo.Location = new System.Drawing.Point(920, 305);
-            this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(66, 67);
-            this.BtnNuevo.TabIndex = 20;
-            this.BtnNuevo.UseVisualStyleBackColor = false;
-            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
+            BtnNuevo.BackColor = Color.Transparent;
+            BtnNuevo.BackgroundImage = (Image)resources.GetObject("BtnNuevo.BackgroundImage");
+            BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNuevo.Location = new Point(805, 286);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(58, 63);
+            BtnNuevo.TabIndex = 20;
+            BtnNuevo.UseVisualStyleBackColor = false;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
             // BtnLimpiar
             // 
-            this.BtnLimpiar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnLimpiar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnLimpiar.BackgroundImage")));
-            this.BtnLimpiar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnLimpiar.Location = new System.Drawing.Point(920, 232);
-            this.BtnLimpiar.Name = "BtnLimpiar";
-            this.BtnLimpiar.Size = new System.Drawing.Size(66, 67);
-            this.BtnLimpiar.TabIndex = 19;
-            this.BtnLimpiar.UseVisualStyleBackColor = false;
-            this.BtnLimpiar.Click += new System.EventHandler(this.BtnLimpiar_Click);
-            // 
-            // BtnEditar
-            // 
-            this.BtnEditar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnEditar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnEditar.BackgroundImage")));
-            this.BtnEditar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnEditar.Location = new System.Drawing.Point(920, 86);
-            this.BtnEditar.Name = "BtnEditar";
-            this.BtnEditar.Size = new System.Drawing.Size(66, 67);
-            this.BtnEditar.TabIndex = 17;
-            this.BtnEditar.UseVisualStyleBackColor = false;
-            this.BtnEditar.Click += new System.EventHandler(this.BtnEditar_Click);
-            // 
-            // BtnGuardar
-            // 
-            this.BtnGuardar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnGuardar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnGuardar.BackgroundImage")));
-            this.BtnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnGuardar.Location = new System.Drawing.Point(920, 13);
-            this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(66, 67);
-            this.BtnGuardar.TabIndex = 16;
-            this.BtnGuardar.UseVisualStyleBackColor = false;
-            this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            BtnLimpiar.BackColor = Color.Transparent;
+            BtnLimpiar.BackgroundImage = (Image)resources.GetObject("BtnLimpiar.BackgroundImage");
+            BtnLimpiar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnLimpiar.Location = new Point(805, 218);
+            BtnLimpiar.Name = "BtnLimpiar";
+            BtnLimpiar.Size = new Size(58, 63);
+            BtnLimpiar.TabIndex = 19;
+            BtnLimpiar.UseVisualStyleBackColor = false;
+            BtnLimpiar.Click += BtnLimpiar_Click;
             // 
             // BtnEliminar
             // 
-            this.BtnEliminar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnEliminar.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnEliminar.BackgroundImage")));
-            this.BtnEliminar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.BtnEliminar.Location = new System.Drawing.Point(920, 159);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(66, 67);
-            this.BtnEliminar.TabIndex = 18;
-            this.BtnEliminar.UseVisualStyleBackColor = false;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
+            BtnEliminar.BackColor = Color.Transparent;
+            BtnEliminar.BackgroundImage = (Image)resources.GetObject("BtnEliminar.BackgroundImage");
+            BtnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEliminar.Location = new Point(805, 149);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(58, 63);
+            BtnEliminar.TabIndex = 18;
+            BtnEliminar.UseVisualStyleBackColor = false;
+            BtnEliminar.Click += BtnEliminar_Click;
+            // 
+            // BtnEditar
+            // 
+            BtnEditar.BackColor = Color.Transparent;
+            BtnEditar.BackgroundImage = (Image)resources.GetObject("BtnEditar.BackgroundImage");
+            BtnEditar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEditar.Location = new Point(805, 81);
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Size = new Size(58, 63);
+            BtnEditar.TabIndex = 17;
+            BtnEditar.UseVisualStyleBackColor = false;
+            BtnEditar.Click += BtnEditar_Click;
+            // 
+            // BtnGuardar
+            // 
+            BtnGuardar.BackColor = Color.Transparent;
+            BtnGuardar.BackgroundImage = (Image)resources.GetObject("BtnGuardar.BackgroundImage");
+            BtnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnGuardar.Location = new Point(805, 12);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(58, 63);
+            BtnGuardar.TabIndex = 16;
+            BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click;
             // 
             // Rol
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1023, 573);
-            this.Controls.Add(this.panel1);
-            this.Name = "Rol";
-            this.Text = "Rol";
-            this.Load += new System.EventHandler(this.Rol_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(895, 537);
+            Controls.Add(panel1);
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "Rol";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Rol";
+            Load += Rol_Load;
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvRoles).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ResumeLayout(false);
 
         }
 

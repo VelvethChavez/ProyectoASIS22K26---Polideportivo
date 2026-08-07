@@ -100,6 +100,7 @@
             btnSeguridad.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnSeguridad.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnSeguridad.BackColor = Color.RoyalBlue;
+            btnSeguridad.Cursor = Cursors.Hand;
             btnSeguridad.FlatAppearance.MouseDownBackColor = Color.Black;
             btnSeguridad.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             btnSeguridad.ForeColor = SystemColors.ControlLightLight;
@@ -117,6 +118,7 @@
             btnAdministracion.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnAdministracion.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnAdministracion.BackColor = Color.RoyalBlue;
+            btnAdministracion.Cursor = Cursors.Hand;
             btnAdministracion.FlatAppearance.MouseDownBackColor = Color.Black;
             btnAdministracion.Font = new Font("Microsoft Sans Serif", 12F);
             btnAdministracion.ForeColor = SystemColors.ControlLightLight;
@@ -134,6 +136,7 @@
             btnReglas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnReglas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnReglas.BackColor = Color.RoyalBlue;
+            btnReglas.Cursor = Cursors.Hand;
             btnReglas.FlatAppearance.MouseDownBackColor = Color.Black;
             btnReglas.Font = new Font("Microsoft Sans Serif", 12F);
             btnReglas.ForeColor = SystemColors.ControlLightLight;
@@ -151,6 +154,7 @@
             btnCompetencias.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnCompetencias.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnCompetencias.BackColor = Color.RoyalBlue;
+            btnCompetencias.Cursor = Cursors.Hand;
             btnCompetencias.FlatAppearance.MouseDownBackColor = Color.Black;
             btnCompetencias.Font = new Font("Microsoft Sans Serif", 12F);
             btnCompetencias.ForeColor = SystemColors.ControlLightLight;
@@ -161,12 +165,14 @@
             btnCompetencias.TabIndex = 10;
             btnCompetencias.Text = "Competencias";
             btnCompetencias.UseVisualStyleBackColor = false;
+            btnCompetencias.Click += btnCompetencias_Click;
             // 
             // btnRRHH
             // 
             btnRRHH.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnRRHH.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnRRHH.BackColor = Color.RoyalBlue;
+            btnRRHH.Cursor = Cursors.Hand;
             btnRRHH.FlatAppearance.MouseDownBackColor = Color.Black;
             btnRRHH.Font = new Font("Microsoft Sans Serif", 12F);
             btnRRHH.ForeColor = SystemColors.ControlLightLight;
@@ -177,12 +183,14 @@
             btnRRHH.TabIndex = 13;
             btnRRHH.Text = "Recursos Humanos";
             btnRRHH.UseVisualStyleBackColor = false;
+            btnRRHH.Click += btnRRHH_Click;
             // 
             // btnEstadisticas
             // 
             btnEstadisticas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnEstadisticas.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEstadisticas.BackColor = Color.RoyalBlue;
+            btnEstadisticas.Cursor = Cursors.Hand;
             btnEstadisticas.FlatAppearance.MouseDownBackColor = Color.Black;
             btnEstadisticas.Font = new Font("Microsoft Sans Serif", 12F);
             btnEstadisticas.ForeColor = SystemColors.ControlLightLight;
@@ -193,12 +201,14 @@
             btnEstadisticas.TabIndex = 12;
             btnEstadisticas.Text = "Estadísticas";
             btnEstadisticas.UseVisualStyleBackColor = false;
+            btnEstadisticas.Click += btnEstadisticas_Click;
             // 
             // btnEquipos
             // 
             btnEquipos.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnEquipos.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnEquipos.BackColor = Color.RoyalBlue;
+            btnEquipos.Cursor = Cursors.Hand;
             btnEquipos.FlatAppearance.MouseDownBackColor = Color.Black;
             btnEquipos.Font = new Font("Microsoft Sans Serif", 12F);
             btnEquipos.ForeColor = SystemColors.ControlLightLight;
@@ -209,6 +219,7 @@
             btnEquipos.TabIndex = 11;
             btnEquipos.Text = "Equipos";
             btnEquipos.UseVisualStyleBackColor = false;
+            btnEquipos.Click += btnEquipos_Click;
             // 
             // pboxReportes
             // 
@@ -286,6 +297,7 @@
             btnReportes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             btnReportes.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btnReportes.BackColor = Color.RoyalBlue;
+            btnReportes.Cursor = Cursors.Hand;
             btnReportes.FlatAppearance.MouseDownBackColor = Color.Black;
             btnReportes.Font = new Font("Microsoft Sans Serif", 12F);
             btnReportes.ForeColor = SystemColors.ControlLightLight;
@@ -296,6 +308,7 @@
             btnReportes.TabIndex = 21;
             btnReportes.Text = "Reportes";
             btnReportes.UseVisualStyleBackColor = false;
+            btnReportes.Click += btnReportes_Click;
             // 
             // pictureBox1
             // 

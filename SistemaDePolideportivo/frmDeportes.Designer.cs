@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDeportes));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -39,8 +40,8 @@
             Descripcion = new RichTextBox();
             dataGridView1 = new DataGridView();
             panel1 = new Panel();
+            BtnRegresar = new Button();
             BtnNuevo = new Button();
-            button1 = new Button();
             label5 = new Label();
             label4 = new Label();
             pictureBox1 = new PictureBox();
@@ -158,7 +159,7 @@
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            dataGridView1.Location = new Point(58, 269);
+            dataGridView1.Location = new Point(94, 269);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
@@ -171,8 +172,8 @@
             // panel1
             // 
             panel1.BackColor = Color.White;
+            panel1.Controls.Add(BtnRegresar);
             panel1.Controls.Add(BtnNuevo);
-            panel1.Controls.Add(button1);
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label4);
             panel1.Controls.Add(pictureBox1);
@@ -189,6 +190,18 @@
             panel1.Size = new Size(694, 455);
             panel1.TabIndex = 14;
             // 
+            // BtnRegresar
+            // 
+            BtnRegresar.BackgroundImage = (Image)resources.GetObject("BtnRegresar.BackgroundImage");
+            BtnRegresar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRegresar.Cursor = Cursors.Hand;
+            BtnRegresar.Location = new Point(15, 381);
+            BtnRegresar.Name = "BtnRegresar";
+            BtnRegresar.Size = new Size(40, 38);
+            BtnRegresar.TabIndex = 19;
+            BtnRegresar.UseVisualStyleBackColor = true;
+            BtnRegresar.Click += BtnRegresar_Click;
+            // 
             // BtnNuevo
             // 
             BtnNuevo.BackgroundImage = Properties.Resources.nuevo;
@@ -199,16 +212,6 @@
             BtnNuevo.TabIndex = 18;
             BtnNuevo.UseVisualStyleBackColor = true;
             BtnNuevo.Click += BtnNuevo_Click_1;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(310, 26);
-            button1.Name = "button1";
-            button1.Size = new Size(221, 23);
-            button1.TabIndex = 17;
-            button1.Text = "dirigirse al tipo de campeonato";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // label5
             // 
@@ -293,7 +296,7 @@
         private Label label4;
         private Label label5;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
-        private Button button1;
         private Button BtnNuevo;
+        private Button BtnRegresar;
     }
 }

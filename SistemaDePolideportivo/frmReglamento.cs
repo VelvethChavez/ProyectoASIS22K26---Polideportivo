@@ -18,7 +18,7 @@ namespace ProyectoASIS22K26___Polideportivo
 
         private void frmReglamento_Load(object sender, EventArgs e)
         {
-            dgvReglas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+              dgvReglas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvReglas.MultiSelect = false;
             dgvReglas.ReadOnly = true;
 

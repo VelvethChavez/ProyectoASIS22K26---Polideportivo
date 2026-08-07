@@ -32,11 +32,21 @@ namespace SistemaDePolideportivo
         /* BOTON GUARDAR - REALIZADO POR VELVETH CHAVEZ */
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            // Validar que los campos requeridos no estén vacíos
+            // Validar campo Tipo de campeonato
             if (string.IsNullOrWhiteSpace(NomTipoCampeonato.Text) || NomTipoCampeonato.Text == "Ingrese el tipo de campeonato")
             {
-                MessageBox.Show("Por favor, ingrese el nombre del tipo de campeonato.",
-                                "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe completar el campo Tipo de campeonato.",
+                    "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NomTipoCampeonato.Focus();
+                return;
+            }
+
+            // Validar campo Descripción
+            if (string.IsNullOrWhiteSpace(Descripcion.Text) || Descripcion.Text == "Ingresa descripción")
+            {
+                MessageBox.Show("Debe completar el campo Descripción.",
+                    "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Descripcion.Focus();
                 return;
             }
 
@@ -45,23 +55,18 @@ namespace SistemaDePolideportivo
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
                     conexion.Open();
-
                     string sql = @"INSERT INTO Tipo_Campeonato
-                                   (nombre_tipoCampeonato, descripcion)
-                                   VALUES
-                                   (@nombre, @descripcion)";
-
+                (nombre_tipoCampeonato, descripcion)
+                VALUES
+                (@nombre, @descripcion)";
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
                     {
                         cmd.Parameters.AddWithValue("@nombre", NomTipoCampeonato.Text.Trim());
                         cmd.Parameters.AddWithValue("@descripcion", Descripcion.Text.Trim());
-
                         cmd.ExecuteNonQuery();
                     }
-
                     MessageBox.Show("Tipo de campeonato guardado correctamente.",
-                                    "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                        "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LimpiarCampos();
                     CargarDatos();
                 }
@@ -69,7 +74,7 @@ namespace SistemaDePolideportivo
             catch (Exception ex)
             {
                 MessageBox.Show("Error al guardar en la base de datos: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -106,15 +111,25 @@ namespace SistemaDePolideportivo
             if (idTipo == 0)
             {
                 MessageBox.Show("Por favor, seleccione un tipo de campeonato de la lista para editar.",
-                                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Validar que los campos no estén vacíos
-            if (string.IsNullOrWhiteSpace(NomTipoCampeonato.Text) || string.IsNullOrWhiteSpace(Descripcion.Text))
+            // Validar campo Tipo de campeonato
+            if (string.IsNullOrWhiteSpace(NomTipoCampeonato.Text))
             {
-                MessageBox.Show("Los campos de Nombre y Descripción no pueden estar vacíos.",
-                                "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Debe completar el campo Tipo de campeonato.",
+                    "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                NomTipoCampeonato.Focus();
+                return;
+            }
+
+            // Validar campo Descripción
+            if (string.IsNullOrWhiteSpace(Descripcion.Text))
+            {
+                MessageBox.Show("Debe completar el campo Descripción.",
+                    "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                Descripcion.Focus();
                 return;
             }
 
@@ -123,32 +138,27 @@ namespace SistemaDePolideportivo
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
                     conexion.Open();
-
-                    // Sentencia SQL para actualizar los campos basándose en el ID del tipo de campeonato
                     string sql = @"UPDATE Tipo_Campeonato 
-                           SET nombre_tipoCampeonato = @nombre, 
-                               descripcion = @descripcion 
-                           WHERE id_tipo = @id";
-
+                    SET nombre_tipoCampeonato = @nombre, 
+                    descripcion = @descripcion 
+                     WHERE id_tipo = @id";
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
                     {
                         cmd.Parameters.AddWithValue("@nombre", NomTipoCampeonato.Text.Trim());
                         cmd.Parameters.AddWithValue("@descripcion", Descripcion.Text.Trim());
                         cmd.Parameters.AddWithValue("@id", idTipo);
-
                         int filasAfectadas = cmd.ExecuteNonQuery();
-
                         if (filasAfectadas > 0)
                         {
                             MessageBox.Show("Tipo de campeonato actualizado correctamente.",
-                                            "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             LimpiarCampos();
-                            CargarDatos(); // Recargar la tabla con la información actualizada
+                            CargarDatos();
                         }
                         else
                         {
                             MessageBox.Show("No se pudo actualizar el registro.",
-                                            "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -156,7 +166,7 @@ namespace SistemaDePolideportivo
             catch (Exception ex)
             {
                 MessageBox.Show("Error al actualizar: " + ex.Message,
-                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -324,6 +334,13 @@ namespace SistemaDePolideportivo
 
             // Coloca el cursor directamente en el campo de texto del nombre
             NomTipoCampeonato.Focus();
+        }
+
+        private void BtnRegresar_Click(object sender, EventArgs e)
+        {
+            frmCampeonato nuevoForm = new frmCampeonato();
+            nuevoForm.Show();
+            this.Hide();
         }
     }
 }
