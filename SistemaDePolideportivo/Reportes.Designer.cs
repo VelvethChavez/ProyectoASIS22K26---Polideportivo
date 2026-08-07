@@ -34,10 +34,21 @@ namespace SistemaDePolideportivo
             cmbReportes = new ComboBox();
             BtnActualizar = new Button();
             BtnExportarPDF = new Button();
+            lblCampeonato = new Label();
+            cmbCampeonato = new ComboBox();
+            lblEstado = new Label();
+            cmbEstado = new ComboBox();
+            BtnFiltrar = new Button();
+            lblDesde = new Label();
+            dtpDesde = new DateTimePicker();
+            lblHasta = new Label();
+            dtpHasta = new DateTimePicker();
+            chkFiltrarFecha = new CheckBox();
+            lblBuscar = new Label();
+            txtBuscar = new TextBox();
             dataGridView1 = new DataGridView();
             lblResultados = new Label();
             panel1 = new Panel();
-            BtnMenu = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -104,6 +115,151 @@ namespace SistemaDePolideportivo
             BtnExportarPDF.UseVisualStyleBackColor = false;
             BtnExportarPDF.Click += BtnExportarPDF_Click;
             // 
+            // lblCampeonato
+            // 
+            lblCampeonato.AutoSize = true;
+            lblCampeonato.BackColor = Color.Transparent;
+            lblCampeonato.Font = new Font("Segoe UI", 8.5F);
+            lblCampeonato.ForeColor = Color.Black;
+            lblCampeonato.Location = new Point(15, 100);
+            lblCampeonato.Name = "lblCampeonato";
+            lblCampeonato.Size = new Size(79, 15);
+            lblCampeonato.TabIndex = 8;
+            lblCampeonato.Text = "Campeonato:";
+            lblCampeonato.Visible = false;
+            // 
+            // cmbCampeonato
+            // 
+            cmbCampeonato.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbCampeonato.Font = new Font("Segoe UI", 8.5F);
+            cmbCampeonato.FormattingEnabled = true;
+            cmbCampeonato.Location = new Point(95, 97);
+            cmbCampeonato.Name = "cmbCampeonato";
+            cmbCampeonato.Size = new Size(190, 21);
+            cmbCampeonato.TabIndex = 9;
+            cmbCampeonato.Visible = false;
+            // 
+            // lblEstado
+            // 
+            lblEstado.AutoSize = true;
+            lblEstado.BackColor = Color.Transparent;
+            lblEstado.Font = new Font("Segoe UI", 8.5F);
+            lblEstado.ForeColor = Color.Black;
+            lblEstado.Location = new Point(300, 100);
+            lblEstado.Name = "lblEstado";
+            lblEstado.Size = new Size(45, 15);
+            lblEstado.TabIndex = 10;
+            lblEstado.Text = "Estado:";
+            lblEstado.Visible = false;
+            // 
+            // cmbEstado
+            // 
+            cmbEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbEstado.Font = new Font("Segoe UI", 8.5F);
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Location = new Point(348, 97);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(130, 21);
+            cmbEstado.TabIndex = 11;
+            cmbEstado.Visible = false;
+            // 
+            // BtnFiltrar
+            // 
+            BtnFiltrar.BackColor = Color.SteelBlue;
+            BtnFiltrar.Cursor = Cursors.Hand;
+            BtnFiltrar.FlatStyle = FlatStyle.Flat;
+            BtnFiltrar.Font = new Font("Segoe UI", 8.5F, FontStyle.Bold);
+            BtnFiltrar.ForeColor = Color.White;
+            BtnFiltrar.Location = new Point(650, 96);
+            BtnFiltrar.Name = "BtnFiltrar";
+            BtnFiltrar.Size = new Size(125, 26);
+            BtnFiltrar.TabIndex = 12;
+            BtnFiltrar.Text = "Aplicar filtros";
+            BtnFiltrar.UseVisualStyleBackColor = false;
+            BtnFiltrar.Click += BtnFiltrar_Click;
+            // 
+            // lblDesde
+            // 
+            lblDesde.AutoSize = true;
+            lblDesde.BackColor = Color.Transparent;
+            lblDesde.Font = new Font("Segoe UI", 8.5F);
+            lblDesde.ForeColor = Color.Black;
+            lblDesde.Location = new Point(15, 132);
+            lblDesde.Name = "lblDesde";
+            lblDesde.Size = new Size(42, 15);
+            lblDesde.TabIndex = 13;
+            lblDesde.Text = "Desde:";
+            lblDesde.Visible = false;
+            // 
+            // dtpDesde
+            // 
+            dtpDesde.Font = new Font("Segoe UI", 8.5F);
+            dtpDesde.Format = DateTimePickerFormat.Short;
+            dtpDesde.Location = new Point(95, 128);
+            dtpDesde.Name = "dtpDesde";
+            dtpDesde.Size = new Size(110, 23);
+            dtpDesde.TabIndex = 14;
+            dtpDesde.Visible = false;
+            // 
+            // lblHasta
+            // 
+            lblHasta.AutoSize = true;
+            lblHasta.BackColor = Color.Transparent;
+            lblHasta.Font = new Font("Segoe UI", 8.5F);
+            lblHasta.ForeColor = Color.Black;
+            lblHasta.Location = new Point(220, 132);
+            lblHasta.Name = "lblHasta";
+            lblHasta.Size = new Size(40, 15);
+            lblHasta.TabIndex = 15;
+            lblHasta.Text = "Hasta:";
+            lblHasta.Visible = false;
+            // 
+            // dtpHasta
+            // 
+            dtpHasta.Font = new Font("Segoe UI", 8.5F);
+            dtpHasta.Format = DateTimePickerFormat.Short;
+            dtpHasta.Location = new Point(295, 128);
+            dtpHasta.Name = "dtpHasta";
+            dtpHasta.Size = new Size(110, 23);
+            dtpHasta.TabIndex = 16;
+            dtpHasta.Visible = false;
+            // 
+            // chkFiltrarFecha
+            // 
+            chkFiltrarFecha.AutoSize = true;
+            chkFiltrarFecha.BackColor = Color.Transparent;
+            chkFiltrarFecha.Font = new Font("Segoe UI", 8.5F);
+            chkFiltrarFecha.ForeColor = Color.Black;
+            chkFiltrarFecha.Location = new Point(420, 130);
+            chkFiltrarFecha.Name = "chkFiltrarFecha";
+            chkFiltrarFecha.Size = new Size(109, 19);
+            chkFiltrarFecha.TabIndex = 17;
+            chkFiltrarFecha.Text = "Filtrar por fecha";
+            chkFiltrarFecha.UseVisualStyleBackColor = false;
+            chkFiltrarFecha.Visible = false;
+            // 
+            // lblBuscar
+            // 
+            lblBuscar.AutoSize = true;
+            lblBuscar.BackColor = Color.Transparent;
+            lblBuscar.Font = new Font("Segoe UI", 8.5F);
+            lblBuscar.ForeColor = Color.Black;
+            lblBuscar.Location = new Point(15, 163);
+            lblBuscar.Name = "lblBuscar";
+            lblBuscar.Size = new Size(45, 15);
+            lblBuscar.TabIndex = 18;
+            lblBuscar.Text = "Buscar:";
+            // 
+            // txtBuscar
+            // 
+            txtBuscar.Font = new Font("Segoe UI", 8.5F);
+            txtBuscar.Location = new Point(95, 159);
+            txtBuscar.Name = "txtBuscar";
+            txtBuscar.PlaceholderText = "Escribe para filtrar la tabla...";
+            txtBuscar.Size = new Size(300, 23);
+            txtBuscar.TabIndex = 19;
+            txtBuscar.TextChanged += txtBuscar_TextChanged;
+            // 
             // dataGridView1
             // 
             dataGridView1.AllowUserToAddRows = false;
@@ -118,7 +274,7 @@ namespace SistemaDePolideportivo
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(15, 100);
+            dataGridView1.Location = new Point(15, 195);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
@@ -134,7 +290,7 @@ namespace SistemaDePolideportivo
             lblResultados.BackColor = Color.Transparent;
             lblResultados.Font = new Font("Segoe UI", 8.5F, FontStyle.Italic);
             lblResultados.ForeColor = Color.DimGray;
-            lblResultados.Location = new Point(15, 485);
+            lblResultados.Location = new Point(15, 580);
             lblResultados.Name = "lblResultados";
             lblResultados.Size = new Size(78, 15);
             lblResultados.TabIndex = 6;
@@ -143,9 +299,20 @@ namespace SistemaDePolideportivo
             // panel1
             // 
             panel1.BackColor = Color.White;
-            panel1.Controls.Add(BtnMenu);
             panel1.Controls.Add(lblResultados);
             panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(txtBuscar);
+            panel1.Controls.Add(lblBuscar);
+            panel1.Controls.Add(chkFiltrarFecha);
+            panel1.Controls.Add(dtpHasta);
+            panel1.Controls.Add(lblHasta);
+            panel1.Controls.Add(dtpDesde);
+            panel1.Controls.Add(lblDesde);
+            panel1.Controls.Add(BtnFiltrar);
+            panel1.Controls.Add(cmbEstado);
+            panel1.Controls.Add(lblEstado);
+            panel1.Controls.Add(cmbCampeonato);
+            panel1.Controls.Add(lblCampeonato);
             panel1.Controls.Add(BtnExportarPDF);
             panel1.Controls.Add(BtnActualizar);
             panel1.Controls.Add(cmbReportes);
@@ -153,33 +320,17 @@ namespace SistemaDePolideportivo
             panel1.Controls.Add(label1);
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(790, 515);
+            panel1.Size = new Size(790, 610);
             panel1.TabIndex = 7;
-            // 
-            // BtnMenu
-            // 
-            BtnMenu.BackgroundImage = Properties.Resources.Menu;
-            BtnMenu.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnMenu.Cursor = Cursors.Hand;
-            BtnMenu.Location = new Point(723, 13);
-            BtnMenu.Name = "BtnMenu";
-            BtnMenu.Size = new Size(52, 52);
-            BtnMenu.TabIndex = 7;
-            BtnMenu.UseVisualStyleBackColor = true;
-            BtnMenu.Click += BtnMenu_Click;
             // 
             // Reportes
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(790, 515);
+            ClientSize = new Size(790, 610);
             Controls.Add(panel1);
-            MaximizeBox = false;
-            MinimizeBox = false;
-            MinimumSize = new Size(700, 500);
+            MinimumSize = new Size(700, 595);
             Name = "Reportes";
-            ShowInTaskbar = false;
-            StartPosition = FormStartPosition.CenterScreen;
             Text = "Reportes";
             Load += Reportes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
@@ -195,9 +346,20 @@ namespace SistemaDePolideportivo
         private ComboBox cmbReportes;
         private Button BtnActualizar;
         private Button BtnExportarPDF;
+        private Label lblCampeonato;
+        private ComboBox cmbCampeonato;
+        private Label lblEstado;
+        private ComboBox cmbEstado;
+        private Button BtnFiltrar;
+        private Label lblDesde;
+        private DateTimePicker dtpDesde;
+        private Label lblHasta;
+        private DateTimePicker dtpHasta;
+        private CheckBox chkFiltrarFecha;
+        private Label lblBuscar;
+        private TextBox txtBuscar;
         private DataGridView dataGridView1;
         private Label lblResultados;
         private Panel panel1;
-        private Button BtnMenu;
     }
 }
