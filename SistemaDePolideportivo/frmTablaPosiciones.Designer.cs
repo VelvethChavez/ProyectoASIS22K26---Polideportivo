@@ -60,6 +60,7 @@
             txtCampeonato.Name = "txtCampeonato";
             txtCampeonato.Size = new Size(236, 27);
             txtCampeonato.TabIndex = 2;
+            txtCampeonato.Text = "ID CAMPEONATO";
             // 
             // frmTablaPosiciones
             // 
