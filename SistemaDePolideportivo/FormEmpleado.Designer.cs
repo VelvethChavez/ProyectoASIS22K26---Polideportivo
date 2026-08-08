@@ -64,7 +64,7 @@
             Titulo.ForeColor = Color.White;
             Titulo.Location = new Point(253, 9);
             Titulo.Name = "Titulo";
-            Titulo.Size = new Size(267, 32);
+            Titulo.Size = new Size(329, 41);
             Titulo.TabIndex = 0;
             Titulo.Text = "Gestión de empleados";
             Titulo.Click += label1_Click;
@@ -74,7 +74,7 @@
             Nombre.AutoSize = true;
             Nombre.Location = new Point(118, 89);
             Nombre.Name = "Nombre";
-            Nombre.Size = new Size(58, 15);
+            Nombre.Size = new Size(74, 20);
             Nombre.TabIndex = 1;
             Nombre.Text = "Nombres";
             // 
@@ -83,7 +83,7 @@
             Apellido.AutoSize = true;
             Apellido.Location = new Point(118, 125);
             Apellido.Name = "Apellido";
-            Apellido.Size = new Size(57, 15);
+            Apellido.Size = new Size(74, 20);
             Apellido.TabIndex = 2;
             Apellido.Text = "Apellidos";
             // 
@@ -92,7 +92,7 @@
             Teléfono.AutoSize = true;
             Teléfono.Location = new Point(118, 158);
             Teléfono.Name = "Teléfono";
-            Teléfono.Size = new Size(56, 15);
+            Teléfono.Size = new Size(70, 20);
             Teléfono.TabIndex = 3;
             Teléfono.Text = "Teléfono";
             // 
@@ -101,7 +101,7 @@
             Corrreo.AutoSize = true;
             Corrreo.Location = new Point(118, 191);
             Corrreo.Name = "Corrreo";
-            Corrreo.Size = new Size(45, 15);
+            Corrreo.Size = new Size(56, 20);
             Corrreo.TabIndex = 4;
             Corrreo.Text = "Correo";
             // 
@@ -110,7 +110,7 @@
             Puesto.AutoSize = true;
             Puesto.Location = new Point(118, 224);
             Puesto.Name = "Puesto";
-            Puesto.Size = new Size(45, 15);
+            Puesto.Size = new Size(57, 20);
             Puesto.TabIndex = 5;
             Puesto.Text = "Puesto";
             // 
@@ -119,7 +119,7 @@
             Estado.AutoSize = true;
             Estado.Location = new Point(118, 258);
             Estado.Name = "Estado";
-            Estado.Size = new Size(43, 15);
+            Estado.Size = new Size(56, 20);
             Estado.TabIndex = 6;
             Estado.Text = "Estado";
             // 
@@ -127,7 +127,7 @@
             // 
             txtNombres.Location = new Point(222, 89);
             txtNombres.Name = "txtNombres";
-            txtNombres.Size = new Size(332, 23);
+            txtNombres.Size = new Size(332, 27);
             txtNombres.TabIndex = 7;
             txtNombres.Text = "Ingrese los Nombres";
             txtNombres.TextChanged += txtNombres_TextChanged;
@@ -136,7 +136,7 @@
             // 
             txtApellidos.Location = new Point(222, 125);
             txtApellidos.Name = "txtApellidos";
-            txtApellidos.Size = new Size(332, 23);
+            txtApellidos.Size = new Size(332, 27);
             txtApellidos.TabIndex = 8;
             txtApellidos.Text = "Ingrese los apellidos";
             // 
@@ -144,7 +144,7 @@
             // 
             txtTelefono.Location = new Point(222, 158);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(332, 23);
+            txtTelefono.Size = new Size(332, 27);
             txtTelefono.TabIndex = 9;
             txtTelefono.Text = "Ingrese el telefono";
             // 
@@ -152,7 +152,7 @@
             // 
             txtCorreo.Location = new Point(222, 191);
             txtCorreo.Name = "txtCorreo";
-            txtCorreo.Size = new Size(332, 23);
+            txtCorreo.Size = new Size(332, 27);
             txtCorreo.TabIndex = 10;
             txtCorreo.Text = "Ingrese el correo";
             // 
@@ -162,7 +162,7 @@
             cmbPuesto.FormattingEnabled = true;
             cmbPuesto.Location = new Point(222, 224);
             cmbPuesto.Name = "cmbPuesto";
-            cmbPuesto.Size = new Size(332, 23);
+            cmbPuesto.Size = new Size(332, 28);
             cmbPuesto.TabIndex = 11;
             // 
             // chkEstado
@@ -173,7 +173,7 @@
             chkEstado.ForeColor = Color.Black;
             chkEstado.Location = new Point(222, 258);
             chkEstado.Name = "chkEstado";
-            chkEstado.Size = new Size(119, 19);
+            chkEstado.Size = new Size(149, 24);
             chkEstado.TabIndex = 12;
             chkEstado.Text = "Empleado Activo";
             chkEstado.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@
             Buscar.AutoSize = true;
             Buscar.Location = new Point(118, 394);
             Buscar.Name = "Buscar";
-            Buscar.Size = new Size(47, 15);
+            Buscar.Size = new Size(61, 20);
             Buscar.TabIndex = 19;
             Buscar.Text = "Buscar:";
             Buscar.Click += label1_Click_1;
@@ -285,7 +285,7 @@
             // 
             txtBuscar.Location = new Point(222, 394);
             txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(332, 23);
+            txtBuscar.Size = new Size(332, 27);
             txtBuscar.TabIndex = 20;
             // 
             // btnActualizar
@@ -315,7 +315,7 @@
             // 
             // FormEmpleado
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(838, 673);

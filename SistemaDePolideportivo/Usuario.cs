@@ -667,5 +667,10 @@ namespace SistemaDePolideportivo
                 );
             }
         }
+
+        private void estadousu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

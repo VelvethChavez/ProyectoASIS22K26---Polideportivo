@@ -56,9 +56,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Bahnschrift Condensed", 20.25F);
-            label1.Location = new Point(60, 23);
+            label1.Location = new Point(69, 31);
             label1.Name = "label1";
-            label1.Size = new Size(91, 33);
+            label1.Size = new Size(115, 41);
             label1.TabIndex = 0;
             label1.Text = "Usuarios";
             // 
@@ -66,9 +66,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label2.Location = new Point(11, 89);
+            label2.Location = new Point(13, 119);
             label2.Name = "label2";
-            label2.Size = new Size(130, 19);
+            label2.Size = new Size(159, 24);
             label2.TabIndex = 1;
             label2.Text = "Datos de usuario";
             // 
@@ -76,9 +76,9 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label3.Location = new Point(11, 126);
+            label3.Location = new Point(13, 168);
             label3.Name = "label3";
-            label3.Size = new Size(150, 19);
+            label3.Size = new Size(182, 24);
             label3.TabIndex = 2;
             label3.Text = "Nombre de usuario:";
             // 
@@ -86,9 +86,9 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label4.Location = new Point(10, 159);
+            label4.Location = new Point(11, 212);
             label4.Name = "label4";
-            label4.Size = new Size(95, 19);
+            label4.Size = new Size(115, 24);
             label4.TabIndex = 3;
             label4.Text = "Contraseña:";
             // 
@@ -96,9 +96,9 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label5.Location = new Point(10, 187);
+            label5.Location = new Point(11, 249);
             label5.Name = "label5";
-            label5.Size = new Size(63, 19);
+            label5.Size = new Size(76, 24);
             label5.TabIndex = 4;
             label5.Text = "Estado:";
             // 
@@ -106,9 +106,9 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label6.Location = new Point(11, 222);
+            label6.Location = new Point(13, 296);
             label6.Name = "label6";
-            label6.Size = new Size(37, 19);
+            label6.Size = new Size(46, 24);
             label6.TabIndex = 5;
             label6.Text = "Rol:";
             // 
@@ -116,9 +116,10 @@
             // 
             nombreusu.BorderStyle = BorderStyle.FixedSingle;
             nombreusu.Font = new Font("Bell MT", 9F);
-            nombreusu.Location = new Point(194, 126);
+            nombreusu.Location = new Point(222, 168);
+            nombreusu.Margin = new Padding(3, 4, 3, 4);
             nombreusu.Name = "nombreusu";
-            nombreusu.Size = new Size(168, 21);
+            nombreusu.Size = new Size(192, 24);
             nombreusu.TabIndex = 7;
             nombreusu.Text = "Ingrese nombre de usuario";
             // 
@@ -126,9 +127,10 @@
             // 
             contrasenausu.BorderStyle = BorderStyle.FixedSingle;
             contrasenausu.Font = new Font("Bell MT", 9F);
-            contrasenausu.Location = new Point(194, 158);
+            contrasenausu.Location = new Point(222, 211);
+            contrasenausu.Margin = new Padding(3, 4, 3, 4);
             contrasenausu.Name = "contrasenausu";
-            contrasenausu.Size = new Size(168, 21);
+            contrasenausu.Size = new Size(192, 24);
             contrasenausu.TabIndex = 8;
             contrasenausu.Text = "Ingrese Contraseña";
             // 
@@ -136,19 +138,22 @@
             // 
             estadousu.FormattingEnabled = true;
             estadousu.Items.AddRange(new object[] { "Activo", "Inactivo" });
-            estadousu.Location = new Point(194, 187);
+            estadousu.Location = new Point(222, 249);
+            estadousu.Margin = new Padding(3, 4, 3, 4);
             estadousu.Name = "estadousu";
-            estadousu.Size = new Size(106, 23);
+            estadousu.Size = new Size(121, 28);
             estadousu.TabIndex = 11;
+            estadousu.SelectedIndexChanged += estadousu_SelectedIndexChanged;
             // 
             // dgvUsuarios
             // 
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvUsuarios.Location = new Point(15, 314);
+            dgvUsuarios.Location = new Point(17, 419);
+            dgvUsuarios.Margin = new Padding(3, 4, 3, 4);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.RowTemplate.Height = 24;
-            dgvUsuarios.Size = new Size(794, 172);
+            dgvUsuarios.Size = new Size(907, 229);
             dgvUsuarios.TabIndex = 13;
             // 
             // panel1
@@ -172,16 +177,18 @@
             panel1.Controls.Add(label5);
             panel1.Controls.Add(label6);
             panel1.Location = new Point(1, 1);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(920, 570);
+            panel1.Size = new Size(1051, 760);
             panel1.TabIndex = 14;
             // 
             // rolusu
             // 
             rolusu.FormattingEnabled = true;
-            rolusu.Location = new Point(194, 215);
+            rolusu.Location = new Point(222, 287);
+            rolusu.Margin = new Padding(3, 4, 3, 4);
             rolusu.Name = "rolusu";
-            rolusu.Size = new Size(106, 23);
+            rolusu.Size = new Size(121, 28);
             rolusu.TabIndex = 20;
             // 
             // BtnNuevo
@@ -189,9 +196,10 @@
             BtnNuevo.BackColor = Color.Transparent;
             BtnNuevo.BackgroundImage = (Image)resources.GetObject("BtnNuevo.BackgroundImage");
             BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnNuevo.Location = new Point(850, 297);
+            BtnNuevo.Location = new Point(971, 396);
+            BtnNuevo.Margin = new Padding(3, 4, 3, 4);
             BtnNuevo.Name = "BtnNuevo";
-            BtnNuevo.Size = new Size(58, 63);
+            BtnNuevo.Size = new Size(66, 84);
             BtnNuevo.TabIndex = 19;
             BtnNuevo.UseVisualStyleBackColor = false;
             BtnNuevo.Click += BtnNuevo_Click_1;
@@ -201,9 +209,10 @@
             BtnLimpiar.BackColor = Color.Transparent;
             BtnLimpiar.BackgroundImage = (Image)resources.GetObject("BtnLimpiar.BackgroundImage");
             BtnLimpiar.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnLimpiar.Location = new Point(850, 229);
+            BtnLimpiar.Location = new Point(971, 305);
+            BtnLimpiar.Margin = new Padding(3, 4, 3, 4);
             BtnLimpiar.Name = "BtnLimpiar";
-            BtnLimpiar.Size = new Size(58, 63);
+            BtnLimpiar.Size = new Size(66, 84);
             BtnLimpiar.TabIndex = 18;
             BtnLimpiar.UseVisualStyleBackColor = false;
             BtnLimpiar.Click += BtnLimpiar_Click_1;
@@ -213,9 +222,10 @@
             BtnEliminar.BackColor = Color.Transparent;
             BtnEliminar.BackgroundImage = (Image)resources.GetObject("BtnEliminar.BackgroundImage");
             BtnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnEliminar.Location = new Point(850, 160);
+            BtnEliminar.Location = new Point(971, 213);
+            BtnEliminar.Margin = new Padding(3, 4, 3, 4);
             BtnEliminar.Name = "BtnEliminar";
-            BtnEliminar.Size = new Size(58, 63);
+            BtnEliminar.Size = new Size(66, 84);
             BtnEliminar.TabIndex = 17;
             BtnEliminar.UseVisualStyleBackColor = false;
             BtnEliminar.Click += BtnEliminar_Click_1;
@@ -225,9 +235,10 @@
             BtnEditar.BackColor = Color.Transparent;
             BtnEditar.BackgroundImage = (Image)resources.GetObject("BtnEditar.BackgroundImage");
             BtnEditar.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnEditar.Location = new Point(850, 92);
+            BtnEditar.Location = new Point(971, 123);
+            BtnEditar.Margin = new Padding(3, 4, 3, 4);
             BtnEditar.Name = "BtnEditar";
-            BtnEditar.Size = new Size(58, 63);
+            BtnEditar.Size = new Size(66, 84);
             BtnEditar.TabIndex = 16;
             BtnEditar.UseVisualStyleBackColor = false;
             BtnEditar.Click += BtnEditar_Click_1;
@@ -237,9 +248,10 @@
             BtnGuardar.BackColor = Color.Transparent;
             BtnGuardar.BackgroundImage = (Image)resources.GetObject("BtnGuardar.BackgroundImage");
             BtnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnGuardar.Location = new Point(850, 23);
+            BtnGuardar.Location = new Point(971, 31);
+            BtnGuardar.Margin = new Padding(3, 4, 3, 4);
             BtnGuardar.Name = "BtnGuardar";
-            BtnGuardar.Size = new Size(58, 63);
+            BtnGuardar.Size = new Size(66, 84);
             BtnGuardar.TabIndex = 15;
             BtnGuardar.UseVisualStyleBackColor = false;
             BtnGuardar.Click += BtnGuardar_Click_1;
@@ -249,19 +261,21 @@
             pictureBox1.BackColor = Color.Transparent;
             pictureBox1.BackgroundImageLayout = ImageLayout.Center;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(15, 23);
+            pictureBox1.Location = new Point(17, 31);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(40, 49);
+            pictureBox1.Size = new Size(46, 65);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 14;
             pictureBox1.TabStop = false;
             // 
             // usuario
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(920, 566);
+            ClientSize = new Size(1051, 755);
             Controls.Add(panel1);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "usuario";
