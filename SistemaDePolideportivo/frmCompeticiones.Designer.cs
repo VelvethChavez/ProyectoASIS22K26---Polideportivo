@@ -162,6 +162,7 @@
             button2.TabIndex = 24;
             button2.Text = "Tabla de Posiciones";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click_1;
             // 
             // button5
             // 
@@ -178,6 +179,7 @@
             button5.TabIndex = 23;
             button5.Text = "Registrar Resultados";
             button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
             // 
             // button6
             // 

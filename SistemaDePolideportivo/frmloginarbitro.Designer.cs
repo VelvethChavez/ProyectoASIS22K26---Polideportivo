@@ -1,0 +1,199 @@
+﻿namespace SistemaDePolideportivo
+{
+    partial class frmloginarbitro
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources =
+                new System.ComponentModel.ComponentResourceManager(
+                    typeof(frmloginarbitro));
+
+            label1 = new Label();
+            button1 = new Button();
+            label2 = new Label();
+            label3 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
+            button2 = new Button();
+
+            SuspendLayout();
+
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font(
+                "Arial Rounded MT Bold",
+                18F,
+                FontStyle.Regular,
+                GraphicsUnit.Point,
+                0);
+
+            label1.ForeColor = Color.DarkBlue;
+            label1.Location = new Point(137, 77);
+            label1.Name = "label1";
+            label1.Size = new Size(165, 28);
+            label1.TabIndex = 0;
+            label1.Text = "Login Arbitro";
+            label1.Click += label1_Click;
+
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.DarkBlue;
+            button1.Cursor = Cursors.Hand;
+            button1.Font = new Font(
+                "Arial Rounded MT Bold",
+                10F);
+
+            button1.ForeColor = SystemColors.ControlLightLight;
+            button1.Location = new Point(173, 328);
+            button1.Name = "button1";
+            button1.Size = new Size(104, 34);
+            button1.TabIndex = 1;
+            button1.Text = "Iniciar Sesión";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font(
+                "Arial Rounded MT Bold",
+                11.25F,
+                FontStyle.Regular,
+                GraphicsUnit.Point,
+                0);
+
+            label2.Location = new Point(57, 166);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 17);
+            label2.TabIndex = 3;
+            label2.Text = "Usuario:";
+            label2.Click += label2_Click;
+
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font(
+                "Arial Rounded MT Bold",
+                11.25F,
+                FontStyle.Regular,
+                GraphicsUnit.Point,
+                0);
+
+            label3.Location = new Point(57, 221);
+            label3.Name = "label3";
+            label3.Size = new Size(98, 17);
+            label3.TabIndex = 4;
+            label3.Text = "Contraseña:";
+
+            // 
+            // textBox1
+            // 
+            textBox1.Font = new Font(
+                "Arial Rounded MT Bold",
+                11.25F);
+
+            textBox1.Location = new Point(173, 166);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(168, 25);
+            textBox1.TabIndex = 5;
+
+            // 
+            // textBox2
+            // 
+            textBox2.Font = new Font(
+                "Arial Rounded MT Bold",
+                11.25F);
+
+            textBox2.Location = new Point(173, 220);
+            textBox2.Name = "textBox2";
+
+            // OCULTAR CONTRASEÑA
+            textBox2.PasswordChar = '*';
+
+            textBox2.Size = new Size(168, 25);
+            textBox2.TabIndex = 6;
+
+            // 
+            // button2
+            // 
+            button2.BackgroundImage =
+                (Image)resources.GetObject("button2.BackgroundImage");
+
+            button2.BackgroundImageLayout = ImageLayout.Zoom;
+            button2.Cursor = Cursors.Hand;
+            button2.Location = new Point(12, 12);
+            button2.Name = "button2";
+            button2.Size = new Size(43, 41);
+            button2.TabIndex = 7;
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+
+            // 
+            // frmloginarbitro
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(440, 424);
+
+            Controls.Add(button2);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(button1);
+            Controls.Add(label1);
+
+            MaximizeBox = false;
+            MinimizeBox = false;
+
+            Name = "frmloginarbitro";
+
+            StartPosition = FormStartPosition.CenterScreen;
+
+            Text = "Login Arbitro";
+
+            // Evento Load
+            Load += frmloginarbitro_Load;
+
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label label1;
+        private Button button1;
+        private Label label2;
+        private Label label3;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Button button2;
+    }
+}

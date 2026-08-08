@@ -82,5 +82,19 @@ namespace SistemaDePolideportivo
             this.Hide();
 
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            frmRegistrarResultado nuevoForm = new frmRegistrarResultado();
+            nuevoForm.Show();
+            this.Hide();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            frmTablaPosiciones nuevoForm = new frmTablaPosiciones();
+            nuevoForm.Show();
+            this.Hide();
+        }
     }
 }
