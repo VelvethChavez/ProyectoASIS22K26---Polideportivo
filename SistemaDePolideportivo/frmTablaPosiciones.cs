@@ -53,5 +53,15 @@ namespace SistemaDePolideportivo
             txtCampeonato.Clear();
             CargarPosiciones("%");
         }
+
+        private void btnRegresarMenuCompeticiones_Click(object sender, EventArgs e)
+        {
+            frmCompeticiones nuevoform =
+               new frmCompeticiones();
+
+            nuevoform.Show();
+
+            Hide();
+        }
     }
 }

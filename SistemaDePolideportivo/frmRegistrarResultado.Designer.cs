@@ -214,6 +214,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
             Controls.Add(txtPartido);
             Controls.Add(dgvResultados);
@@ -231,6 +232,8 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmRegistrarResultado";
             Text = "frmRegistrarResultado";
             Load += frmRegistrarResultado_Load;

@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTablaPosiciones));
             label1 = new Label();
             dgvPosiciones = new DataGridView();
             txtCampeonato = new TextBox();
+            btnRegresarMenuCompeticiones = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvPosiciones).BeginInit();
             SuspendLayout();
             // 
@@ -62,14 +64,31 @@
             txtCampeonato.TabIndex = 2;
             txtCampeonato.Text = "ID CAMPEONATO";
             // 
+            // btnRegresarMenuCompeticiones
+            // 
+            btnRegresarMenuCompeticiones.BackgroundImage = (Image)resources.GetObject("btnRegresarMenuCompeticiones.BackgroundImage");
+            btnRegresarMenuCompeticiones.BackgroundImageLayout = ImageLayout.Zoom;
+            btnRegresarMenuCompeticiones.Cursor = Cursors.Hand;
+            btnRegresarMenuCompeticiones.Location = new Point(722, 13);
+            btnRegresarMenuCompeticiones.Margin = new Padding(3, 4, 3, 4);
+            btnRegresarMenuCompeticiones.Name = "btnRegresarMenuCompeticiones";
+            btnRegresarMenuCompeticiones.Size = new Size(66, 63);
+            btnRegresarMenuCompeticiones.TabIndex = 36;
+            btnRegresarMenuCompeticiones.UseVisualStyleBackColor = true;
+            btnRegresarMenuCompeticiones.Click += btnRegresarMenuCompeticiones_Click;
+            // 
             // frmTablaPosiciones
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnRegresarMenuCompeticiones);
             Controls.Add(txtCampeonato);
             Controls.Add(dgvPosiciones);
             Controls.Add(label1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "frmTablaPosiciones";
             Text = "frmTablaPosiciones";
             Load += frmTablaPosiciones_Load;
@@ -83,5 +102,6 @@
         private Label label1;
         private DataGridView dgvPosiciones;
         private TextBox txtCampeonato;
+        private Button btnRegresarMenuCompeticiones;
     }
 }
