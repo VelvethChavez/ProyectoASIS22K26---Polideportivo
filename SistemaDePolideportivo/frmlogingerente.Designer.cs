@@ -2,30 +2,20 @@
 {
     partial class frmlogingerente
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary>
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
         #region Windows Form Designer generated code
 
-        /// <summary>
-        /// Required method for Designer support - do not modify
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmlogingerente));
@@ -71,22 +61,26 @@
             // 
             // textBox1
             // 
+            textBox1.Font = new Font("Arial Rounded MT Bold", 11.25F);
             textBox1.Location = new Point(170, 165);
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(170, 23);
+            textBox1.Size = new Size(170, 25);
             textBox1.TabIndex = 3;
             // 
             // textBox2
             // 
+            textBox2.Font = new Font("Arial Rounded MT Bold", 11.25F);
             textBox2.Location = new Point(170, 201);
             textBox2.Name = "textBox2";
-            textBox2.Size = new Size(170, 23);
+            textBox2.PasswordChar = '*';
+            textBox2.Size = new Size(170, 25);
             textBox2.TabIndex = 4;
             // 
             // button1
             // 
             button1.BackColor = Color.DarkBlue;
             button1.Cursor = Cursors.Hand;
+            button1.Font = new Font("Arial Rounded MT Bold", 11.25F);
             button1.ForeColor = Color.WhiteSmoke;
             button1.Location = new Point(132, 293);
             button1.Name = "button1";
@@ -100,6 +94,7 @@
             // 
             BtnRegresar.BackgroundImage = (Image)resources.GetObject("BtnRegresar.BackgroundImage");
             BtnRegresar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRegresar.Cursor = Cursors.Hand;
             BtnRegresar.Location = new Point(19, 22);
             BtnRegresar.Name = "BtnRegresar";
             BtnRegresar.Size = new Size(41, 39);
@@ -125,6 +120,7 @@
             Name = "frmlogingerente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login Gerente";
+            Load += frmlogingerente_Load;
             ResumeLayout(false);
             PerformLayout();
         }

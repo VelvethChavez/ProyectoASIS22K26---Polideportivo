@@ -329,8 +329,11 @@ namespace SistemaDePolideportivo
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(790, 610);
             Controls.Add(panel1);
+            MaximizeBox = false;
+            MinimizeBox = false;
             MinimumSize = new Size(700, 595);
             Name = "Reportes";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Reportes";
             Load += Reportes_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
