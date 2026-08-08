@@ -96,5 +96,10 @@ namespace SistemaDePolideportivo
             nuevoForm.Show();
             this.Hide();
         }
+
+        private void frmCompeticiones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

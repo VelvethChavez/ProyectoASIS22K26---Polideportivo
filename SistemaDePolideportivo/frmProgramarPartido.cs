@@ -1,4 +1,7 @@
-﻿using ProyectoASIS22K26___Polideportivo;
+﻿using MySql.Data.MySqlClient;
+using ProyectoASIS22K26___Polideportivo;
+using SistemaDePolideportivo;
+using SistemaDePolideportivo.Conexion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,265 +14,561 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-
     public partial class frmProgramarPartido : Form
     {
-        private const int ModoNuevo = 1;
-        private const int ModoActualizar = 2;
+        // ============================================================
+        // OBJETO DE LA CLASE CPartido
+        // ============================================================
+        private readonly CPartido partido = new CPartido();
 
-        private int _idPartido = 0;
-        private int _modoGuardado = 0;
+        // ID del partido seleccionado
+        private int idPartido = 0;
 
+
+        // ============================================================
+        // CONSTRUCTOR
+        // ============================================================
         public frmProgramarPartido()
         {
             InitializeComponent();
+
+            dataGridView1.CellClick += dataGridView1_CellClick;
         }
 
-        private void frmProgramarPartido_Load(object sender, EventArgs e)
+
+       
+
+
+        // ============================================================
+        // CONFIGURAR DATAGRIDVIEW
+        // ============================================================
+        private void ConfigurarGrid()
         {
-            CargarPartidos("%");
-            RestablecerVista();
+            dataGridView1.Enabled = true;
+            dataGridView1.ReadOnly = true;
+            dataGridView1.SelectionMode =
+                DataGridViewSelectionMode.FullRowSelect;
+
+            dataGridView1.MultiSelect = false;
+
+            dataGridView1.AllowUserToAddRows = false;
         }
 
-        private void CargarPartidos(string filtro)
-        {
-            dgvPartidos.DataSource = new CPartido().Listado_Partidos(filtro);
 
-            if (dgvPartidos.Columns.Count >= 9)
+        // ============================================================
+        // CARGAR COMBOBOX
+        // ============================================================
+        private void CargarComboBoxes()
+        {
+            try
             {
-                dgvPartidos.Columns[0].Width = 60;
-                dgvPartidos.Columns[0].HeaderText = "ID";
+                // ----------------------------------------------------
+                // JORNADA
+                // ----------------------------------------------------
+                DataTable jornadas = partido.Listado_Jornadas();
 
-                dgvPartidos.Columns[1].Width = 120;
-                dgvPartidos.Columns[1].HeaderText = "JORNADA";
+                comboBoxJornada.DataSource = jornadas;
+                comboBoxJornada.DisplayMember = "nombre_jornada";
+                comboBoxJornada.ValueMember = "id_jornada";
+                comboBoxJornada.SelectedIndex = -1;
 
-                dgvPartidos.Columns[2].Width = 130;
-                dgvPartidos.Columns[2].HeaderText = "LOCAL";
 
-                dgvPartidos.Columns[3].Width = 130;
-                dgvPartidos.Columns[3].HeaderText = "VISITANTE";
+                // ----------------------------------------------------
+                // EQUIPOS
+                // ----------------------------------------------------
+                DataTable equipos = partido.Listado_Equipos();
 
-                dgvPartidos.Columns[4].Width = 120;
-                dgvPartidos.Columns[4].HeaderText = "CAMPO";
+                comboBoxEquipoLocal.DataSource = equipos.Copy();
+                comboBoxEquipoLocal.DisplayMember = "nombre_equipo";
+                comboBoxEquipoLocal.ValueMember = "id_equipo";
+                comboBoxEquipoLocal.SelectedIndex = -1;
 
-                dgvPartidos.Columns[5].Width = 130;
-                dgvPartidos.Columns[5].HeaderText = "ÁRBITRO";
+                comboBoxEquipoVisitante.DataSource = equipos;
+                comboBoxEquipoVisitante.DisplayMember = "nombre_equipo";
+                comboBoxEquipoVisitante.ValueMember = "id_equipo";
+                comboBoxEquipoVisitante.SelectedIndex = -1;
 
-                dgvPartidos.Columns[6].Width = 90;
-                dgvPartidos.Columns[6].HeaderText = "FECHA";
 
-                dgvPartidos.Columns[7].Width = 80;
-                dgvPartidos.Columns[7].HeaderText = "HORA";
+                // ----------------------------------------------------
+                // CAMPOS
+                // ----------------------------------------------------
+                DataTable campos = partido.Listado_Campos();
 
-                dgvPartidos.Columns[8].Width = 100;
-                dgvPartidos.Columns[8].HeaderText = "ESTADO";
+                comboBoxCampo.DataSource = campos;
+                comboBoxCampo.DisplayMember = "nombre_campo";
+                comboBoxCampo.ValueMember = "id_campo";
+                comboBoxCampo.SelectedIndex = -1;
+
+
+                // ----------------------------------------------------
+                // ÁRBITROS
+                // ----------------------------------------------------
+                DataTable arbitros = partido.Listado_Arbitros();
+
+                comboBoxArbitro.DataSource = arbitros;
+                comboBoxArbitro.DisplayMember = "nombre_arbitro";
+                comboBoxArbitro.ValueMember = "id_arbitro";
+                comboBoxArbitro.SelectedIndex = -1;
+
+
+                // ----------------------------------------------------
+                // ESTADOS
+                // ----------------------------------------------------
+                DataTable estados = partido.Listado_Estados();
+
+                comboBoxEstado.DataSource = estados;
+                comboBoxEstado.DisplayMember = "nombre_estado";
+                comboBoxEstado.ValueMember = "id_estado_partido";
+                comboBoxEstado.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar los ComboBox: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
-        private void RestablecerVista()
+
+        // ============================================================
+        // CARGAR PARTIDOS
+        // ============================================================
+        private void CargarDatos()
         {
-            _idPartido = 0;
-            _modoGuardado = 0;
-
-            txtJornada.Clear();
-            txtEquipoLocal.Clear();
-            txtEquipoVisitante.Clear();
-            txtCampo.Clear();
-            txtArbitro.Clear();
-            txtEstado.Clear();
-            dtpFechaPartido.Value = DateTime.Now;
-            dtpHoraPartido.Value = DateTime.Now;
-
-            txtJornada.Enabled = false;
-            txtEquipoLocal.Enabled = false;
-            txtEquipoVisitante.Enabled = false;
-            txtCampo.Enabled = false;
-            txtArbitro.Enabled = false;
-            txtEstado.Enabled = false;
-            dtpFechaPartido.Enabled = false;
-            dtpHoraPartido.Enabled = false;
-
-            btnGuardar.Enabled = false;
-            btnNuevo.Enabled = true;
-            BtnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
-        }
-
-
-
-
-
-
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            RestablecerVista();
-        }
-
-        private void btnEliminar_Click_1(object sender, EventArgs e)
-        {
-            if (dgvPartidos.CurrentRow == null || dgvPartidos.CurrentRow.IsNewRow)
+            try
             {
-                MessageBox.Show("Seleccione un registro de la tabla.", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dataGridView1.DataSource =
+                    partido.Listado_Partidos("");
+            }
+
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Error al cargar los partidos: " + ex.Message,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
+        // ============================================================
+        // VALIDAR CAMPOS
+        // ============================================================
+        private bool ValidarCampos()
+        {
+            if (comboBoxJornada.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar una jornada.",
+                    "Campo requerido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                comboBoxJornada.Focus();
+                return false;
+            }
+
+
+            if (comboBoxEquipoLocal.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar el equipo local.",
+                    "Campo requerido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                comboBoxEquipoLocal.Focus();
+                return false;
+            }
+
+
+            if (comboBoxEquipoVisitante.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar el equipo visitante.",
+                    "Campo requerido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                comboBoxEquipoVisitante.Focus();
+                return false;
+            }
+
+
+            if (Convert.ToInt32(comboBoxEquipoLocal.SelectedValue) ==
+                Convert.ToInt32(comboBoxEquipoVisitante.SelectedValue))
+            {
+                MessageBox.Show(
+                    "El equipo local y visitante no pueden ser el mismo.",
+                    "Equipos inválidos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return false;
+            }
+
+
+            if (comboBoxCampo.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar un campo.",
+                    "Campo requerido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                comboBoxCampo.Focus();
+                return false;
+            }
+
+
+            if (comboBoxEstado.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Debe seleccionar un estado.",
+                    "Campo requerido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                comboBoxEstado.Focus();
+                return false;
+            }
+
+
+            return true;
+        }
+
+
+        // ============================================================
+        // SELECCIONAR PARTIDO DEL GRID
+        // ============================================================
+        private void dataGridView1_CellClick(
+            object sender,
+            DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
                 return;
-            }
 
-            int id = Convert.ToInt32(dgvPartidos.CurrentRow.Cells[0].Value);
-            string local = dgvPartidos.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
-            string visitante = dgvPartidos.CurrentRow.Cells[3].Value?.ToString() ?? string.Empty;
 
-            DialogResult confirmacion = MessageBox.Show(
-                $"¿Desea eliminar el partido \"{local} vs {visitante}\"?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
+            DataGridViewRow fila =
+                dataGridView1.Rows[e.RowIndex];
 
-            if (confirmacion != DialogResult.Yes) return;
 
-            string respuesta = new CPartido().Eliminar_Partido(id);
+            idPartido =
+                Convert.ToInt32(
+                    fila.Cells["id_partido"].Value);
 
-            if (respuesta == "OK")
+
+            // Fecha
+            dateTimePickerFecha.Value =
+                Convert.ToDateTime(
+                    fila.Cells["fecha_partido"].Value);
+
+
+            // Hora
+            TimeSpan hora =
+                (TimeSpan)fila.Cells["hora_partido"].Value;
+
+            dateTimePickerHora.Value =
+                DateTime.Today.Add(hora);
+
+
+            // Jornada
+            comboBoxJornada.SelectedValue =
+                Convert.ToInt32(
+                    fila.Cells["id_jornada"].Value);
+
+
+            // Equipo local
+            comboBoxEquipoLocal.SelectedValue =
+                Convert.ToInt32(
+                    fila.Cells["id_equipo_local"].Value);
+
+
+            // Equipo visitante
+            comboBoxEquipoVisitante.SelectedValue =
+                Convert.ToInt32(
+                    fila.Cells["id_equipo_visitante"].Value);
+
+
+            // Campo
+            comboBoxCampo.SelectedValue =
+                Convert.ToInt32(
+                    fila.Cells["id_campo"].Value);
+
+
+            // Árbitro
+            if (fila.Cells["id_arbitro"].Value != DBNull.Value)
             {
-                MessageBox.Show("El partido ha sido eliminado correctamente.", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarPartidos("%");
-                RestablecerVista();
+                comboBoxArbitro.SelectedValue =
+                    Convert.ToInt32(
+                        fila.Cells["id_arbitro"].Value);
             }
             else
             {
-                MessageBox.Show(respuesta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBoxArbitro.SelectedIndex = -1;
+            }
+
+
+            // Estado
+            comboBoxEstado.SelectedValue =
+                Convert.ToInt32(
+                    fila.Cells["id_estado_partido"].Value);
+        }
+
+
+
+
+        // ============================================================
+        // LIMPIAR
+        // ============================================================
+        private void LimpiarCampos()
+        {
+            idPartido = 0;
+
+
+            comboBoxJornada.SelectedIndex = -1;
+            comboBoxEquipoLocal.SelectedIndex = -1;
+            comboBoxEquipoVisitante.SelectedIndex = -1;
+            comboBoxCampo.SelectedIndex = -1;
+            comboBoxArbitro.SelectedIndex = -1;
+            comboBoxEstado.SelectedIndex = -1;
+
+
+            dateTimePickerFecha.Value =
+                DateTime.Today;
+
+            dateTimePickerHora.Value =
+                DateTime.Now;
+
+
+            if (dataGridView1.DataSource != null)
+            {
+                dataGridView1.ClearSelection();
             }
         }
+
+
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtJornada.Text))
-            {
-                MessageBox.Show("Ingrese el ID o Nombre de la Jornada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtJornada.Focus();
+            if (!ValidarCampos())
                 return;
+
+
+            int idJornada =
+                Convert.ToInt32(comboBoxJornada.SelectedValue);
+
+            int idLocal =
+                Convert.ToInt32(comboBoxEquipoLocal.SelectedValue);
+
+            int idVisitante =
+                Convert.ToInt32(comboBoxEquipoVisitante.SelectedValue);
+
+            int idCampo =
+                Convert.ToInt32(comboBoxCampo.SelectedValue);
+
+            int idEstado =
+                Convert.ToInt32(comboBoxEstado.SelectedValue);
+
+
+            int? idArbitro = null;
+
+            if (comboBoxArbitro.SelectedIndex != -1)
+            {
+                idArbitro =
+                    Convert.ToInt32(comboBoxArbitro.SelectedValue);
             }
 
-            if (string.IsNullOrWhiteSpace(txtEquipoLocal.Text))
-            {
-                MessageBox.Show("Ingrese el Equipo Local.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtEquipoLocal.Focus();
-                return;
-            }
 
-            if (string.IsNullOrWhiteSpace(txtEquipoVisitante.Text))
-            {
-                MessageBox.Show("Ingrese el Equipo Visitante.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtEquipoVisitante.Focus();
-                return;
-            }
+            string resultado = partido.Guardar_Partido(
+                1,
+                idJornada,
+                idLocal,
+                idVisitante,
+                idCampo,
+                idArbitro,
+                idEstado,
+                dateTimePickerFecha.Value,
+                dateTimePickerHora.Value.TimeOfDay);
 
-            if (_modoGuardado == 0)
-            {
-                _modoGuardado = ModoNuevo;
-            }
 
-            var partido = new CPartido();
-            string respuesta = partido.Guardar_Partido(
-                _modoGuardado,
-                txtJornada.Text.Trim(),
-                txtEquipoLocal.Text.Trim(),
-                txtEquipoVisitante.Text.Trim(),
-                txtCampo.Text.Trim(),
-                txtArbitro.Text.Trim(),
-                txtEstado.Text.Trim(),
-                dtpFechaPartido.Value,
-                dtpHoraPartido.Value.TimeOfDay,
-                _idPartido
-            );
-
-            if (respuesta == "OK")
+            if (resultado == "OK")
             {
-                MessageBox.Show("Partido guardado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarPartidos("%");
-                RestablecerVista();
+                MessageBox.Show(
+                    "Partido programado correctamente.",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                LimpiarCampos();
+                CargarDatos();
             }
             else
             {
-                MessageBox.Show("Error: " + respuesta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    resultado,
+                    "No se pudo guardar",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
             }
         }
 
-        private void btnNuevo_Click_1(object sender, EventArgs e)
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
-            _idPartido = 0;
-            _modoGuardado = ModoNuevo;
+            LimpiarCampos();
 
-            txtJornada.Clear();
-            txtEquipoLocal.Clear();
-            txtEquipoVisitante.Clear();
-            txtCampo.Clear();
-            txtArbitro.Clear();
-            txtEstado.Clear();
-            dtpFechaPartido.Value = DateTime.Now;
-            dtpHoraPartido.Value = DateTime.Now;
-
-            txtJornada.Enabled = true;
-            txtEquipoLocal.Enabled = true;
-            txtEquipoVisitante.Enabled = true;
-            txtCampo.Enabled = true;
-            txtArbitro.Enabled = true;
-            txtEstado.Enabled = true;
-            dtpFechaPartido.Enabled = true;
-            dtpHoraPartido.Enabled = true;
-
-            btnGuardar.Enabled = true;
-
-            txtJornada.Focus();
+            comboBoxJornada.Focus();
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvPartidos.CurrentRow == null || dgvPartidos.CurrentRow.IsNewRow)
+            if (idPartido == 0)
             {
-                MessageBox.Show("Seleccione un registro de la tabla.", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Seleccione un partido para editar.",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            _idPartido = Convert.ToInt32(dgvPartidos.CurrentRow.Cells[0].Value);
-            _modoGuardado = ModoActualizar;
 
-            txtJornada.Text = dgvPartidos.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
-            txtEquipoLocal.Text = dgvPartidos.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
-            txtEquipoVisitante.Text = dgvPartidos.CurrentRow.Cells[3].Value?.ToString() ?? string.Empty;
-            txtCampo.Text = dgvPartidos.CurrentRow.Cells[4].Value?.ToString() ?? string.Empty;
-            txtArbitro.Text = dgvPartidos.CurrentRow.Cells[5].Value?.ToString() ?? string.Empty;
+            if (!ValidarCampos())
+                return;
 
-            if (DateTime.TryParse(dgvPartidos.CurrentRow.Cells[6].Value?.ToString(), out DateTime fecha))
+
+            int idJornada =
+                Convert.ToInt32(comboBoxJornada.SelectedValue);
+
+            int idLocal =
+                Convert.ToInt32(comboBoxEquipoLocal.SelectedValue);
+
+            int idVisitante =
+                Convert.ToInt32(comboBoxEquipoVisitante.SelectedValue);
+
+            int idCampo =
+                Convert.ToInt32(comboBoxCampo.SelectedValue);
+
+            int idEstado =
+                Convert.ToInt32(comboBoxEstado.SelectedValue);
+
+
+            int? idArbitro = null;
+
+            if (comboBoxArbitro.SelectedIndex != -1)
             {
-                dtpFechaPartido.Value = fecha;
+                idArbitro =
+                    Convert.ToInt32(comboBoxArbitro.SelectedValue);
             }
 
-            if (TimeSpan.TryParse(dgvPartidos.CurrentRow.Cells[7].Value?.ToString(), out TimeSpan hora))
+
+            string resultado = partido.Guardar_Partido(
+                2,
+                idJornada,
+                idLocal,
+                idVisitante,
+                idCampo,
+                idArbitro,
+                idEstado,
+                dateTimePickerFecha.Value,
+                dateTimePickerHora.Value.TimeOfDay,
+                idPartido);
+
+
+            if (resultado == "OK")
             {
-                dtpHoraPartido.Value = DateTime.Today.Add(hora);
+                MessageBox.Show(
+                    "Partido actualizado correctamente.",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                LimpiarCampos();
+                CargarDatos();
+            }
+            else
+            {
+                MessageBox.Show(
+                    resultado,
+                    "No se pudo actualizar",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (idPartido == 0)
+            {
+                MessageBox.Show(
+                    "Seleccione un partido para eliminar.",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
             }
 
-            txtEstado.Text = dgvPartidos.CurrentRow.Cells[8].Value?.ToString() ?? string.Empty;
 
-            txtJornada.Enabled = true;
-            txtEquipoLocal.Enabled = true;
-            txtEquipoVisitante.Enabled = true;
-            txtCampo.Enabled = true;
-            txtArbitro.Enabled = true;
-            txtEstado.Enabled = true;
-            dtpFechaPartido.Enabled = true;
-            dtpHoraPartido.Enabled = true;
+            DialogResult respuesta =
+                MessageBox.Show(
+                    "¿Está seguro de que desea eliminar el partido seleccionado?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
 
-            btnGuardar.Enabled = true;
 
-            txtJornada.Focus();
+            if (respuesta != DialogResult.Yes)
+                return;
+
+
+            string resultado =
+                partido.Eliminar_Partido(idPartido);
+
+
+            if (resultado == "OK")
+            {
+                MessageBox.Show(
+                    "Partido eliminado correctamente.",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                LimpiarCampos();
+                CargarDatos();
+            }
+            else
+            {
+                MessageBox.Show(
+                    resultado,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
 
         private void BtnRegresarMenu_Click(object sender, EventArgs e)
         {
-            frmCompeticiones nuevoform = new frmCompeticiones();
-            nuevoform.Show();
-            Hide();
+            frmMenú nuevoForm = new frmMenú();
+
+            nuevoForm.Show();
+
+            this.Hide();
+        }
+
+        private void frmProgramarPartido_Load_1(object sender, EventArgs e)
+        {
+            ConfigurarGrid();
+
+            CargarComboBoxes();
+
+            CargarDatos();
         }
     }
 }
