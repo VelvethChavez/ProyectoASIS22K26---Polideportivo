@@ -265,6 +265,7 @@
             Name = "frmCompeticiones";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "frmCompeticiones";
+            Load += frmCompeticiones_Load;
             ResumeLayout(false);
             PerformLayout();
         }
