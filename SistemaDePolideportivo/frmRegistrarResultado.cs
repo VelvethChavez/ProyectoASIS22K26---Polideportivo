@@ -18,22 +18,104 @@ namespace SistemaDePolideportivo
         private int _idPartido = 0;
         private int _modoGuardado = 0;
 
+
+        // ============================================================
+        // CONSTRUCTOR
+        // ============================================================
         public frmRegistrarResultado()
         {
             InitializeComponent();
         }
 
+
+        // ============================================================
+        // LOAD
+        // ============================================================
         private void frmRegistrarResultado_Load(object sender, EventArgs e)
         {
+            CargarPartidos();
+            CargarEstados();
             CargarResultados("%");
+
             RestablecerVista();
         }
 
+
+        // ============================================================
+        // CARGAR PARTIDOS
+        // ============================================================
+        private void CargarPartidos()
+        {
+            DataTable tabla =
+                new CResultado().Listado_Partidos();
+
+            cmbPartido.DataSource = null;
+
+            if (tabla.Rows.Count > 0)
+            {
+                cmbPartido.DataSource = tabla;
+
+                cmbPartido.DisplayMember =
+                    "partido";
+
+                cmbPartido.ValueMember =
+                    "id_partido";
+
+                cmbPartido.SelectedIndex = -1;
+            }
+            else
+            {
+                MessageBox.Show(
+                    "No existen partidos registrados.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+
+        // ============================================================
+        // CARGAR ESTADOS
+        // ============================================================
+        private void CargarEstados()
+        {
+            DataTable tabla =
+                new CResultado().Listado_Estados();
+
+            cmbEstado.DataSource = null;
+
+            if (tabla.Rows.Count > 0)
+            {
+                cmbEstado.DataSource = tabla;
+
+                cmbEstado.DisplayMember =
+                    "nombre_estado";
+
+                cmbEstado.ValueMember =
+                    "id_estado_partido";
+
+                cmbEstado.SelectedIndex = -1;
+            }
+            else
+            {
+                MessageBox.Show(
+                    "No existen estados de partido registrados.",
+                    "Aviso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+            }
+        }
+
+
+        // ============================================================
+        // CARGAR RESULTADOS
+        // ============================================================
         private void CargarResultados(string filtro)
         {
-            dgvResultados.DataSource = new CResultado().Listado_Resultados(filtro);
+            dgvResultados.DataSource =
+                new CResultado().Listado_Resultados(filtro);
 
-            if (dgvResultados.Columns.Count >= 8)
+            if (dgvResultados.Columns.Count >= 9)
             {
                 dgvResultados.Columns[0].Width = 60;
                 dgvResultados.Columns[0].HeaderText = "ID";
@@ -58,157 +140,369 @@ namespace SistemaDePolideportivo
 
                 dgvResultados.Columns[7].Width = 90;
                 dgvResultados.Columns[7].HeaderText = "FECHA";
+
+                // Ocultamos el ID del estado.
+                dgvResultados.Columns[8].Visible = false;
             }
         }
 
+
+        // ============================================================
+        // RESTABLECER VISTA
+        // ============================================================
         private void RestablecerVista()
         {
             _idPartido = 0;
             _modoGuardado = 0;
 
-            txtPartido.Clear();
+            cmbPartido.SelectedIndex = -1;
+
             numMarcadorLocal.Value = 0;
             numMarcadorVisitante.Value = 0;
-            txtEstado.Text = "Finalizado";
 
-            txtPartido.Enabled = false;
+            cmbEstado.SelectedIndex = -1;
+
+            cmbPartido.Enabled = false;
             numMarcadorLocal.Enabled = false;
             numMarcadorVisitante.Enabled = false;
-            txtEstado.Enabled = false;
+            cmbEstado.Enabled = false;
 
             btnGuardar.Enabled = false;
+
             btnNuevo.Enabled = true;
             BtnEditar.Enabled = true;
             btnEliminar.Enabled = true;
         }
 
 
-
-
-
-        private void btnGuardar_Click(object sender, EventArgs e)
+        // ============================================================
+        // NUEVO
+        // ============================================================
+        private void btnNuevo_Click(object sender, EventArgs e)
         {
+            _idPartido = 0;
+            _modoGuardado = ModoNuevo;
+
+            cmbPartido.SelectedIndex = -1;
+
+            numMarcadorLocal.Value = 0;
+            numMarcadorVisitante.Value = 0;
+
+            cmbEstado.SelectedIndex = -1;
+
+            cmbPartido.Enabled = true;
+            numMarcadorLocal.Enabled = true;
+            numMarcadorVisitante.Enabled = true;
+            cmbEstado.Enabled = true;
+
+            btnGuardar.Enabled = true;
+
+            cmbPartido.Focus();
         }
+
+
+
+
+
+        // ============================================================
+        // ELIMINAR / RESTABLECER
+        // ============================================================
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvResultados.CurrentRow == null ||
+                dgvResultados.CurrentRow.IsNewRow)
+            {
+                MessageBox.Show(
+                    "Seleccione un resultado de la tabla.",
+                    "Aviso del Sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                return;
+            }
+
+
+            int id =
+                Convert.ToInt32(
+                    dgvResultados.CurrentRow.Cells[0].Value);
+
+
+            string local =
+                dgvResultados.CurrentRow.Cells[2]
+                    .Value?.ToString() ?? "";
+
+
+            string visitante =
+                dgvResultados.CurrentRow.Cells[4]
+                    .Value?.ToString() ?? "";
+
+
+            DialogResult confirmacion =
+                MessageBox.Show(
+                    "¿Desea eliminar el resultado del partido \"" +
+                    local +
+                    " vs " +
+                    visitante +
+                    "\" y volverlo a estado Programado?",
+                    "Confirmar eliminación",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question);
+
+
+            if (confirmacion != DialogResult.Yes)
+            {
+                return;
+            }
+
+
+            string respuesta =
+                new CResultado()
+                    .Eliminar_Resultado(id);
+
+
+            if (respuesta == "OK")
+            {
+                MessageBox.Show(
+                    "El resultado ha sido eliminado y el partido regresó a estado Programado.",
+                    "Aviso del Sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                CargarResultados("%");
+
+                RestablecerVista();
+            }
+            else
+            {
+                MessageBox.Show(
+                    respuesta,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+        }
+
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             RestablecerVista();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+
+
+        private void dgvResultados_CellContentClick(
+            object sender,
+            DataGridViewCellEventArgs e)
         {
-            if (dgvResultados.CurrentRow == null || dgvResultados.CurrentRow.IsNewRow)
-            {
-                MessageBox.Show("Seleccione un registro de la tabla.", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
+        }
 
-            int id = Convert.ToInt32(dgvResultados.CurrentRow.Cells[0].Value);
-            string local = dgvResultados.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
-            string visitante = dgvResultados.CurrentRow.Cells[4].Value?.ToString() ?? string.Empty;
 
-            DialogResult confirmacion = MessageBox.Show(
-                $"¿Desea eliminar el resultado del partido \"{local} vs {visitante}\" y volverlo a estado Programado?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Question);
 
-            if (confirmacion != DialogResult.Yes) return;
+        private void BtnRegresarMenuCompeticiones_Click(
+            object sender,
+            EventArgs e)
+        {
+            frmCompeticiones nuevoform =
+                new frmCompeticiones();
 
-            string respuesta = new CResultado().Eliminar_Resultado(id);
+            nuevoform.Show();
 
-            if (respuesta == "OK")
-            {
-                MessageBox.Show("El resultado ha sido eliminado y el partido regresó a estado Programado.", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CargarResultados("%");
-                RestablecerVista();
-            }
-            else
-            {
-                MessageBox.Show(respuesta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            Hide();
         }
 
         private void btnGuardar_Click_1(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txtPartido.Text))
+            if (cmbPartido.SelectedIndex == -1 ||
+                cmbPartido.SelectedValue == null)
             {
-                MessageBox.Show("Ingrese el ID o nombre del Partido.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtPartido.Focus();
+                MessageBox.Show(
+                    "Seleccione el partido.",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmbPartido.Focus();
                 return;
             }
 
-            var resultadoObj = new CResultado();
-            string respuesta = resultadoObj.Guardar_Resultado(
-                txtPartido.Text.Trim(),
-                Convert.ToInt32(numMarcadorLocal.Value),
-                Convert.ToInt32(numMarcadorVisitante.Value),
-                txtEstado.Text.Trim(),
-                _idPartido
-            );
+
+
+            if (cmbEstado.SelectedIndex == -1 ||
+                cmbEstado.SelectedValue == null)
+            {
+                MessageBox.Show(
+                    "Seleccione el estado del partido.",
+                    "Advertencia",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
+                cmbEstado.Focus();
+                return;
+            }
+
+
+            int idPartido;
+
+            int idEstado;
+
+            try
+            {
+                idPartido =
+                    Convert.ToInt32(
+                        cmbPartido.SelectedValue);
+
+                idEstado =
+                    Convert.ToInt32(
+                        cmbEstado.SelectedValue);
+            }
+            catch
+            {
+                MessageBox.Show(
+                    "No se pudieron obtener los datos seleccionados.",
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+
+                return;
+            }
+
+
+            int marcadorLocal =
+                Convert.ToInt32(
+                    numMarcadorLocal.Value);
+
+            int marcadorVisitante =
+                Convert.ToInt32(
+                    numMarcadorVisitante.Value);
+
+
+            CResultado resultado =
+                new CResultado();
+
+            string respuesta =
+                resultado.Guardar_Resultado(
+                    idPartido,
+                    marcadorLocal,
+                    marcadorVisitante,
+                    idEstado);
+
 
             if (respuesta == "OK")
             {
-                MessageBox.Show("Resultado registrado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(
+                    "Resultado registrado correctamente.",
+                    "Éxito",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
                 CargarResultados("%");
+
                 RestablecerVista();
             }
             else
             {
-                MessageBox.Show("Error: " + respuesta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(
+                    "Error: " + respuesta,
+                    "Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
             }
         }
 
         private void BtnEditar_Click_1(object sender, EventArgs e)
         {
-            if (dgvResultados.CurrentRow == null || dgvResultados.CurrentRow.IsNewRow)
+            if (dgvResultados.CurrentRow == null ||
+                dgvResultados.CurrentRow.IsNewRow)
             {
-                MessageBox.Show("Seleccione un registro de la tabla.", "Aviso del Sistema", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(
+                    "Seleccione un resultado de la tabla.",
+                    "Aviso del Sistema",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning);
+
                 return;
             }
 
-            _idPartido = Convert.ToInt32(dgvResultados.CurrentRow.Cells[0].Value);
+
+            // --------------------------------------------------------
+            // OBTENER ID DEL PARTIDO
+            // --------------------------------------------------------
+            _idPartido =
+                Convert.ToInt32(
+                    dgvResultados.CurrentRow.Cells[0].Value);
+
             _modoGuardado = ModoActualizar;
 
-            string local = dgvResultados.CurrentRow.Cells[2].Value?.ToString() ?? "";
-            string visitante = dgvResultados.CurrentRow.Cells[4].Value?.ToString() ?? "";
-            txtPartido.Text = $"{_idPartido} - {local} vs {visitante}";
 
-            if (int.TryParse(dgvResultados.CurrentRow.Cells[3].Value?.ToString(), out int marcL))
-                numMarcadorLocal.Value = marcL;
+            // --------------------------------------------------------
+            // SELECCIONAR PARTIDO EN COMBOBOX
+            // --------------------------------------------------------
+            cmbPartido.SelectedValue = _idPartido;
 
-            if (int.TryParse(dgvResultados.CurrentRow.Cells[5].Value?.ToString(), out int marcV))
-                numMarcadorVisitante.Value = marcV;
 
-            txtEstado.Text = dgvResultados.CurrentRow.Cells[6].Value?.ToString() ?? "Finalizado";
+            // --------------------------------------------------------
+            // MARCADOR LOCAL
+            // --------------------------------------------------------
+            if (int.TryParse(
+                dgvResultados.CurrentRow.Cells[3]
+                    .Value?.ToString(),
+                out int marcadorLocal))
+            {
+                numMarcadorLocal.Value =
+                    marcadorLocal;
+            }
 
-            txtPartido.Enabled = true;
+
+            // --------------------------------------------------------
+            // MARCADOR VISITANTE
+            // --------------------------------------------------------
+            if (int.TryParse(
+                dgvResultados.CurrentRow.Cells[5]
+                    .Value?.ToString(),
+                out int marcadorVisitante))
+            {
+                numMarcadorVisitante.Value =
+                    marcadorVisitante;
+            }
+
+
+            // --------------------------------------------------------
+            // ESTADO
+            // --------------------------------------------------------
+            if (dgvResultados.Columns.Count > 8 &&
+                dgvResultados.CurrentRow.Cells[8].Value != null)
+            {
+                int idEstado =
+                    Convert.ToInt32(
+                        dgvResultados.CurrentRow.Cells[8].Value);
+
+                cmbEstado.SelectedValue =
+                    idEstado;
+            }
+
+
+            // --------------------------------------------------------
+            // HABILITAR CONTROLES
+            // --------------------------------------------------------
+            cmbPartido.Enabled = true;
             numMarcadorLocal.Enabled = true;
             numMarcadorVisitante.Enabled = true;
-            txtEstado.Enabled = true;
+            cmbEstado.Enabled = true;
 
             btnGuardar.Enabled = true;
+
             numMarcadorLocal.Focus();
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void btnRegresarMenuCompeticiones_Click_1(object sender, EventArgs e)
         {
-            _idPartido = 0;
-            _modoGuardado = ModoNuevo;
+            frmCompeticiones nuevoform =
+                new frmCompeticiones();
 
-            txtPartido.Clear();
-            numMarcadorLocal.Value = 0;
-            numMarcadorVisitante.Value = 0;
-            txtEstado.Text = "Finalizado";
+            nuevoform.Show();
 
-            txtPartido.Enabled = true;
-            numMarcadorLocal.Enabled = true;
-            numMarcadorVisitante.Enabled = true;
-            txtEstado.Enabled = true;
-
-            btnGuardar.Enabled = true;
-            txtPartido.Focus();
+            Hide();
         }
     }
 }

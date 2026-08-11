@@ -172,7 +172,7 @@
             button5.FlatAppearance.MouseDownBackColor = Color.Black;
             button5.Font = new Font("Microsoft Sans Serif", 12F);
             button5.ForeColor = SystemColors.ControlLightLight;
-            button5.Location = new Point(244, 316);
+            button5.Location = new Point(255, 316);
             button5.Margin = new Padding(0);
             button5.Name = "button5";
             button5.Size = new Size(187, 59);

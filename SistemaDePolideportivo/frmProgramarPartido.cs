@@ -555,11 +555,10 @@ namespace SistemaDePolideportivo
 
         private void BtnRegresarMenu_Click(object sender, EventArgs e)
         {
-            frmMenú nuevoForm = new frmMenú();
+            frmCompeticiones nuevoform =
+                           new frmCompeticiones();
 
-            nuevoForm.Show();
-
-            this.Hide();
+            nuevoform.Show();
         }
 
         private void frmProgramarPartido_Load_1(object sender, EventArgs e)
