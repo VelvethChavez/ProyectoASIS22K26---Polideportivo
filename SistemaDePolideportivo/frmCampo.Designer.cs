@@ -36,14 +36,14 @@
             label4 = new Label();
             txtCapacidad = new TextBox();
             label5 = new Label();
-            txtTipoCampo = new TextBox();
-            txtEstado = new TextBox();
             dgvCampos = new DataGridView();
             btnNuevo = new Button();
             btnEliminar = new Button();
             BtnEditar = new Button();
             btnGuardar = new Button();
             BtnMenu = new Button();
+            cmbTipoCampo = new ComboBox();
+            txtUbicacion = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvCampos).BeginInit();
             SuspendLayout();
             // 
@@ -51,29 +51,27 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(168, 12);
+            label1.Location = new Point(192, 16);
             label1.Name = "label1";
-            label1.Size = new Size(345, 32);
+            label1.Size = new Size(432, 41);
             label1.TabIndex = 0;
             label1.Text = "Gestión de Campos Deportivos";
-            label1.Click += label1_Click;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(10, 47);
+            label2.Location = new Point(11, 63);
             label2.Name = "label2";
-            label2.Size = new Size(176, 25);
+            label2.Size = new Size(214, 31);
             label2.TabIndex = 1;
             label2.Text = "Nombre de Campo:";
             // 
             // txtNombreCampo
             // 
-            txtNombreCampo.Location = new Point(203, 52);
-            txtNombreCampo.Margin = new Padding(3, 2, 3, 2);
+            txtNombreCampo.Location = new Point(232, 69);
             txtNombreCampo.Name = "txtNombreCampo";
-            txtNombreCampo.Size = new Size(248, 23);
+            txtNombreCampo.Size = new Size(283, 27);
             txtNombreCampo.TabIndex = 2;
             txtNombreCampo.Text = "Cementos Progreso";
             // 
@@ -81,28 +79,27 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(10, 85);
+            label3.Location = new Point(11, 113);
             label3.Name = "label3";
-            label3.Size = new Size(173, 25);
+            label3.Size = new Size(121, 31);
             label3.TabIndex = 3;
-            label3.Text = "Deporte/Disciplina:";
+            label3.Text = "Ubicacion:";
             // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(10, 126);
+            label4.Location = new Point(11, 168);
             label4.Name = "label4";
-            label4.Size = new Size(105, 25);
+            label4.Size = new Size(128, 31);
             label4.TabIndex = 5;
             label4.Text = "Capacidad:";
             // 
             // txtCapacidad
             // 
-            txtCapacidad.Location = new Point(203, 129);
-            txtCapacidad.Margin = new Padding(3, 2, 3, 2);
+            txtCapacidad.Location = new Point(232, 172);
             txtCapacidad.Name = "txtCapacidad";
-            txtCapacidad.Size = new Size(248, 23);
+            txtCapacidad.Size = new Size(283, 27);
             txtCapacidad.TabIndex = 6;
             txtCapacidad.Text = "100";
             // 
@@ -110,47 +107,29 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(10, 158);
+            label5.Location = new Point(11, 211);
             label5.Name = "label5";
-            label5.Size = new Size(72, 25);
+            label5.Size = new Size(175, 31);
             label5.TabIndex = 7;
-            label5.Text = "Estado:";
-            // 
-            // txtTipoCampo
-            // 
-            txtTipoCampo.Location = new Point(203, 89);
-            txtTipoCampo.Margin = new Padding(3, 2, 3, 2);
-            txtTipoCampo.Name = "txtTipoCampo";
-            txtTipoCampo.Size = new Size(248, 23);
-            txtTipoCampo.TabIndex = 8;
-            txtTipoCampo.Text = "Futbol";
-            // 
-            // txtEstado
-            // 
-            txtEstado.Location = new Point(203, 162);
-            txtEstado.Margin = new Padding(3, 2, 3, 2);
-            txtEstado.Name = "txtEstado";
-            txtEstado.Size = new Size(248, 23);
-            txtEstado.TabIndex = 9;
-            txtEstado.Text = "Libre";
+            label5.Text = "Tipo de Campo:";
             // 
             // dgvCampos
             // 
             dgvCampos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCampos.Location = new Point(37, 202);
-            dgvCampos.Margin = new Padding(3, 2, 3, 2);
+            dgvCampos.Location = new Point(42, 269);
             dgvCampos.Name = "dgvCampos";
             dgvCampos.RowHeadersWidth = 51;
-            dgvCampos.Size = new Size(590, 126);
+            dgvCampos.Size = new Size(674, 168);
             dgvCampos.TabIndex = 10;
             // 
             // btnNuevo
             // 
             btnNuevo.BackgroundImage = Properties.Resources.nuevo;
             btnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            btnNuevo.Location = new Point(632, 186);
+            btnNuevo.Location = new Point(722, 248);
+            btnNuevo.Margin = new Padding(3, 4, 3, 4);
             btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(58, 47);
+            btnNuevo.Size = new Size(66, 63);
             btnNuevo.TabIndex = 26;
             btnNuevo.UseVisualStyleBackColor = true;
             btnNuevo.Click += btnNuevo_Click;
@@ -160,9 +139,10 @@
             btnEliminar.BackgroundImage = Properties.Resources.eliminar;
             btnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
             btnEliminar.Cursor = Cursors.Hand;
-            btnEliminar.Location = new Point(632, 124);
+            btnEliminar.Location = new Point(722, 165);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(58, 47);
+            btnEliminar.Size = new Size(66, 63);
             btnEliminar.TabIndex = 25;
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click_1;
@@ -172,9 +152,10 @@
             BtnEditar.BackgroundImage = Properties.Resources.editar;
             BtnEditar.BackgroundImageLayout = ImageLayout.Zoom;
             BtnEditar.Cursor = Cursors.Hand;
-            BtnEditar.Location = new Point(632, 69);
+            BtnEditar.Location = new Point(722, 92);
+            BtnEditar.Margin = new Padding(3, 4, 3, 4);
             BtnEditar.Name = "BtnEditar";
-            BtnEditar.Size = new Size(58, 47);
+            BtnEditar.Size = new Size(66, 63);
             BtnEditar.TabIndex = 24;
             BtnEditar.UseVisualStyleBackColor = true;
             BtnEditar.Click += BtnEditar_Click;
@@ -188,9 +169,10 @@
             btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = SystemColors.ActiveCaptionText;
             btnGuardar.ImageAlign = ContentAlignment.TopCenter;
-            btnGuardar.Location = new Point(632, 8);
+            btnGuardar.Location = new Point(722, 11);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(58, 50);
+            btnGuardar.Size = new Size(66, 67);
             btnGuardar.TabIndex = 23;
             btnGuardar.UseVisualStyleBackColor = false;
             btnGuardar.Click += btnGuardar_Click;
@@ -199,27 +181,45 @@
             // 
             BtnMenu.BackgroundImage = (Image)resources.GetObject("BtnMenu.BackgroundImage");
             BtnMenu.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnMenu.Location = new Point(12, 3);
+            BtnMenu.Location = new Point(14, 4);
+            BtnMenu.Margin = new Padding(3, 4, 3, 4);
             BtnMenu.Name = "BtnMenu";
-            BtnMenu.Size = new Size(41, 41);
+            BtnMenu.Size = new Size(47, 55);
             BtnMenu.TabIndex = 27;
             BtnMenu.UseVisualStyleBackColor = true;
             BtnMenu.Click += BtnMenu_Click;
             // 
+            // cmbTipoCampo
+            // 
+            cmbTipoCampo.FormattingEnabled = true;
+            cmbTipoCampo.Location = new Point(232, 226);
+            cmbTipoCampo.Name = "cmbTipoCampo";
+            cmbTipoCampo.Size = new Size(283, 28);
+            cmbTipoCampo.TabIndex = 28;
+            cmbTipoCampo.Text = "Cancha Sintentica";
+            // 
+            // txtUbicacion
+            // 
+            txtUbicacion.Location = new Point(232, 119);
+            txtUbicacion.Name = "txtUbicacion";
+            txtUbicacion.Size = new Size(283, 27);
+            txtUbicacion.TabIndex = 29;
+            txtUbicacion.Text = "Cancha 1";
+            // 
             // frmCampo
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
-            ClientSize = new Size(700, 338);
+            ClientSize = new Size(800, 451);
+            Controls.Add(txtUbicacion);
+            Controls.Add(cmbTipoCampo);
             Controls.Add(BtnMenu);
             Controls.Add(btnNuevo);
             Controls.Add(btnEliminar);
             Controls.Add(BtnEditar);
             Controls.Add(btnGuardar);
             Controls.Add(dgvCampos);
-            Controls.Add(txtEstado);
-            Controls.Add(txtTipoCampo);
             Controls.Add(label5);
             Controls.Add(txtCapacidad);
             Controls.Add(label4);
@@ -227,7 +227,6 @@
             Controls.Add(txtNombreCampo);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "frmCampo";
@@ -248,13 +247,13 @@
         private Label label4;
         private TextBox txtCapacidad;
         private Label label5;
-        private TextBox txtTipoCampo;
-        private TextBox txtEstado;
         private DataGridView dgvCampos;
         private Button btnNuevo;
         private Button btnEliminar;
         private Button BtnEditar;
         private Button btnGuardar;
         private Button BtnMenu;
+        private ComboBox cmbTipoCampo;
+        private TextBox txtUbicacion;
     }
 }

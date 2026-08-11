@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistrarResultado));
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -36,14 +37,15 @@
             label6 = new Label();
             numMarcadorLocal = new NumericUpDown();
             numMarcadorVisitante = new NumericUpDown();
-            txtEstado = new TextBox();
             textBox2 = new TextBox();
             btnNuevo = new Button();
             btnEliminar = new Button();
             BtnEditar = new Button();
             btnGuardar = new Button();
             dgvResultados = new DataGridView();
-            txtPartido = new TextBox();
+            cmbPartido = new ComboBox();
+            cmbEstado = new ComboBox();
+            btnRegresarMenuCompeticiones = new Button();
             ((System.ComponentModel.ISupportInitialize)numMarcadorLocal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numMarcadorVisitante).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvResultados).BeginInit();
@@ -123,13 +125,6 @@
             numMarcadorVisitante.Size = new Size(158, 27);
             numMarcadorVisitante.TabIndex = 7;
             // 
-            // txtEstado
-            // 
-            txtEstado.Location = new Point(220, 231);
-            txtEstado.Name = "txtEstado";
-            txtEstado.Size = new Size(158, 27);
-            txtEstado.TabIndex = 8;
-            // 
             // textBox2
             // 
             textBox2.Location = new Point(220, 269);
@@ -142,7 +137,7 @@
             // 
             btnNuevo.BackgroundImage = Properties.Resources.nuevo;
             btnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            btnNuevo.Location = new Point(701, 29);
+            btnNuevo.Location = new Point(713, 117);
             btnNuevo.Margin = new Padding(3, 4, 3, 4);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(66, 63);
@@ -155,7 +150,7 @@
             btnEliminar.BackgroundImage = Properties.Resources.eliminar;
             btnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
             btnEliminar.Cursor = Cursors.Hand;
-            btnEliminar.Location = new Point(605, 29);
+            btnEliminar.Location = new Point(617, 117);
             btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(66, 63);
@@ -168,7 +163,7 @@
             BtnEditar.BackgroundImage = Properties.Resources.editar;
             BtnEditar.BackgroundImageLayout = ImageLayout.Zoom;
             BtnEditar.Cursor = Cursors.Hand;
-            BtnEditar.Location = new Point(701, 121);
+            BtnEditar.Location = new Point(713, 209);
             BtnEditar.Margin = new Padding(3, 4, 3, 4);
             BtnEditar.Name = "BtnEditar";
             BtnEditar.Size = new Size(66, 63);
@@ -185,7 +180,7 @@
             btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.ForeColor = SystemColors.ActiveCaptionText;
             btnGuardar.ImageAlign = ContentAlignment.TopCenter;
-            btnGuardar.Location = new Point(600, 117);
+            btnGuardar.Location = new Point(612, 205);
             btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(66, 67);
@@ -202,13 +197,34 @@
             dgvResultados.Size = new Size(780, 145);
             dgvResultados.TabIndex = 39;
             // 
-            // txtPartido
+            // cmbPartido
             // 
-            txtPartido.Location = new Point(97, 44);
-            txtPartido.Name = "txtPartido";
-            txtPartido.Size = new Size(158, 27);
-            txtPartido.TabIndex = 40;
-            txtPartido.Text = "ID Partido";
+            cmbPartido.FormattingEnabled = true;
+            cmbPartido.Location = new Point(220, 43);
+            cmbPartido.Name = "cmbPartido";
+            cmbPartido.Size = new Size(158, 28);
+            cmbPartido.TabIndex = 40;
+            // 
+            // cmbEstado
+            // 
+            cmbEstado.FormattingEnabled = true;
+            cmbEstado.Location = new Point(220, 227);
+            cmbEstado.Name = "cmbEstado";
+            cmbEstado.Size = new Size(158, 28);
+            cmbEstado.TabIndex = 41;
+            // 
+            // btnRegresarMenuCompeticiones
+            // 
+            btnRegresarMenuCompeticiones.BackgroundImage = (Image)resources.GetObject("btnRegresarMenuCompeticiones.BackgroundImage");
+            btnRegresarMenuCompeticiones.BackgroundImageLayout = ImageLayout.Zoom;
+            btnRegresarMenuCompeticiones.Cursor = Cursors.Hand;
+            btnRegresarMenuCompeticiones.Location = new Point(713, 13);
+            btnRegresarMenuCompeticiones.Margin = new Padding(3, 4, 3, 4);
+            btnRegresarMenuCompeticiones.Name = "btnRegresarMenuCompeticiones";
+            btnRegresarMenuCompeticiones.Size = new Size(66, 63);
+            btnRegresarMenuCompeticiones.TabIndex = 42;
+            btnRegresarMenuCompeticiones.UseVisualStyleBackColor = true;
+            btnRegresarMenuCompeticiones.Click += btnRegresarMenuCompeticiones_Click_1;
             // 
             // frmRegistrarResultado
             // 
@@ -216,14 +232,15 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
-            Controls.Add(txtPartido);
+            Controls.Add(btnRegresarMenuCompeticiones);
+            Controls.Add(cmbEstado);
+            Controls.Add(cmbPartido);
             Controls.Add(dgvResultados);
             Controls.Add(btnNuevo);
             Controls.Add(btnEliminar);
             Controls.Add(BtnEditar);
             Controls.Add(btnGuardar);
             Controls.Add(textBox2);
-            Controls.Add(txtEstado);
             Controls.Add(numMarcadorVisitante);
             Controls.Add(numMarcadorLocal);
             Controls.Add(label6);
@@ -254,13 +271,14 @@
         private Label label6;
         private NumericUpDown numMarcadorLocal;
         private NumericUpDown numMarcadorVisitante;
-        private TextBox txtEstado;
         private TextBox textBox2;
         private Button btnNuevo;
         private Button btnEliminar;
         private Button BtnEditar;
         private Button btnGuardar;
         private DataGridView dgvResultados;
-        private TextBox txtPartido;
+        private ComboBox cmbPartido;
+        private ComboBox cmbEstado;
+        private Button btnRegresarMenuCompeticiones;
     }
 }
