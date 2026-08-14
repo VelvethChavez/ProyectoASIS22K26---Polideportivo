@@ -31,8 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTablaPosiciones));
             label1 = new Label();
             dgvPosiciones = new DataGridView();
-            txtCampeonato = new TextBox();
             btnRegresarMenuCompeticiones = new Button();
+            cboCampeonato = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgvPosiciones).BeginInit();
             SuspendLayout();
             // 
@@ -55,14 +55,7 @@
             dgvPosiciones.RowHeadersWidth = 51;
             dgvPosiciones.Size = new Size(776, 220);
             dgvPosiciones.TabIndex = 1;
-            // 
-            // txtCampeonato
-            // 
-            txtCampeonato.Location = new Point(284, 55);
-            txtCampeonato.Name = "txtCampeonato";
-            txtCampeonato.Size = new Size(236, 27);
-            txtCampeonato.TabIndex = 2;
-            txtCampeonato.Text = "ID CAMPEONATO";
+            dgvPosiciones.CellContentClick += dgvPosiciones_CellContentClick;
             // 
             // btnRegresarMenuCompeticiones
             // 
@@ -77,14 +70,23 @@
             btnRegresarMenuCompeticiones.UseVisualStyleBackColor = true;
             btnRegresarMenuCompeticiones.Click += btnRegresarMenuCompeticiones_Click;
             // 
+            // cboCampeonato
+            // 
+            cboCampeonato.FormattingEnabled = true;
+            cboCampeonato.Location = new Point(284, 54);
+            cboCampeonato.Name = "cboCampeonato";
+            cboCampeonato.Size = new Size(250, 28);
+            cboCampeonato.TabIndex = 37;
+            cboCampeonato.SelectedIndexChanged += cboCampeonato_SelectedIndexChanged_1;
+            // 
             // frmTablaPosiciones
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
+            Controls.Add(cboCampeonato);
             Controls.Add(btnRegresarMenuCompeticiones);
-            Controls.Add(txtCampeonato);
             Controls.Add(dgvPosiciones);
             Controls.Add(label1);
             MaximizeBox = false;
@@ -101,7 +103,7 @@
 
         private Label label1;
         private DataGridView dgvPosiciones;
-        private TextBox txtCampeonato;
         private Button btnRegresarMenuCompeticiones;
+        private ComboBox cboCampeonato;
     }
 }
