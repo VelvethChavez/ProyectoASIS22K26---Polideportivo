@@ -9,33 +9,33 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class FormEmpleado : Form
+    public partial class FrmEmpleado : Form
     {
         private int idEmpleado = 0;
 
-        public FormEmpleado()
+        public FrmEmpleado()
         {
             InitializeComponent();
 
-            txtNombres.KeyPress += SoloLetras_KeyPress;
-            txtApellidos.KeyPress += SoloLetras_KeyPress;
-            txtTelefono.KeyPress += SoloNumeros_KeyPress;
+            TxtNombres.KeyPress += SoloLetras_KeyPress;
+            TxtApellidos.KeyPress += SoloLetras_KeyPress;
+            TxtTelefono.KeyPress += SoloNumeros_KeyPress;
         }
 
-        private void FormEmpleado_Load(object sender, EventArgs e)
+        private void FrmEmpleado_Load(object sender, EventArgs e)
         {
             try
             {
-                txtNombres.MaxLength = 100;
-                txtApellidos.MaxLength = 100;
-                txtTelefono.MaxLength = 8;
-                txtCorreo.MaxLength = 100;
+                TxtNombres.MaxLength = 100;
+                TxtApellidos.MaxLength = 100;
+                TxtTelefono.MaxLength = 8;
+                TxtCorreo.MaxLength = 100;
 
                 CargarPuestos();
 
-                chkEstado.Checked = true;
+                ChkEstado.Checked = true;
 
-                txtNombres.Focus();
+                TxtNombres.Focus();
 
                 CargarEmpleados();
 
@@ -92,10 +92,10 @@ namespace SistemaDePolideportivo
 
         private bool ValidarFormulario()
         {
-            string nombres = txtNombres.Text.Trim();
-            string apellidos = txtApellidos.Text.Trim();
-            string telefono = txtTelefono.Text.Trim();
-            string correo = txtCorreo.Text.Trim();
+            string nombres = TxtNombres.Text.Trim();
+            string apellidos = TxtApellidos.Text.Trim();
+            string telefono = TxtTelefono.Text.Trim();
+            string correo = TxtCorreo.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(nombres))
             {
@@ -105,7 +105,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombres.Focus();
+                TxtNombres.Focus();
                 return false;
             }
 
@@ -117,8 +117,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombres.Focus();
-                txtNombres.SelectAll();
+                TxtNombres.Focus();
+                TxtNombres.SelectAll();
                 return false;
             }
 
@@ -130,7 +130,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtApellidos.Focus();
+                TxtApellidos.Focus();
                 return false;
             }
 
@@ -142,8 +142,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtApellidos.Focus();
-                txtApellidos.SelectAll();
+                TxtApellidos.Focus();
+                TxtApellidos.SelectAll();
                 return false;
             }
 
@@ -155,7 +155,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtTelefono.Focus();
+                TxtTelefono.Focus();
                 return false;
             }
 
@@ -167,8 +167,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtTelefono.Focus();
-                txtTelefono.SelectAll();
+                TxtTelefono.Focus();
+                TxtTelefono.SelectAll();
                 return false;
             }
 
@@ -180,7 +180,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtCorreo.Focus();
+                TxtCorreo.Focus();
                 return false;
             }
 
@@ -192,13 +192,13 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtCorreo.Focus();
-                txtCorreo.SelectAll();
+                TxtCorreo.Focus();
+                TxtCorreo.SelectAll();
                 return false;
             }
 
-            if (cmbPuesto.SelectedIndex < 0 ||
-                string.IsNullOrWhiteSpace(cmbPuesto.Text))
+            if (CmbPuesto.SelectedIndex < 0 ||
+                string.IsNullOrWhiteSpace(CmbPuesto.Text))
             {
                 MessageBox.Show(
                     "Seleccione un puesto.",
@@ -206,24 +206,24 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbPuesto.Focus();
+                CmbPuesto.Focus();
                 return false;
             }
 
             return true;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void LblTitulo_Click(object sender, EventArgs e)
         {
         }
 
-        private void checkBoxEstado_CheckedChanged(
+        private void ChkEstado_CheckedChanged(
             object sender,
             EventArgs e)
         {
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
             if (idEmpleado == 0)
             {
@@ -244,12 +244,11 @@ namespace SistemaDePolideportivo
                 Empleado empleado = new Empleado
                 {
                     IdEmpleado = idEmpleado,
-                    NombresEmpleado = txtNombres.Text.Trim(),
-                    ApellidosEmpleado = txtApellidos.Text.Trim(),
-                    Telefono = txtTelefono.Text.Trim(),
-                    Correo = txtCorreo.Text.Trim(),
-                    Puesto = cmbPuesto.Text,
-                    Estado = chkEstado.Checked
+                    NombresEmpleado = TxtNombres.Text.Trim(),
+                    ApellidosEmpleado = TxtApellidos.Text.Trim(),
+                    Telefono = TxtTelefono.Text.Trim(),
+                    Correo = TxtCorreo.Text.Trim(),
+                    
                 };
 
                 EmpleadoDAO dao = new EmpleadoDAO();
@@ -280,49 +279,49 @@ namespace SistemaDePolideportivo
 
         private void CargarPuestos()
         {
-            cmbPuesto.Items.Clear();
+            CmbPuesto.Items.Clear();
 
-            cmbPuesto.Items.Add("Administrador");
-            cmbPuesto.Items.Add("Coordinador");
-            cmbPuesto.Items.Add("Árbitro");
-            cmbPuesto.Items.Add("Secretario");
-            cmbPuesto.Items.Add("Auxiliar");
+            CmbPuesto.Items.Add("Administrador");
+            CmbPuesto.Items.Add("Coordinador");
+            CmbPuesto.Items.Add("Árbitro");
+            CmbPuesto.Items.Add("Secretario");
+            CmbPuesto.Items.Add("Auxiliar");
 
-            cmbPuesto.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbPuesto.SelectedIndex = 0;
+            CmbPuesto.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbPuesto.SelectedIndex = 0;
         }
 
         private void LimpiarCampos()
         {
             idEmpleado = 0;
 
-            txtNombres.Clear();
-            txtApellidos.Clear();
-            txtTelefono.Clear();
-            txtCorreo.Clear();
+            TxtNombres.Clear();
+            TxtApellidos.Clear();
+            TxtTelefono.Clear();
+            TxtCorreo.Clear();
 
-            if (cmbPuesto.Items.Count > 0)
+            if (CmbPuesto.Items.Count > 0)
             {
-                cmbPuesto.SelectedIndex = 0;
+                CmbPuesto.SelectedIndex = 0;
             }
 
-            chkEstado.Checked = true;
+            ChkEstado.Checked = true;
 
-            dgvEmpleados.ClearSelection();
+            DgvEmpleados.ClearSelection();
 
-            txtNombres.Focus();
+            TxtNombres.Focus();
         }
 
-        private void buttonNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
 
-        private void txtNombres_TextChanged(object sender, EventArgs e)
+        private void TxtNombres_TextChanged(object sender, EventArgs e)
         {
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             if (!ValidarFormulario())
                 return;
@@ -331,12 +330,11 @@ namespace SistemaDePolideportivo
             {
                 Empleado empleado = new Empleado
                 {
-                    NombresEmpleado = txtNombres.Text.Trim(),
-                    ApellidosEmpleado = txtApellidos.Text.Trim(),
-                    Telefono = txtTelefono.Text.Trim(),
-                    Correo = txtCorreo.Text.Trim(),
-                    Puesto = cmbPuesto.Text,
-                    Estado = chkEstado.Checked
+                    NombresEmpleado = TxtNombres.Text.Trim(),
+                    ApellidosEmpleado = TxtApellidos.Text.Trim(),
+                    Telefono = TxtTelefono.Text.Trim(),
+                    Correo = TxtCorreo.Text.Trim(),
+                    
                 };
 
                 EmpleadoDAO dao = new EmpleadoDAO();
@@ -370,10 +368,10 @@ namespace SistemaDePolideportivo
             {
                 EmpleadoDAO dao = new EmpleadoDAO();
 
-                dgvEmpleados.DataSource = null;
-                dgvEmpleados.DataSource = dao.ListarEmpleados();
+                DgvEmpleados.DataSource = null;
+                DgvEmpleados.DataSource = dao.ListarEmpleados();
 
-                dgvEmpleados.ClearSelection();
+                DgvEmpleados.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -385,13 +383,13 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void dgvEmpleados_CellContentClick(
+        private void DgvEmpleados_CellContentClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
         }
 
-        private void dgvEmpleados_CellClick(
+        private void DgvEmpleados_CellClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
@@ -401,34 +399,34 @@ namespace SistemaDePolideportivo
             try
             {
                 DataGridViewRow fila =
-                    dgvEmpleados.Rows[e.RowIndex];
+                    DgvEmpleados.Rows[e.RowIndex];
 
                 idEmpleado =
                     Convert.ToInt32(fila.Cells["ID"].Value);
 
-                txtNombres.Text =
+                TxtNombres.Text =
                     Convert.ToString(
                         fila.Cells["Nombres"].Value) ?? "";
 
-                txtApellidos.Text =
+                TxtApellidos.Text =
                     Convert.ToString(
                         fila.Cells["Apellidos"].Value) ?? "";
 
-                txtTelefono.Text =
+                TxtTelefono.Text =
                     Convert.ToString(
-                        fila.Cells["Teléfono"].Value) ?? "";
+                        fila.Cells["LblTeléfono"].Value) ?? "";
 
-                txtCorreo.Text =
+                TxtCorreo.Text =
                     Convert.ToString(
                         fila.Cells["Correo"].Value) ?? "";
 
-                cmbPuesto.Text =
+                CmbPuesto.Text =
                     Convert.ToString(
-                        fila.Cells["Puesto"].Value) ?? "";
+                        fila.Cells["LblPuesto"].Value) ?? "";
 
-                chkEstado.Checked =
+                ChkEstado.Checked =
                     Convert.ToBoolean(
-                        fila.Cells["Estado"].Value);
+                        fila.Cells["LblEstado"].Value);
             }
             catch (Exception ex)
             {
@@ -441,7 +439,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
             if (idEmpleado == 0)
             {
@@ -491,16 +489,16 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
             try
             {
                 EmpleadoDAO dao = new EmpleadoDAO();
 
-                dgvEmpleados.DataSource =
-                    dao.BuscarEmpleado(txtBuscar.Text.Trim());
+                DgvEmpleados.DataSource =
+                    dao.BuscarEmpleado(TxtBuscar.Text.Trim());
 
-                dgvEmpleados.ClearSelection();
+                DgvEmpleados.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -512,11 +510,11 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void LblBuscar_Click(object sender, EventArgs e)
         {
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+        private void BtnActualizar_Click(object sender, EventArgs e)
         {
             CargarEmpleados();
             LimpiarCampos();
@@ -524,58 +522,58 @@ namespace SistemaDePolideportivo
 
         private void EstiloDataGridView()
         {
-            dgvEmpleados.BackgroundColor = Color.White;
-            dgvEmpleados.BorderStyle = BorderStyle.None;
+            DgvEmpleados.BackgroundColor = Color.White;
+            DgvEmpleados.BorderStyle = BorderStyle.None;
 
-            dgvEmpleados.EnableHeadersVisualStyles = false;
-            dgvEmpleados.ColumnHeadersBorderStyle =
+            DgvEmpleados.EnableHeadersVisualStyles = false;
+            DgvEmpleados.ColumnHeadersBorderStyle =
                 DataGridViewHeaderBorderStyle.None;
 
-            dgvEmpleados.ColumnHeadersDefaultCellStyle.BackColor =
+            DgvEmpleados.ColumnHeadersDefaultCellStyle.BackColor =
                 Color.ForestGreen;
 
-            dgvEmpleados.ColumnHeadersDefaultCellStyle.ForeColor =
+            DgvEmpleados.ColumnHeadersDefaultCellStyle.ForeColor =
                 Color.White;
 
-            dgvEmpleados.ColumnHeadersDefaultCellStyle.Font =
+            DgvEmpleados.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
 
-            dgvEmpleados.DefaultCellStyle.Font =
+            DgvEmpleados.DefaultCellStyle.Font =
                 new Font("Segoe UI", 10);
 
-            dgvEmpleados.DefaultCellStyle.SelectionBackColor =
+            DgvEmpleados.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(144, 238, 144);
 
-            dgvEmpleados.DefaultCellStyle.SelectionForeColor =
+            DgvEmpleados.DefaultCellStyle.SelectionForeColor =
                 Color.Black;
 
-            dgvEmpleados.DefaultCellStyle.BackColor =
+            DgvEmpleados.DefaultCellStyle.BackColor =
                 Color.White;
 
-            dgvEmpleados.DefaultCellStyle.ForeColor =
+            DgvEmpleados.DefaultCellStyle.ForeColor =
                 Color.Black;
 
-            dgvEmpleados.AlternatingRowsDefaultCellStyle.BackColor =
+            DgvEmpleados.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(240, 255, 240);
 
-            dgvEmpleados.AutoSizeColumnsMode =
+            DgvEmpleados.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgvEmpleados.SelectionMode =
+            DgvEmpleados.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
 
-            dgvEmpleados.MultiSelect = false;
-            dgvEmpleados.ReadOnly = true;
-            dgvEmpleados.AllowUserToAddRows = false;
-            dgvEmpleados.AllowUserToDeleteRows = false;
-            dgvEmpleados.RowHeadersVisible = false;
+            DgvEmpleados.MultiSelect = false;
+            DgvEmpleados.ReadOnly = true;
+            DgvEmpleados.AllowUserToAddRows = false;
+            DgvEmpleados.AllowUserToDeleteRows = false;
+            DgvEmpleados.RowHeadersVisible = false;
 
-            dgvEmpleados.ColumnHeadersHeight = 40;
+            DgvEmpleados.ColumnHeadersHeight = 40;
         }
 
         private void BtnMenu_Click(object sender, EventArgs e)
         {
-            frmMenú nuevoform = new frmMenú();
+            FrmMenu nuevoform = new FrmMenu();
 
             nuevoform.Show();
 

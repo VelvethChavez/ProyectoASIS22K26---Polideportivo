@@ -6,68 +6,42 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmloginarbitro : Form
+    public partial class FrmLoginArbitro : Form
     {
         ConexionBD conexionBD = new ConexionBD();
 
-        public frmloginarbitro()
+        public FrmLoginArbitro()
         {
             InitializeComponent();
         }
 
-        // ============================================================
-        // CARGA DEL FORMULARIO
-        // ============================================================
-
-        private void frmloginarbitro_Load(object sender, EventArgs e)
+        private void FrmLoginArbitro_Load(object sender, EventArgs e)
         {
-            textBox1.Focus();
+            Txt1.Focus();
         }
 
-        // ============================================================
-        // LABEL TÍTULO
-        // ============================================================
-
-        private void label1_Click(object sender, EventArgs e)
+        private void Lbl1_Click(object sender, EventArgs e)
         {
-
         }
 
-        // ============================================================
-        // LABEL USUARIO
-        // ============================================================
-
-        private void label2_Click(object sender, EventArgs e)
+        private void Lbl2_Click(object sender, EventArgs e)
         {
-
         }
 
-        // ============================================================
-        // BOTÓN REGRESAR
-        // ============================================================
-
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn2_Click(object sender, EventArgs e)
         {
-            frmLogin nuevoform = new frmLogin();
+            FrmLogin nuevoform = new FrmLogin();
 
             nuevoform.Show();
 
             Hide();
         }
 
-        // ============================================================
-        // BOTÓN INICIAR SESIÓN
-        // ============================================================
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Btn1_Click(object sender, EventArgs e)
         {
             try
             {
-                // ----------------------------------------------------
-                // VALIDAR USUARIO
-                // ----------------------------------------------------
-
-                if (string.IsNullOrWhiteSpace(textBox1.Text))
+                if (string.IsNullOrWhiteSpace(Txt1.Text))
                 {
                     MessageBox.Show(
                         "Ingrese su nombre de usuario.",
@@ -76,15 +50,11 @@ namespace SistemaDePolideportivo
                         MessageBoxIcon.Warning
                     );
 
-                    textBox1.Focus();
+                    Txt1.Focus();
                     return;
                 }
 
-                // ----------------------------------------------------
-                // VALIDAR CONTRASEÑA
-                // ----------------------------------------------------
-
-                if (string.IsNullOrWhiteSpace(textBox2.Text))
+                if (string.IsNullOrWhiteSpace(Txt2.Text))
                 {
                     MessageBox.Show(
                         "Ingrese su contraseña.",
@@ -93,27 +63,13 @@ namespace SistemaDePolideportivo
                         MessageBoxIcon.Warning
                     );
 
-                    textBox2.Focus();
+                    Txt2.Focus();
                     return;
                 }
-
-                // ----------------------------------------------------
-                // CONEXIÓN A LA BASE DE DATOS
-                // ----------------------------------------------------
 
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
                     conexion.Open();
-
-                    // ------------------------------------------------
-                    // CONSULTA
-                    // ------------------------------------------------
-                    // Verificamos:
-                    // 1. Usuario
-                    // 2. Contraseña
-                    // 3. Estado activo
-                    // 4. Rol Arbitro
-                    // ------------------------------------------------
 
                     string sql = @"
                         SELECT
@@ -134,20 +90,16 @@ namespace SistemaDePolideportivo
                     {
                         cmd.Parameters.AddWithValue(
                             "@usuario",
-                            textBox1.Text.Trim()
+                            Txt1.Text.Trim()
                         );
 
                         cmd.Parameters.AddWithValue(
                             "@contrasena",
-                            textBox2.Text
+                            Txt2.Text
                         );
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            // ------------------------------------------------
-                            // LOGIN CORRECTO
-                            // ------------------------------------------------
-
                             if (reader.Read())
                             {
                                 string nombreUsuario =
@@ -160,12 +112,8 @@ namespace SistemaDePolideportivo
                                     MessageBoxIcon.Information
                                 );
 
-                                // ------------------------------------------------
-                                // ABRIR FORMULARIO DE REGISTRAR RESULTADO
-                                // ------------------------------------------------
-
-                                frmRegistrarResultado nuevoform =
-                                    new frmRegistrarResultado();
+                                FrmRegistrarResultado nuevoform =
+                                    new FrmRegistrarResultado();
 
                                 nuevoform.Show();
 
@@ -173,10 +121,6 @@ namespace SistemaDePolideportivo
                             }
                             else
                             {
-                                // ------------------------------------------------
-                                // LOGIN INCORRECTO
-                                // ------------------------------------------------
-
                                 MessageBox.Show(
                                     "Usuario o contraseña incorrectos,\n" +
                                     "o el usuario no tiene permisos de Árbitro.",
@@ -185,8 +129,8 @@ namespace SistemaDePolideportivo
                                     MessageBoxIcon.Error
                                 );
 
-                                textBox2.Clear();
-                                textBox2.Focus();
+                                Txt2.Clear();
+                                Txt2.Focus();
                             }
                         }
                     }
@@ -195,8 +139,7 @@ namespace SistemaDePolideportivo
             catch (MySqlException ex)
             {
                 MessageBox.Show(
-                    "Error de conexión con la base de datos:\n\n" +
-                    ex.Message,
+                    "Error de MySQL:\n\n" + ex.Message,
                     "Error de MySQL",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -205,8 +148,7 @@ namespace SistemaDePolideportivo
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Ocurrió un error:\n\n" +
-                    ex.Message,
+                    "Ocurrió un error:\n\n" + ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error

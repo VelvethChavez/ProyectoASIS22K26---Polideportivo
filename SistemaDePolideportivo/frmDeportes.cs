@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmDeportes : Form
+    public partial class FrmDeportes : Form
     {
         CConexion conexionBD = new CConexion();
 
         // Guarda el ID del deporte seleccionado
         private int idDeporte = 0;
 
-        public frmDeportes()
+        public FrmDeportes()
         {
             InitializeComponent();
         }
@@ -24,10 +24,10 @@ namespace SistemaDePolideportivo
         //==========================
         private void Deportes_Load(object sender, EventArgs e)
         {
-            dataGridView1.Enabled = true;
-            dataGridView1.ReadOnly = false;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
+            Dgv1.Enabled = true;
+            Dgv1.ReadOnly = false;
+            Dgv1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Dgv1.MultiSelect = false;
 
             CargarDatos();
         }
@@ -38,20 +38,20 @@ namespace SistemaDePolideportivo
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             // Validar campo Nombre del deporte
-            if (string.IsNullOrWhiteSpace(NombreDeporte.Text) || NombreDeporte.Text == "Ingrese nombre del deporte")
+            if (string.IsNullOrWhiteSpace(TxtNombreDeporte.Text) || TxtNombreDeporte.Text == "Ingrese nombre del deporte")
             {
                 MessageBox.Show("Debe completar el campo Nombre del deporte.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                NombreDeporte.Focus();
+                TxtNombreDeporte.Focus();
                 return;
             }
 
             // Validar campo Descripción
-            if (string.IsNullOrWhiteSpace(Descripcion.Text) || Descripcion.Text == "Ingresa descripción")
+            if (string.IsNullOrWhiteSpace(RtbDescripcion.Text) || RtbDescripcion.Text == "Ingresa descripción")
             {
                 MessageBox.Show("Debe completar el campo Descripción.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Descripcion.Focus();
+                RtbDescripcion.Focus();
                 return;
             }
 
@@ -65,8 +65,8 @@ namespace SistemaDePolideportivo
                 VALUES
                 (@nombre,@descripcion)";
                     MySqlCommand cmd = new MySqlCommand(sql, conexion);
-                    cmd.Parameters.AddWithValue("@nombre", NombreDeporte.Text.Trim());
-                    cmd.Parameters.AddWithValue("@descripcion", Descripcion.Text.Trim());
+                    cmd.Parameters.AddWithValue("@nombre", TxtNombreDeporte.Text.Trim());
+                    cmd.Parameters.AddWithValue("@descripcion", RtbDescripcion.Text.Trim());
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Deporte guardado correctamente.");
                     LimpiarCampos();
@@ -98,7 +98,7 @@ namespace SistemaDePolideportivo
 
                     da.Fill(dt);
 
-                    dataGridView1.DataSource = dt;
+                    Dgv1.DataSource = dt;
                 }
             }
             catch (Exception ex)
@@ -121,20 +121,20 @@ namespace SistemaDePolideportivo
             }
 
             // Validar campo Nombre del deporte
-            if (string.IsNullOrWhiteSpace(NombreDeporte.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombreDeporte.Text))
             {
                 MessageBox.Show("Debe completar el campo Nombre del deporte.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                NombreDeporte.Focus();
+                TxtNombreDeporte.Focus();
                 return;
             }
 
             // Validar campo Descripción
-            if (string.IsNullOrWhiteSpace(Descripcion.Text))
+            if (string.IsNullOrWhiteSpace(RtbDescripcion.Text))
             {
                 MessageBox.Show("Debe completar el campo Descripción.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Descripcion.Focus();
+                RtbDescripcion.Focus();
                 return;
             }
 
@@ -149,8 +149,8 @@ namespace SistemaDePolideportivo
                 WHERE id_deporte = @id";
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", NombreDeporte.Text.Trim());
-                        cmd.Parameters.AddWithValue("@descripcion", Descripcion.Text.Trim());
+                        cmd.Parameters.AddWithValue("@nombre", TxtNombreDeporte.Text.Trim());
+                        cmd.Parameters.AddWithValue("@descripcion", RtbDescripcion.Text.Trim());
                         cmd.Parameters.AddWithValue("@id", idDeporte);
                         int filasAfectadas = cmd.ExecuteNonQuery();
                         if (filasAfectadas > 0)
@@ -178,16 +178,16 @@ namespace SistemaDePolideportivo
         //==========================
         // SELECCIONAR REGISTRO
         //==========================
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow fila = Dgv1.Rows[e.RowIndex];
 
                 // Obtener datos por el nombre exacto de la columna en la BD
                 idDeporte = Convert.ToInt32(fila.Cells["id_deporte"].Value);
-                NombreDeporte.Text = fila.Cells["nombre_deporte"].Value.ToString();
-                Descripcion.Text = fila.Cells["descripcion"].Value.ToString();
+                TxtNombreDeporte.Text = fila.Cells["nombre_deporte"].Value.ToString();
+                RtbDescripcion.Text = fila.Cells["descripcion"].Value.ToString();
             }
         }
 
@@ -198,7 +198,7 @@ namespace SistemaDePolideportivo
         {
             LimpiarCampos();
 
-            NombreDeporte.Focus();
+            TxtNombreDeporte.Focus();
         }
 
         //==========================
@@ -216,32 +216,32 @@ namespace SistemaDePolideportivo
         {
             idDeporte = 0;
 
-            NombreDeporte.Clear();
+            TxtNombreDeporte.Clear();
 
-            Descripcion.Clear();
+            RtbDescripcion.Clear();
 
-            dataGridView1.ClearSelection();
+            Dgv1.ClearSelection();
         }
 
         //==========================
         // EVENTOS VACÍOS
         //==========================
-        private void label1_Click(object sender, EventArgs e)
+        private void Lbl1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click_1(object sender, EventArgs e)
+        private void Lbl4_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void Lbl5_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
@@ -260,7 +260,7 @@ namespace SistemaDePolideportivo
             }
 
             // 2. Pedir confirmación al usuario
-            DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar el deporte '{NombreDeporte.Text}'?",
+            DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar el deporte '{TxtNombreDeporte.Text}'?",
                                                      "Confirmar Eliminación",
                                                      MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
@@ -315,14 +315,14 @@ namespace SistemaDePolideportivo
             }
             else
             {
-                new frmMenú().Show();
+                new FrmMenu().Show();
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             // Dirige al formulario de Tipo de Campeonato
-            TipoCampeonato nuevoForm = new TipoCampeonato();
+            FrmTipoCampeonato nuevoForm = new FrmTipoCampeonato();
             nuevoForm.Show();
             this.Hide();
         }
@@ -333,12 +333,12 @@ namespace SistemaDePolideportivo
             LimpiarCampos();
 
             // Coloca el cursor directamente en el campo de texto del nombre
-            NombreDeporte.Focus();
+            TxtNombreDeporte.Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            frmEstadoCampeonato nuevoForm = new frmEstadoCampeonato();
+            FrmEstadoCampeonato nuevoForm = new FrmEstadoCampeonato();
 
             // 2. Muestras el nuevo formulario
             nuevoForm.Show();
@@ -349,14 +349,14 @@ namespace SistemaDePolideportivo
 
         private void button3_Click(object sender, EventArgs e)
         {
-            frmCampeonato nuevoForm = new frmCampeonato();
+            FrmCampeonato nuevoForm = new FrmCampeonato();
             nuevoForm.Show();
             this.Hide();
         }
 
         private void BtnRegresar_Click(object sender, EventArgs e)
         {
-            frmCampeonato nuevoForm = new frmCampeonato();
+            FrmCampeonato nuevoForm = new FrmCampeonato();
             nuevoForm.Show();
             Hide();
         }

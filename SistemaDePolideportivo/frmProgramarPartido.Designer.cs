@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmProgramarPartido
+    partial class FrmProgramarPartido
     {
       
         private System.ComponentModel.IContainer components = null;
@@ -19,250 +19,250 @@
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProgramarPartido));
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            label13 = new Label();
-            label15 = new Label();
-            label16 = new Label();
-            label17 = new Label();
-            label19 = new Label();
-            dataGridView1 = new DataGridView();
-            dateTimePickerFecha = new DateTimePicker();
-            dateTimePickerHora = new DateTimePicker();
-            btnNuevo = new Button();
-            btnEliminar = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProgramarPartido));
+            Lbl1 = new Label();
+            Lbl2 = new Label();
+            Lbl3 = new Label();
+            Lbl4 = new Label();
+            Lbl5 = new Label();
+            Lbl6 = new Label();
+            Lbl7 = new Label();
+            Lbl8 = new Label();
+            Lbl9 = new Label();
+            Lbl10 = new Label();
+            Lbl11 = new Label();
+            Lbl12 = new Label();
+            Lbl13 = new Label();
+            Lbl15 = new Label();
+            Lbl16 = new Label();
+            Lbl17 = new Label();
+            Lbl19 = new Label();
+            Dgv1 = new DataGridView();
+            DtpDateTimePickerFecha = new DateTimePicker();
+            DtpDateTimePickerHora = new DateTimePicker();
+            BtnNuevo = new Button();
+            BtnEliminar = new Button();
             BtnEditar = new Button();
-            btnGuardar = new Button();
+            BtnGuardar = new Button();
             BtnRegresarMenu = new Button();
-            comboBoxJornada = new ComboBox();
-            comboBoxEquipoLocal = new ComboBox();
-            comboBoxEquipoVisitante = new ComboBox();
-            comboBoxCampo = new ComboBox();
-            comboBoxArbitro = new ComboBox();
-            comboBoxEstado = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            CmbComboBoxJornada = new ComboBox();
+            CmbComboBoxEquipoLocal = new ComboBox();
+            CmbComboBoxEquipoVisitante = new ComboBox();
+            CmbComboBoxCampo = new ComboBox();
+            CmbComboBoxArbitro = new ComboBox();
+            CmbComboBoxEstado = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)Dgv1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(11, 33);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 31);
-            label1.TabIndex = 0;
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl1.Location = new Point(11, 33);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(0, 31);
+            Lbl1.TabIndex = 0;
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(11, 77);
-            label2.Name = "label2";
-            label2.Size = new Size(0, 31);
-            label2.TabIndex = 1;
+            Lbl2.AutoSize = true;
+            Lbl2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl2.Location = new Point(11, 77);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(0, 31);
+            Lbl2.TabIndex = 1;
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(11, 161);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 31);
-            label3.TabIndex = 2;
+            Lbl3.AutoSize = true;
+            Lbl3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl3.Location = new Point(11, 161);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(0, 31);
+            Lbl3.TabIndex = 2;
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(11, 121);
-            label4.Name = "label4";
-            label4.Size = new Size(0, 31);
-            label4.TabIndex = 3;
+            Lbl4.AutoSize = true;
+            Lbl4.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl4.Location = new Point(11, 121);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(0, 31);
+            Lbl4.TabIndex = 3;
             // 
-            // label5
+            // Lbl5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(11, 309);
-            label5.Name = "label5";
-            label5.Size = new Size(0, 31);
-            label5.TabIndex = 4;
+            Lbl5.AutoSize = true;
+            Lbl5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl5.Location = new Point(11, 309);
+            Lbl5.Name = "Lbl5";
+            Lbl5.Size = new Size(0, 31);
+            Lbl5.TabIndex = 4;
             // 
-            // label6
+            // Lbl6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(11, 277);
-            label6.Name = "label6";
-            label6.Size = new Size(0, 31);
-            label6.TabIndex = 5;
+            Lbl6.AutoSize = true;
+            Lbl6.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl6.Location = new Point(11, 277);
+            Lbl6.Name = "Lbl6";
+            Lbl6.Size = new Size(0, 31);
+            Lbl6.TabIndex = 5;
             // 
-            // label7
+            // Lbl7
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(11, 247);
-            label7.Name = "label7";
-            label7.Size = new Size(0, 31);
-            label7.TabIndex = 6;
+            Lbl7.AutoSize = true;
+            Lbl7.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl7.Location = new Point(11, 247);
+            Lbl7.Name = "Lbl7";
+            Lbl7.Size = new Size(0, 31);
+            Lbl7.TabIndex = 6;
             // 
-            // label8
+            // Lbl8
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(11, 205);
-            label8.Name = "label8";
-            label8.Size = new Size(0, 31);
-            label8.TabIndex = 7;
+            Lbl8.AutoSize = true;
+            Lbl8.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl8.Location = new Point(11, 205);
+            Lbl8.Name = "Lbl8";
+            Lbl8.Size = new Size(0, 31);
+            Lbl8.TabIndex = 7;
             // 
-            // label9
+            // Lbl9
             // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(18, 9);
-            label9.Name = "label9";
-            label9.Size = new Size(85, 28);
-            label9.TabIndex = 8;
-            label9.Text = "Jornada:";
+            Lbl9.AutoSize = true;
+            Lbl9.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl9.Location = new Point(18, 9);
+            Lbl9.Name = "Lbl9";
+            Lbl9.Size = new Size(85, 28);
+            Lbl9.TabIndex = 8;
+            Lbl9.Text = "Jornada:";
             // 
-            // label10
+            // Lbl10
             // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label10.Location = new Point(18, 47);
-            label10.Name = "label10";
-            label10.Size = new Size(128, 28);
-            label10.TabIndex = 9;
-            label10.Text = "Equipo Local:";
+            Lbl10.AutoSize = true;
+            Lbl10.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl10.Location = new Point(18, 47);
+            Lbl10.Name = "Lbl10";
+            Lbl10.Size = new Size(128, 28);
+            Lbl10.TabIndex = 9;
+            Lbl10.Text = "Equipo Local:";
             // 
-            // label11
+            // Lbl11
             // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label11.Location = new Point(18, 173);
-            label11.Name = "label11";
-            label11.Size = new Size(79, 28);
-            label11.TabIndex = 10;
-            label11.Text = "Arbitro:";
+            Lbl11.AutoSize = true;
+            Lbl11.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl11.Location = new Point(18, 173);
+            Lbl11.Name = "Lbl11";
+            Lbl11.Size = new Size(79, 28);
+            Lbl11.TabIndex = 10;
+            Lbl11.Text = "Arbitro:";
             // 
-            // label12
+            // Lbl12
             // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label12.Location = new Point(18, 132);
-            label12.Name = "label12";
-            label12.Size = new Size(79, 28);
-            label12.TabIndex = 11;
-            label12.Text = "Campo:";
+            Lbl12.AutoSize = true;
+            Lbl12.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl12.Location = new Point(18, 132);
+            Lbl12.Name = "Lbl12";
+            Lbl12.Size = new Size(79, 28);
+            Lbl12.TabIndex = 11;
+            Lbl12.Text = "Campo:";
             // 
-            // label13
+            // Lbl13
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label13.Location = new Point(18, 91);
-            label13.Name = "label13";
-            label13.Size = new Size(158, 28);
-            label13.TabIndex = 12;
-            label13.Text = "Equipo Visitante:";
+            Lbl13.AutoSize = true;
+            Lbl13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl13.Location = new Point(18, 91);
+            Lbl13.Name = "Lbl13";
+            Lbl13.Size = new Size(158, 28);
+            Lbl13.TabIndex = 12;
+            Lbl13.Text = "Equipo Visitante:";
             // 
-            // label15
+            // Lbl15
             // 
-            label15.AutoSize = true;
-            label15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label15.Location = new Point(18, 275);
-            label15.Name = "label15";
-            label15.Size = new Size(143, 28);
-            label15.TabIndex = 14;
-            label15.Text = "Estado Partido:";
+            Lbl15.AutoSize = true;
+            Lbl15.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl15.Location = new Point(18, 275);
+            Lbl15.Name = "Lbl15";
+            Lbl15.Size = new Size(143, 28);
+            Lbl15.TabIndex = 14;
+            Lbl15.Text = "Estado Partido:";
             // 
-            // label16
+            // Lbl16
             // 
-            label16.AutoSize = true;
-            label16.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label16.Location = new Point(18, 212);
-            label16.Name = "label16";
-            label16.Size = new Size(134, 28);
-            label16.TabIndex = 15;
-            label16.Text = "Fecha Partido:";
+            Lbl16.AutoSize = true;
+            Lbl16.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl16.Location = new Point(18, 212);
+            Lbl16.Name = "Lbl16";
+            Lbl16.Size = new Size(134, 28);
+            Lbl16.TabIndex = 15;
+            Lbl16.Text = "Fecha Partido:";
             // 
-            // label17
+            // Lbl17
             // 
-            label17.AutoSize = true;
-            label17.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label17.Location = new Point(18, 245);
-            label17.Name = "label17";
-            label17.Size = new Size(126, 28);
-            label17.TabIndex = 16;
-            label17.Text = "Hora:Partido:";
+            Lbl17.AutoSize = true;
+            Lbl17.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl17.Location = new Point(18, 245);
+            Lbl17.Name = "Lbl17";
+            Lbl17.Size = new Size(126, 28);
+            Lbl17.TabIndex = 16;
+            Lbl17.Text = "Hora:Partido:";
             // 
-            // label19
+            // Lbl19
             // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label19.Location = new Point(18, 337);
-            label19.Name = "label19";
-            label19.Size = new Size(0, 28);
-            label19.TabIndex = 18;
+            Lbl19.AutoSize = true;
+            Lbl19.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl19.Location = new Point(18, 337);
+            Lbl19.Name = "Lbl19";
+            Lbl19.Size = new Size(0, 28);
+            Lbl19.TabIndex = 18;
             // 
-            // dataGridView1
+            // Dgv1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(24, 309);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(763, 125);
-            dataGridView1.TabIndex = 24;
+            Dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgv1.Location = new Point(24, 309);
+            Dgv1.Name = "Dgv1";
+            Dgv1.RowHeadersWidth = 51;
+            Dgv1.Size = new Size(763, 125);
+            Dgv1.TabIndex = 24;
             // 
-            // dateTimePickerFecha
+            // DtpDateTimePickerFecha
             // 
-            dateTimePickerFecha.Location = new Point(174, 213);
-            dateTimePickerFecha.Name = "dateTimePickerFecha";
-            dateTimePickerFecha.Size = new Size(268, 27);
-            dateTimePickerFecha.TabIndex = 25;
+            DtpDateTimePickerFecha.Location = new Point(174, 213);
+            DtpDateTimePickerFecha.Name = "DtpDateTimePickerFecha";
+            DtpDateTimePickerFecha.Size = new Size(268, 27);
+            DtpDateTimePickerFecha.TabIndex = 25;
             // 
-            // dateTimePickerHora
+            // DtpDateTimePickerHora
             // 
-            dateTimePickerHora.Format = DateTimePickerFormat.Time;
-            dateTimePickerHora.Location = new Point(174, 245);
-            dateTimePickerHora.Name = "dateTimePickerHora";
-            dateTimePickerHora.Size = new Size(137, 27);
-            dateTimePickerHora.TabIndex = 26;
+            DtpDateTimePickerHora.Format = DateTimePickerFormat.Time;
+            DtpDateTimePickerHora.Location = new Point(174, 245);
+            DtpDateTimePickerHora.Name = "DtpDateTimePickerHora";
+            DtpDateTimePickerHora.Size = new Size(137, 27);
+            DtpDateTimePickerHora.TabIndex = 26;
             // 
-            // btnNuevo
+            // BtnNuevo
             // 
-            btnNuevo.BackgroundImage = Properties.Resources.nuevo;
-            btnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            btnNuevo.Location = new Point(683, 89);
-            btnNuevo.Margin = new Padding(3, 4, 3, 4);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(66, 63);
-            btnNuevo.TabIndex = 38;
-            btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += btnNuevo_Click;
+            BtnNuevo.BackgroundImage = Properties.Resources.nuevo;
+            BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNuevo.Location = new Point(683, 89);
+            BtnNuevo.Margin = new Padding(3, 4, 3, 4);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(66, 63);
+            BtnNuevo.TabIndex = 38;
+            BtnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            btnEliminar.BackgroundImage = Properties.Resources.eliminar;
-            btnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnEliminar.Cursor = Cursors.Hand;
-            btnEliminar.Location = new Point(583, 93);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(66, 63);
-            btnEliminar.TabIndex = 37;
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
+            BtnEliminar.BackgroundImage = Properties.Resources.eliminar;
+            BtnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEliminar.Cursor = Cursors.Hand;
+            BtnEliminar.Location = new Point(583, 93);
+            BtnEliminar.Margin = new Padding(3, 4, 3, 4);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(66, 63);
+            BtnEliminar.TabIndex = 37;
+            BtnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.Click += BtnEliminar_Click;
             // 
             // BtnEditar
             // 
@@ -277,22 +277,22 @@
             BtnEditar.UseVisualStyleBackColor = true;
             BtnEditar.Click += BtnEditar_Click;
             // 
-            // btnGuardar
+            // BtnGuardar
             // 
-            btnGuardar.BackColor = Color.Transparent;
-            btnGuardar.BackgroundImage = Properties.Resources.guardar;
-            btnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnGuardar.Cursor = Cursors.Hand;
-            btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardar.ForeColor = SystemColors.ActiveCaptionText;
-            btnGuardar.ImageAlign = ContentAlignment.TopCenter;
-            btnGuardar.Location = new Point(583, 177);
-            btnGuardar.Margin = new Padding(3, 4, 3, 4);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(66, 67);
-            btnGuardar.TabIndex = 35;
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click_1;
+            BtnGuardar.BackColor = Color.Transparent;
+            BtnGuardar.BackgroundImage = Properties.Resources.guardar;
+            BtnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnGuardar.Cursor = Cursors.Hand;
+            BtnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnGuardar.ForeColor = SystemColors.ActiveCaptionText;
+            BtnGuardar.ImageAlign = ContentAlignment.TopCenter;
+            BtnGuardar.Location = new Point(583, 177);
+            BtnGuardar.Margin = new Padding(3, 4, 3, 4);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(66, 67);
+            BtnGuardar.TabIndex = 35;
+            BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click_1;
             // 
             // BtnRegresarMenu
             // 
@@ -306,134 +306,134 @@
             BtnRegresarMenu.UseVisualStyleBackColor = true;
             BtnRegresarMenu.Click += BtnRegresarMenu_Click;
             // 
-            // comboBoxJornada
+            // CmbComboBoxJornada
             // 
-            comboBoxJornada.FormattingEnabled = true;
-            comboBoxJornada.Location = new Point(174, 13);
-            comboBoxJornada.Name = "comboBoxJornada";
-            comboBoxJornada.Size = new Size(202, 28);
-            comboBoxJornada.TabIndex = 40;
+            CmbComboBoxJornada.FormattingEnabled = true;
+            CmbComboBoxJornada.Location = new Point(174, 13);
+            CmbComboBoxJornada.Name = "CmbComboBoxJornada";
+            CmbComboBoxJornada.Size = new Size(202, 28);
+            CmbComboBoxJornada.TabIndex = 40;
             // 
-            // comboBoxEquipoLocal
+            // CmbComboBoxEquipoLocal
             // 
-            comboBoxEquipoLocal.FormattingEnabled = true;
-            comboBoxEquipoLocal.Location = new Point(174, 47);
-            comboBoxEquipoLocal.Name = "comboBoxEquipoLocal";
-            comboBoxEquipoLocal.Size = new Size(202, 28);
-            comboBoxEquipoLocal.TabIndex = 41;
+            CmbComboBoxEquipoLocal.FormattingEnabled = true;
+            CmbComboBoxEquipoLocal.Location = new Point(174, 47);
+            CmbComboBoxEquipoLocal.Name = "CmbComboBoxEquipoLocal";
+            CmbComboBoxEquipoLocal.Size = new Size(202, 28);
+            CmbComboBoxEquipoLocal.TabIndex = 41;
             // 
-            // comboBoxEquipoVisitante
+            // CmbComboBoxEquipoVisitante
             // 
-            comboBoxEquipoVisitante.FormattingEnabled = true;
-            comboBoxEquipoVisitante.Location = new Point(174, 89);
-            comboBoxEquipoVisitante.Name = "comboBoxEquipoVisitante";
-            comboBoxEquipoVisitante.Size = new Size(202, 28);
-            comboBoxEquipoVisitante.TabIndex = 42;
+            CmbComboBoxEquipoVisitante.FormattingEnabled = true;
+            CmbComboBoxEquipoVisitante.Location = new Point(174, 89);
+            CmbComboBoxEquipoVisitante.Name = "CmbComboBoxEquipoVisitante";
+            CmbComboBoxEquipoVisitante.Size = new Size(202, 28);
+            CmbComboBoxEquipoVisitante.TabIndex = 42;
             // 
-            // comboBoxCampo
+            // CmbComboBoxCampo
             // 
-            comboBoxCampo.FormattingEnabled = true;
-            comboBoxCampo.Location = new Point(174, 132);
-            comboBoxCampo.Name = "comboBoxCampo";
-            comboBoxCampo.Size = new Size(202, 28);
-            comboBoxCampo.TabIndex = 43;
+            CmbComboBoxCampo.FormattingEnabled = true;
+            CmbComboBoxCampo.Location = new Point(174, 132);
+            CmbComboBoxCampo.Name = "CmbComboBoxCampo";
+            CmbComboBoxCampo.Size = new Size(202, 28);
+            CmbComboBoxCampo.TabIndex = 43;
             // 
-            // comboBoxArbitro
+            // CmbComboBoxArbitro
             // 
-            comboBoxArbitro.FormattingEnabled = true;
-            comboBoxArbitro.Location = new Point(174, 173);
-            comboBoxArbitro.Name = "comboBoxArbitro";
-            comboBoxArbitro.Size = new Size(202, 28);
-            comboBoxArbitro.TabIndex = 44;
+            CmbComboBoxArbitro.FormattingEnabled = true;
+            CmbComboBoxArbitro.Location = new Point(174, 173);
+            CmbComboBoxArbitro.Name = "CmbComboBoxArbitro";
+            CmbComboBoxArbitro.Size = new Size(202, 28);
+            CmbComboBoxArbitro.TabIndex = 44;
             // 
-            // comboBoxEstado
+            // CmbComboBoxEstado
             // 
-            comboBoxEstado.FormattingEnabled = true;
-            comboBoxEstado.Location = new Point(174, 277);
-            comboBoxEstado.Name = "comboBoxEstado";
-            comboBoxEstado.Size = new Size(202, 28);
-            comboBoxEstado.TabIndex = 45;
+            CmbComboBoxEstado.FormattingEnabled = true;
+            CmbComboBoxEstado.Location = new Point(174, 277);
+            CmbComboBoxEstado.Name = "CmbComboBoxEstado";
+            CmbComboBoxEstado.Size = new Size(202, 28);
+            CmbComboBoxEstado.TabIndex = 45;
             // 
-            // frmProgramarPartido
+            // FrmProgramarPartido
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 451);
-            Controls.Add(comboBoxEstado);
-            Controls.Add(comboBoxArbitro);
-            Controls.Add(comboBoxCampo);
-            Controls.Add(comboBoxEquipoVisitante);
-            Controls.Add(comboBoxEquipoLocal);
-            Controls.Add(comboBoxJornada);
+            Controls.Add(CmbComboBoxEstado);
+            Controls.Add(CmbComboBoxArbitro);
+            Controls.Add(CmbComboBoxCampo);
+            Controls.Add(CmbComboBoxEquipoVisitante);
+            Controls.Add(CmbComboBoxEquipoLocal);
+            Controls.Add(CmbComboBoxJornada);
             Controls.Add(BtnRegresarMenu);
-            Controls.Add(btnNuevo);
-            Controls.Add(btnEliminar);
+            Controls.Add(BtnNuevo);
+            Controls.Add(BtnEliminar);
             Controls.Add(BtnEditar);
-            Controls.Add(btnGuardar);
-            Controls.Add(dateTimePickerHora);
-            Controls.Add(dateTimePickerFecha);
-            Controls.Add(dataGridView1);
-            Controls.Add(label19);
-            Controls.Add(label17);
-            Controls.Add(label16);
-            Controls.Add(label15);
-            Controls.Add(label13);
-            Controls.Add(label12);
-            Controls.Add(label11);
-            Controls.Add(label10);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(BtnGuardar);
+            Controls.Add(DtpDateTimePickerHora);
+            Controls.Add(DtpDateTimePickerFecha);
+            Controls.Add(Dgv1);
+            Controls.Add(Lbl19);
+            Controls.Add(Lbl17);
+            Controls.Add(Lbl16);
+            Controls.Add(Lbl15);
+            Controls.Add(Lbl13);
+            Controls.Add(Lbl12);
+            Controls.Add(Lbl11);
+            Controls.Add(Lbl10);
+            Controls.Add(Lbl9);
+            Controls.Add(Lbl8);
+            Controls.Add(Lbl7);
+            Controls.Add(Lbl6);
+            Controls.Add(Lbl5);
+            Controls.Add(Lbl4);
+            Controls.Add(Lbl3);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmProgramarPartido";
+            Name = "FrmProgramarPartido";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmProgramarPartido";
-            Load += frmProgramarPartido_Load_1;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Text = "FrmProgramarPartido";
+            Load += FrmProgramarPartido_Load_1;
+            ((System.ComponentModel.ISupportInitialize)Dgv1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private Label label10;
-        private Label label11;
-        private Label label12;
-        private Label label13;
-        private Label label15;
-        private Label label16;
-        private Label label17;
-        private Label label19;
-        private DataGridView dataGridView1;
-        private DateTimePicker dateTimePickerFecha;
-        private DateTimePicker dateTimePickerHora;
-        private Button btnNuevo;
-        private Button btnEliminar;
+        private Label Lbl1;
+        private Label Lbl2;
+        private Label Lbl3;
+        private Label Lbl4;
+        private Label Lbl5;
+        private Label Lbl6;
+        private Label Lbl7;
+        private Label Lbl8;
+        private Label Lbl9;
+        private Label Lbl10;
+        private Label Lbl11;
+        private Label Lbl12;
+        private Label Lbl13;
+        private Label Lbl15;
+        private Label Lbl16;
+        private Label Lbl17;
+        private Label Lbl19;
+        private DataGridView Dgv1;
+        private DateTimePicker DtpDateTimePickerFecha;
+        private DateTimePicker DtpDateTimePickerHora;
+        private Button BtnNuevo;
+        private Button BtnEliminar;
         private Button BtnEditar;
-        private Button btnGuardar;
+        private Button BtnGuardar;
         private Button BtnRegresarMenu;
-        private ComboBox comboBoxJornada;
-        private ComboBox comboBoxEquipoLocal;
-        private ComboBox comboBoxEquipoVisitante;
-        private ComboBox comboBoxCampo;
-        private ComboBox comboBoxArbitro;
-        private ComboBox comboBoxEstado;
+        private ComboBox CmbComboBoxJornada;
+        private ComboBox CmbComboBoxEquipoLocal;
+        private ComboBox CmbComboBoxEquipoVisitante;
+        private ComboBox CmbComboBoxCampo;
+        private ComboBox CmbComboBoxArbitro;
+        private ComboBox CmbComboBoxEstado;
     }
 }

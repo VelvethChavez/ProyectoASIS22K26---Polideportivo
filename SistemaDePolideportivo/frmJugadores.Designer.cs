@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmJugadores
+    partial class FrmJugadores
     {
         /// <summary>
         /// Required designer variable.
@@ -28,324 +28,324 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnGuardar = new Button();
-            btnEliminar = new Button();
-            btnEditar = new Button();
-            btnNuevo = new Button();
-            ckbEstadoJugadores = new CheckBox();
-            cmbPosicionJugadores = new ComboBox();
-            cmbEquipoJugadores = new ComboBox();
-            nudDorsalJugadores = new NumericUpDown();
-            btnExaminar = new Button();
-            dtpNacimientoJugadores = new DateTimePicker();
-            txtNombresJugadores = new TextBox();
-            txtApellidosJugadores = new TextBox();
-            txtFotoJugadores = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            label8 = new Label();
-            label9 = new Label();
-            dgvJugadores = new DataGridView();
-            ptbFotoJugador = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)nudDorsalJugadores).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvJugadores).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ptbFotoJugador).BeginInit();
+            BtnGuardar = new Button();
+            BtnEliminar = new Button();
+            BtnEditar = new Button();
+            BtnNuevo = new Button();
+            ChkCkbEstadoJugadores = new CheckBox();
+            CmbPosicionJugadores = new ComboBox();
+            CmbEquipoJugadores = new ComboBox();
+            NudDorsalJugadores = new NumericUpDown();
+            BtnExaminar = new Button();
+            DtpNacimientoJugadores = new DateTimePicker();
+            TxtNombresJugadores = new TextBox();
+            TxtApellidosJugadores = new TextBox();
+            TxtFotoJugadores = new TextBox();
+            Lbl1 = new Label();
+            Lbl2 = new Label();
+            Lbl3 = new Label();
+            Lbl4 = new Label();
+            Lbl5 = new Label();
+            Lbl6 = new Label();
+            Lbl7 = new Label();
+            Lbl8 = new Label();
+            Lbl9 = new Label();
+            DgvJugadores = new DataGridView();
+            PicPtbFotoJugador = new PictureBox();
+            ((System.ComponentModel.ISupportInitialize)NudDorsalJugadores).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DgvJugadores).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PicPtbFotoJugador).BeginInit();
             SuspendLayout();
             // 
-            // btnGuardar
+            // BtnGuardar
             // 
-            btnGuardar.Location = new Point(24, 364);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(82, 22);
-            btnGuardar.TabIndex = 0;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            BtnGuardar.Location = new Point(24, 364);
+            BtnGuardar.Margin = new Padding(3, 2, 3, 2);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(82, 22);
+            BtnGuardar.TabIndex = 0;
+            BtnGuardar.Text = "Guardar";
+            BtnGuardar.UseVisualStyleBackColor = true;
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            btnEliminar.Location = new Point(212, 364);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(82, 22);
-            btnEliminar.TabIndex = 1;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.Location = new Point(212, 364);
+            BtnEliminar.Margin = new Padding(3, 2, 3, 2);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(82, 22);
+            BtnEliminar.TabIndex = 1;
+            BtnEliminar.Text = "Eliminar";
+            BtnEliminar.UseVisualStyleBackColor = true;
             // 
-            // btnEditar
+            // BtnEditar
             // 
-            btnEditar.Location = new Point(400, 364);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 22);
-            btnEditar.TabIndex = 2;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            BtnEditar.Location = new Point(400, 364);
+            BtnEditar.Margin = new Padding(3, 2, 3, 2);
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Size = new Size(82, 22);
+            BtnEditar.TabIndex = 2;
+            BtnEditar.Text = "Editar";
+            BtnEditar.UseVisualStyleBackColor = true;
             // 
-            // btnNuevo
+            // BtnNuevo
             // 
-            btnNuevo.Location = new Point(588, 364);
-            btnNuevo.Margin = new Padding(3, 2, 3, 2);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(82, 22);
-            btnNuevo.TabIndex = 3;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += button4_Click;
+            BtnNuevo.Location = new Point(588, 364);
+            BtnNuevo.Margin = new Padding(3, 2, 3, 2);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(82, 22);
+            BtnNuevo.TabIndex = 3;
+            BtnNuevo.Text = "Nuevo";
+            BtnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
-            // ckbEstadoJugadores
+            // ChkCkbEstadoJugadores
             // 
-            ckbEstadoJugadores.AutoSize = true;
-            ckbEstadoJugadores.Location = new Point(123, 331);
-            ckbEstadoJugadores.Margin = new Padding(3, 2, 3, 2);
-            ckbEstadoJugadores.Name = "ckbEstadoJugadores";
-            ckbEstadoJugadores.Size = new Size(60, 19);
-            ckbEstadoJugadores.TabIndex = 4;
-            ckbEstadoJugadores.Text = "Activo";
-            ckbEstadoJugadores.UseVisualStyleBackColor = true;
+            ChkCkbEstadoJugadores.AutoSize = true;
+            ChkCkbEstadoJugadores.Location = new Point(123, 331);
+            ChkCkbEstadoJugadores.Margin = new Padding(3, 2, 3, 2);
+            ChkCkbEstadoJugadores.Name = "ChkCkbEstadoJugadores";
+            ChkCkbEstadoJugadores.Size = new Size(60, 19);
+            ChkCkbEstadoJugadores.TabIndex = 4;
+            ChkCkbEstadoJugadores.Text = "Activo";
+            ChkCkbEstadoJugadores.UseVisualStyleBackColor = true;
             // 
-            // cmbPosicionJugadores
+            // CmbPosicionJugadores
             // 
-            cmbPosicionJugadores.FormattingEnabled = true;
-            cmbPosicionJugadores.Location = new Point(123, 280);
-            cmbPosicionJugadores.Margin = new Padding(3, 2, 3, 2);
-            cmbPosicionJugadores.Name = "cmbPosicionJugadores";
-            cmbPosicionJugadores.Size = new Size(248, 23);
-            cmbPosicionJugadores.TabIndex = 5;
+            CmbPosicionJugadores.FormattingEnabled = true;
+            CmbPosicionJugadores.Location = new Point(123, 280);
+            CmbPosicionJugadores.Margin = new Padding(3, 2, 3, 2);
+            CmbPosicionJugadores.Name = "CmbPosicionJugadores";
+            CmbPosicionJugadores.Size = new Size(248, 23);
+            CmbPosicionJugadores.TabIndex = 5;
             // 
-            // cmbEquipoJugadores
+            // CmbEquipoJugadores
             // 
-            cmbEquipoJugadores.FormattingEnabled = true;
-            cmbEquipoJugadores.Location = new Point(123, 305);
-            cmbEquipoJugadores.Margin = new Padding(3, 2, 3, 2);
-            cmbEquipoJugadores.Name = "cmbEquipoJugadores";
-            cmbEquipoJugadores.Size = new Size(248, 23);
-            cmbEquipoJugadores.TabIndex = 6;
+            CmbEquipoJugadores.FormattingEnabled = true;
+            CmbEquipoJugadores.Location = new Point(123, 305);
+            CmbEquipoJugadores.Margin = new Padding(3, 2, 3, 2);
+            CmbEquipoJugadores.Name = "CmbEquipoJugadores";
+            CmbEquipoJugadores.Size = new Size(248, 23);
+            CmbEquipoJugadores.TabIndex = 6;
             // 
-            // nudDorsalJugadores
+            // NudDorsalJugadores
             // 
-            nudDorsalJugadores.Location = new Point(123, 254);
-            nudDorsalJugadores.Margin = new Padding(3, 2, 3, 2);
-            nudDorsalJugadores.Name = "nudDorsalJugadores";
-            nudDorsalJugadores.Size = new Size(40, 23);
-            nudDorsalJugadores.TabIndex = 7;
+            NudDorsalJugadores.Location = new Point(123, 254);
+            NudDorsalJugadores.Margin = new Padding(3, 2, 3, 2);
+            NudDorsalJugadores.Name = "NudDorsalJugadores";
+            NudDorsalJugadores.Size = new Size(40, 23);
+            NudDorsalJugadores.TabIndex = 7;
             // 
-            // btnExaminar
+            // BtnExaminar
             // 
-            btnExaminar.Location = new Point(293, 114);
-            btnExaminar.Margin = new Padding(3, 2, 3, 2);
-            btnExaminar.Name = "btnExaminar";
-            btnExaminar.Size = new Size(82, 22);
-            btnExaminar.TabIndex = 8;
-            btnExaminar.Text = "Examinar";
-            btnExaminar.UseVisualStyleBackColor = true;
+            BtnExaminar.Location = new Point(293, 114);
+            BtnExaminar.Margin = new Padding(3, 2, 3, 2);
+            BtnExaminar.Name = "BtnExaminar";
+            BtnExaminar.Size = new Size(82, 22);
+            BtnExaminar.TabIndex = 8;
+            BtnExaminar.Text = "Examinar";
+            BtnExaminar.UseVisualStyleBackColor = true;
             // 
-            // dtpNacimientoJugadores
+            // DtpNacimientoJugadores
             // 
-            dtpNacimientoJugadores.Location = new Point(126, 88);
-            dtpNacimientoJugadores.Margin = new Padding(3, 2, 3, 2);
-            dtpNacimientoJugadores.Name = "dtpNacimientoJugadores";
-            dtpNacimientoJugadores.Size = new Size(248, 23);
-            dtpNacimientoJugadores.TabIndex = 9;
+            DtpNacimientoJugadores.Location = new Point(126, 88);
+            DtpNacimientoJugadores.Margin = new Padding(3, 2, 3, 2);
+            DtpNacimientoJugadores.Name = "DtpNacimientoJugadores";
+            DtpNacimientoJugadores.Size = new Size(248, 23);
+            DtpNacimientoJugadores.TabIndex = 9;
             // 
-            // txtNombresJugadores
+            // TxtNombresJugadores
             // 
-            txtNombresJugadores.Location = new Point(126, 38);
-            txtNombresJugadores.Margin = new Padding(3, 2, 3, 2);
-            txtNombresJugadores.Name = "txtNombresJugadores";
-            txtNombresJugadores.Size = new Size(248, 23);
-            txtNombresJugadores.TabIndex = 10;
+            TxtNombresJugadores.Location = new Point(126, 38);
+            TxtNombresJugadores.Margin = new Padding(3, 2, 3, 2);
+            TxtNombresJugadores.Name = "TxtNombresJugadores";
+            TxtNombresJugadores.Size = new Size(248, 23);
+            TxtNombresJugadores.TabIndex = 10;
             // 
-            // txtApellidosJugadores
+            // TxtApellidosJugadores
             // 
-            txtApellidosJugadores.Location = new Point(126, 63);
-            txtApellidosJugadores.Margin = new Padding(3, 2, 3, 2);
-            txtApellidosJugadores.Name = "txtApellidosJugadores";
-            txtApellidosJugadores.Size = new Size(248, 23);
-            txtApellidosJugadores.TabIndex = 11;
+            TxtApellidosJugadores.Location = new Point(126, 63);
+            TxtApellidosJugadores.Margin = new Padding(3, 2, 3, 2);
+            TxtApellidosJugadores.Name = "TxtApellidosJugadores";
+            TxtApellidosJugadores.Size = new Size(248, 23);
+            TxtApellidosJugadores.TabIndex = 11;
             // 
-            // txtFotoJugadores
+            // TxtFotoJugadores
             // 
-            txtFotoJugadores.Location = new Point(126, 114);
-            txtFotoJugadores.Margin = new Padding(3, 2, 3, 2);
-            txtFotoJugadores.Name = "txtFotoJugadores";
-            txtFotoJugadores.Size = new Size(154, 23);
-            txtFotoJugadores.TabIndex = 12;
+            TxtFotoJugadores.Location = new Point(126, 114);
+            TxtFotoJugadores.Margin = new Padding(3, 2, 3, 2);
+            TxtFotoJugadores.Name = "TxtFotoJugadores";
+            TxtFotoJugadores.Size = new Size(154, 23);
+            TxtFotoJugadores.TabIndex = 12;
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(304, 7);
-            label1.Name = "label1";
-            label1.Size = new Size(98, 25);
-            label1.TabIndex = 13;
-            label1.Text = "Jugadores";
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 14F);
+            Lbl1.Location = new Point(304, 7);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(98, 25);
+            Lbl1.TabIndex = 13;
+            Lbl1.Text = "Jugadores";
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(27, 40);
-            label2.Name = "label2";
-            label2.Size = new Size(56, 15);
-            label2.TabIndex = 14;
-            label2.Text = "Nombres";
+            Lbl2.AutoSize = true;
+            Lbl2.Location = new Point(27, 40);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(56, 15);
+            Lbl2.TabIndex = 14;
+            Lbl2.Text = "Nombres";
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(27, 65);
-            label3.Name = "label3";
-            label3.Size = new Size(56, 15);
-            label3.TabIndex = 15;
-            label3.Text = "Apellidos";
+            Lbl3.AutoSize = true;
+            Lbl3.Location = new Point(27, 65);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(56, 15);
+            Lbl3.TabIndex = 15;
+            Lbl3.Text = "Apellidos";
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(27, 88);
-            label4.Name = "label4";
-            label4.Size = new Size(69, 15);
-            label4.TabIndex = 16;
-            label4.Text = "Nacimiento";
+            Lbl4.AutoSize = true;
+            Lbl4.Location = new Point(27, 88);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(69, 15);
+            Lbl4.TabIndex = 16;
+            Lbl4.Text = "Nacimiento";
             // 
-            // label5
+            // Lbl5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(27, 114);
-            label5.Name = "label5";
-            label5.Size = new Size(61, 15);
-            label5.TabIndex = 17;
-            label5.Text = "Fotografía";
+            Lbl5.AutoSize = true;
+            Lbl5.Location = new Point(27, 114);
+            Lbl5.Name = "Lbl5";
+            Lbl5.Size = new Size(61, 15);
+            Lbl5.TabIndex = 17;
+            Lbl5.Text = "Fotografía";
             // 
-            // label6
+            // Lbl6
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(24, 254);
-            label6.Name = "label6";
-            label6.Size = new Size(40, 15);
-            label6.TabIndex = 18;
-            label6.Text = "Dorsal";
+            Lbl6.AutoSize = true;
+            Lbl6.Location = new Point(24, 254);
+            Lbl6.Name = "Lbl6";
+            Lbl6.Size = new Size(40, 15);
+            Lbl6.TabIndex = 18;
+            Lbl6.Text = "Dorsal";
             // 
-            // label7
+            // Lbl7
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(24, 282);
-            label7.Name = "label7";
-            label7.Size = new Size(52, 15);
-            label7.TabIndex = 19;
-            label7.Text = "Posición";
+            Lbl7.AutoSize = true;
+            Lbl7.Location = new Point(24, 282);
+            Lbl7.Name = "Lbl7";
+            Lbl7.Size = new Size(52, 15);
+            Lbl7.TabIndex = 19;
+            Lbl7.Text = "Posición";
             // 
-            // label8
+            // Lbl8
             // 
-            label8.AutoSize = true;
-            label8.Location = new Point(24, 308);
-            label8.Name = "label8";
-            label8.Size = new Size(44, 15);
-            label8.TabIndex = 20;
-            label8.Text = "Equipo";
+            Lbl8.AutoSize = true;
+            Lbl8.Location = new Point(24, 308);
+            Lbl8.Name = "Lbl8";
+            Lbl8.Size = new Size(44, 15);
+            Lbl8.TabIndex = 20;
+            Lbl8.Text = "Equipo";
             // 
-            // label9
+            // Lbl9
             // 
-            label9.AutoSize = true;
-            label9.Location = new Point(24, 334);
-            label9.Name = "label9";
-            label9.Size = new Size(42, 15);
-            label9.TabIndex = 21;
-            label9.Text = "Estado";
+            Lbl9.AutoSize = true;
+            Lbl9.Location = new Point(24, 334);
+            Lbl9.Name = "Lbl9";
+            Lbl9.Size = new Size(42, 15);
+            Lbl9.TabIndex = 21;
+            Lbl9.Text = "Estado";
             // 
-            // dgvJugadores
+            // DgvJugadores
             // 
-            dgvJugadores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvJugadores.Location = new Point(27, 390);
-            dgvJugadores.Margin = new Padding(3, 2, 3, 2);
-            dgvJugadores.Name = "dgvJugadores";
-            dgvJugadores.RowHeadersWidth = 51;
-            dgvJugadores.Size = new Size(643, 171);
-            dgvJugadores.TabIndex = 22;
+            DgvJugadores.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvJugadores.Location = new Point(27, 390);
+            DgvJugadores.Margin = new Padding(3, 2, 3, 2);
+            DgvJugadores.Name = "DgvJugadores";
+            DgvJugadores.RowHeadersWidth = 51;
+            DgvJugadores.Size = new Size(643, 171);
+            DgvJugadores.TabIndex = 22;
             // 
-            // ptbFotoJugador
+            // PicPtbFotoJugador
             // 
-            ptbFotoJugador.Location = new Point(190, 147);
-            ptbFotoJugador.Margin = new Padding(3, 2, 3, 2);
-            ptbFotoJugador.Name = "ptbFotoJugador";
-            ptbFotoJugador.Size = new Size(114, 99);
-            ptbFotoJugador.TabIndex = 23;
-            ptbFotoJugador.TabStop = false;
+            PicPtbFotoJugador.Location = new Point(190, 147);
+            PicPtbFotoJugador.Margin = new Padding(3, 2, 3, 2);
+            PicPtbFotoJugador.Name = "PicPtbFotoJugador";
+            PicPtbFotoJugador.Size = new Size(114, 99);
+            PicPtbFotoJugador.TabIndex = 23;
+            PicPtbFotoJugador.TabStop = false;
             // 
-            // frmJugadores
+            // FrmJugadores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 562);
-            Controls.Add(ptbFotoJugador);
-            Controls.Add(dgvJugadores);
-            Controls.Add(label9);
-            Controls.Add(label8);
-            Controls.Add(label7);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(txtFotoJugadores);
-            Controls.Add(txtApellidosJugadores);
-            Controls.Add(txtNombresJugadores);
-            Controls.Add(dtpNacimientoJugadores);
-            Controls.Add(btnExaminar);
-            Controls.Add(nudDorsalJugadores);
-            Controls.Add(cmbEquipoJugadores);
-            Controls.Add(cmbPosicionJugadores);
-            Controls.Add(ckbEstadoJugadores);
-            Controls.Add(btnNuevo);
-            Controls.Add(btnEditar);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnGuardar);
+            Controls.Add(PicPtbFotoJugador);
+            Controls.Add(DgvJugadores);
+            Controls.Add(Lbl9);
+            Controls.Add(Lbl8);
+            Controls.Add(Lbl7);
+            Controls.Add(Lbl6);
+            Controls.Add(Lbl5);
+            Controls.Add(Lbl4);
+            Controls.Add(Lbl3);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl1);
+            Controls.Add(TxtFotoJugadores);
+            Controls.Add(TxtApellidosJugadores);
+            Controls.Add(TxtNombresJugadores);
+            Controls.Add(DtpNacimientoJugadores);
+            Controls.Add(BtnExaminar);
+            Controls.Add(NudDorsalJugadores);
+            Controls.Add(CmbEquipoJugadores);
+            Controls.Add(CmbPosicionJugadores);
+            Controls.Add(ChkCkbEstadoJugadores);
+            Controls.Add(BtnNuevo);
+            Controls.Add(BtnEditar);
+            Controls.Add(BtnEliminar);
+            Controls.Add(BtnGuardar);
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmJugadores";
+            Name = "FrmJugadores";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Jugadores";
-            Load += frmJugadores_Load;
-            ((System.ComponentModel.ISupportInitialize)nudDorsalJugadores).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvJugadores).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ptbFotoJugador).EndInit();
+            Load += FrmJugadores_Load;
+            ((System.ComponentModel.ISupportInitialize)NudDorsalJugadores).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgvJugadores).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PicPtbFotoJugador).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Button btnGuardar;
-        private Button btnEliminar;
-        private Button btnEditar;
-        private Button btnNuevo;
-        private CheckBox ckbEstadoJugadores;
-        private ComboBox cmbPosicionJugadores;
-        private ComboBox cmbEquipoJugadores;
-        private NumericUpDown nudDorsalJugadores;
-        private Button btnExaminar;
-        private DateTimePicker dtpNacimientoJugadores;
-        private TextBox txtNombresJugadores;
-        private TextBox txtApellidosJugadores;
-        private TextBox txtFotoJugadores;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private Label label7;
-        private Label label8;
-        private Label label9;
-        private DataGridView dgvJugadores;
-        private PictureBox ptbFotoJugador;
+        private Button BtnGuardar;
+        private Button BtnEliminar;
+        private Button BtnEditar;
+        private Button BtnNuevo;
+        private CheckBox ChkCkbEstadoJugadores;
+        private ComboBox CmbPosicionJugadores;
+        private ComboBox CmbEquipoJugadores;
+        private NumericUpDown NudDorsalJugadores;
+        private Button BtnExaminar;
+        private DateTimePicker DtpNacimientoJugadores;
+        private TextBox TxtNombresJugadores;
+        private TextBox TxtApellidosJugadores;
+        private TextBox TxtFotoJugadores;
+        private Label Lbl1;
+        private Label Lbl2;
+        private Label Lbl3;
+        private Label Lbl4;
+        private Label Lbl5;
+        private Label Lbl6;
+        private Label Lbl7;
+        private Label Lbl8;
+        private Label Lbl9;
+        private DataGridView DgvJugadores;
+        private PictureBox PicPtbFotoJugador;
     }
 }

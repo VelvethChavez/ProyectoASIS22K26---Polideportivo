@@ -6,25 +6,25 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class TipoCampeonato : Form
+    public partial class FrmTipoCampeonato : Form
     {
         ConexionBD conexionBD = new ConexionBD();
 
         // Guarda el ID del tipo de campeonato seleccionado
         private int idTipo = 0;
 
-        public TipoCampeonato()
+        public FrmTipoCampeonato()
         {
             InitializeComponent();
         }
 
         /* cargar formulario */
-        private void TipoCampeonato_Load(object sender, EventArgs e)
+        private void FrmTipoCampeonato_Load(object sender, EventArgs e)
         {
-            dataGridView1.Enabled = true;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
+            Dgv1.Enabled = true;
+            Dgv1.ReadOnly = true;
+            Dgv1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Dgv1.MultiSelect = false;
 
             CargarDatos();
         }
@@ -33,20 +33,20 @@ namespace SistemaDePolideportivo
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             // Validar campo Tipo de campeonato
-            if (string.IsNullOrWhiteSpace(NomTipoCampeonato.Text) || NomTipoCampeonato.Text == "Ingrese el tipo de campeonato")
+            if (string.IsNullOrWhiteSpace(TxtNomTipoCampeonato.Text) || TxtNomTipoCampeonato.Text == "Ingrese el tipo de campeonato")
             {
                 MessageBox.Show("Debe completar el campo Tipo de campeonato.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                NomTipoCampeonato.Focus();
+                TxtNomTipoCampeonato.Focus();
                 return;
             }
 
             // Validar campo Descripción
-            if (string.IsNullOrWhiteSpace(Descripcion.Text) || Descripcion.Text == "Ingresa descripción")
+            if (string.IsNullOrWhiteSpace(RtbDescripcion.Text) || RtbDescripcion.Text == "Ingresa descripción")
             {
                 MessageBox.Show("Debe completar el campo Descripción.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Descripcion.Focus();
+                RtbDescripcion.Focus();
                 return;
             }
 
@@ -61,8 +61,8 @@ namespace SistemaDePolideportivo
                 (@nombre, @descripcion)";
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", NomTipoCampeonato.Text.Trim());
-                        cmd.Parameters.AddWithValue("@descripcion", Descripcion.Text.Trim());
+                        cmd.Parameters.AddWithValue("@nombre", TxtNomTipoCampeonato.Text.Trim());
+                        cmd.Parameters.AddWithValue("@descripcion", RtbDescripcion.Text.Trim());
                         cmd.ExecuteNonQuery();
                     }
                     MessageBox.Show("Tipo de campeonato guardado correctamente.",
@@ -95,7 +95,7 @@ namespace SistemaDePolideportivo
 
                     da.Fill(dt);
 
-                    dataGridView1.DataSource = dt;
+                    Dgv1.DataSource = dt;
                 }
             }
             catch (Exception ex)
@@ -116,20 +116,20 @@ namespace SistemaDePolideportivo
             }
 
             // Validar campo Tipo de campeonato
-            if (string.IsNullOrWhiteSpace(NomTipoCampeonato.Text))
+            if (string.IsNullOrWhiteSpace(TxtNomTipoCampeonato.Text))
             {
                 MessageBox.Show("Debe completar el campo Tipo de campeonato.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                NomTipoCampeonato.Focus();
+                TxtNomTipoCampeonato.Focus();
                 return;
             }
 
             // Validar campo Descripción
-            if (string.IsNullOrWhiteSpace(Descripcion.Text))
+            if (string.IsNullOrWhiteSpace(RtbDescripcion.Text))
             {
                 MessageBox.Show("Debe completar el campo Descripción.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                Descripcion.Focus();
+                RtbDescripcion.Focus();
                 return;
             }
 
@@ -144,8 +144,8 @@ namespace SistemaDePolideportivo
                      WHERE id_tipo = @id";
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", NomTipoCampeonato.Text.Trim());
-                        cmd.Parameters.AddWithValue("@descripcion", Descripcion.Text.Trim());
+                        cmd.Parameters.AddWithValue("@nombre", TxtNomTipoCampeonato.Text.Trim());
+                        cmd.Parameters.AddWithValue("@descripcion", RtbDescripcion.Text.Trim());
                         cmd.Parameters.AddWithValue("@id", idTipo);
                         int filasAfectadas = cmd.ExecuteNonQuery();
                         if (filasAfectadas > 0)
@@ -171,16 +171,16 @@ namespace SistemaDePolideportivo
         }
 
         /* Metodo para seleccionar el registro VELVETH CHAVEZ */
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow fila = Dgv1.Rows[e.RowIndex];
 
                 // Obtener datos por el nombre exacto de la columna en la BD
                 idTipo = Convert.ToInt32(fila.Cells["id_tipo"].Value);
-                NomTipoCampeonato.Text = fila.Cells["nombre_tipoCampeonato"].Value.ToString();
-                Descripcion.Text = fila.Cells["descripcion"].Value.ToString();
+                TxtNomTipoCampeonato.Text = fila.Cells["nombre_tipoCampeonato"].Value.ToString();
+                RtbDescripcion.Text = fila.Cells["descripcion"].Value.ToString();
             }
         }
 
@@ -195,7 +195,7 @@ namespace SistemaDePolideportivo
                 return;
             }
 
-            DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar el tipo de campeonato '{NomTipoCampeonato.Text}'?",
+            DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar el tipo de campeonato '{TxtNomTipoCampeonato.Text}'?",
                                                       "Confirmar Eliminación",
                                                       MessageBoxButtons.YesNo,
                                                       MessageBoxIcon.Question);
@@ -245,28 +245,28 @@ namespace SistemaDePolideportivo
         private void LimpiarCampos()
         {
             idTipo = 0;
-            NomTipoCampeonato.Clear();
-            Descripcion.Clear();
-            if (dataGridView1.DataSource != null)
+            TxtNomTipoCampeonato.Clear();
+            RtbDescripcion.Clear();
+            if (Dgv1.DataSource != null)
             {
-                dataGridView1.ClearSelection();
+                Dgv1.ClearSelection();
             }
         }
 
         /* EVENTOS VACIOS */
-        private void label4_Click(object sender, EventArgs e)
+        private void Lbl4_Click(object sender, EventArgs e)
         {
             // Evento no utilizado
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void Lbl3_Click(object sender, EventArgs e)
         {
             // Evento no utilizado
         }
-        private void label1_Click(object sender, EventArgs e) { }
-        private void label4_Click_1(object sender, EventArgs e) { }
-        private void label5_Click(object sender, EventArgs e) { }
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
+        private void Lbl1_Click(object sender, EventArgs e) { }
+        private void Lbl4_Click_1(object sender, EventArgs e) { }
+        private void Lbl5_Click(object sender, EventArgs e) { }
+        private void Dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e) { }
 
         /* BOTON DE ELIMINAR VELVETH CHAVEZ  */
         private void BtnEliminar_Click_1(object sender, EventArgs e)
@@ -279,7 +279,7 @@ namespace SistemaDePolideportivo
             }
 
             // 2. Pedir confirmación al usuario
-            DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar el tipo de campeonato '{NomTipoCampeonato.Text}'?",
+            DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar el tipo de campeonato '{TxtNomTipoCampeonato.Text}'?",
                                                      "Confirmar Eliminación",
                                                      MessageBoxButtons.YesNo,
                                                      MessageBoxIcon.Question);
@@ -333,12 +333,12 @@ namespace SistemaDePolideportivo
             LimpiarCampos();
 
             // Coloca el cursor directamente en el campo de texto del nombre
-            NomTipoCampeonato.Focus();
+            TxtNomTipoCampeonato.Focus();
         }
 
         private void BtnRegresar_Click(object sender, EventArgs e)
         {
-            frmCampeonato nuevoForm = new frmCampeonato();
+            FrmCampeonato nuevoForm = new FrmCampeonato();
             nuevoForm.Show();
             this.Hide();
         }

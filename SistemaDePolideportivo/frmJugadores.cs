@@ -8,23 +8,23 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmJugadores : Form
+    public partial class FrmJugadores : Form
     {
         private readonly ConexionBD conexionBD = new ConexionBD();
         private int idJugadorSeleccionado = 0;
 
-        public frmJugadores()
+        public FrmJugadores()
         {
             InitializeComponent();
 
-            btnGuardar.Click += btnGuardar_Click;
-            btnEditar.Click += btnEditar_Click;
-            btnEliminar.Click += btnEliminar_Click;
-            btnExaminar.Click += btnExaminar_Click;
-            dgvJugadores.CellClick += dgvJugadores_CellClick;
+            BtnGuardar.Click += BtnGuardar_Click;
+            BtnEditar.Click += BtnEditar_Click;
+            BtnEliminar.Click += BtnEliminar_Click;
+            BtnExaminar.Click += BtnExaminar_Click;
+            DgvJugadores.CellClick += DgvJugadores_CellClick;
         }
 
-        private void frmJugadores_Load(object sender, EventArgs e)
+        private void FrmJugadores_Load(object sender, EventArgs e)
         {
             try
             {
@@ -44,48 +44,48 @@ namespace SistemaDePolideportivo
         {
             BackColor = Color.FromArgb(241, 248, 233);
 
-            cmbPosicionJugadores.DropDownStyle = ComboBoxStyle.DropDownList;
-            cmbEquipoJugadores.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbPosicionJugadores.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbEquipoJugadores.DropDownStyle = ComboBoxStyle.DropDownList;
 
-            nudDorsalJugadores.Minimum = 0;
-            nudDorsalJugadores.Maximum = 999;
-            nudDorsalJugadores.TextAlign = HorizontalAlignment.Center;
+            NudDorsalJugadores.Minimum = 0;
+            NudDorsalJugadores.Maximum = 999;
+            NudDorsalJugadores.TextAlign = HorizontalAlignment.Center;
 
-            dtpNacimientoJugadores.Format = DateTimePickerFormat.Short;
-            dtpNacimientoJugadores.MaxDate = DateTime.Today;
+            DtpNacimientoJugadores.Format = DateTimePickerFormat.Short;
+            DtpNacimientoJugadores.MaxDate = DateTime.Today;
 
-            ptbFotoJugador.SizeMode = PictureBoxSizeMode.Zoom;
-            ptbFotoJugador.BorderStyle = BorderStyle.FixedSingle;
+            PicPtbFotoJugador.SizeMode = PictureBoxSizeMode.Zoom;
+            PicPtbFotoJugador.BorderStyle = BorderStyle.FixedSingle;
 
-            dgvJugadores.BackgroundColor = Color.White;
-            dgvJugadores.BorderStyle = BorderStyle.None;
-            dgvJugadores.ReadOnly = true;
-            dgvJugadores.MultiSelect = false;
-            dgvJugadores.RowHeadersVisible = false;
-            dgvJugadores.AllowUserToAddRows = false;
-            dgvJugadores.AllowUserToDeleteRows = false;
-            dgvJugadores.AllowUserToResizeRows = false;
-            dgvJugadores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DgvJugadores.BackgroundColor = Color.White;
+            DgvJugadores.BorderStyle = BorderStyle.None;
+            DgvJugadores.ReadOnly = true;
+            DgvJugadores.MultiSelect = false;
+            DgvJugadores.RowHeadersVisible = false;
+            DgvJugadores.AllowUserToAddRows = false;
+            DgvJugadores.AllowUserToDeleteRows = false;
+            DgvJugadores.AllowUserToResizeRows = false;
+            DgvJugadores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvJugadores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgvJugadores.EnableHeadersVisualStyles = false;
-            dgvJugadores.ColumnHeadersDefaultCellStyle.BackColor =
+            DgvJugadores.EnableHeadersVisualStyles = false;
+            DgvJugadores.ColumnHeadersDefaultCellStyle.BackColor =
                 Color.FromArgb(46, 125, 50);
-            dgvJugadores.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-            dgvJugadores.ColumnHeadersDefaultCellStyle.Font =
+            DgvJugadores.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+            DgvJugadores.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
 
-            dgvJugadores.DefaultCellStyle.SelectionBackColor =
+            DgvJugadores.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(165, 214, 167);
-            dgvJugadores.DefaultCellStyle.SelectionForeColor = Color.Black;
-            dgvJugadores.AlternatingRowsDefaultCellStyle.BackColor =
+            DgvJugadores.DefaultCellStyle.SelectionForeColor = Color.Black;
+            DgvJugadores.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(241, 248, 233);
 
-            AplicarEstiloBoton(btnNuevo);
-            AplicarEstiloBoton(btnGuardar);
-            AplicarEstiloBoton(btnEditar);
-            AplicarEstiloBoton(btnEliminar);
-            AplicarEstiloBoton(btnExaminar);
+            AplicarEstiloBoton(BtnNuevo);
+            AplicarEstiloBoton(BtnGuardar);
+            AplicarEstiloBoton(BtnEditar);
+            AplicarEstiloBoton(BtnEliminar);
+            AplicarEstiloBoton(BtnExaminar);
         }
 
         private void AplicarEstiloBoton(Button boton)
@@ -121,10 +121,10 @@ namespace SistemaDePolideportivo
                     }
                 }
 
-                cmbPosicionJugadores.DataSource = tabla;
-                cmbPosicionJugadores.DisplayMember = "nombre_posicion";
-                cmbPosicionJugadores.ValueMember = "id_posicion";
-                cmbPosicionJugadores.SelectedIndex = -1;
+                CmbPosicionJugadores.DataSource = tabla;
+                CmbPosicionJugadores.DisplayMember = "nombre_posicion";
+                CmbPosicionJugadores.ValueMember = "id_posicion";
+                CmbPosicionJugadores.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -157,10 +157,10 @@ namespace SistemaDePolideportivo
                     }
                 }
 
-                cmbEquipoJugadores.DataSource = tabla;
-                cmbEquipoJugadores.DisplayMember = "nombre_equipo";
-                cmbEquipoJugadores.ValueMember = "id_equipo";
-                cmbEquipoJugadores.SelectedIndex = -1;
+                CmbEquipoJugadores.DataSource = tabla;
+                CmbEquipoJugadores.DisplayMember = "nombre_equipo";
+                CmbEquipoJugadores.ValueMember = "id_equipo";
+                CmbEquipoJugadores.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -208,9 +208,9 @@ namespace SistemaDePolideportivo
                     }
                 }
 
-                dgvJugadores.DataSource = tabla;
+                DgvJugadores.DataSource = tabla;
                 ConfigurarColumnasGrid();
-                dgvJugadores.ClearSelection();
+                DgvJugadores.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -220,28 +220,28 @@ namespace SistemaDePolideportivo
 
         private void ConfigurarColumnasGrid()
         {
-            if (dgvJugadores.Columns.Contains("Fotografia"))
-                dgvJugadores.Columns["Fotografia"].Visible = false;
+            if (DgvJugadores.Columns.Contains("Fotografia"))
+                DgvJugadores.Columns["Fotografia"].Visible = false;
 
-            if (dgvJugadores.Columns.Contains("id_posicion"))
-                dgvJugadores.Columns["id_posicion"].Visible = false;
+            if (DgvJugadores.Columns.Contains("id_posicion"))
+                DgvJugadores.Columns["id_posicion"].Visible = false;
 
-            if (dgvJugadores.Columns.Contains("id_equipo"))
-                dgvJugadores.Columns["id_equipo"].Visible = false;
+            if (DgvJugadores.Columns.Contains("id_equipo"))
+                DgvJugadores.Columns["id_equipo"].Visible = false;
 
-            if (dgvJugadores.Columns.Contains("ID"))
-                dgvJugadores.Columns["ID"].FillWeight = 40;
+            if (DgvJugadores.Columns.Contains("ID"))
+                DgvJugadores.Columns["ID"].FillWeight = 40;
 
-            if (dgvJugadores.Columns.Contains("Dorsal"))
-                dgvJugadores.Columns["Dorsal"].FillWeight = 50;
+            if (DgvJugadores.Columns.Contains("Dorsal"))
+                DgvJugadores.Columns["Dorsal"].FillWeight = 50;
 
-            if (dgvJugadores.Columns.Contains("Estado"))
-                dgvJugadores.Columns["Estado"].FillWeight = 60;
+            if (DgvJugadores.Columns.Contains("Estado"))
+                DgvJugadores.Columns["Estado"].FillWeight = 60;
         }
 
         private bool ValidarFormulario()
         {
-            if (string.IsNullOrWhiteSpace(txtNombresJugadores.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombresJugadores.Text))
             {
                 MessageBox.Show(
                     "Ingrese los nombres del jugador.",
@@ -249,11 +249,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombresJugadores.Focus();
+                TxtNombresJugadores.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtApellidosJugadores.Text))
+            if (string.IsNullOrWhiteSpace(TxtApellidosJugadores.Text))
             {
                 MessageBox.Show(
                     "Ingrese los apellidos del jugador.",
@@ -261,11 +261,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtApellidosJugadores.Focus();
+                TxtApellidosJugadores.Focus();
                 return false;
             }
 
-            if (dtpNacimientoJugadores.Value.Date >= DateTime.Today)
+            if (DtpNacimientoJugadores.Value.Date >= DateTime.Today)
             {
                 MessageBox.Show(
                     "La fecha de nacimiento debe ser anterior a la fecha actual.",
@@ -273,11 +273,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                dtpNacimientoJugadores.Focus();
+                DtpNacimientoJugadores.Focus();
                 return false;
             }
 
-            if (cmbPosicionJugadores.SelectedIndex < 0)
+            if (CmbPosicionJugadores.SelectedIndex < 0)
             {
                 MessageBox.Show(
                     "Seleccione una posición.",
@@ -285,11 +285,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbPosicionJugadores.Focus();
+                CmbPosicionJugadores.Focus();
                 return false;
             }
 
-            if (cmbEquipoJugadores.SelectedIndex < 0)
+            if (CmbEquipoJugadores.SelectedIndex < 0)
             {
                 MessageBox.Show(
                     "Seleccione un equipo.",
@@ -297,14 +297,14 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbEquipoJugadores.Focus();
+                CmbEquipoJugadores.Focus();
                 return false;
             }
 
             return true;
         }
 
-        private void btnGuardar_Click(object? sender, EventArgs e)
+        private void BtnGuardar_Click(object? sender, EventArgs e)
         {
             if (!ValidarFormulario())
                 return;
@@ -344,37 +344,37 @@ namespace SistemaDePolideportivo
                     {
                         comando.Parameters.AddWithValue(
                             "@nombres",
-                            txtNombresJugadores.Text.Trim());
+                            TxtNombresJugadores.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@apellidos",
-                            txtApellidosJugadores.Text.Trim());
+                            TxtApellidosJugadores.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@fechaNacimiento",
-                            dtpNacimientoJugadores.Value.Date);
+                            DtpNacimientoJugadores.Value.Date);
 
                         comando.Parameters.AddWithValue(
                             "@fotografia",
-                            string.IsNullOrWhiteSpace(txtFotoJugadores.Text)
+                            string.IsNullOrWhiteSpace(TxtFotoJugadores.Text)
                                 ? DBNull.Value
-                                : txtFotoJugadores.Text.Trim());
+                                : TxtFotoJugadores.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@dorsal",
-                            Convert.ToInt32(nudDorsalJugadores.Value));
+                            Convert.ToInt32(NudDorsalJugadores.Value));
 
                         comando.Parameters.AddWithValue(
                             "@estado",
-                            ckbEstadoJugadores.Checked);
+                            ChkCkbEstadoJugadores.Checked);
 
                         comando.Parameters.AddWithValue(
                             "@idPosicion",
-                            Convert.ToInt32(cmbPosicionJugadores.SelectedValue));
+                            Convert.ToInt32(CmbPosicionJugadores.SelectedValue));
 
                         comando.Parameters.AddWithValue(
                             "@idEquipo",
-                            Convert.ToInt32(cmbEquipoJugadores.SelectedValue));
+                            Convert.ToInt32(CmbEquipoJugadores.SelectedValue));
 
                         comando.ExecuteNonQuery();
                     }
@@ -395,7 +395,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnEditar_Click(object? sender, EventArgs e)
+        private void BtnEditar_Click(object? sender, EventArgs e)
         {
             if (idJugadorSeleccionado == 0)
             {
@@ -435,37 +435,37 @@ namespace SistemaDePolideportivo
                     {
                         comando.Parameters.AddWithValue(
                             "@nombres",
-                            txtNombresJugadores.Text.Trim());
+                            TxtNombresJugadores.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@apellidos",
-                            txtApellidosJugadores.Text.Trim());
+                            TxtApellidosJugadores.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@fechaNacimiento",
-                            dtpNacimientoJugadores.Value.Date);
+                            DtpNacimientoJugadores.Value.Date);
 
                         comando.Parameters.AddWithValue(
                             "@fotografia",
-                            string.IsNullOrWhiteSpace(txtFotoJugadores.Text)
+                            string.IsNullOrWhiteSpace(TxtFotoJugadores.Text)
                                 ? DBNull.Value
-                                : txtFotoJugadores.Text.Trim());
+                                : TxtFotoJugadores.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@dorsal",
-                            Convert.ToInt32(nudDorsalJugadores.Value));
+                            Convert.ToInt32(NudDorsalJugadores.Value));
 
                         comando.Parameters.AddWithValue(
                             "@estado",
-                            ckbEstadoJugadores.Checked);
+                            ChkCkbEstadoJugadores.Checked);
 
                         comando.Parameters.AddWithValue(
                             "@idPosicion",
-                            Convert.ToInt32(cmbPosicionJugadores.SelectedValue));
+                            Convert.ToInt32(CmbPosicionJugadores.SelectedValue));
 
                         comando.Parameters.AddWithValue(
                             "@idEquipo",
-                            Convert.ToInt32(cmbEquipoJugadores.SelectedValue));
+                            Convert.ToInt32(CmbEquipoJugadores.SelectedValue));
 
                         comando.Parameters.AddWithValue(
                             "@idJugador",
@@ -490,7 +490,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnEliminar_Click(object? sender, EventArgs e)
+        private void BtnEliminar_Click(object? sender, EventArgs e)
         {
             if (idJugadorSeleccionado == 0)
             {
@@ -549,7 +549,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnExaminar_Click(object? sender, EventArgs e)
+        private void BtnExaminar_Click(object? sender, EventArgs e)
         {
             using (OpenFileDialog abrir = new OpenFileDialog())
             {
@@ -560,13 +560,13 @@ namespace SistemaDePolideportivo
 
                 if (abrir.ShowDialog() == DialogResult.OK)
                 {
-                    txtFotoJugadores.Text = abrir.FileName;
+                    TxtFotoJugadores.Text = abrir.FileName;
                     MostrarFotografia(abrir.FileName);
                 }
             }
         }
 
-        private void dgvJugadores_CellClick(
+        private void DgvJugadores_CellClick(
             object? sender,
             DataGridViewCellEventArgs e)
         {
@@ -575,45 +575,45 @@ namespace SistemaDePolideportivo
 
             try
             {
-                DataGridViewRow fila = dgvJugadores.Rows[e.RowIndex];
+                DataGridViewRow fila = DgvJugadores.Rows[e.RowIndex];
 
                 idJugadorSeleccionado =
                     Convert.ToInt32(fila.Cells["ID"].Value);
 
-                txtNombresJugadores.Text =
+                TxtNombresJugadores.Text =
                     Convert.ToString(fila.Cells["Nombres"].Value) ?? "";
 
-                txtApellidosJugadores.Text =
+                TxtApellidosJugadores.Text =
                     Convert.ToString(fila.Cells["Apellidos"].Value) ?? "";
 
-                dtpNacimientoJugadores.Value =
+                DtpNacimientoJugadores.Value =
                     Convert.ToDateTime(fila.Cells["Nacimiento"].Value);
 
-                txtFotoJugadores.Text =
+                TxtFotoJugadores.Text =
                     Convert.ToString(fila.Cells["Fotografia"].Value) ?? "";
 
-                nudDorsalJugadores.Value =
+                NudDorsalJugadores.Value =
                     ConvertirDecimalSeguro(fila.Cells["Dorsal"].Value);
 
-                cmbPosicionJugadores.SelectedValue =
+                CmbPosicionJugadores.SelectedValue =
                     Convert.ToInt32(fila.Cells["id_posicion"].Value);
 
-                cmbEquipoJugadores.SelectedValue =
+                CmbEquipoJugadores.SelectedValue =
                     Convert.ToInt32(fila.Cells["id_equipo"].Value);
 
                 string estado =
                     Convert.ToString(fila.Cells["Estado"].Value) ?? "";
 
-                ckbEstadoJugadores.Checked =
+                ChkCkbEstadoJugadores.Checked =
                     estado.Equals(
                         "Activo",
                         StringComparison.OrdinalIgnoreCase);
 
-                MostrarFotografia(txtFotoJugadores.Text);
+                MostrarFotografia(TxtFotoJugadores.Text);
 
-                btnGuardar.Enabled = false;
-                btnEditar.Enabled = true;
-                btnEliminar.Enabled = true;
+                BtnGuardar.Enabled = false;
+                BtnEditar.Enabled = true;
+                BtnEliminar.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -628,21 +628,21 @@ namespace SistemaDePolideportivo
 
             decimal resultado = Convert.ToDecimal(valor);
 
-            if (resultado < nudDorsalJugadores.Minimum)
-                return nudDorsalJugadores.Minimum;
+            if (resultado < NudDorsalJugadores.Minimum)
+                return NudDorsalJugadores.Minimum;
 
-            if (resultado > nudDorsalJugadores.Maximum)
-                return nudDorsalJugadores.Maximum;
+            if (resultado > NudDorsalJugadores.Maximum)
+                return NudDorsalJugadores.Maximum;
 
             return resultado;
         }
 
         private void MostrarFotografia(string ruta)
         {
-            if (ptbFotoJugador.Image != null)
+            if (PicPtbFotoJugador.Image != null)
             {
-                ptbFotoJugador.Image.Dispose();
-                ptbFotoJugador.Image = null;
+                PicPtbFotoJugador.Image.Dispose();
+                PicPtbFotoJugador.Image = null;
             }
 
             if (string.IsNullOrWhiteSpace(ruta) || !File.Exists(ruta))
@@ -658,14 +658,14 @@ namespace SistemaDePolideportivo
                 {
                     using (Image imagenTemporal = Image.FromStream(archivo))
                     {
-                        ptbFotoJugador.Image =
+                        PicPtbFotoJugador.Image =
                             new Bitmap(imagenTemporal);
                     }
                 }
             }
             catch
             {
-                ptbFotoJugador.Image = null;
+                PicPtbFotoJugador.Image = null;
             }
         }
 
@@ -673,34 +673,34 @@ namespace SistemaDePolideportivo
         {
             idJugadorSeleccionado = 0;
 
-            txtNombresJugadores.Clear();
-            txtApellidosJugadores.Clear();
-            txtFotoJugadores.Clear();
+            TxtNombresJugadores.Clear();
+            TxtApellidosJugadores.Clear();
+            TxtFotoJugadores.Clear();
 
-            dtpNacimientoJugadores.Value = DateTime.Today;
-            nudDorsalJugadores.Value = 0;
+            DtpNacimientoJugadores.Value = DateTime.Today;
+            NudDorsalJugadores.Value = 0;
 
-            cmbPosicionJugadores.SelectedIndex = -1;
-            cmbEquipoJugadores.SelectedIndex = -1;
+            CmbPosicionJugadores.SelectedIndex = -1;
+            CmbEquipoJugadores.SelectedIndex = -1;
 
-            ckbEstadoJugadores.Checked = true;
+            ChkCkbEstadoJugadores.Checked = true;
 
-            if (ptbFotoJugador.Image != null)
+            if (PicPtbFotoJugador.Image != null)
             {
-                ptbFotoJugador.Image.Dispose();
-                ptbFotoJugador.Image = null;
+                PicPtbFotoJugador.Image.Dispose();
+                PicPtbFotoJugador.Image = null;
             }
 
-            dgvJugadores.ClearSelection();
+            DgvJugadores.ClearSelection();
 
-            btnGuardar.Enabled = true;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
+            BtnGuardar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
 
-            txtNombresJugadores.Focus();
+            TxtNombresJugadores.Focus();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
         }

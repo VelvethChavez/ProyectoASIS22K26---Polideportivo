@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmEquipos
+    partial class FrmEquipos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,95 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            txtNombreEquipo = new TextBox();
-            txtLogo = new TextBox();
-            cmbEntrenador = new ComboBox();
-            chkEstado = new CheckBox();
+            Lbl1 = new Label();
+            Lbl2 = new Label();
+            Lbl3 = new Label();
+            Lbl4 = new Label();
+            TxtNombreEquipo = new TextBox();
+            TxtLogo = new TextBox();
+            CmbEntrenador = new ComboBox();
+            ChkEstado = new CheckBox();
             BtnGuardar = new Button();
             BtnEditar = new Button();
             BtnEliminar = new Button();
             BtnNuevo = new Button();
-            dataGridView1 = new DataGridView();
-            label5 = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            Dgv1 = new DataGridView();
+            Lbl5 = new Label();
+            ((System.ComponentModel.ISupportInitialize)Dgv1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AllowDrop = true;
-            label1.AutoSize = true;
-            label1.Location = new Point(29, 44);
-            label1.Name = "label1";
-            label1.Size = new Size(110, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Nombre del equipo";
+            Lbl1.AllowDrop = true;
+            Lbl1.AutoSize = true;
+            Lbl1.Location = new Point(29, 44);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(110, 15);
+            Lbl1.TabIndex = 0;
+            Lbl1.Text = "Nombre del equipo";
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(29, 69);
-            label2.Name = "label2";
-            label2.Size = new Size(34, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Logo";
+            Lbl2.AutoSize = true;
+            Lbl2.Location = new Point(29, 69);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(34, 15);
+            Lbl2.TabIndex = 1;
+            Lbl2.Text = "Logo";
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(29, 94);
-            label3.Name = "label3";
-            label3.Size = new Size(65, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Entrenador";
+            Lbl3.AutoSize = true;
+            Lbl3.Location = new Point(29, 94);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(65, 15);
+            Lbl3.TabIndex = 2;
+            Lbl3.Text = "Entrenador";
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(29, 120);
-            label4.Name = "label4";
-            label4.Size = new Size(42, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Estado";
+            Lbl4.AutoSize = true;
+            Lbl4.Location = new Point(29, 120);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(42, 15);
+            Lbl4.TabIndex = 3;
+            Lbl4.Text = "Estado";
             // 
-            // txtNombreEquipo
+            // TxtNombreEquipo
             // 
-            txtNombreEquipo.Location = new Point(156, 42);
-            txtNombreEquipo.Margin = new Padding(3, 2, 3, 2);
-            txtNombreEquipo.Name = "txtNombreEquipo";
-            txtNombreEquipo.Size = new Size(222, 23);
-            txtNombreEquipo.TabIndex = 4;
+            TxtNombreEquipo.Location = new Point(156, 42);
+            TxtNombreEquipo.Margin = new Padding(3, 2, 3, 2);
+            TxtNombreEquipo.Name = "TxtNombreEquipo";
+            TxtNombreEquipo.Size = new Size(222, 23);
+            TxtNombreEquipo.TabIndex = 4;
             // 
-            // txtLogo
+            // TxtLogo
             // 
-            txtLogo.Location = new Point(156, 67);
-            txtLogo.Margin = new Padding(3, 2, 3, 2);
-            txtLogo.Name = "txtLogo";
-            txtLogo.Size = new Size(65, 23);
-            txtLogo.TabIndex = 5;
+            TxtLogo.Location = new Point(156, 67);
+            TxtLogo.Margin = new Padding(3, 2, 3, 2);
+            TxtLogo.Name = "TxtLogo";
+            TxtLogo.Size = new Size(65, 23);
+            TxtLogo.TabIndex = 5;
             // 
-            // cmbEntrenador
+            // CmbEntrenador
             // 
-            cmbEntrenador.FormattingEnabled = true;
-            cmbEntrenador.Location = new Point(156, 93);
-            cmbEntrenador.Margin = new Padding(3, 2, 3, 2);
-            cmbEntrenador.Name = "cmbEntrenador";
-            cmbEntrenador.Size = new Size(148, 23);
-            cmbEntrenador.TabIndex = 6;
+            CmbEntrenador.FormattingEnabled = true;
+            CmbEntrenador.Location = new Point(156, 93);
+            CmbEntrenador.Margin = new Padding(3, 2, 3, 2);
+            CmbEntrenador.Name = "CmbEntrenador";
+            CmbEntrenador.Size = new Size(148, 23);
+            CmbEntrenador.TabIndex = 6;
             // 
-            // chkEstado
+            // ChkEstado
             // 
-            chkEstado.AutoSize = true;
-            chkEstado.Location = new Point(157, 119);
-            chkEstado.Margin = new Padding(3, 2, 3, 2);
-            chkEstado.Name = "chkEstado";
-            chkEstado.Size = new Size(60, 19);
-            chkEstado.TabIndex = 7;
-            chkEstado.Text = "Activo";
-            chkEstado.UseVisualStyleBackColor = true;
+            ChkEstado.AutoSize = true;
+            ChkEstado.Location = new Point(157, 119);
+            ChkEstado.Margin = new Padding(3, 2, 3, 2);
+            ChkEstado.Name = "ChkEstado";
+            ChkEstado.Size = new Size(60, 19);
+            ChkEstado.TabIndex = 7;
+            ChkEstado.Text = "Activo";
+            ChkEstado.UseVisualStyleBackColor = true;
             // 
             // BtnGuardar
             // 
@@ -171,73 +171,73 @@
             BtnNuevo.TabIndex = 11;
             BtnNuevo.UseVisualStyleBackColor = false;
             // 
-            // dataGridView1
+            // Dgv1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(29, 188);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(643, 141);
-            dataGridView1.TabIndex = 12;
+            Dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgv1.Location = new Point(29, 188);
+            Dgv1.Margin = new Padding(3, 2, 3, 2);
+            Dgv1.Name = "Dgv1";
+            Dgv1.RowHeadersWidth = 51;
+            Dgv1.Size = new Size(643, 141);
+            Dgv1.TabIndex = 12;
             // 
-            // label5
+            // Lbl5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(29, 15);
-            label5.Name = "label5";
-            label5.Size = new Size(49, 15);
-            label5.TabIndex = 13;
-            label5.Text = "Equipos";
+            Lbl5.AutoSize = true;
+            Lbl5.Location = new Point(29, 15);
+            Lbl5.Name = "Lbl5";
+            Lbl5.Size = new Size(49, 15);
+            Lbl5.TabIndex = 13;
+            Lbl5.Text = "Equipos";
             // 
-            // frmEquipos
+            // FrmEquipos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(700, 385);
-            Controls.Add(label5);
-            Controls.Add(dataGridView1);
+            Controls.Add(Lbl5);
+            Controls.Add(Dgv1);
             Controls.Add(BtnNuevo);
             Controls.Add(BtnEliminar);
             Controls.Add(BtnEditar);
             Controls.Add(BtnGuardar);
-            Controls.Add(chkEstado);
-            Controls.Add(cmbEntrenador);
-            Controls.Add(txtLogo);
-            Controls.Add(txtNombreEquipo);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(ChkEstado);
+            Controls.Add(CmbEntrenador);
+            Controls.Add(TxtLogo);
+            Controls.Add(TxtNombreEquipo);
+            Controls.Add(Lbl4);
+            Controls.Add(Lbl3);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl1);
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MdiChildrenMinimizedAnchorBottom = false;
             MinimizeBox = false;
-            Name = "frmEquipos";
+            Name = "FrmEquipos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Equipos";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Dgv1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private TextBox txtNombreEquipo;
-        private TextBox txtLogo;
-        private ComboBox cmbEntrenador;
-        private CheckBox chkEstado;
+        private Label Lbl1;
+        private Label Lbl2;
+        private Label Lbl3;
+        private Label Lbl4;
+        private TextBox TxtNombreEquipo;
+        private TextBox TxtLogo;
+        private ComboBox CmbEntrenador;
+        private CheckBox ChkEstado;
         private Button BtnGuardar;
         private Button BtnEditar;
         private Button BtnEliminar;
         private Button BtnNuevo;
-        private DataGridView dataGridView1;
-        private Label label5;
+        private DataGridView Dgv1;
+        private Label Lbl5;
     }
 }

@@ -11,93 +11,93 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmCompeticiones : Form
+    public partial class FrmCompeticiones : Form
     {
-        public frmCompeticiones()
+        public FrmCompeticiones()
         {
             InitializeComponent();
         }
 
-        private void USUARIOS_Click(object sender, EventArgs e)
+        private void LblUSUARIOS_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Lbl4_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void Btn4_Click(object sender, EventArgs e)
         {
-            frmEstadoPartido nuevoForm = new frmEstadoPartido();
+            FrmEstadoPartido nuevoForm = new FrmEstadoPartido();
             nuevoForm.Show();
             Hide();
         }
 
-        private void btnCompetencias_Click(object sender, EventArgs e)
+        private void BtnCompetencias_Click(object sender, EventArgs e)
         {
-            frmCampo nuevoForm = new frmCampo();
+            FrmCampo nuevoForm = new FrmCampo();
             nuevoForm.Show();
             Hide();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Btn3_Click(object sender, EventArgs e)
         {
 
-            frmArbitro nuevoForm = new frmArbitro();
+            FrmArbitro nuevoForm = new FrmArbitro();
             nuevoForm.Show();
             Hide();
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Btn1_Click(object sender, EventArgs e)
         {
 
-            frmJornada nuevoForm = new frmJornada();
+            FrmJornada nuevoForm = new FrmJornada();
             nuevoForm.Show();
             Hide();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        private void Btn6_Click(object sender, EventArgs e)
         {
-            frmProgramarPartido nuevoForm = new frmProgramarPartido();
+            FrmProgramarPartido nuevoForm = new FrmProgramarPartido();
             nuevoForm.Show();
             Hide();
 
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Btn2_Click(object sender, EventArgs e)
         {
-            frmMenú newform = new frmMenú();
+            FrmMenu newform = new FrmMenu();
             newform.Show();
             this.Hide();
         }
 
         private void BtnMenu_Click(object sender, EventArgs e)
         {
-            frmMenú nuevoForm = new frmMenú();
+            FrmMenu nuevoForm = new FrmMenu();
             nuevoForm.Show();
             this.Hide();
 
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void Btn5_Click(object sender, EventArgs e)
         {
-            frmRegistrarResultado nuevoForm = new frmRegistrarResultado();
+            FrmRegistrarResultado nuevoForm = new FrmRegistrarResultado();
             nuevoForm.Show();
             this.Hide();
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
+        private void Btn2_Click_1(object sender, EventArgs e)
         {
-            frmTablaPosiciones nuevoForm = new frmTablaPosiciones();
+            FrmTablaPosiciones nuevoForm = new FrmTablaPosiciones();
             nuevoForm.Show();
             this.Hide();
         }
 
-        private void frmCompeticiones_Load(object sender, EventArgs e)
+        private void FrmCompeticiones_Load(object sender, EventArgs e)
         {
 
         }

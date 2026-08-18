@@ -7,26 +7,26 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmEquipos : Form
+    public partial class FrmEquipos : Form
     {
         private readonly ConexionBD conexionBD = new ConexionBD();
         private int idEquipoSeleccionado = 0;
 
-        public frmEquipos()
+        public FrmEquipos()
         {
             InitializeComponent();
 
-            Load += frmEquipos_Load;
+            Load += FrmEquipos_Load;
 
             BtnGuardar.Click += BtnGuardar_Click;
             BtnEditar.Click += BtnEditar_Click;
             BtnEliminar.Click += BtnEliminar_Click;
             BtnNuevo.Click += BtnNuevo_Click;
 
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            Dgv1.CellClick += Dgv1_CellClick;
         }
 
-        private void frmEquipos_Load(object? sender, EventArgs e)
+        private void FrmEquipos_Load(object? sender, EventArgs e)
         {
             try
             {
@@ -45,43 +45,43 @@ namespace SistemaDePolideportivo
         {
             BackColor = Color.FromArgb(241, 248, 233);
 
-            label5.Text = "GESTIÓN DE EQUIPOS";
-            label5.ForeColor = Color.FromArgb(27, 94, 32);
-            label5.Font = new Font("Segoe UI", 16, FontStyle.Bold);
+            Lbl5.Text = "GESTIÓN DE EQUIPOS";
+            Lbl5.ForeColor = Color.FromArgb(27, 94, 32);
+            Lbl5.Font = new Font("Segoe UI", 16, FontStyle.Bold);
 
-            cmbEntrenador.DropDownStyle = ComboBoxStyle.DropDownList;
+            CmbEntrenador.DropDownStyle = ComboBoxStyle.DropDownList;
 
             AplicarEstiloBoton(BtnNuevo);
             AplicarEstiloBoton(BtnGuardar);
             AplicarEstiloBoton(BtnEditar);
             AplicarEstiloBoton(BtnEliminar);
 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.MultiSelect = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.SelectionMode =
+            Dgv1.BackgroundColor = Color.White;
+            Dgv1.BorderStyle = BorderStyle.None;
+            Dgv1.ReadOnly = true;
+            Dgv1.MultiSelect = false;
+            Dgv1.RowHeadersVisible = false;
+            Dgv1.AllowUserToAddRows = false;
+            Dgv1.AllowUserToDeleteRows = false;
+            Dgv1.AllowUserToResizeRows = false;
+            Dgv1.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.AutoSizeColumnsMode =
+            Dgv1.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
 
-            dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor =
+            Dgv1.EnableHeadersVisualStyles = false;
+            Dgv1.ColumnHeadersDefaultCellStyle.BackColor =
                 Color.FromArgb(46, 125, 50);
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor =
+            Dgv1.ColumnHeadersDefaultCellStyle.ForeColor =
                 Color.White;
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font =
+            Dgv1.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
 
-            dataGridView1.DefaultCellStyle.SelectionBackColor =
+            Dgv1.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(165, 214, 167);
-            dataGridView1.DefaultCellStyle.SelectionForeColor =
+            Dgv1.DefaultCellStyle.SelectionForeColor =
                 Color.Black;
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor =
+            Dgv1.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(241, 248, 233);
 
             BtnGuardar.Enabled = true;
@@ -129,10 +129,10 @@ namespace SistemaDePolideportivo
                     }
                 }
 
-                cmbEntrenador.DataSource = tabla;
-                cmbEntrenador.DisplayMember = "entrenador";
-                cmbEntrenador.ValueMember = "id_entrenador";
-                cmbEntrenador.SelectedIndex = -1;
+                CmbEntrenador.DataSource = tabla;
+                CmbEntrenador.DisplayMember = "entrenador";
+                CmbEntrenador.ValueMember = "id_entrenador";
+                CmbEntrenador.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -178,9 +178,9 @@ namespace SistemaDePolideportivo
                     }
                 }
 
-                dataGridView1.DataSource = tabla;
+                Dgv1.DataSource = tabla;
                 ConfigurarColumnasGrid();
-                dataGridView1.ClearSelection();
+                Dgv1.ClearSelection();
             }
             catch (Exception ex)
             {
@@ -190,30 +190,30 @@ namespace SistemaDePolideportivo
 
         private void ConfigurarColumnasGrid()
         {
-            if (dataGridView1.Columns.Contains("id_entrenador"))
+            if (Dgv1.Columns.Contains("id_entrenador"))
             {
-                dataGridView1.Columns["id_entrenador"].Visible = false;
+                Dgv1.Columns["id_entrenador"].Visible = false;
             }
 
-            if (dataGridView1.Columns.Contains("Logo"))
+            if (Dgv1.Columns.Contains("Logo"))
             {
-                dataGridView1.Columns["Logo"].Visible = false;
+                Dgv1.Columns["Logo"].Visible = false;
             }
 
-            if (dataGridView1.Columns.Contains("ID"))
+            if (Dgv1.Columns.Contains("ID"))
             {
-                dataGridView1.Columns["ID"].FillWeight = 35;
+                Dgv1.Columns["ID"].FillWeight = 35;
             }
 
-            if (dataGridView1.Columns.Contains("Estado"))
+            if (Dgv1.Columns.Contains("Estado"))
             {
-                dataGridView1.Columns["Estado"].FillWeight = 60;
+                Dgv1.Columns["Estado"].FillWeight = 60;
             }
         }
 
         private bool ValidarFormulario()
         {
-            if (string.IsNullOrWhiteSpace(txtNombreEquipo.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombreEquipo.Text))
             {
                 MessageBox.Show(
                     "Ingrese el nombre del equipo.",
@@ -221,11 +221,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombreEquipo.Focus();
+                TxtNombreEquipo.Focus();
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtLogo.Text))
+            if (string.IsNullOrWhiteSpace(TxtLogo.Text))
             {
                 MessageBox.Show(
                     "Ingrese o seleccione el logo del equipo.",
@@ -233,12 +233,12 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtLogo.Focus();
+                TxtLogo.Focus();
                 return false;
             }
 
-            if (cmbEntrenador.SelectedIndex < 0 ||
-                cmbEntrenador.SelectedValue == null)
+            if (CmbEntrenador.SelectedIndex < 0 ||
+                CmbEntrenador.SelectedValue == null)
             {
                 MessageBox.Show(
                     "Seleccione un entrenador.",
@@ -246,11 +246,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbEntrenador.Focus();
+                CmbEntrenador.Focus();
                 return false;
             }
 
-            if (!chkEstado.Checked)
+            if (!ChkEstado.Checked)
             {
                 MessageBox.Show(
                     "El equipo debe registrarse como activo.",
@@ -258,7 +258,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                chkEstado.Focus();
+                ChkEstado.Focus();
                 return false;
             }
 
@@ -298,20 +298,20 @@ namespace SistemaDePolideportivo
                     {
                         comando.Parameters.AddWithValue(
                             "@nombre",
-                            txtNombreEquipo.Text.Trim());
+                            TxtNombreEquipo.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@logo",
-                            txtLogo.Text.Trim());
+                            TxtLogo.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@estado",
-                            chkEstado.Checked);
+                            ChkEstado.Checked);
 
                         comando.Parameters.AddWithValue(
                             "@entrenador",
                             Convert.ToInt32(
-                                cmbEntrenador.SelectedValue));
+                                CmbEntrenador.SelectedValue));
 
                         comando.ExecuteNonQuery();
                     }
@@ -373,20 +373,20 @@ namespace SistemaDePolideportivo
                     {
                         comando.Parameters.AddWithValue(
                             "@nombre",
-                            txtNombreEquipo.Text.Trim());
+                            TxtNombreEquipo.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@logo",
-                            txtLogo.Text.Trim());
+                            TxtLogo.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@estado",
-                            chkEstado.Checked);
+                            ChkEstado.Checked);
 
                         comando.Parameters.AddWithValue(
                             "@entrenador",
                             Convert.ToInt32(
-                                cmbEntrenador.SelectedValue));
+                                CmbEntrenador.SelectedValue));
 
                         comando.Parameters.AddWithValue(
                             "@idEquipo",
@@ -508,7 +508,7 @@ namespace SistemaDePolideportivo
             LimpiarCampos();
         }
 
-        private void dataGridView1_CellClick(
+        private void Dgv1_CellClick(
             object? sender,
             DataGridViewCellEventArgs e)
         {
@@ -518,28 +518,28 @@ namespace SistemaDePolideportivo
             try
             {
                 DataGridViewRow fila =
-                    dataGridView1.Rows[e.RowIndex];
+                    Dgv1.Rows[e.RowIndex];
 
                 idEquipoSeleccionado =
                     Convert.ToInt32(
                         fila.Cells["ID"].Value);
 
-                txtNombreEquipo.Text =
+                TxtNombreEquipo.Text =
                     Convert.ToString(
                         fila.Cells["Equipo"].Value) ?? "";
 
-                txtLogo.Text =
+                TxtLogo.Text =
                     Convert.ToString(
                         fila.Cells["Logo"].Value) ?? "";
 
                 if (fila.Cells["id_entrenador"].Value ==
                     DBNull.Value)
                 {
-                    cmbEntrenador.SelectedIndex = -1;
+                    CmbEntrenador.SelectedIndex = -1;
                 }
                 else
                 {
-                    cmbEntrenador.SelectedValue =
+                    CmbEntrenador.SelectedValue =
                         Convert.ToInt32(
                             fila.Cells["id_entrenador"].Value);
                 }
@@ -548,7 +548,7 @@ namespace SistemaDePolideportivo
                     Convert.ToString(
                         fila.Cells["Estado"].Value) ?? "";
 
-                chkEstado.Checked =
+                ChkEstado.Checked =
                     estado.Equals(
                         "Activo",
                         StringComparison.OrdinalIgnoreCase);
@@ -569,19 +569,19 @@ namespace SistemaDePolideportivo
         {
             idEquipoSeleccionado = 0;
 
-            txtNombreEquipo.Clear();
-            txtLogo.Clear();
+            TxtNombreEquipo.Clear();
+            TxtLogo.Clear();
 
-            cmbEntrenador.SelectedIndex = -1;
-            chkEstado.Checked = true;
+            CmbEntrenador.SelectedIndex = -1;
+            ChkEstado.Checked = true;
 
-            dataGridView1.ClearSelection();
+            Dgv1.ClearSelection();
 
             BtnGuardar.Enabled = true;
             BtnEditar.Enabled = false;
             BtnEliminar.Enabled = false;
 
-            txtNombreEquipo.Focus();
+            TxtNombreEquipo.Focus();
         }
 
         private void MostrarError(

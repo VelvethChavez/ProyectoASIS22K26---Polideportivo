@@ -4,22 +4,22 @@ using System.Windows.Forms;
 
 namespace ProyectoASIS22K26___Polideportivo
 {
-    public partial class frmLogin : Form
+    public partial class FrmLogin : Form
     {
-        public frmLogin()
+        public FrmLogin()
         {
             InitializeComponent();
         }
 
 
-        private void frmLogin_Load(object sender, EventArgs e)
+        private void FrmLogin_Load(object sender, EventArgs e)
         {
 
         }
 
         private void PicAdmin_Click(object sender, EventArgs e)
         {
-            frmLoginAdministrador nuevoForm = new frmLoginAdministrador();
+            FrmLoginAdmin nuevoForm = new FrmLoginAdmin();
             nuevoForm.Show();
             Hide();
 
@@ -27,49 +27,49 @@ namespace ProyectoASIS22K26___Polideportivo
 
         private void BtnLoginAdmin_Click(object sender, EventArgs e)
         {
-            frmLoginAdministrador nuevoForm = new frmLoginAdministrador();
+            FrmLoginAdmin nuevoForm = new FrmLoginAdmin();
             nuevoForm.Show();
             Hide();
         }
 
         private void BtnLoginArbitro_Click(object sender, EventArgs e)
         {
-            frmLoginAdministrador nuevoForm = new frmLoginAdministrador();
+            FrmLoginAdmin nuevoForm = new FrmLoginAdmin();
             nuevoForm.Show();
             Hide();
         }
 
         private void PicArbitro_Click(object sender, EventArgs e)
         {
-            frmloginarbitro nuevoform = new frmloginarbitro();
+            FrmLoginArbitro nuevoform = new FrmLoginArbitro();
             nuevoform.Show();
             Hide();
         }
 
         private void PicEquipo_Click(object sender, EventArgs e)
         {
-            frmLoginEquipo nuevoform = new frmLoginEquipo();
+            FrmLoginEquipo nuevoform = new FrmLoginEquipo();
             nuevoform.Show();
             Hide();
         }
 
         private void BtnLoginEquipo_Click(object sender, EventArgs e)
         {
-            frmLoginEquipo nuevoform = new frmLoginEquipo();
+            FrmLoginEquipo nuevoform = new FrmLoginEquipo();
             nuevoform.Show();
             Hide();
         }
 
         private void PicGerente_Click(object sender, EventArgs e)
         {
-            frmlogingerente nuevoform = new frmlogingerente();
+            FrmLoginGerente nuevoform = new FrmLoginGerente();
             nuevoform.Show();
             Hide();
         }
 
         private void BtnLoginGerente_Click(object sender, EventArgs e)
         {
-            frmlogingerente nuevoform = new frmlogingerente();
+            FrmLoginGerente nuevoform = new FrmLoginGerente();
             nuevoform.Show();
             Hide();
         }

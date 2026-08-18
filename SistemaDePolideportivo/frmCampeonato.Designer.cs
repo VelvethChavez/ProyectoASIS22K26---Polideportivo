@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmCampeonato
+    partial class FrmCampeonato
     {
         /// <summary>
         /// Required designer variable.
@@ -28,71 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCampeonato));
-            panel1 = new Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCampeonato));
+            Pnl1 = new Panel();
             BtnMenu = new Button();
             BtnEstados = new Button();
             BtnTipoCampeonato = new Button();
             BtnDeportes = new Button();
-            dataGridView1 = new DataGridView();
+            Dgv1 = new DataGridView();
             BtnEliminar = new Button();
             BtnEditar = new Button();
             BtnNuevo = new Button();
             BtnGuardar = new Button();
-            label8 = new Label();
-            label7 = new Label();
-            comboBox2 = new ComboBox();
-            comboBoxtipoCampeonato = new ComboBox();
-            ComboBoxDeporte = new ComboBox();
-            label6 = new Label();
-            dateTimePicker1 = new DateTimePicker();
-            label5 = new Label();
-            dateInicio = new DateTimePicker();
-            label4 = new Label();
-            textBox1 = new TextBox();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
-            pictureBox1 = new PictureBox();
-            mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            Lbl8 = new Label();
+            Lbl7 = new Label();
+            Cmb2 = new ComboBox();
+            CmbComboBoxtipoCampeonato = new ComboBox();
+            CmbComboBoxDeporte = new ComboBox();
+            Lbl6 = new Label();
+            Dtp1 = new DateTimePicker();
+            Lbl5 = new Label();
+            DtpDateInicio = new DateTimePicker();
+            Lbl4 = new Label();
+            Txt1 = new TextBox();
+            Lbl3 = new Label();
+            Lbl2 = new Label();
+            Lbl1 = new Label();
+            Pic1 = new PictureBox();
+            SqlCmd1 = new MySql.Data.MySqlClient.MySqlCommand();
+            Pnl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)Dgv1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Pic1).BeginInit();
             SuspendLayout();
             // 
-            // panel1
+            // Pnl1
             // 
-            panel1.BackColor = Color.White;
-            panel1.Controls.Add(BtnMenu);
-            panel1.Controls.Add(BtnEstados);
-            panel1.Controls.Add(BtnTipoCampeonato);
-            panel1.Controls.Add(BtnDeportes);
-            panel1.Controls.Add(dataGridView1);
-            panel1.Controls.Add(BtnEliminar);
-            panel1.Controls.Add(BtnEditar);
-            panel1.Controls.Add(BtnNuevo);
-            panel1.Controls.Add(BtnGuardar);
-            panel1.Controls.Add(label8);
-            panel1.Controls.Add(label7);
-            panel1.Controls.Add(comboBox2);
-            panel1.Controls.Add(comboBoxtipoCampeonato);
-            panel1.Controls.Add(ComboBoxDeporte);
-            panel1.Controls.Add(label6);
-            panel1.Controls.Add(dateTimePicker1);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(dateInicio);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(textBox1);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(pictureBox1);
-            panel1.Location = new Point(-3, -4);
-            panel1.Margin = new Padding(3, 4, 3, 4);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(739, 737);
-            panel1.TabIndex = 0;
-            panel1.Paint += panel1_Paint;
+            Pnl1.BackColor = Color.White;
+            Pnl1.Controls.Add(BtnMenu);
+            Pnl1.Controls.Add(BtnEstados);
+            Pnl1.Controls.Add(BtnTipoCampeonato);
+            Pnl1.Controls.Add(BtnDeportes);
+            Pnl1.Controls.Add(Dgv1);
+            Pnl1.Controls.Add(BtnEliminar);
+            Pnl1.Controls.Add(BtnEditar);
+            Pnl1.Controls.Add(BtnNuevo);
+            Pnl1.Controls.Add(BtnGuardar);
+            Pnl1.Controls.Add(Lbl8);
+            Pnl1.Controls.Add(Lbl7);
+            Pnl1.Controls.Add(Cmb2);
+            Pnl1.Controls.Add(CmbComboBoxtipoCampeonato);
+            Pnl1.Controls.Add(CmbComboBoxDeporte);
+            Pnl1.Controls.Add(Lbl6);
+            Pnl1.Controls.Add(Dtp1);
+            Pnl1.Controls.Add(Lbl5);
+            Pnl1.Controls.Add(DtpDateInicio);
+            Pnl1.Controls.Add(Lbl4);
+            Pnl1.Controls.Add(Txt1);
+            Pnl1.Controls.Add(Lbl3);
+            Pnl1.Controls.Add(Lbl2);
+            Pnl1.Controls.Add(Lbl1);
+            Pnl1.Controls.Add(Pic1);
+            Pnl1.Location = new Point(-3, -4);
+            Pnl1.Margin = new Padding(3, 4, 3, 4);
+            Pnl1.Name = "Pnl1";
+            Pnl1.Size = new Size(739, 737);
+            Pnl1.TabIndex = 0;
+            Pnl1.Paint += Pnl1_Paint;
             // 
             // BtnMenu
             // 
@@ -154,15 +154,15 @@
             BtnDeportes.UseVisualStyleBackColor = false;
             BtnDeportes.Click += BtnDeportes_Click;
             // 
-            // dataGridView1
+            // Dgv1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(48, 461);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(629, 231);
-            dataGridView1.TabIndex = 19;
+            Dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgv1.Location = new Point(48, 461);
+            Dgv1.Margin = new Padding(3, 4, 3, 4);
+            Dgv1.Name = "Dgv1";
+            Dgv1.RowHeadersWidth = 51;
+            Dgv1.Size = new Size(629, 231);
+            Dgv1.TabIndex = 19;
             // 
             // BtnEliminar
             // 
@@ -175,7 +175,7 @@
             BtnEliminar.Size = new Size(66, 67);
             BtnEliminar.TabIndex = 18;
             BtnEliminar.UseVisualStyleBackColor = true;
-            BtnEliminar.Click += button3_Click;
+            BtnEliminar.Click += BtnEliminar_Click;
             // 
             // BtnEditar
             // 
@@ -188,7 +188,7 @@
             BtnEditar.Size = new Size(66, 67);
             BtnEditar.TabIndex = 17;
             BtnEditar.UseVisualStyleBackColor = true;
-            BtnEditar.Click += button2_Click;
+            BtnEditar.Click += BtnEditar_Click;
             // 
             // BtnNuevo
             // 
@@ -201,7 +201,7 @@
             BtnNuevo.Size = new Size(66, 67);
             BtnNuevo.TabIndex = 16;
             BtnNuevo.UseVisualStyleBackColor = true;
-            BtnNuevo.Click += button1_Click;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
             // BtnGuardar
             // 
@@ -216,226 +216,226 @@
             BtnGuardar.UseVisualStyleBackColor = true;
             BtnGuardar.Click += BtnGuardar_Click;
             // 
-            // label8
+            // Lbl8
             // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label8.Location = new Point(327, 349);
-            label8.Name = "label8";
-            label8.Size = new Size(220, 24);
-            label8.TabIndex = 14;
-            label8.Text = "Estado del campeonato:";
-            label8.Click += label8_Click;
+            Lbl8.AutoSize = true;
+            Lbl8.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            Lbl8.Location = new Point(327, 349);
+            Lbl8.Name = "Lbl8";
+            Lbl8.Size = new Size(220, 24);
+            Lbl8.TabIndex = 14;
+            Lbl8.Text = "Estado del campeonato:";
+            Lbl8.Click += Lbl8_Click;
             // 
-            // label7
+            // Lbl7
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label7.Location = new Point(327, 256);
-            label7.Name = "label7";
-            label7.Size = new Size(196, 24);
-            label7.TabIndex = 13;
-            label7.Text = "Tipo de campeonato:";
-            label7.Click += label7_Click;
+            Lbl7.AutoSize = true;
+            Lbl7.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            Lbl7.Location = new Point(327, 256);
+            Lbl7.Name = "Lbl7";
+            Lbl7.Size = new Size(196, 24);
+            Lbl7.TabIndex = 13;
+            Lbl7.Text = "Tipo de campeonato:";
+            Lbl7.Click += Lbl7_Click;
             // 
-            // comboBox2
+            // Cmb2
             // 
-            comboBox2.Font = new Font("Bell MT", 9F);
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(327, 379);
-            comboBox2.Margin = new Padding(3, 4, 3, 4);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(191, 27);
-            comboBox2.TabIndex = 12;
-            comboBox2.Text = "Seleccione un estado";
-            comboBox2.SelectedIndexChanged += comboBox2_SelectedIndexChanged;
+            Cmb2.Font = new Font("Bell MT", 9F);
+            Cmb2.FormattingEnabled = true;
+            Cmb2.Location = new Point(327, 379);
+            Cmb2.Margin = new Padding(3, 4, 3, 4);
+            Cmb2.Name = "Cmb2";
+            Cmb2.Size = new Size(191, 27);
+            Cmb2.TabIndex = 12;
+            Cmb2.Text = "Seleccione un estado";
+            Cmb2.SelectedIndexChanged += Cmb2_SelectedIndexChanged;
             // 
-            // comboBoxtipoCampeonato
+            // CmbComboBoxtipoCampeonato
             // 
-            comboBoxtipoCampeonato.Font = new Font("Bell MT", 9F);
-            comboBoxtipoCampeonato.FormattingEnabled = true;
-            comboBoxtipoCampeonato.Location = new Point(327, 285);
-            comboBoxtipoCampeonato.Margin = new Padding(3, 4, 3, 4);
-            comboBoxtipoCampeonato.Name = "comboBoxtipoCampeonato";
-            comboBoxtipoCampeonato.Size = new Size(191, 27);
-            comboBoxtipoCampeonato.TabIndex = 11;
-            comboBoxtipoCampeonato.Text = "Seleccione un tipo";
-            comboBoxtipoCampeonato.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
+            CmbComboBoxtipoCampeonato.Font = new Font("Bell MT", 9F);
+            CmbComboBoxtipoCampeonato.FormattingEnabled = true;
+            CmbComboBoxtipoCampeonato.Location = new Point(327, 285);
+            CmbComboBoxtipoCampeonato.Margin = new Padding(3, 4, 3, 4);
+            CmbComboBoxtipoCampeonato.Name = "CmbComboBoxtipoCampeonato";
+            CmbComboBoxtipoCampeonato.Size = new Size(191, 27);
+            CmbComboBoxtipoCampeonato.TabIndex = 11;
+            CmbComboBoxtipoCampeonato.Text = "Seleccione un tipo";
+            CmbComboBoxtipoCampeonato.SelectedIndexChanged += CmbComboBoxtipoCampeonato_SelectedIndexChanged;
             // 
-            // ComboBoxDeporte
+            // CmbComboBoxDeporte
             // 
-            ComboBoxDeporte.Font = new Font("Bell MT", 9F);
-            ComboBoxDeporte.FormattingEnabled = true;
-            ComboBoxDeporte.Location = new Point(327, 195);
-            ComboBoxDeporte.Margin = new Padding(3, 4, 3, 4);
-            ComboBoxDeporte.Name = "ComboBoxDeporte";
-            ComboBoxDeporte.Size = new Size(191, 27);
-            ComboBoxDeporte.TabIndex = 10;
-            ComboBoxDeporte.Text = "Seleccione un deporte";
+            CmbComboBoxDeporte.Font = new Font("Bell MT", 9F);
+            CmbComboBoxDeporte.FormattingEnabled = true;
+            CmbComboBoxDeporte.Location = new Point(327, 195);
+            CmbComboBoxDeporte.Margin = new Padding(3, 4, 3, 4);
+            CmbComboBoxDeporte.Name = "CmbComboBoxDeporte";
+            CmbComboBoxDeporte.Size = new Size(191, 27);
+            CmbComboBoxDeporte.TabIndex = 10;
+            CmbComboBoxDeporte.Text = "Seleccione un deporte";
             // 
-            // label6
+            // Lbl6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label6.Location = new Point(327, 165);
-            label6.Name = "label6";
-            label6.Size = new Size(94, 24);
-            label6.TabIndex = 9;
-            label6.Text = "Deporte: ";
+            Lbl6.AutoSize = true;
+            Lbl6.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            Lbl6.Location = new Point(327, 165);
+            Lbl6.Name = "Lbl6";
+            Lbl6.Size = new Size(94, 24);
+            Lbl6.TabIndex = 9;
+            Lbl6.Text = "Deporte: ";
             // 
-            // dateTimePicker1
+            // Dtp1
             // 
-            dateTimePicker1.Font = new Font("Bell MT", 9F);
-            dateTimePicker1.Format = DateTimePickerFormat.Custom;
-            dateTimePicker1.Location = new Point(24, 381);
-            dateTimePicker1.Margin = new Padding(3, 4, 3, 4);
-            dateTimePicker1.MaxDate = new DateTime(2027, 12, 31, 0, 0, 0, 0);
-            dateTimePicker1.MinDate = new DateTime(2026, 1, 1, 0, 0, 0, 0);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(107, 24);
-            dateTimePicker1.TabIndex = 8;
-            dateTimePicker1.ValueChanged += dateTimePicker1_ValueChanged;
+            Dtp1.Font = new Font("Bell MT", 9F);
+            Dtp1.Format = DateTimePickerFormat.Custom;
+            Dtp1.Location = new Point(24, 381);
+            Dtp1.Margin = new Padding(3, 4, 3, 4);
+            Dtp1.MaxDate = new DateTime(2027, 12, 31, 0, 0, 0, 0);
+            Dtp1.MinDate = new DateTime(2026, 1, 1, 0, 0, 0, 0);
+            Dtp1.Name = "Dtp1";
+            Dtp1.Size = new Size(107, 24);
+            Dtp1.TabIndex = 8;
+            Dtp1.ValueChanged += Dtp1_ValueChanged;
             // 
-            // label5
+            // Lbl5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label5.Location = new Point(19, 352);
-            label5.Name = "label5";
-            label5.Size = new Size(112, 24);
-            label5.TabIndex = 7;
-            label5.Text = "Fecha final:";
-            label5.Click += label5_Click;
+            Lbl5.AutoSize = true;
+            Lbl5.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            Lbl5.Location = new Point(19, 352);
+            Lbl5.Name = "Lbl5";
+            Lbl5.Size = new Size(112, 24);
+            Lbl5.TabIndex = 7;
+            Lbl5.Text = "Fecha final:";
+            Lbl5.Click += Lbl5_Click;
             // 
-            // dateInicio
+            // DtpDateInicio
             // 
-            dateInicio.Font = new Font("Bell MT", 9F);
-            dateInicio.Format = DateTimePickerFormat.Custom;
-            dateInicio.Location = new Point(24, 285);
-            dateInicio.Margin = new Padding(3, 4, 3, 4);
-            dateInicio.MaxDate = new DateTime(2026, 12, 31, 0, 0, 0, 0);
-            dateInicio.MinDate = new DateTime(2026, 1, 1, 0, 0, 0, 0);
-            dateInicio.Name = "dateInicio";
-            dateInicio.Size = new Size(111, 24);
-            dateInicio.TabIndex = 6;
-            dateInicio.ValueChanged += dateInicio_ValueChanged;
+            DtpDateInicio.Font = new Font("Bell MT", 9F);
+            DtpDateInicio.Format = DateTimePickerFormat.Custom;
+            DtpDateInicio.Location = new Point(24, 285);
+            DtpDateInicio.Margin = new Padding(3, 4, 3, 4);
+            DtpDateInicio.MaxDate = new DateTime(2026, 12, 31, 0, 0, 0, 0);
+            DtpDateInicio.MinDate = new DateTime(2026, 1, 1, 0, 0, 0, 0);
+            DtpDateInicio.Name = "DtpDateInicio";
+            DtpDateInicio.Size = new Size(111, 24);
+            DtpDateInicio.TabIndex = 6;
+            DtpDateInicio.ValueChanged += DtpDateInicio_ValueChanged;
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label4.Location = new Point(19, 256);
-            label4.Name = "label4";
-            label4.Size = new Size(147, 24);
-            label4.TabIndex = 5;
-            label4.Text = "Fecha de inicio:";
-            label4.Click += label4_Click;
+            Lbl4.AutoSize = true;
+            Lbl4.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            Lbl4.Location = new Point(19, 256);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(147, 24);
+            Lbl4.TabIndex = 5;
+            Lbl4.Text = "Fecha de inicio:";
+            Lbl4.Click += Lbl4_Click;
             // 
-            // textBox1
+            // Txt1
             // 
-            textBox1.Font = new Font("Bell MT", 9F);
-            textBox1.Location = new Point(24, 195);
-            textBox1.Margin = new Padding(3, 4, 3, 4);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(213, 24);
-            textBox1.TabIndex = 4;
-            textBox1.Text = "Ingrese nombre del campeonato";
-            textBox1.TextChanged += textBox1_TextChanged;
+            Txt1.Font = new Font("Bell MT", 9F);
+            Txt1.Location = new Point(24, 195);
+            Txt1.Margin = new Padding(3, 4, 3, 4);
+            Txt1.Name = "Txt1";
+            Txt1.Size = new Size(213, 24);
+            Txt1.TabIndex = 4;
+            Txt1.Text = "Ingrese nombre del campeonato";
+            Txt1.TextChanged += Txt1_TextChanged;
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label3.Location = new Point(19, 165);
-            label3.Name = "label3";
-            label3.Size = new Size(230, 24);
-            label3.TabIndex = 3;
-            label3.Text = "Nombre del campeonato:\r\n";
+            Lbl3.AutoSize = true;
+            Lbl3.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            Lbl3.Location = new Point(19, 165);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(230, 24);
+            Lbl3.TabIndex = 3;
+            Lbl3.Text = "Nombre del campeonato:\r\n";
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Bell MT", 12F, FontStyle.Bold);
-            label2.Location = new Point(17, 113);
-            label2.Name = "label2";
-            label2.Size = new Size(207, 24);
-            label2.TabIndex = 2;
-            label2.Text = "Datos del campeonato";
+            Lbl2.AutoSize = true;
+            Lbl2.Font = new Font("Bell MT", 12F, FontStyle.Bold);
+            Lbl2.Location = new Point(17, 113);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(207, 24);
+            Lbl2.TabIndex = 2;
+            Lbl2.Text = "Datos del campeonato";
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Bahnschrift Condensed", 20.25F);
-            label1.Location = new Point(77, 28);
-            label1.Name = "label1";
-            label1.Size = new Size(157, 41);
-            label1.TabIndex = 1;
-            label1.Text = "Campeonato";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
-            label1.Click += label1_Click;
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Bahnschrift Condensed", 20.25F);
+            Lbl1.Location = new Point(77, 28);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(157, 41);
+            Lbl1.TabIndex = 1;
+            Lbl1.Text = "Campeonato";
+            Lbl1.TextAlign = ContentAlignment.MiddleLeft;
+            Lbl1.Click += Lbl1_Click;
             // 
-            // pictureBox1
+            // Pic1
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(24, 28);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(46, 52);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            Pic1.Image = (Image)resources.GetObject("Pic1.Image");
+            Pic1.Location = new Point(24, 28);
+            Pic1.Margin = new Padding(3, 4, 3, 4);
+            Pic1.Name = "Pic1";
+            Pic1.Size = new Size(46, 52);
+            Pic1.SizeMode = PictureBoxSizeMode.Zoom;
+            Pic1.TabIndex = 0;
+            Pic1.TabStop = false;
             // 
-            // mySqlCommand1
+            // SqlCmd1
             // 
-            mySqlCommand1.CacheAge = 0;
-            mySqlCommand1.Connection = null;
-            mySqlCommand1.EnableCaching = false;
-            mySqlCommand1.Transaction = null;
+            SqlCmd1.CacheAge = 0;
+            SqlCmd1.Connection = null;
+            SqlCmd1.EnableCaching = false;
+            SqlCmd1.Transaction = null;
             // 
-            // frmCampeonato
+            // FrmCampeonato
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(737, 731);
-            Controls.Add(panel1);
+            Controls.Add(Pnl1);
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmCampeonato";
+            Name = "FrmCampeonato";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Campeonato";
-            Load += frmCampeonato_Load;
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Load += FrmCampeonato_Load;
+            Pnl1.ResumeLayout(false);
+            Pnl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)Dgv1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Pic1).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panel1;
-        private PictureBox pictureBox1;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private TextBox textBox1;
-        private Label label4;
-        private Label label5;
-        private DateTimePicker dateInicio;
-        private DateTimePicker dateTimePicker1;
-        private ComboBox ComboBoxDeporte;
-        private Label label6;
-        private Label label7;
-        private ComboBox comboBox2;
-        private ComboBox comboBoxtipoCampeonato;
-        private Label label8;
-        private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
+        private Panel Pnl1;
+        private PictureBox Pic1;
+        private Label Lbl1;
+        private Label Lbl2;
+        private Label Lbl3;
+        private TextBox Txt1;
+        private Label Lbl4;
+        private Label Lbl5;
+        private DateTimePicker DtpDateInicio;
+        private DateTimePicker Dtp1;
+        private ComboBox CmbComboBoxDeporte;
+        private Label Lbl6;
+        private Label Lbl7;
+        private ComboBox Cmb2;
+        private ComboBox CmbComboBoxtipoCampeonato;
+        private Label Lbl8;
+        private MySql.Data.MySqlClient.MySqlCommand SqlCmd1;
         private Button BtnGuardar;
         private Button BtnEliminar;
         private Button BtnEditar;
         private Button BtnNuevo;
-        private DataGridView dataGridView1;
+        private DataGridView Dgv1;
         private Button BtnDeportes;
         private Button BtnTipoCampeonato;
         private Button BtnEstados;

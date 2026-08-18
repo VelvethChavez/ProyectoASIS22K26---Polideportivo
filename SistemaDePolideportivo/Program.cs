@@ -1,4 +1,4 @@
-using ProyectoASIS22K26___Polideportivo;
+﻿using ProyectoASIS22K26___Polideportivo;
 
 namespace SistemaDePolideportivo
 {
@@ -13,7 +13,7 @@ namespace SistemaDePolideportivo
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmLogin());
+            Application.Run(new FrmLogin());
         }
     }
 }

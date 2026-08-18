@@ -4,10 +4,11 @@ namespace SistemaDePolideportivo.Conexion
 {
     public class ConexionBD
     {
+
         // 1. Reemplaza 'TU_CONTRASEÑA_AQUI' por la contraseña con la que entras a MySQL Workbench
         // (Si no le pusiste contraseña al instalar MySQL, déjalo vacío: pwd=;)
         private string cadenaConexion =
-            "server=localhost;port=3306;database=sistemapolideportivo;uid=root;pwd=Brayanpinzon_12;";
+            "server=localhost;port=3306;database=sistemapolideportivo;uid=root;pwd=localhost123;";
 
         public MySqlConnection ObtenerConexion()
         {

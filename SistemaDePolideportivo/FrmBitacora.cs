@@ -64,7 +64,7 @@ namespace SistemaDePolideportivo
 
                     adaptador.Fill(tabla);
 
-                    dgvBitacora.DataSource = tabla;
+                    DgvBitacora.DataSource = tabla;
                 }
             }
             catch (Exception ex)
@@ -73,7 +73,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Lbl1_Click(object sender, EventArgs e)
         {
 
         }

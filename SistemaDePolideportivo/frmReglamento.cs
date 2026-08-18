@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace ProyectoASIS22K26___Polideportivo
 {
-    public partial class frmReglamento : Form
+    public partial class FrmReglamento : Form
     {
         private const int ModoNuevo = 1;
         private const int ModoActualizar = 2;
@@ -11,24 +11,24 @@ namespace ProyectoASIS22K26___Polideportivo
         private int _modoGuardado;
         private int _idRegla;
 
-        public frmReglamento()
+        public FrmReglamento()
         {
             InitializeComponent();
         }
 
-        private void frmReglamento_Load(object sender, EventArgs e)
+        private void FrmReglamento_Load(object sender, EventArgs e)
         {
-              dgvReglas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvReglas.MultiSelect = false;
-            dgvReglas.ReadOnly = true;
+              DgvReglas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvReglas.MultiSelect = false;
+            DgvReglas.ReadOnly = true;
 
             CargarReglas("%");
-            cboDeporte.Items.Insert(0, "Eliga un deporte ...");
-            cboDeporte.SelectedIndex = 0;
+            CmbCboDeporte.Items.Insert(0, "Eliga un deporte ...");
+            CmbCboDeporte.SelectedIndex = 0;
             ConfigurarBotonesCrud(false);
         }
 
-        private void frmReglamento_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmReglamento_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Owner != null)
             {
@@ -36,16 +36,16 @@ namespace ProyectoASIS22K26___Polideportivo
             }
             else
             {
-                new frmMenú().Show();
+                new FrmMenu().Show();
             }
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            CargarReglas("%" + txtBuscar.Text.Trim() + "%");
+            CargarReglas("%" + TxtBuscar.Text.Trim() + "%");
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             _idRegla = 0;
             _modoGuardado = ModoNuevo;
@@ -55,7 +55,7 @@ namespace ProyectoASIS22K26___Polideportivo
             ConfigurarBotonesCrud(false);
         }
 
-        private void btnLeer_Click(object sender, EventArgs e)
+        private void BtnLeer_Click(object sender, EventArgs e)
         {
             if (!TryObtenerRegistroSeleccionado(out int id, out string nombre, out string descripcion))
             {
@@ -64,13 +64,13 @@ namespace ProyectoASIS22K26___Polideportivo
 
             _idRegla = id;
             _modoGuardado = 0;
-            txtNombreRegla.Text = nombre;
-            txtDescripcion.Text = descripcion;
+            TxtNombreRegla.Text = nombre;
+            RtbTxtDescripcion.Text = descripcion;
             ConfigurarCampos(false);
             ConfigurarBotonesEdicion(false);
         }
 
-        private void btnActualizar_Click(object sender, EventArgs e)
+        private void BtnActualizar_Click(object sender, EventArgs e)
         {
             if (!TryObtenerRegistroSeleccionado(out int id, out string nombre, out string descripcion))
             {
@@ -79,14 +79,14 @@ namespace ProyectoASIS22K26___Polideportivo
 
             _idRegla = id;
             _modoGuardado = ModoActualizar;
-            txtNombreRegla.Text = nombre;
-            txtDescripcion.Text = descripcion;
+            TxtNombreRegla.Text = nombre;
+            RtbTxtDescripcion.Text = descripcion;
             ConfigurarCampos(true);
             ConfigurarBotonesEdicion(true);
             ConfigurarBotonesCrud(false);
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
             if (!TryObtenerRegistroSeleccionado(out int id, out string nombre, out _))
             {
@@ -127,7 +127,7 @@ namespace ProyectoASIS22K26___Polideportivo
             }
         }
 
-        private void btnAyuda_Click(object sender, EventArgs e)
+        private void BtnAyuda_Click(object sender, EventArgs e)
         {
             MessageBox.Show(
                 "Guía rápida del módulo de Reglamento:\n\n" +
@@ -145,14 +145,14 @@ namespace ProyectoASIS22K26___Polideportivo
                 MessageBoxIcon.Information);
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void BtnCancelar_Click(object sender, EventArgs e)
         {
             RestablecerFormulario();
         }
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombreRegla.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombreRegla.Text))
             {
                 MessageBox.Show(
                     "Debe ingresar el nombre de la sanción.",
@@ -164,8 +164,8 @@ namespace ProyectoASIS22K26___Polideportivo
 
             string respuesta = new CReglas().Guardar_Reglas(
                 _modoGuardado,
-                txtNombreRegla.Text.Trim(),
-                txtDescripcion.Text.Trim(),
+                TxtNombreRegla.Text.Trim(),
+                RtbTxtDescripcion.Text.Trim(),
                 _idRegla);
 
             if (respuesta == "OK")
@@ -193,9 +193,9 @@ namespace ProyectoASIS22K26___Polideportivo
             }
         }
 
-        private void cboDeporte_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbCboDeporte_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ConfigurarBotonesCrud(cboDeporte.SelectedIndex > 0);
+            ConfigurarBotonesCrud(CmbCboDeporte.SelectedIndex > 0);
         }
 
         private bool TryObtenerRegistroSeleccionado(out int id, out string nombre, out string descripcion)
@@ -204,7 +204,7 @@ namespace ProyectoASIS22K26___Polideportivo
             nombre = string.Empty;
             descripcion = string.Empty;
 
-            if (dgvReglas.CurrentRow == null || dgvReglas.CurrentRow.IsNewRow)
+            if (DgvReglas.CurrentRow == null || DgvReglas.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione un registro de la tabla.",
@@ -214,57 +214,57 @@ namespace ProyectoASIS22K26___Polideportivo
                 return false;
             }
 
-            id = Convert.ToInt32(dgvReglas.CurrentRow.Cells[0].Value);
-            nombre = dgvReglas.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
-            descripcion = dgvReglas.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
+            id = Convert.ToInt32(DgvReglas.CurrentRow.Cells[0].Value);
+            nombre = DgvReglas.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            descripcion = DgvReglas.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
             return true;
         }
 
         private void CargarReglas(string filtro)
         {
-            dgvReglas.DataSource = new CReglas().Listado_Reglas(filtro);
+            DgvReglas.DataSource = new CReglas().Listado_Reglas(filtro);
             FormatearGrid();
         }
 
         private void FormatearGrid()
         {
-            if (dgvReglas.Columns.Count < 3)
+            if (DgvReglas.Columns.Count < 3)
             {
                 return;
             }
 
-            dgvReglas.Columns[0].Width = 50;
-            dgvReglas.Columns[0].HeaderText = "ID SANCIÓN";
-            dgvReglas.Columns[1].Width = 200;
-            dgvReglas.Columns[1].HeaderText = "NOMBRE SANCIÓN";
-            dgvReglas.Columns[2].Width = 365;
-            dgvReglas.Columns[2].HeaderText = "DESCRIPCIÓN";
+            DgvReglas.Columns[0].Width = 50;
+            DgvReglas.Columns[0].HeaderText = "ID SANCIÓN";
+            DgvReglas.Columns[1].Width = 200;
+            DgvReglas.Columns[1].HeaderText = "NOMBRE SANCIÓN";
+            DgvReglas.Columns[2].Width = 365;
+            DgvReglas.Columns[2].HeaderText = "DESCRIPCIÓN";
         }
 
         private void ConfigurarCampos(bool habilitados)
         {
-            txtNombreRegla.Enabled = habilitados;
-            txtDescripcion.Enabled = habilitados;
+            TxtNombreRegla.Enabled = habilitados;
+            RtbTxtDescripcion.Enabled = habilitados;
         }
 
         private void ConfigurarBotonesEdicion(bool habilitados)
         {
-            btnGuardar.Enabled = habilitados;
-            btnCancelar.Enabled = habilitados;
+            BtnGuardar.Enabled = habilitados;
+            BtnCancelar.Enabled = habilitados;
         }
 
         private void ConfigurarBotonesCrud(bool habilitados)
         {
-            btnNuevo.Enabled = habilitados;
-            btnEliminar.Enabled = habilitados;
-            btnLeer.Enabled = habilitados;
-            btnActualizar.Enabled = habilitados;
+            BtnNuevo.Enabled = habilitados;
+            BtnEliminar.Enabled = habilitados;
+            BtnLeer.Enabled = habilitados;
+            BtnActualizar.Enabled = habilitados;
         }
 
         private void LimpiarCampos()
         {
-            txtNombreRegla.Clear();
-            txtDescripcion.Clear();
+            TxtNombreRegla.Clear();
+            RtbTxtDescripcion.Clear();
         }
 
         private void RestablecerFormulario()
@@ -274,7 +274,7 @@ namespace ProyectoASIS22K26___Polideportivo
             LimpiarCampos();
             ConfigurarCampos(false);
             ConfigurarBotonesEdicion(false);
-            ConfigurarBotonesCrud(cboDeporte.SelectedIndex > 0);
+            ConfigurarBotonesCrud(CmbCboDeporte.SelectedIndex > 0);
         }
     }
 }

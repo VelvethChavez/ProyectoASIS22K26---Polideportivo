@@ -18,7 +18,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmEstadoPartido : Form
+    public partial class FrmEstadoPartido : Form
     {
         private const int ModoNuevo = 1;
         private const int ModoActualizar = 2;
@@ -26,16 +26,16 @@ namespace SistemaDePolideportivo
         private int _modoGuardado;
         private int _idEstadoPartido;
 
-        public frmEstadoPartido()
+        public FrmEstadoPartido()
         {
             InitializeComponent();
         }
 
         private void frmEstado_Partido_Load(object sender, EventArgs e)
         {
-            dgvEstados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEstados.MultiSelect = false;
-            dgvEstados.ReadOnly = true;
+            DgvEstados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvEstados.MultiSelect = false;
+            DgvEstados.ReadOnly = true;
 
             CargarEstados("%");
             RestablecerVista();
@@ -49,69 +49,69 @@ namespace SistemaDePolideportivo
             }
             else
             {
-                new frmMenú().Show();
+                new FrmMenu().Show();
             }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            CargarEstados("%" + txtBuscar.Text.Trim() + "%");
+            CargarEstados("%" + TxtBuscar.Text.Trim() + "%");
         }
 
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             _idEstadoPartido = 0;
             _modoGuardado = ModoNuevo;
 
-            txtNombreEstado.Clear();
-            txtDescripcion.Clear();
+            TxtNombreEstado.Clear();
+            RtbTxtDescripcion.Clear();
 
-            txtNombreEstado.Enabled = true;
-            txtDescripcion.Enabled = true;
-            btnGuardar.Enabled = true;
+            TxtNombreEstado.Enabled = true;
+            RtbTxtDescripcion.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            txtNombreEstado.Focus();
+            TxtNombreEstado.Focus();
         }
 
         private void btnLeer_Click(object sender, EventArgs e)
         {
-            if (dgvEstados.CurrentRow == null || dgvEstados.CurrentRow.IsNewRow)
+            if (DgvEstados.CurrentRow == null || DgvEstados.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Seleccione un registro de la tabla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            _idEstadoPartido = Convert.ToInt32(dgvEstados.CurrentRow.Cells[0].Value);
+            _idEstadoPartido = Convert.ToInt32(DgvEstados.CurrentRow.Cells[0].Value);
             _modoGuardado = 0;
 
-            txtNombreEstado.Text = dgvEstados.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
-            txtDescripcion.Text = dgvEstados.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
+            TxtNombreEstado.Text = DgvEstados.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            RtbTxtDescripcion.Text = DgvEstados.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
 
-            txtNombreEstado.Enabled = false;
-            txtDescripcion.Enabled = false;
-            btnGuardar.Enabled = false;
+            TxtNombreEstado.Enabled = false;
+            RtbTxtDescripcion.Enabled = false;
+            BtnGuardar.Enabled = false;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            if (dgvEstados.CurrentRow == null || dgvEstados.CurrentRow.IsNewRow)
+            if (DgvEstados.CurrentRow == null || DgvEstados.CurrentRow.IsNewRow)
             {
                 MessageBox.Show("Seleccione un registro de la tabla.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            _idEstadoPartido = Convert.ToInt32(dgvEstados.CurrentRow.Cells[0].Value);
+            _idEstadoPartido = Convert.ToInt32(DgvEstados.CurrentRow.Cells[0].Value);
             _modoGuardado = ModoActualizar;
 
-            txtNombreEstado.Text = dgvEstados.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
-            txtDescripcion.Text = dgvEstados.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
+            TxtNombreEstado.Text = DgvEstados.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            RtbTxtDescripcion.Text = DgvEstados.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
 
-            txtNombreEstado.Enabled = true;
-            txtDescripcion.Enabled = true;
-            btnGuardar.Enabled = true;
+            TxtNombreEstado.Enabled = true;
+            RtbTxtDescripcion.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            txtNombreEstado.Focus();
+            TxtNombreEstado.Focus();
         }
 
 
@@ -126,16 +126,16 @@ namespace SistemaDePolideportivo
 
         private void CargarEstados(string filtro)
         {
-            dgvEstados.DataSource = new CEstadoPartido().Listado_Estados(filtro);
+            DgvEstados.DataSource = new CEstadoPartido().Listado_Estados(filtro);
 
-            if (dgvEstados.Columns.Count >= 3)
+            if (DgvEstados.Columns.Count >= 3)
             {
-                dgvEstados.Columns[0].Width = 70;
-                dgvEstados.Columns[0].HeaderText = "ID ESTADO";
-                dgvEstados.Columns[1].Width = 200;
-                dgvEstados.Columns[1].HeaderText = "NOMBRE ESTADO";
-                dgvEstados.Columns[2].Width = 345;
-                dgvEstados.Columns[2].HeaderText = "DESCRIPCIÓN";
+                DgvEstados.Columns[0].Width = 70;
+                DgvEstados.Columns[0].HeaderText = "ID ESTADO";
+                DgvEstados.Columns[1].Width = 200;
+                DgvEstados.Columns[1].HeaderText = "NOMBRE ESTADO";
+                DgvEstados.Columns[2].Width = 345;
+                DgvEstados.Columns[2].HeaderText = "DESCRIPCIÓN";
             }
         }
 
@@ -144,46 +144,46 @@ namespace SistemaDePolideportivo
             _idEstadoPartido = 0;
             _modoGuardado = 0;
 
-            txtNombreEstado.Clear();
-            txtDescripcion.Clear();
+            TxtNombreEstado.Clear();
+            RtbTxtDescripcion.Clear();
 
-            txtNombreEstado.Enabled = false;
-            txtDescripcion.Enabled = false;
+            TxtNombreEstado.Enabled = false;
+            RtbTxtDescripcion.Enabled = false;
 
-            btnGuardar.Enabled = false;
-            btnNuevo.Enabled = true;
-            btnEliminar.Enabled = true;
+            BtnGuardar.Enabled = false;
+            BtnNuevo.Enabled = true;
+            BtnEliminar.Enabled = true;
         }
 
-        private void btnNuevo_Click_1(object sender, EventArgs e)
+        private void BtnNuevo_Click_1(object sender, EventArgs e)
         {
             _idEstadoPartido = 0;
             _modoGuardado = ModoNuevo;
 
-            txtNombreEstado.Clear();
-            txtDescripcion.Clear();
+            TxtNombreEstado.Clear();
+            RtbTxtDescripcion.Clear();
 
-            txtNombreEstado.Enabled = true;
-            txtDescripcion.Enabled = true;
+            TxtNombreEstado.Enabled = true;
+            RtbTxtDescripcion.Enabled = true;
 
-            btnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            txtNombreEstado.Focus();
+            TxtNombreEstado.Focus();
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombreEstado.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombreEstado.Text))
             {
                 MessageBox.Show("Debe ingresar el nombre del estado.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtNombreEstado.Focus();
+                TxtNombreEstado.Focus();
                 return;
             }
 
             string respuesta = new CEstadoPartido().Guardar_Estado(
                 _modoGuardado,
-                txtNombreEstado.Text.Trim(),
-                txtDescripcion.Text.Trim(),
+                TxtNombreEstado.Text.Trim(),
+                RtbTxtDescripcion.Text.Trim(),
                 _idEstadoPartido);
 
             if (respuesta == "OK")
@@ -204,7 +204,7 @@ namespace SistemaDePolideportivo
 
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            var grid = dgvEstados;
+            var grid = DgvEstados;
 
             if (grid.CurrentRow == null || grid.CurrentRow.IsNewRow)
             {
@@ -218,19 +218,19 @@ namespace SistemaDePolideportivo
 
             _modoGuardado = ModoActualizar;
 
-            txtNombreEstado.Text = grid.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
-            txtDescripcion.Text = grid.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
+            TxtNombreEstado.Text = grid.CurrentRow.Cells[1].Value?.ToString() ?? string.Empty;
+            RtbTxtDescripcion.Text = grid.CurrentRow.Cells[2].Value?.ToString() ?? string.Empty;
 
-            txtNombreEstado.Enabled = true;
-            txtDescripcion.Enabled = true;
-            btnGuardar.Enabled = true;
+            TxtNombreEstado.Enabled = true;
+            RtbTxtDescripcion.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            txtNombreEstado.Focus();
+            TxtNombreEstado.Focus();
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void BtnEliminar_Click_1(object sender, EventArgs e)
         {
-            var grid = dgvEstados;
+            var grid = DgvEstados;
 
             if (grid.CurrentRow == null || grid.CurrentRow.IsNewRow)
             {
@@ -275,7 +275,7 @@ namespace SistemaDePolideportivo
 
         private void BtnMenu_Click(object sender, EventArgs e)
         {
-            frmCompeticiones nuevoForm =new frmCompeticiones();
+            FrmCompeticiones nuevoForm =new FrmCompeticiones();
             nuevoForm.Show();
             this.Hide();
         }

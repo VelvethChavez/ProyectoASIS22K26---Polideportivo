@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmJornada : Form
+    public partial class FrmJornada : Form
     {
         // ============================================================
         // MODOS
@@ -36,7 +36,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         // CONSTRUCTOR
         // ============================================================
-        public frmJornada()
+        public FrmJornada()
         {
             InitializeComponent();
         }
@@ -50,16 +50,16 @@ namespace SistemaDePolideportivo
         // ============================================================
         private void ConfigurarGrid()
         {
-            dgvJornadas.Enabled = true;
+            DgvJornadas.Enabled = true;
 
-            dgvJornadas.ReadOnly = true;
+            DgvJornadas.ReadOnly = true;
 
-            dgvJornadas.SelectionMode =
+            DgvJornadas.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
 
-            dgvJornadas.MultiSelect = false;
+            DgvJornadas.MultiSelect = false;
 
-            dgvJornadas.AllowUserToAddRows = false;
+            DgvJornadas.AllowUserToAddRows = false;
         }
 
 
@@ -74,16 +74,16 @@ namespace SistemaDePolideportivo
                     jornada.Listado_Campeonatos();
 
 
-                comboBoxCampeonato.DataSource =
+                CmbComboBoxCampeonato.DataSource =
                     campeonatos;
 
-                comboBoxCampeonato.DisplayMember =
+                CmbComboBoxCampeonato.DisplayMember =
                     "nombre_campeonato";
 
-                comboBoxCampeonato.ValueMember =
+                CmbComboBoxCampeonato.ValueMember =
                     "id_campeonato";
 
-                comboBoxCampeonato.SelectedIndex =
+                CmbComboBoxCampeonato.SelectedIndex =
                     -1;
             }
             catch (Exception ex)
@@ -105,46 +105,46 @@ namespace SistemaDePolideportivo
         {
             try
             {
-                dgvJornadas.DataSource =
+                DgvJornadas.DataSource =
                     jornada.Listado_Jornadas(filtro);
 
 
-                if (dgvJornadas.Columns.Count >= 6)
+                if (DgvJornadas.Columns.Count >= 6)
                 {
                     // ID Jornada
-                    dgvJornadas.Columns[0].Width = 70;
-                    dgvJornadas.Columns[0].HeaderText =
+                    DgvJornadas.Columns[0].Width = 70;
+                    DgvJornadas.Columns[0].HeaderText =
                         "ID JORNADA";
 
 
                     // Nombre
-                    dgvJornadas.Columns[1].Width = 150;
-                    dgvJornadas.Columns[1].HeaderText =
+                    DgvJornadas.Columns[1].Width = 150;
+                    DgvJornadas.Columns[1].HeaderText =
                         "NOMBRE JORNADA";
 
 
                     // Número
-                    dgvJornadas.Columns[2].Width = 70;
-                    dgvJornadas.Columns[2].HeaderText =
+                    DgvJornadas.Columns[2].Width = 70;
+                    DgvJornadas.Columns[2].HeaderText =
                         "NÚMERO";
 
 
                     // Fecha
-                    dgvJornadas.Columns[3].Width = 100;
-                    dgvJornadas.Columns[3].HeaderText =
+                    DgvJornadas.Columns[3].Width = 100;
+                    DgvJornadas.Columns[3].HeaderText =
                         "FECHA";
 
 
                     // Campeonato
-                    dgvJornadas.Columns[4].Width = 180;
-                    dgvJornadas.Columns[4].HeaderText =
+                    DgvJornadas.Columns[4].Width = 180;
+                    DgvJornadas.Columns[4].HeaderText =
                         "CAMPEONATO";
 
 
                     // ID Campeonato
                     // Lo necesitamos internamente,
                     // pero no necesitamos mostrarlo.
-                    dgvJornadas.Columns[5].Visible =
+                    DgvJornadas.Columns[5].Visible =
                         false;
                 }
             }
@@ -170,37 +170,37 @@ namespace SistemaDePolideportivo
             _modoGuardado = 0;
 
 
-            comboBoxCampeonato.SelectedIndex = -1;
+            CmbComboBoxCampeonato.SelectedIndex = -1;
 
-            txtNombreJornada.Clear();
+            TxtNombreJornada.Clear();
 
-            numNumeroJornada.Value = 1;
+            NudNumNumeroJornada.Value = 1;
 
-            dtpFechaJornada.Value =
+            DtpFechaJornada.Value =
                 DateTime.Today;
 
 
-            comboBoxCampeonato.Enabled = false;
+            CmbComboBoxCampeonato.Enabled = false;
 
-            txtNombreJornada.Enabled = false;
+            TxtNombreJornada.Enabled = false;
 
-            numNumeroJornada.Enabled = false;
+            NudNumNumeroJornada.Enabled = false;
 
-            dtpFechaJornada.Enabled = false;
+            DtpFechaJornada.Enabled = false;
 
 
-            btnGuardar.Enabled = false;
+            BtnGuardar.Enabled = false;
 
-            btnNuevo.Enabled = true;
+            BtnNuevo.Enabled = true;
 
             BtnEditar.Enabled = true;
 
-            btnEliminar.Enabled = true;
+            BtnEliminar.Enabled = true;
 
 
-            if (dgvJornadas.DataSource != null)
+            if (DgvJornadas.DataSource != null)
             {
-                dgvJornadas.ClearSelection();
+                DgvJornadas.ClearSelection();
             }
         }
 
@@ -208,7 +208,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         // NUEVO
         // ============================================================
-        private void btnNuevo_Click(
+        private void BtnNuevo_Click(
             object sender,
             EventArgs e)
         {
@@ -217,37 +217,37 @@ namespace SistemaDePolideportivo
             _modoGuardado = ModoNuevo;
 
 
-            comboBoxCampeonato.SelectedIndex =
+            CmbComboBoxCampeonato.SelectedIndex =
                 -1;
 
-            txtNombreJornada.Clear();
+            TxtNombreJornada.Clear();
 
-            numNumeroJornada.Value = 1;
+            NudNumNumeroJornada.Value = 1;
 
-            dtpFechaJornada.Value =
+            DtpFechaJornada.Value =
                 DateTime.Today;
 
 
-            comboBoxCampeonato.Enabled = true;
+            CmbComboBoxCampeonato.Enabled = true;
 
-            txtNombreJornada.Enabled = true;
+            TxtNombreJornada.Enabled = true;
 
-            numNumeroJornada.Enabled = true;
+            NudNumNumeroJornada.Enabled = true;
 
-            dtpFechaJornada.Enabled = true;
-
-
-            btnGuardar.Enabled = true;
+            DtpFechaJornada.Enabled = true;
 
 
-            comboBoxCampeonato.Focus();
+            BtnGuardar.Enabled = true;
+
+
+            CmbComboBoxCampeonato.Focus();
         }
 
 
         // ============================================================
         // GUARDAR
         // ============================================================
-        private void btnGuardar_Click(
+        private void BtnGuardar_Click(
             object sender,
             EventArgs e)
         {
@@ -259,7 +259,7 @@ namespace SistemaDePolideportivo
 
             int idCampeonato =
                 Convert.ToInt32(
-                    comboBoxCampeonato.SelectedValue);
+                    CmbComboBoxCampeonato.SelectedValue);
 
 
             if (_modoGuardado == 0)
@@ -272,10 +272,10 @@ namespace SistemaDePolideportivo
                 jornada.Guardar_Jornada(
                     _modoGuardado,
                     idCampeonato,
-                    txtNombreJornada.Text.Trim(),
+                    TxtNombreJornada.Text.Trim(),
                     Convert.ToInt32(
-                        numNumeroJornada.Value),
-                    dtpFechaJornada.Value,
+                        NudNumNumeroJornada.Value),
+                    DtpFechaJornada.Value,
                     _idJornada);
 
 
@@ -308,7 +308,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         private bool ValidarCampos()
         {
-            if (comboBoxCampeonato.SelectedIndex == -1)
+            if (CmbComboBoxCampeonato.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Debe seleccionar un campeonato.",
@@ -316,14 +316,14 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                comboBoxCampeonato.Focus();
+                CmbComboBoxCampeonato.Focus();
 
                 return false;
             }
 
 
             if (string.IsNullOrWhiteSpace(
-                txtNombreJornada.Text))
+                TxtNombreJornada.Text))
             {
                 MessageBox.Show(
                     "Debe ingresar el nombre de la jornada.",
@@ -331,13 +331,13 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombreJornada.Focus();
+                TxtNombreJornada.Focus();
 
                 return false;
             }
 
 
-            if (numNumeroJornada.Value <= 0)
+            if (NudNumNumeroJornada.Value <= 0)
             {
                 MessageBox.Show(
                     "El número de jornada debe ser mayor que cero.",
@@ -345,7 +345,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                numNumeroJornada.Focus();
+                NudNumNumeroJornada.Focus();
 
                 return false;
             }
@@ -362,8 +362,8 @@ namespace SistemaDePolideportivo
             object sender,
             EventArgs e)
         {
-            if (dgvJornadas.CurrentRow == null ||
-                dgvJornadas.CurrentRow.IsNewRow)
+            if (DgvJornadas.CurrentRow == null ||
+                DgvJornadas.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione una jornada de la tabla.",
@@ -376,7 +376,7 @@ namespace SistemaDePolideportivo
 
 
             DataGridViewRow fila =
-                dgvJornadas.CurrentRow;
+                DgvJornadas.CurrentRow;
 
 
             // ID de la jornada
@@ -390,7 +390,7 @@ namespace SistemaDePolideportivo
 
 
             // Nombre
-            txtNombreJornada.Text =
+            TxtNombreJornada.Text =
                 fila.Cells[1].Value?.ToString()
                 ?? string.Empty;
 
@@ -400,7 +400,7 @@ namespace SistemaDePolideportivo
                 fila.Cells[2].Value?.ToString(),
                 out int numero))
             {
-                numNumeroJornada.Value =
+                NudNumNumeroJornada.Value =
                     numero;
             }
 
@@ -410,7 +410,7 @@ namespace SistemaDePolideportivo
                 fila.Cells[3].Value?.ToString(),
                 out DateTime fecha))
             {
-                dtpFechaJornada.Value =
+                DtpFechaJornada.Value =
                     fecha;
             }
 
@@ -419,42 +419,42 @@ namespace SistemaDePolideportivo
             if (fila.Cells[5].Value != null &&
                 fila.Cells[5].Value != DBNull.Value)
             {
-                comboBoxCampeonato.SelectedValue =
+                CmbComboBoxCampeonato.SelectedValue =
                     Convert.ToInt32(
                         fila.Cells[5].Value);
             }
             else
             {
-                comboBoxCampeonato.SelectedIndex =
+                CmbComboBoxCampeonato.SelectedIndex =
                     -1;
             }
 
 
             // Activar controles
-            comboBoxCampeonato.Enabled = true;
+            CmbComboBoxCampeonato.Enabled = true;
 
-            txtNombreJornada.Enabled = true;
+            TxtNombreJornada.Enabled = true;
 
-            numNumeroJornada.Enabled = true;
+            NudNumNumeroJornada.Enabled = true;
 
-            dtpFechaJornada.Enabled = true;
+            DtpFechaJornada.Enabled = true;
 
-            btnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true;
 
 
-            comboBoxCampeonato.Focus();
+            CmbComboBoxCampeonato.Focus();
         }
 
 
         // ============================================================
         // ELIMINAR
         // ============================================================
-        private void btnEliminar_Click(
+        private void BtnEliminar_Click(
             object sender,
             EventArgs e)
         {
-            if (dgvJornadas.CurrentRow == null ||
-                dgvJornadas.CurrentRow.IsNewRow)
+            if (DgvJornadas.CurrentRow == null ||
+                DgvJornadas.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione una jornada de la tabla.",
@@ -468,11 +468,11 @@ namespace SistemaDePolideportivo
 
             int id =
                 Convert.ToInt32(
-                    dgvJornadas.CurrentRow.Cells[0].Value);
+                    DgvJornadas.CurrentRow.Cells[0].Value);
 
 
             string nombre =
-                dgvJornadas.CurrentRow.Cells[1]
+                DgvJornadas.CurrentRow.Cells[1]
                     .Value?.ToString()
                 ?? string.Empty;
 
@@ -535,7 +535,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         // CLICK EN DATAGRID
         // ============================================================
-        private void dgvJornadas_CellContentClick(
+        private void DgvJornadas_CellContentClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
@@ -545,12 +545,12 @@ namespace SistemaDePolideportivo
         // ============================================================
         // REGRESAR
         // ============================================================
-        private void btnRegresarMenuCompeticiones_Click(
+        private void BtnRegresarMenuCompeticiones_Click(
             object sender,
             EventArgs e)
         {
-            frmCompeticiones nuevoform =
-                new frmCompeticiones();
+            FrmCompeticiones nuevoform =
+                new FrmCompeticiones();
 
             nuevoform.Show();
 
@@ -559,7 +559,7 @@ namespace SistemaDePolideportivo
 
 
        
-        private void frmJornada_Load(
+        private void FrmJornada_Load(
             object sender,
             EventArgs e)
         {
@@ -572,7 +572,7 @@ namespace SistemaDePolideportivo
             RestablecerVista();
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbComboBoxCampeonato_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

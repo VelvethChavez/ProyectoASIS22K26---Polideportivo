@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmEntrenadores
+    partial class FrmEntrenadores
     {
         /// <summary>
         /// Required designer variable.
@@ -28,210 +28,210 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            btnGuardar = new Button();
-            btnEditar = new Button();
-            btnEliminar = new Button();
-            btnNuevo = new Button();
-            dataGridView1 = new DataGridView();
-            txtNombreEntrenador = new TextBox();
-            txtApellidoEntrenador = new TextBox();
-            txtTelefonoEntrenador = new TextBox();
-            txtCorreoEntrenador = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            Lbl1 = new Label();
+            Lbl2 = new Label();
+            Lbl3 = new Label();
+            Lbl4 = new Label();
+            Lbl5 = new Label();
+            BtnGuardar = new Button();
+            BtnEditar = new Button();
+            BtnEliminar = new Button();
+            BtnNuevo = new Button();
+            Dgv1 = new DataGridView();
+            TxtNombreEntrenador = new TextBox();
+            TxtApellidoEntrenador = new TextBox();
+            TxtTelefonoEntrenador = new TextBox();
+            TxtCorreoEntrenador = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)Dgv1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F);
-            label1.ImageAlign = ContentAlignment.BottomCenter;
-            label1.Location = new Point(32, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(124, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Entrenadores";
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 14F);
+            Lbl1.ImageAlign = ContentAlignment.BottomCenter;
+            Lbl1.Location = new Point(32, 9);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(124, 25);
+            Lbl1.TabIndex = 0;
+            Lbl1.Text = "Entrenadores";
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(32, 49);
-            label2.Name = "label2";
-            label2.Size = new Size(56, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Nombres";
+            Lbl2.AutoSize = true;
+            Lbl2.Location = new Point(32, 49);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(56, 15);
+            Lbl2.TabIndex = 1;
+            Lbl2.Text = "Nombres";
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(32, 75);
-            label3.Name = "label3";
-            label3.Size = new Size(56, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Apellidos";
+            Lbl3.AutoSize = true;
+            Lbl3.Location = new Point(32, 75);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(56, 15);
+            Lbl3.TabIndex = 2;
+            Lbl3.Text = "Apellidos";
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(32, 103);
-            label4.Name = "label4";
-            label4.Size = new Size(53, 15);
-            label4.TabIndex = 3;
-            label4.Text = "Teléfono";
-            label4.Click += label4_Click;
+            Lbl4.AutoSize = true;
+            Lbl4.Location = new Point(32, 103);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(53, 15);
+            Lbl4.TabIndex = 3;
+            Lbl4.Text = "Teléfono";
+            Lbl4.Click += Lbl4_Click;
             // 
-            // label5
+            // Lbl5
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(32, 129);
-            label5.Name = "label5";
-            label5.Size = new Size(43, 15);
-            label5.TabIndex = 4;
-            label5.Text = "Correo";
+            Lbl5.AutoSize = true;
+            Lbl5.Location = new Point(32, 129);
+            Lbl5.Name = "Lbl5";
+            Lbl5.Size = new Size(43, 15);
+            Lbl5.TabIndex = 4;
+            Lbl5.Text = "Correo";
             // 
-            // btnGuardar
+            // BtnGuardar
             // 
-            btnGuardar.BackgroundImage = Properties.Resources.guardar;
-            btnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnGuardar.Cursor = Cursors.Hand;
-            btnGuardar.Location = new Point(479, 30);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(52, 44);
-            btnGuardar.TabIndex = 5;
-            btnGuardar.UseVisualStyleBackColor = true;
-            btnGuardar.Click += btnGuardar_Click_1;
+            BtnGuardar.BackgroundImage = Properties.Resources.guardar;
+            BtnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnGuardar.Cursor = Cursors.Hand;
+            BtnGuardar.Location = new Point(479, 30);
+            BtnGuardar.Margin = new Padding(3, 2, 3, 2);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(52, 44);
+            BtnGuardar.TabIndex = 5;
+            BtnGuardar.UseVisualStyleBackColor = true;
+            BtnGuardar.Click += BtnGuardar_Click_1;
             // 
-            // btnEditar
+            // BtnEditar
             // 
-            btnEditar.BackgroundImage = Properties.Resources.editar;
-            btnEditar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnEditar.Cursor = Cursors.Hand;
-            btnEditar.Location = new Point(479, 87);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(52, 44);
-            btnEditar.TabIndex = 6;
-            btnEditar.UseVisualStyleBackColor = true;
-            btnEditar.Click += btnEditar_Click_1;
+            BtnEditar.BackgroundImage = Properties.Resources.editar;
+            BtnEditar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEditar.Cursor = Cursors.Hand;
+            BtnEditar.Location = new Point(479, 87);
+            BtnEditar.Margin = new Padding(3, 2, 3, 2);
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Size = new Size(52, 44);
+            BtnEditar.TabIndex = 6;
+            BtnEditar.UseVisualStyleBackColor = true;
+            BtnEditar.Click += BtnEditar_Click_1;
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            btnEliminar.BackgroundImage = Properties.Resources.eliminar;
-            btnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnEliminar.Cursor = Cursors.Hand;
-            btnEliminar.Location = new Point(572, 30);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(52, 44);
-            btnEliminar.TabIndex = 7;
-            btnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.BackgroundImage = Properties.Resources.eliminar;
+            BtnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEliminar.Cursor = Cursors.Hand;
+            BtnEliminar.Location = new Point(572, 30);
+            BtnEliminar.Margin = new Padding(3, 2, 3, 2);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(52, 44);
+            BtnEliminar.TabIndex = 7;
+            BtnEliminar.UseVisualStyleBackColor = true;
             // 
-            // btnNuevo
+            // BtnNuevo
             // 
-            btnNuevo.BackgroundImage = Properties.Resources.nuevo;
-            btnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            btnNuevo.Cursor = Cursors.Hand;
-            btnNuevo.Location = new Point(572, 88);
-            btnNuevo.Margin = new Padding(3, 2, 3, 2);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(52, 44);
-            btnNuevo.TabIndex = 8;
-            btnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.BackgroundImage = Properties.Resources.nuevo;
+            BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNuevo.Cursor = Cursors.Hand;
+            BtnNuevo.Location = new Point(572, 88);
+            BtnNuevo.Margin = new Padding(3, 2, 3, 2);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(52, 44);
+            BtnNuevo.TabIndex = 8;
+            BtnNuevo.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // Dgv1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(32, 187);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(628, 141);
-            dataGridView1.TabIndex = 9;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
+            Dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgv1.Location = new Point(32, 187);
+            Dgv1.Margin = new Padding(3, 2, 3, 2);
+            Dgv1.Name = "Dgv1";
+            Dgv1.RowHeadersWidth = 51;
+            Dgv1.Size = new Size(628, 141);
+            Dgv1.TabIndex = 9;
+            Dgv1.CellContentClick += Dgv1_CellContentClick;
             // 
-            // txtNombreEntrenador
+            // TxtNombreEntrenador
             // 
-            txtNombreEntrenador.Location = new Point(136, 49);
-            txtNombreEntrenador.Margin = new Padding(3, 2, 3, 2);
-            txtNombreEntrenador.Name = "txtNombreEntrenador";
-            txtNombreEntrenador.Size = new Size(236, 23);
-            txtNombreEntrenador.TabIndex = 10;
+            TxtNombreEntrenador.Location = new Point(136, 49);
+            TxtNombreEntrenador.Margin = new Padding(3, 2, 3, 2);
+            TxtNombreEntrenador.Name = "TxtNombreEntrenador";
+            TxtNombreEntrenador.Size = new Size(236, 23);
+            TxtNombreEntrenador.TabIndex = 10;
             // 
-            // txtApellidoEntrenador
+            // TxtApellidoEntrenador
             // 
-            txtApellidoEntrenador.Location = new Point(136, 73);
-            txtApellidoEntrenador.Margin = new Padding(3, 2, 3, 2);
-            txtApellidoEntrenador.Name = "txtApellidoEntrenador";
-            txtApellidoEntrenador.Size = new Size(236, 23);
-            txtApellidoEntrenador.TabIndex = 11;
+            TxtApellidoEntrenador.Location = new Point(136, 73);
+            TxtApellidoEntrenador.Margin = new Padding(3, 2, 3, 2);
+            TxtApellidoEntrenador.Name = "TxtApellidoEntrenador";
+            TxtApellidoEntrenador.Size = new Size(236, 23);
+            TxtApellidoEntrenador.TabIndex = 11;
             // 
-            // txtTelefonoEntrenador
+            // TxtTelefonoEntrenador
             // 
-            txtTelefonoEntrenador.Location = new Point(136, 99);
-            txtTelefonoEntrenador.Margin = new Padding(3, 2, 3, 2);
-            txtTelefonoEntrenador.Name = "txtTelefonoEntrenador";
-            txtTelefonoEntrenador.Size = new Size(236, 23);
-            txtTelefonoEntrenador.TabIndex = 12;
+            TxtTelefonoEntrenador.Location = new Point(136, 99);
+            TxtTelefonoEntrenador.Margin = new Padding(3, 2, 3, 2);
+            TxtTelefonoEntrenador.Name = "TxtTelefonoEntrenador";
+            TxtTelefonoEntrenador.Size = new Size(236, 23);
+            TxtTelefonoEntrenador.TabIndex = 12;
             // 
-            // txtCorreoEntrenador
+            // TxtCorreoEntrenador
             // 
-            txtCorreoEntrenador.Location = new Point(136, 124);
-            txtCorreoEntrenador.Margin = new Padding(3, 2, 3, 2);
-            txtCorreoEntrenador.Name = "txtCorreoEntrenador";
-            txtCorreoEntrenador.Size = new Size(236, 23);
-            txtCorreoEntrenador.TabIndex = 13;
+            TxtCorreoEntrenador.Location = new Point(136, 124);
+            TxtCorreoEntrenador.Margin = new Padding(3, 2, 3, 2);
+            TxtCorreoEntrenador.Name = "TxtCorreoEntrenador";
+            TxtCorreoEntrenador.Size = new Size(236, 23);
+            TxtCorreoEntrenador.TabIndex = 13;
             // 
-            // frmEntrenadores
+            // FrmEntrenadores
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(700, 338);
-            Controls.Add(txtCorreoEntrenador);
-            Controls.Add(txtTelefonoEntrenador);
-            Controls.Add(txtApellidoEntrenador);
-            Controls.Add(txtNombreEntrenador);
-            Controls.Add(dataGridView1);
-            Controls.Add(btnNuevo);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnEditar);
-            Controls.Add(btnGuardar);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(TxtCorreoEntrenador);
+            Controls.Add(TxtTelefonoEntrenador);
+            Controls.Add(TxtApellidoEntrenador);
+            Controls.Add(TxtNombreEntrenador);
+            Controls.Add(Dgv1);
+            Controls.Add(BtnNuevo);
+            Controls.Add(BtnEliminar);
+            Controls.Add(BtnEditar);
+            Controls.Add(BtnGuardar);
+            Controls.Add(Lbl5);
+            Controls.Add(Lbl4);
+            Controls.Add(Lbl3);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl1);
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmEntrenadores";
+            Name = "FrmEntrenadores";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Entrenadores";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Dgv1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Button btnGuardar;
-        private Button btnEditar;
-        private Button btnEliminar;
-        private Button btnNuevo;
-        private DataGridView dataGridView1;
-        private TextBox txtNombreEntrenador;
-        private TextBox txtApellidoEntrenador;
-        private TextBox txtTelefonoEntrenador;
-        private TextBox txtCorreoEntrenador;
+        private Label Lbl1;
+        private Label Lbl2;
+        private Label Lbl3;
+        private Label Lbl4;
+        private Label Lbl5;
+        private Button BtnGuardar;
+        private Button BtnEditar;
+        private Button BtnEliminar;
+        private Button BtnNuevo;
+        private DataGridView Dgv1;
+        private TextBox TxtNombreEntrenador;
+        private TextBox TxtApellidoEntrenador;
+        private TextBox TxtTelefonoEntrenador;
+        private TextBox TxtCorreoEntrenador;
     }
 }

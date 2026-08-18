@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmRegistrarResultado
+    partial class FrmRegistrarResultado
     {
         /// <summary>
         /// Required designer variable.
@@ -28,135 +28,135 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistrarResultado));
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            numMarcadorLocal = new NumericUpDown();
-            numMarcadorVisitante = new NumericUpDown();
-            textBox2 = new TextBox();
-            btnNuevo = new Button();
-            btnEliminar = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistrarResultado));
+            Lbl1 = new Label();
+            Lbl2 = new Label();
+            Lbl3 = new Label();
+            Lbl4 = new Label();
+            Lbl5 = new Label();
+            Lbl6 = new Label();
+            NudNumMarcadorLocal = new NumericUpDown();
+            NudNumMarcadorVisitante = new NumericUpDown();
+            Txt2 = new TextBox();
+            BtnNuevo = new Button();
+            BtnEliminar = new Button();
             BtnEditar = new Button();
-            btnGuardar = new Button();
-            dgvResultados = new DataGridView();
-            cmbPartido = new ComboBox();
-            cmbEstado = new ComboBox();
-            btnRegresarMenuCompeticiones = new Button();
-            ((System.ComponentModel.ISupportInitialize)numMarcadorLocal).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numMarcadorVisitante).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dgvResultados).BeginInit();
+            BtnGuardar = new Button();
+            DgvResultados = new DataGridView();
+            CmbPartido = new ComboBox();
+            CmbEstado = new ComboBox();
+            BtnRegresarMenuCompeticiones = new Button();
+            ((System.ComponentModel.ISupportInitialize)NudNumMarcadorLocal).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)NudNumMarcadorVisitante).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DgvResultados).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 43);
-            label1.Name = "label1";
-            label1.Size = new Size(79, 28);
-            label1.TabIndex = 0;
-            label1.Text = "Partido:";
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl1.Location = new Point(12, 43);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(79, 28);
+            Lbl1.TabIndex = 0;
+            Lbl1.Text = "Partido:";
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 87);
-            label2.Name = "label2";
-            label2.Size = new Size(190, 28);
-            label2.TabIndex = 1;
-            label2.Text = "Datos del Resultado:";
+            Lbl2.AutoSize = true;
+            Lbl2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl2.Location = new Point(12, 87);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(190, 28);
+            Lbl2.TabIndex = 1;
+            Lbl2.Text = "Datos del Resultado:";
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(12, 181);
-            label3.Name = "label3";
-            label3.Size = new Size(200, 28);
-            label3.TabIndex = 2;
-            label3.Text = "Goles/PuntoVisitante:";
+            Lbl3.AutoSize = true;
+            Lbl3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl3.Location = new Point(12, 181);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(200, 28);
+            Lbl3.TabIndex = 2;
+            Lbl3.Text = "Goles/PuntoVisitante:";
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(12, 132);
-            label4.Name = "label4";
-            label4.Size = new Size(166, 28);
-            label4.TabIndex = 3;
-            label4.Text = "Goles/PuntoLocal";
+            Lbl4.AutoSize = true;
+            Lbl4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl4.Location = new Point(12, 132);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(166, 28);
+            Lbl4.TabIndex = 3;
+            Lbl4.Text = "Goles/PuntoLocal";
             // 
-            // label5
+            // Lbl5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(12, 265);
-            label5.Name = "label5";
-            label5.Size = new Size(143, 28);
-            label5.TabIndex = 4;
-            label5.Text = "Observaciones:";
+            Lbl5.AutoSize = true;
+            Lbl5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl5.Location = new Point(12, 265);
+            Lbl5.Name = "Lbl5";
+            Lbl5.Size = new Size(143, 28);
+            Lbl5.TabIndex = 4;
+            Lbl5.Text = "Observaciones:";
             // 
-            // label6
+            // Lbl6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(12, 227);
-            label6.Name = "label6";
-            label6.Size = new Size(143, 28);
-            label6.TabIndex = 5;
-            label6.Text = "Estado Partido:";
+            Lbl6.AutoSize = true;
+            Lbl6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl6.Location = new Point(12, 227);
+            Lbl6.Name = "Lbl6";
+            Lbl6.Size = new Size(143, 28);
+            Lbl6.TabIndex = 5;
+            Lbl6.Text = "Estado Partido:";
             // 
-            // numMarcadorLocal
+            // NudNumMarcadorLocal
             // 
-            numMarcadorLocal.Location = new Point(220, 137);
-            numMarcadorLocal.Name = "numMarcadorLocal";
-            numMarcadorLocal.Size = new Size(158, 27);
-            numMarcadorLocal.TabIndex = 6;
+            NudNumMarcadorLocal.Location = new Point(220, 137);
+            NudNumMarcadorLocal.Name = "NudNumMarcadorLocal";
+            NudNumMarcadorLocal.Size = new Size(158, 27);
+            NudNumMarcadorLocal.TabIndex = 6;
             // 
-            // numMarcadorVisitante
+            // NudNumMarcadorVisitante
             // 
-            numMarcadorVisitante.Location = new Point(220, 182);
-            numMarcadorVisitante.Name = "numMarcadorVisitante";
-            numMarcadorVisitante.Size = new Size(158, 27);
-            numMarcadorVisitante.TabIndex = 7;
+            NudNumMarcadorVisitante.Location = new Point(220, 182);
+            NudNumMarcadorVisitante.Name = "NudNumMarcadorVisitante";
+            NudNumMarcadorVisitante.Size = new Size(158, 27);
+            NudNumMarcadorVisitante.TabIndex = 7;
             // 
-            // textBox2
+            // Txt2
             // 
-            textBox2.Location = new Point(220, 269);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(158, 27);
-            textBox2.TabIndex = 9;
-            textBox2.Text = "Datos del encuentro";
+            Txt2.Location = new Point(220, 269);
+            Txt2.Name = "Txt2";
+            Txt2.Size = new Size(158, 27);
+            Txt2.TabIndex = 9;
+            Txt2.Text = "Datos del encuentro";
             // 
-            // btnNuevo
+            // BtnNuevo
             // 
-            btnNuevo.BackgroundImage = Properties.Resources.nuevo;
-            btnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            btnNuevo.Location = new Point(713, 117);
-            btnNuevo.Margin = new Padding(3, 4, 3, 4);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(66, 63);
-            btnNuevo.TabIndex = 38;
-            btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += btnNuevo_Click;
+            BtnNuevo.BackgroundImage = Properties.Resources.nuevo;
+            BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNuevo.Location = new Point(713, 117);
+            BtnNuevo.Margin = new Padding(3, 4, 3, 4);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(66, 63);
+            BtnNuevo.TabIndex = 38;
+            BtnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            btnEliminar.BackgroundImage = Properties.Resources.eliminar;
-            btnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnEliminar.Cursor = Cursors.Hand;
-            btnEliminar.Location = new Point(617, 117);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(66, 63);
-            btnEliminar.TabIndex = 37;
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click;
+            BtnEliminar.BackgroundImage = Properties.Resources.eliminar;
+            BtnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEliminar.Cursor = Cursors.Hand;
+            BtnEliminar.Location = new Point(617, 117);
+            BtnEliminar.Margin = new Padding(3, 4, 3, 4);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(66, 63);
+            BtnEliminar.TabIndex = 37;
+            BtnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.Click += BtnEliminar_Click;
             // 
             // BtnEditar
             // 
@@ -171,114 +171,114 @@
             BtnEditar.UseVisualStyleBackColor = true;
             BtnEditar.Click += BtnEditar_Click_1;
             // 
-            // btnGuardar
+            // BtnGuardar
             // 
-            btnGuardar.BackColor = Color.Transparent;
-            btnGuardar.BackgroundImage = Properties.Resources.guardar;
-            btnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnGuardar.Cursor = Cursors.Hand;
-            btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardar.ForeColor = SystemColors.ActiveCaptionText;
-            btnGuardar.ImageAlign = ContentAlignment.TopCenter;
-            btnGuardar.Location = new Point(612, 205);
-            btnGuardar.Margin = new Padding(3, 4, 3, 4);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(66, 67);
-            btnGuardar.TabIndex = 35;
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click_1;
+            BtnGuardar.BackColor = Color.Transparent;
+            BtnGuardar.BackgroundImage = Properties.Resources.guardar;
+            BtnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnGuardar.Cursor = Cursors.Hand;
+            BtnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnGuardar.ForeColor = SystemColors.ActiveCaptionText;
+            BtnGuardar.ImageAlign = ContentAlignment.TopCenter;
+            BtnGuardar.Location = new Point(612, 205);
+            BtnGuardar.Margin = new Padding(3, 4, 3, 4);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(66, 67);
+            BtnGuardar.TabIndex = 35;
+            BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click_1;
             // 
-            // dgvResultados
+            // DgvResultados
             // 
-            dgvResultados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvResultados.Location = new Point(12, 302);
-            dgvResultados.Name = "dgvResultados";
-            dgvResultados.RowHeadersWidth = 51;
-            dgvResultados.Size = new Size(780, 145);
-            dgvResultados.TabIndex = 39;
+            DgvResultados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvResultados.Location = new Point(12, 302);
+            DgvResultados.Name = "DgvResultados";
+            DgvResultados.RowHeadersWidth = 51;
+            DgvResultados.Size = new Size(780, 145);
+            DgvResultados.TabIndex = 39;
             // 
-            // cmbPartido
+            // CmbPartido
             // 
-            cmbPartido.FormattingEnabled = true;
-            cmbPartido.Location = new Point(220, 43);
-            cmbPartido.Name = "cmbPartido";
-            cmbPartido.Size = new Size(158, 28);
-            cmbPartido.TabIndex = 40;
+            CmbPartido.FormattingEnabled = true;
+            CmbPartido.Location = new Point(220, 43);
+            CmbPartido.Name = "CmbPartido";
+            CmbPartido.Size = new Size(158, 28);
+            CmbPartido.TabIndex = 40;
             // 
-            // cmbEstado
+            // CmbEstado
             // 
-            cmbEstado.FormattingEnabled = true;
-            cmbEstado.Location = new Point(220, 227);
-            cmbEstado.Name = "cmbEstado";
-            cmbEstado.Size = new Size(158, 28);
-            cmbEstado.TabIndex = 41;
+            CmbEstado.FormattingEnabled = true;
+            CmbEstado.Location = new Point(220, 227);
+            CmbEstado.Name = "CmbEstado";
+            CmbEstado.Size = new Size(158, 28);
+            CmbEstado.TabIndex = 41;
             // 
-            // btnRegresarMenuCompeticiones
+            // BtnRegresarMenuCompeticiones
             // 
-            btnRegresarMenuCompeticiones.BackgroundImage = (Image)resources.GetObject("btnRegresarMenuCompeticiones.BackgroundImage");
-            btnRegresarMenuCompeticiones.BackgroundImageLayout = ImageLayout.Zoom;
-            btnRegresarMenuCompeticiones.Cursor = Cursors.Hand;
-            btnRegresarMenuCompeticiones.Location = new Point(713, 13);
-            btnRegresarMenuCompeticiones.Margin = new Padding(3, 4, 3, 4);
-            btnRegresarMenuCompeticiones.Name = "btnRegresarMenuCompeticiones";
-            btnRegresarMenuCompeticiones.Size = new Size(66, 63);
-            btnRegresarMenuCompeticiones.TabIndex = 42;
-            btnRegresarMenuCompeticiones.UseVisualStyleBackColor = true;
-            btnRegresarMenuCompeticiones.Click += btnRegresarMenuCompeticiones_Click_1;
+            BtnRegresarMenuCompeticiones.BackgroundImage = (Image)resources.GetObject("BtnRegresarMenuCompeticiones.BackgroundImage");
+            BtnRegresarMenuCompeticiones.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRegresarMenuCompeticiones.Cursor = Cursors.Hand;
+            BtnRegresarMenuCompeticiones.Location = new Point(713, 13);
+            BtnRegresarMenuCompeticiones.Margin = new Padding(3, 4, 3, 4);
+            BtnRegresarMenuCompeticiones.Name = "BtnRegresarMenuCompeticiones";
+            BtnRegresarMenuCompeticiones.Size = new Size(66, 63);
+            BtnRegresarMenuCompeticiones.TabIndex = 42;
+            BtnRegresarMenuCompeticiones.UseVisualStyleBackColor = true;
+            BtnRegresarMenuCompeticiones.Click += BtnRegresarMenuCompeticiones_Click_1;
             // 
-            // frmRegistrarResultado
+            // FrmRegistrarResultado
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
-            Controls.Add(btnRegresarMenuCompeticiones);
-            Controls.Add(cmbEstado);
-            Controls.Add(cmbPartido);
-            Controls.Add(dgvResultados);
-            Controls.Add(btnNuevo);
-            Controls.Add(btnEliminar);
+            Controls.Add(BtnRegresarMenuCompeticiones);
+            Controls.Add(CmbEstado);
+            Controls.Add(CmbPartido);
+            Controls.Add(DgvResultados);
+            Controls.Add(BtnNuevo);
+            Controls.Add(BtnEliminar);
             Controls.Add(BtnEditar);
-            Controls.Add(btnGuardar);
-            Controls.Add(textBox2);
-            Controls.Add(numMarcadorVisitante);
-            Controls.Add(numMarcadorLocal);
-            Controls.Add(label6);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(BtnGuardar);
+            Controls.Add(Txt2);
+            Controls.Add(NudNumMarcadorVisitante);
+            Controls.Add(NudNumMarcadorLocal);
+            Controls.Add(Lbl6);
+            Controls.Add(Lbl5);
+            Controls.Add(Lbl4);
+            Controls.Add(Lbl3);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmRegistrarResultado";
-            Text = "frmRegistrarResultado";
-            Load += frmRegistrarResultado_Load;
-            ((System.ComponentModel.ISupportInitialize)numMarcadorLocal).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numMarcadorVisitante).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dgvResultados).EndInit();
+            Name = "FrmRegistrarResultado";
+            Text = "FrmRegistrarResultado";
+            Load += FrmRegistrarResultado_Load;
+            ((System.ComponentModel.ISupportInitialize)NudNumMarcadorLocal).EndInit();
+            ((System.ComponentModel.ISupportInitialize)NudNumMarcadorVisitante).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DgvResultados).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
-        private NumericUpDown numMarcadorLocal;
-        private NumericUpDown numMarcadorVisitante;
-        private TextBox textBox2;
-        private Button btnNuevo;
-        private Button btnEliminar;
+        private Label Lbl1;
+        private Label Lbl2;
+        private Label Lbl3;
+        private Label Lbl4;
+        private Label Lbl5;
+        private Label Lbl6;
+        private NumericUpDown NudNumMarcadorLocal;
+        private NumericUpDown NudNumMarcadorVisitante;
+        private TextBox Txt2;
+        private Button BtnNuevo;
+        private Button BtnEliminar;
         private Button BtnEditar;
-        private Button btnGuardar;
-        private DataGridView dgvResultados;
-        private ComboBox cmbPartido;
-        private ComboBox cmbEstado;
-        private Button btnRegresarMenuCompeticiones;
+        private Button BtnGuardar;
+        private DataGridView DgvResultados;
+        private ComboBox CmbPartido;
+        private ComboBox CmbEstado;
+        private Button BtnRegresarMenuCompeticiones;
     }
 }

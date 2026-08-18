@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmTablaPosiciones : Form
+    public partial class FrmTablaPosiciones : Form
     {
-        public frmTablaPosiciones()
+        public FrmTablaPosiciones()
         {
             InitializeComponent();
         }
@@ -21,11 +21,11 @@ namespace SistemaDePolideportivo
         // ============================================================
         // LOAD
         // ============================================================
-        private void frmTablaPosiciones_Load(object sender, EventArgs e)
+        private void FrmTablaPosiciones_Load(object sender, EventArgs e)
         {
             CargarCampeonatos();
 
-            dgvPosiciones.DataSource = null;
+            DgvPosiciones.DataSource = null;
         }
 
 
@@ -39,15 +39,15 @@ namespace SistemaDePolideportivo
                 DataTable tabla =
                     new CPosiciones().Listado_Campeonatos();
 
-                cboCampeonato.DataSource = tabla;
+                CmbCboCampeonato.DataSource = tabla;
 
-                cboCampeonato.DisplayMember =
+                CmbCboCampeonato.DisplayMember =
                     "nombre_campeonato";
 
-                cboCampeonato.ValueMember =
+                CmbCboCampeonato.ValueMember =
                     "id_campeonato";
 
-                cboCampeonato.SelectedIndex = -1;
+                CmbCboCampeonato.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -63,23 +63,23 @@ namespace SistemaDePolideportivo
         // ============================================================
         // CUANDO CAMBIA EL CAMPEONATO
         // ============================================================
-        private void cboCampeonato_SelectedIndexChanged(
+        private void CmbCboCampeonato_SelectedIndexChanged(
             object sender,
             EventArgs e)
         {
-            if (cboCampeonato.SelectedIndex < 0)
+            if (CmbCboCampeonato.SelectedIndex < 0)
                 return;
 
-            if (cboCampeonato.SelectedValue == null)
+            if (CmbCboCampeonato.SelectedValue == null)
                 return;
 
-            if (cboCampeonato.SelectedValue is DataRowView)
+            if (CmbCboCampeonato.SelectedValue is DataRowView)
                 return;
 
             int idCampeonato;
 
             if (!int.TryParse(
-                cboCampeonato.SelectedValue.ToString(),
+                CmbCboCampeonato.SelectedValue.ToString(),
                 out idCampeonato))
             {
                 return;
@@ -98,7 +98,7 @@ namespace SistemaDePolideportivo
                 new CPosiciones()
                 .ObtenerTablaPosiciones(idCampeonato);
 
-            dgvPosiciones.DataSource = tabla;
+            DgvPosiciones.DataSource = tabla;
 
             ConfigurarTabla();
         }
@@ -109,117 +109,117 @@ namespace SistemaDePolideportivo
         // ============================================================
         private void ConfigurarTabla()
         {
-            if (dgvPosiciones.Columns.Count == 0)
+            if (DgvPosiciones.Columns.Count == 0)
                 return;
 
             // POS
-            if (dgvPosiciones.Columns.Contains("POS"))
+            if (DgvPosiciones.Columns.Contains("POS"))
             {
-                dgvPosiciones.Columns["POS"].HeaderText = "POS";
-                dgvPosiciones.Columns["POS"].Width = 50;
+                DgvPosiciones.Columns["POS"].HeaderText = "POS";
+                DgvPosiciones.Columns["POS"].Width = 50;
             }
 
             // EQUIPO
-            if (dgvPosiciones.Columns.Contains("equipo"))
+            if (DgvPosiciones.Columns.Contains("equipo"))
             {
-                dgvPosiciones.Columns["equipo"].HeaderText = "EQUIPO";
-                dgvPosiciones.Columns["equipo"].Width = 180;
+                DgvPosiciones.Columns["equipo"].HeaderText = "EQUIPO";
+                DgvPosiciones.Columns["equipo"].Width = 180;
             }
 
             // PJ
-            if (dgvPosiciones.Columns.Contains("PJ"))
+            if (DgvPosiciones.Columns.Contains("PJ"))
             {
-                dgvPosiciones.Columns["PJ"].HeaderText = "PJ";
-                dgvPosiciones.Columns["PJ"].Width = 50;
+                DgvPosiciones.Columns["PJ"].HeaderText = "PJ";
+                DgvPosiciones.Columns["PJ"].Width = 50;
             }
 
             // PG
-            if (dgvPosiciones.Columns.Contains("PG"))
+            if (DgvPosiciones.Columns.Contains("PG"))
             {
-                dgvPosiciones.Columns["PG"].HeaderText = "PG";
-                dgvPosiciones.Columns["PG"].Width = 50;
+                DgvPosiciones.Columns["PG"].HeaderText = "PG";
+                DgvPosiciones.Columns["PG"].Width = 50;
             }
 
             // PE
-            if (dgvPosiciones.Columns.Contains("PE"))
+            if (DgvPosiciones.Columns.Contains("PE"))
             {
-                dgvPosiciones.Columns["PE"].HeaderText = "PE";
-                dgvPosiciones.Columns["PE"].Width = 50;
+                DgvPosiciones.Columns["PE"].HeaderText = "PE";
+                DgvPosiciones.Columns["PE"].Width = 50;
             }
 
             // PP
-            if (dgvPosiciones.Columns.Contains("PP"))
+            if (DgvPosiciones.Columns.Contains("PP"))
             {
-                dgvPosiciones.Columns["PP"].HeaderText = "PP";
-                dgvPosiciones.Columns["PP"].Width = 50;
+                DgvPosiciones.Columns["PP"].HeaderText = "PP";
+                DgvPosiciones.Columns["PP"].Width = 50;
             }
 
             // GF
-            if (dgvPosiciones.Columns.Contains("GF"))
+            if (DgvPosiciones.Columns.Contains("GF"))
             {
-                dgvPosiciones.Columns["GF"].HeaderText = "GF";
-                dgvPosiciones.Columns["GF"].Width = 50;
+                DgvPosiciones.Columns["GF"].HeaderText = "GF";
+                DgvPosiciones.Columns["GF"].Width = 50;
             }
 
             // GC
-            if (dgvPosiciones.Columns.Contains("GC"))
+            if (DgvPosiciones.Columns.Contains("GC"))
             {
-                dgvPosiciones.Columns["GC"].HeaderText = "GC";
-                dgvPosiciones.Columns["GC"].Width = 50;
+                DgvPosiciones.Columns["GC"].HeaderText = "GC";
+                DgvPosiciones.Columns["GC"].Width = 50;
             }
 
             // DG
-            if (dgvPosiciones.Columns.Contains("DG"))
+            if (DgvPosiciones.Columns.Contains("DG"))
             {
-                dgvPosiciones.Columns["DG"].HeaderText = "DG";
-                dgvPosiciones.Columns["DG"].Width = 55;
+                DgvPosiciones.Columns["DG"].HeaderText = "DG";
+                DgvPosiciones.Columns["DG"].Width = 55;
             }
 
             // PTS
-            if (dgvPosiciones.Columns.Contains("PTS"))
+            if (DgvPosiciones.Columns.Contains("PTS"))
             {
-                dgvPosiciones.Columns["PTS"].HeaderText = "PTS";
-                dgvPosiciones.Columns["PTS"].Width = 60;
+                DgvPosiciones.Columns["PTS"].HeaderText = "PTS";
+                DgvPosiciones.Columns["PTS"].Width = 60;
             }
 
-            dgvPosiciones.AutoSizeRowsMode =
+            DgvPosiciones.AutoSizeRowsMode =
                 DataGridViewAutoSizeRowsMode.None;
 
-            dgvPosiciones.AllowUserToAddRows = false;
-            dgvPosiciones.ReadOnly = true;
+            DgvPosiciones.AllowUserToAddRows = false;
+            DgvPosiciones.ReadOnly = true;
         }
 
 
         // ============================================================
         // REGRESAR
         // ============================================================
-        private void btnRegresarMenuCompeticiones_Click(
+        private void BtnRegresarMenuCompeticiones_Click(
             object sender,
             EventArgs e)
         {
-            frmCompeticiones nuevoform =
-                new frmCompeticiones();
+            FrmCompeticiones nuevoform =
+                new FrmCompeticiones();
 
             nuevoform.Show();
 
             Hide();
         }
 
-        private void cboCampeonato_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void CmbCboCampeonato_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (cboCampeonato.SelectedIndex < 0)
+            if (CmbCboCampeonato.SelectedIndex < 0)
                 return;
 
-            if (cboCampeonato.SelectedValue == null)
+            if (CmbCboCampeonato.SelectedValue == null)
                 return;
 
-            if (cboCampeonato.SelectedValue is DataRowView)
+            if (CmbCboCampeonato.SelectedValue is DataRowView)
                 return;
 
             int idCampeonato;
 
             if (!int.TryParse(
-                cboCampeonato.SelectedValue.ToString(),
+                CmbCboCampeonato.SelectedValue.ToString(),
                 out idCampeonato))
             {
                 return;
@@ -228,7 +228,7 @@ namespace SistemaDePolideportivo
             CargarTablaPosiciones(idCampeonato);
         }
 
-        private void dgvPosiciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvPosiciones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

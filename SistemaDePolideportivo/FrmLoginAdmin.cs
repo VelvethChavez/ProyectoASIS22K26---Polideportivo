@@ -6,54 +6,37 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmLoginAdministrador : Form
+    public partial class FrmLoginAdmin : Form
     {
         ConexionBD conexionBD = new ConexionBD();
 
-        public frmLoginAdministrador()
+        public FrmLoginAdmin()
         {
             InitializeComponent();
         }
 
-
-        // CARGA DEL FORMULARIO
- 
-
-        private void frmLoginAdministrador_Load(object sender, EventArgs e)
+        private void FrmLoginAdmin_Load(object sender, EventArgs e)
         {
             TxtUsuario.Focus();
         }
 
-        // BOTÓN REGRESAR
-        
         private void BtnRegrear_Click(object sender, EventArgs e)
         {
-            frmLogin nuevoform = new frmLogin();
+            FrmLogin nuevoform = new FrmLogin();
 
             nuevoform.Show();
 
             Hide();
         }
 
-        // LABEL CONTRASEÑA
-  
         private void LblContraseña_Click(object sender, EventArgs e)
         {
-
         }
-
-        // ============================================================
-        // BOTÓN INICIAR SESIÓN
-        // ============================================================
 
         private void BtnIniciarSesion_Click(object sender, EventArgs e)
         {
             try
             {
-                // ----------------------------------------------------
-                // VALIDAR CAMPOS VACÍOS
-                // ----------------------------------------------------
-
                 if (string.IsNullOrWhiteSpace(TxtUsuario.Text))
                 {
                     MessageBox.Show(
@@ -80,33 +63,19 @@ namespace SistemaDePolideportivo
                     return;
                 }
 
-                // ----------------------------------------------------
-                // CONEXIÓN A LA BASE DE DATOS
-                // ----------------------------------------------------
-
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
                     conexion.Open();
 
-                    // ------------------------------------------------
-                    // CONSULTA
-                    // ------------------------------------------------
-                    // Verifica:
-                    // 1. Usuario
-                    // 2. Contraseña
-                    // 3. Estado activo
-                    // 4. Rol Administracion
-                    // ------------------------------------------------
-
                     string sql = @"
-                        SELECT 
+                        SELECT
                             u.id_usuario,
                             u.nombre_usuario,
                             r.nombre_rol
                         FROM Usuario u
-                        INNER JOIN Rol r 
+                        INNER JOIN Rol r
                             ON u.id_rol = r.id_rol
-                        WHERE 
+                        WHERE
                             u.nombre_usuario = @usuario
                             AND u.contrasena = @contrasena
                             AND u.estado = TRUE
@@ -129,10 +98,6 @@ namespace SistemaDePolideportivo
                         {
                             if (reader.Read())
                             {
-                                // ------------------------------------
-                                // LOGIN CORRECTO
-                                // ------------------------------------
-
                                 string nombreUsuario =
                                     reader["nombre_usuario"].ToString();
 
@@ -143,8 +108,7 @@ namespace SistemaDePolideportivo
                                     MessageBoxIcon.Information
                                 );
 
-                                // Abrir menú
-                                frmMenú nuevoform = new frmMenú();
+                                FrmMenu nuevoform = new FrmMenu();
 
                                 nuevoform.Show();
 
@@ -152,10 +116,6 @@ namespace SistemaDePolideportivo
                             }
                             else
                             {
-                                // ------------------------------------
-                                // LOGIN INCORRECTO
-                                // ------------------------------------
-
                                 MessageBox.Show(
                                     "Usuario o contraseña incorrectos,\n" +
                                     "o el usuario no tiene permisos de Administración.",
@@ -174,8 +134,7 @@ namespace SistemaDePolideportivo
             catch (MySqlException ex)
             {
                 MessageBox.Show(
-                    "Error de conexión con la base de datos:\n\n" +
-                    ex.Message,
+                    "Error de MySQL:\n\n" + ex.Message,
                     "Error de MySQL",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -184,8 +143,7 @@ namespace SistemaDePolideportivo
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Ocurrió un error:\n\n" +
-                    ex.Message,
+                    "Ocurrió un error:\n\n" + ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error

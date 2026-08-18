@@ -1,4 +1,4 @@
-using MySql.Data.MySqlClient;
+﻿using MySql.Data.MySqlClient;
 using SistemaDePolideportivo.Conexion;
 using System;
 using System.Collections.Generic;
@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class Reportes : Form
+    public partial class FrmReportes : Form
     {
         ConexionBD conexionBD = new ConexionBD();
 
@@ -17,7 +17,7 @@ namespace SistemaDePolideportivo
         // buscador en vivo con RowFilter sin volver a consultar la BD).
         private DataView? vistaActual;
 
-        public Reportes()
+        public FrmReportes()
         {
             try
             {
@@ -25,22 +25,22 @@ namespace SistemaDePolideportivo
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al inicializar el formulario de Reportes: " + ex.Message,
+                MessageBox.Show("Error al inicializar el formulario de FrmReportes: " + ex.Message,
                                 "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         // CARGA DEL FORMULARIO
-        private void Reportes_Load(object sender, EventArgs e)
+        private void FrmReportes_Load(object sender, EventArgs e)
         {
             try
             {
-                dataGridView1.ReadOnly = true;
-                dataGridView1.AllowUserToAddRows = false;
+                Dgv1.ReadOnly = true;
+                Dgv1.AllowUserToAddRows = false;
 
-                cmbReportes.DropDownStyle = ComboBoxStyle.DropDownList;
-                cmbReportes.Items.Clear();
-                cmbReportes.Items.AddRange(new object[]
+                CmbReportes.DropDownStyle = ComboBoxStyle.DropDownList;
+                CmbReportes.Items.Clear();
+                CmbReportes.Items.AddRange(new object[]
                 {
                     "Equipos",
                     "Jugadores",
@@ -51,14 +51,14 @@ namespace SistemaDePolideportivo
                 });
 
                 // Rango de fechas por defecto: último mes hasta hoy
-                dtpDesde.Value = DateTime.Now.AddMonths(-1);
-                dtpHasta.Value = DateTime.Now;
+                DtpDesde.Value = DateTime.Now.AddMonths(-1);
+                DtpHasta.Value = DateTime.Now;
 
                 CargarCampeonatos();
 
-                if (cmbReportes.Items.Count > 0)
+                if (CmbReportes.Items.Count > 0)
                 {
-                    cmbReportes.SelectedIndex = 0; // Dispara SelectedIndexChanged -> carga el reporte
+                    CmbReportes.SelectedIndex = 0; // Dispara SelectedIndexChanged -> carga el reporte
                 }
             }
             catch (Exception ex)
@@ -89,10 +89,10 @@ namespace SistemaDePolideportivo
                     filaTodos["nombre_campeonato"] = "-- Todos los campeonatos --";
                     dt.Rows.InsertAt(filaTodos, 0);
 
-                    cmbCampeonato.DataSource = dt;
-                    cmbCampeonato.DisplayMember = "nombre_campeonato";
-                    cmbCampeonato.ValueMember = "id_campeonato";
-                    cmbCampeonato.SelectedIndex = 0;
+                    CmbCampeonato.DataSource = dt;
+                    CmbCampeonato.DisplayMember = "nombre_campeonato";
+                    CmbCampeonato.ValueMember = "id_campeonato";
+                    CmbCampeonato.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
@@ -102,15 +102,15 @@ namespace SistemaDePolideportivo
             }
         }
         // CAMBIO DE REPORTE
-        private void cmbReportes_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbReportes_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (cmbReportes.SelectedItem == null) return;
+                if (CmbReportes.SelectedItem == null) return;
 
-                string reporteSeleccionado = cmbReportes.SelectedItem.ToString() ?? string.Empty;
+                string reporteSeleccionado = CmbReportes.SelectedItem.ToString() ?? string.Empty;
 
-                txtBuscar.Text = string.Empty; // limpiar búsqueda al cambiar de reporte
+                TxtBuscar.Text = string.Empty; // limpiar búsqueda al cambiar de reporte
                 ActualizarControlesFiltro(reporteSeleccionado);
                 CargarReporte(reporteSeleccionado);
             }
@@ -130,30 +130,30 @@ namespace SistemaDePolideportivo
                 bool usaEstado = nombreReporte == "Equipos" || nombreReporte == "Jugadores" || nombreReporte == "Sanciones";
                 bool usaFecha = nombreReporte == "Partidos" || nombreReporte == "Sanciones";
 
-                lblCampeonato.Visible = usaCampeonato;
-                cmbCampeonato.Visible = usaCampeonato;
+                LblCampeonato.Visible = usaCampeonato;
+                CmbCampeonato.Visible = usaCampeonato;
 
-                lblEstado.Visible = usaEstado;
-                cmbEstado.Visible = usaEstado;
+                LblEstado.Visible = usaEstado;
+                CmbEstado.Visible = usaEstado;
 
-                lblDesde.Visible = usaFecha;
-                dtpDesde.Visible = usaFecha;
-                lblHasta.Visible = usaFecha;
-                dtpHasta.Visible = usaFecha;
-                chkFiltrarFecha.Visible = usaFecha;
-                chkFiltrarFecha.Checked = false;
+                LblDesde.Visible = usaFecha;
+                DtpDesde.Visible = usaFecha;
+                LblHasta.Visible = usaFecha;
+                DtpHasta.Visible = usaFecha;
+                ChkFiltrarFecha.Visible = usaFecha;
+                ChkFiltrarFecha.Checked = false;
 
                 // El combo de Estado tiene opciones distintas según el reporte
-                cmbEstado.Items.Clear();
+                CmbEstado.Items.Clear();
                 if (nombreReporte == "Sanciones")
                 {
-                    cmbEstado.Items.AddRange(new object[] { "Todos", "ACTIVA", "CUMPLIDA" });
+                    CmbEstado.Items.AddRange(new object[] { "Todos", "ACTIVA", "CUMPLIDA" });
                 }
                 else
                 {
-                    cmbEstado.Items.AddRange(new object[] { "Todos", "Activo", "Inactivo" });
+                    CmbEstado.Items.AddRange(new object[] { "Todos", "Activo", "Inactivo" });
                 }
-                if (cmbEstado.Items.Count > 0) cmbEstado.SelectedIndex = 0;
+                if (CmbEstado.Items.Count > 0) CmbEstado.SelectedIndex = 0;
             }
             catch (Exception ex)
             {
@@ -167,9 +167,9 @@ namespace SistemaDePolideportivo
         {
             try
             {
-                if (cmbReportes.SelectedItem != null)
+                if (CmbReportes.SelectedItem != null)
                 {
-                    CargarReporte(cmbReportes.SelectedItem.ToString() ?? string.Empty);
+                    CargarReporte(CmbReportes.SelectedItem.ToString() ?? string.Empty);
                 }
             }
             catch (Exception ex)
@@ -200,12 +200,12 @@ namespace SistemaDePolideportivo
                         da.Fill(dt);
 
                         vistaActual = dt.DefaultView;
-                        dataGridView1.DataSource = vistaActual;
-                        dataGridView1.AutoResizeColumns();
+                        Dgv1.DataSource = vistaActual;
+                        Dgv1.AutoResizeColumns();
 
                         AplicarFiltroBusqueda(); // por si ya había texto en el buscador
 
-                        lblResultados.Text = $"{dt.Rows.Count} resultado(s)";
+                        LblResultados.Text = $"{dt.Rows.Count} resultado(s)";
                     }
                 }
             }
@@ -235,7 +235,7 @@ namespace SistemaDePolideportivo
                             FROM Equipo eq
                             LEFT JOIN Entrenador en ON eq.id_entrenador = en.id_entrenador";
 
-                    if (cmbEstado.SelectedItem?.ToString() is string estadoEq && estadoEq != "Todos")
+                    if (CmbEstado.SelectedItem?.ToString() is string estadoEq && estadoEq != "Todos")
                     {
                         condiciones.Add("eq.estado = @estado");
                         cmd.Parameters.AddWithValue("@estado", estadoEq == "Activo" ? 1 : 0);
@@ -254,7 +254,7 @@ namespace SistemaDePolideportivo
                             JOIN Equipo eq ON j.id_equipo = eq.id_equipo
                             JOIN Posicion p ON j.id_posicion = p.id_posicion";
 
-                    if (cmbEstado.SelectedItem?.ToString() is string estadoJug && estadoJug != "Todos")
+                    if (CmbEstado.SelectedItem?.ToString() is string estadoJug && estadoJug != "Todos")
                     {
                         condiciones.Add("j.estado = @estado");
                         cmd.Parameters.AddWithValue("@estado", estadoJug == "Activo" ? 1 : 0);
@@ -279,17 +279,17 @@ namespace SistemaDePolideportivo
                             LEFT JOIN Arbitro ar ON pa.id_arbitro = ar.id_arbitro
                             JOIN Campo ca ON pa.id_campo = ca.id_campo";
 
-                    if (cmbCampeonato.SelectedValue is int idCampPartido && idCampPartido != 0)
+                    if (CmbCampeonato.SelectedValue is int idCampPartido && idCampPartido != 0)
                     {
                         condiciones.Add("jor.id_campeonato = @idCampeonato");
                         cmd.Parameters.AddWithValue("@idCampeonato", idCampPartido);
                     }
 
-                    if (chkFiltrarFecha.Checked)
+                    if (ChkFiltrarFecha.Checked)
                     {
                         condiciones.Add("pa.fecha_partido BETWEEN @desde AND @hasta");
-                        cmd.Parameters.AddWithValue("@desde", dtpDesde.Value.Date);
-                        cmd.Parameters.AddWithValue("@hasta", dtpHasta.Value.Date);
+                        cmd.Parameters.AddWithValue("@desde", DtpDesde.Value.Date);
+                        cmd.Parameters.AddWithValue("@hasta", DtpHasta.Value.Date);
                     }
 
                     sql += ArmarWhere(condiciones) + " ORDER BY pa.fecha_partido DESC, pa.hora_partido DESC";
@@ -305,7 +305,7 @@ namespace SistemaDePolideportivo
                             FROM Posicion_Campeonato pc
                             JOIN Equipo eq ON pc.id_equipo = eq.id_equipo";
 
-                    if (cmbCampeonato.SelectedValue is int idCampTabla && idCampTabla != 0)
+                    if (CmbCampeonato.SelectedValue is int idCampTabla && idCampTabla != 0)
                     {
                         condiciones.Add("pc.id_campeonato = @idCampeonato");
                         cmd.Parameters.AddWithValue("@idCampeonato", idCampTabla);
@@ -344,17 +344,17 @@ namespace SistemaDePolideportivo
                             JOIN Equipo ev ON pa.id_equipo_visitante = ev.id_equipo
                             JOIN Tipo_Sancion ts ON s.id_tipo_sancion = ts.id_tipo_sancion";
 
-                    if (cmbEstado.SelectedItem?.ToString() is string estadoSancion && estadoSancion != "Todos")
+                    if (CmbEstado.SelectedItem?.ToString() is string estadoSancion && estadoSancion != "Todos")
                     {
                         condiciones.Add("s.estado = @estado");
                         cmd.Parameters.AddWithValue("@estado", estadoSancion);
                     }
 
-                    if (chkFiltrarFecha.Checked)
+                    if (ChkFiltrarFecha.Checked)
                     {
                         condiciones.Add("s.fecha_sancion BETWEEN @desde AND @hasta");
-                        cmd.Parameters.AddWithValue("@desde", dtpDesde.Value.Date);
-                        cmd.Parameters.AddWithValue("@hasta", dtpHasta.Value.Date);
+                        cmd.Parameters.AddWithValue("@desde", DtpDesde.Value.Date);
+                        cmd.Parameters.AddWithValue("@hasta", DtpHasta.Value.Date);
                     }
 
                     sql += ArmarWhere(condiciones) + " ORDER BY s.fecha_sancion DESC";
@@ -376,7 +376,7 @@ namespace SistemaDePolideportivo
         }
 
         // BUSCADOR EN VIVO (filtra la tabla ya cargada, sin ir a la BD)
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -393,7 +393,7 @@ namespace SistemaDePolideportivo
         {
             if (vistaActual == null) return;
 
-            string texto = txtBuscar.Text.Trim();
+            string texto = TxtBuscar.Text.Trim();
 
             if (string.IsNullOrEmpty(texto))
             {
@@ -422,9 +422,9 @@ namespace SistemaDePolideportivo
         {
             try
             {
-                if (cmbReportes.SelectedItem != null)
+                if (CmbReportes.SelectedItem != null)
                 {
-                    CargarReporte(cmbReportes.SelectedItem.ToString() ?? string.Empty);
+                    CargarReporte(CmbReportes.SelectedItem.ToString() ?? string.Empty);
                 }
             }
             catch (Exception ex)
@@ -441,7 +441,7 @@ namespace SistemaDePolideportivo
         {
             try
             {
-                if (dataGridView1.Rows.Count == 0 || dataGridView1.DataSource == null)
+                if (Dgv1.Rows.Count == 0 || Dgv1.DataSource == null)
                 {
                     MessageBox.Show("No hay datos para exportar.",
                                     "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -467,7 +467,7 @@ namespace SistemaDePolideportivo
                     return;
                 }
 
-                string nombreReporte = cmbReportes.SelectedItem?.ToString() ?? "Reporte";
+                string nombreReporte = CmbReportes.SelectedItem?.ToString() ?? "Reporte";
 
                 using (SaveFileDialog sfd = new SaveFileDialog())
                 {
@@ -522,18 +522,18 @@ namespace SistemaDePolideportivo
         private void ExportarDataGridViewAPDF(string rutaArchivo, string tituloReporte)
         {
             List<string> encabezados = new List<string>();
-            foreach (DataGridViewColumn col in dataGridView1.Columns)
+            foreach (DataGridViewColumn col in Dgv1.Columns)
             {
                 encabezados.Add(col.HeaderText);
             }
 
             List<string[]> filas = new List<string[]>();
-            foreach (DataGridViewRow fila in dataGridView1.Rows)
+            foreach (DataGridViewRow fila in Dgv1.Rows)
             {
                 if (fila.IsNewRow) continue;
 
-                string[] valores = new string[dataGridView1.Columns.Count];
-                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                string[] valores = new string[Dgv1.Columns.Count];
+                for (int i = 0; i < Dgv1.Columns.Count; i++)
                 {
                     valores[i] = fila.Cells[i].Value?.ToString() ?? "";
                 }
@@ -620,7 +620,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void Dgv1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

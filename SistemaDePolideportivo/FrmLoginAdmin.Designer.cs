@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmLoginAdministrador
+    partial class FrmLoginAdmin
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -17,7 +17,7 @@
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoginAdministrador));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLoginAdmin));
             LblLogin = new Label();
             LblUsuario = new Label();
             LblContraseña = new Label();
@@ -102,7 +102,7 @@
             BtnRegrear.UseVisualStyleBackColor = true;
             BtnRegrear.Click += BtnRegrear_Click;
             // 
-            // frmLoginAdministrador
+            // FrmLoginAdmin
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -117,10 +117,10 @@
             Controls.Add(LblLogin);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmLoginAdministrador";
+            Name = "FrmLoginAdmin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login de Administrador";
-            Load += frmLoginAdministrador_Load;
+            Load += FrmLoginAdmin_Load;
             ResumeLayout(false);
             PerformLayout();
         }

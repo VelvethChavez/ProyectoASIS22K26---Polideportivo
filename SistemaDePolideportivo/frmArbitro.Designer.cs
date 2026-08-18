@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmArbitro
+    partial class FrmArbitro
     {
         /// <summary>
         /// Required designer variable.
@@ -28,144 +28,144 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArbitro));
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            txtNombres = new TextBox();
-            txtTelefono = new TextBox();
-            txtApellidos = new TextBox();
-            dgvArbitros = new DataGridView();
-            label6 = new Label();
-            btnNuevo = new Button();
-            btnEliminar = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArbitro));
+            Lbl1 = new Label();
+            Lbl2 = new Label();
+            Lbl3 = new Label();
+            Lbl4 = new Label();
+            Lbl5 = new Label();
+            TxtNombres = new TextBox();
+            TxtTelefono = new TextBox();
+            TxtApellidos = new TextBox();
+            DgvArbitros = new DataGridView();
+            Lbl6 = new Label();
+            BtnNuevo = new Button();
+            BtnEliminar = new Button();
             BtnEditar = new Button();
-            btnGuardar = new Button();
+            BtnGuardar = new Button();
             BtnRegresarMenuCompeticiones = new Button();
-            cmbDeporte = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dgvArbitros).BeginInit();
+            CmbDeporte = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)DgvArbitros).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(21, 91);
-            label1.Name = "label1";
-            label1.Size = new Size(97, 28);
-            label1.TabIndex = 0;
-            label1.Text = "Nombres:";
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl1.Location = new Point(21, 91);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(97, 28);
+            Lbl1.TabIndex = 0;
+            Lbl1.Text = "Nombres:";
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(21, 24);
-            label2.Name = "label2";
-            label2.Size = new Size(194, 31);
-            label2.TabIndex = 1;
-            label2.Text = "Datos del Arbitro:";
+            Lbl2.AutoSize = true;
+            Lbl2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl2.Location = new Point(21, 24);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(194, 31);
+            Lbl2.TabIndex = 1;
+            Lbl2.Text = "Datos del Arbitro:";
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(21, 141);
-            label3.Name = "label3";
-            label3.Size = new Size(98, 28);
-            label3.TabIndex = 2;
-            label3.Text = "Apellidos:";
+            Lbl3.AutoSize = true;
+            Lbl3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl3.Location = new Point(21, 141);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(98, 28);
+            Lbl3.TabIndex = 2;
+            Lbl3.Text = "Apellidos:";
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(21, 181);
-            label4.Name = "label4";
-            label4.Size = new Size(90, 28);
-            label4.TabIndex = 3;
-            label4.Text = "Telefono:";
+            Lbl4.AutoSize = true;
+            Lbl4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl4.Location = new Point(21, 181);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(90, 28);
+            Lbl4.TabIndex = 3;
+            Lbl4.Text = "Telefono:";
             // 
-            // label5
+            // Lbl5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label5.Location = new Point(23, 229);
-            label5.Name = "label5";
-            label5.Size = new Size(88, 28);
-            label5.TabIndex = 4;
-            label5.Text = "Deporte:";
+            Lbl5.AutoSize = true;
+            Lbl5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl5.Location = new Point(23, 229);
+            Lbl5.Name = "Lbl5";
+            Lbl5.Size = new Size(88, 28);
+            Lbl5.TabIndex = 4;
+            Lbl5.Text = "Deporte:";
             // 
-            // txtNombres
+            // TxtNombres
             // 
-            txtNombres.Location = new Point(123, 93);
-            txtNombres.Name = "txtNombres";
-            txtNombres.Size = new Size(249, 27);
-            txtNombres.TabIndex = 5;
-            txtNombres.Text = "Juan";
+            TxtNombres.Location = new Point(123, 93);
+            TxtNombres.Name = "TxtNombres";
+            TxtNombres.Size = new Size(249, 27);
+            TxtNombres.TabIndex = 5;
+            TxtNombres.Text = "Juan";
             // 
-            // txtTelefono
+            // TxtTelefono
             // 
-            txtTelefono.Location = new Point(125, 185);
-            txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(249, 27);
-            txtTelefono.TabIndex = 7;
-            txtTelefono.Text = "12345678";
+            TxtTelefono.Location = new Point(125, 185);
+            TxtTelefono.Name = "TxtTelefono";
+            TxtTelefono.Size = new Size(249, 27);
+            TxtTelefono.TabIndex = 7;
+            TxtTelefono.Text = "12345678";
             // 
-            // txtApellidos
+            // TxtApellidos
             // 
-            txtApellidos.Location = new Point(125, 145);
-            txtApellidos.Name = "txtApellidos";
-            txtApellidos.Size = new Size(249, 27);
-            txtApellidos.TabIndex = 8;
-            txtApellidos.Text = "Hernandez";
+            TxtApellidos.Location = new Point(125, 145);
+            TxtApellidos.Name = "TxtApellidos";
+            TxtApellidos.Size = new Size(249, 27);
+            TxtApellidos.TabIndex = 8;
+            TxtApellidos.Text = "Hernandez";
             // 
-            // dgvArbitros
+            // DgvArbitros
             // 
-            dgvArbitros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvArbitros.Location = new Point(391, 93);
-            dgvArbitros.Name = "dgvArbitros";
-            dgvArbitros.RowHeadersWidth = 51;
-            dgvArbitros.Size = new Size(389, 195);
-            dgvArbitros.TabIndex = 9;
-            dgvArbitros.CellContentClick += dgvArbitros_CellContentClick;
+            DgvArbitros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvArbitros.Location = new Point(391, 93);
+            DgvArbitros.Name = "DgvArbitros";
+            DgvArbitros.RowHeadersWidth = 51;
+            DgvArbitros.Size = new Size(389, 195);
+            DgvArbitros.TabIndex = 9;
+            DgvArbitros.CellContentClick += DgvArbitros_CellContentClick;
             // 
-            // label6
+            // Lbl6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label6.Location = new Point(391, 43);
-            label6.Name = "label6";
-            label6.Size = new Size(213, 31);
-            label6.TabIndex = 10;
-            label6.Text = "Listado de Arbitros:";
+            Lbl6.AutoSize = true;
+            Lbl6.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl6.Location = new Point(391, 43);
+            Lbl6.Name = "Lbl6";
+            Lbl6.Size = new Size(213, 31);
+            Lbl6.TabIndex = 10;
+            Lbl6.Text = "Listado de Arbitros:";
             // 
-            // btnNuevo
+            // BtnNuevo
             // 
-            btnNuevo.BackgroundImage = Properties.Resources.nuevo;
-            btnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            btnNuevo.Location = new Point(318, 355);
-            btnNuevo.Margin = new Padding(3, 4, 3, 4);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(66, 63);
-            btnNuevo.TabIndex = 30;
-            btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += btnNuevo_Click_1;
+            BtnNuevo.BackgroundImage = Properties.Resources.nuevo;
+            BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNuevo.Location = new Point(318, 355);
+            BtnNuevo.Margin = new Padding(3, 4, 3, 4);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(66, 63);
+            BtnNuevo.TabIndex = 30;
+            BtnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Click += BtnNuevo_Click_1;
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            btnEliminar.BackgroundImage = Properties.Resources.eliminar;
-            btnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnEliminar.Cursor = Cursors.Hand;
-            btnEliminar.Location = new Point(222, 355);
-            btnEliminar.Margin = new Padding(3, 4, 3, 4);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(66, 63);
-            btnEliminar.TabIndex = 29;
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click_1;
+            BtnEliminar.BackgroundImage = Properties.Resources.eliminar;
+            BtnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEliminar.Cursor = Cursors.Hand;
+            BtnEliminar.Location = new Point(222, 355);
+            BtnEliminar.Margin = new Padding(3, 4, 3, 4);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(66, 63);
+            BtnEliminar.TabIndex = 29;
+            BtnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.Click += BtnEliminar_Click_1;
             // 
             // BtnEditar
             // 
@@ -180,22 +180,22 @@
             BtnEditar.UseVisualStyleBackColor = true;
             BtnEditar.Click += BtnEditar_Click_1;
             // 
-            // btnGuardar
+            // BtnGuardar
             // 
-            btnGuardar.BackColor = Color.Transparent;
-            btnGuardar.BackgroundImage = Properties.Resources.guardar;
-            btnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnGuardar.Cursor = Cursors.Hand;
-            btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardar.ForeColor = SystemColors.ActiveCaptionText;
-            btnGuardar.ImageAlign = ContentAlignment.TopCenter;
-            btnGuardar.Location = new Point(23, 355);
-            btnGuardar.Margin = new Padding(3, 4, 3, 4);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(66, 67);
-            btnGuardar.TabIndex = 27;
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click_1;
+            BtnGuardar.BackColor = Color.Transparent;
+            BtnGuardar.BackgroundImage = Properties.Resources.guardar;
+            BtnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnGuardar.Cursor = Cursors.Hand;
+            BtnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnGuardar.ForeColor = SystemColors.ActiveCaptionText;
+            BtnGuardar.ImageAlign = ContentAlignment.TopCenter;
+            BtnGuardar.Location = new Point(23, 355);
+            BtnGuardar.Margin = new Padding(3, 4, 3, 4);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(66, 67);
+            BtnGuardar.TabIndex = 27;
+            BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click_1;
             // 
             // BtnRegresarMenuCompeticiones
             // 
@@ -210,64 +210,64 @@
             BtnRegresarMenuCompeticiones.UseVisualStyleBackColor = true;
             BtnRegresarMenuCompeticiones.Click += BtnRegresarMenuCompeticiones_Click;
             // 
-            // cmbDeporte
+            // CmbDeporte
             // 
-            cmbDeporte.FormattingEnabled = true;
-            cmbDeporte.Location = new Point(123, 233);
-            cmbDeporte.Name = "cmbDeporte";
-            cmbDeporte.Size = new Size(251, 28);
-            cmbDeporte.TabIndex = 32;
+            CmbDeporte.FormattingEnabled = true;
+            CmbDeporte.Location = new Point(123, 233);
+            CmbDeporte.Name = "CmbDeporte";
+            CmbDeporte.Size = new Size(251, 28);
+            CmbDeporte.TabIndex = 32;
             // 
-            // frmArbitro
+            // FrmArbitro
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 451);
-            Controls.Add(cmbDeporte);
+            Controls.Add(CmbDeporte);
             Controls.Add(BtnRegresarMenuCompeticiones);
-            Controls.Add(btnNuevo);
-            Controls.Add(btnEliminar);
+            Controls.Add(BtnNuevo);
+            Controls.Add(BtnEliminar);
             Controls.Add(BtnEditar);
-            Controls.Add(btnGuardar);
-            Controls.Add(label6);
-            Controls.Add(dgvArbitros);
-            Controls.Add(txtApellidos);
-            Controls.Add(txtTelefono);
-            Controls.Add(txtNombres);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(BtnGuardar);
+            Controls.Add(Lbl6);
+            Controls.Add(DgvArbitros);
+            Controls.Add(TxtApellidos);
+            Controls.Add(TxtTelefono);
+            Controls.Add(TxtNombres);
+            Controls.Add(Lbl5);
+            Controls.Add(Lbl4);
+            Controls.Add(Lbl3);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmArbitro";
+            Name = "FrmArbitro";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmArbitro";
-            Load += frmArbitro_Load_1;
-            ((System.ComponentModel.ISupportInitialize)dgvArbitros).EndInit();
+            Text = "FrmArbitro";
+            Load += FrmArbitro_Load_1;
+            ((System.ComponentModel.ISupportInitialize)DgvArbitros).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
-        private TextBox txtNombres;
-        private TextBox txtTelefono;
-        private TextBox txtApellidos;
-        private DataGridView dgvArbitros;
-        private Label label6;
-        private Button btnNuevo;
-        private Button btnEliminar;
+        private Label Lbl1;
+        private Label Lbl2;
+        private Label Lbl3;
+        private Label Lbl4;
+        private Label Lbl5;
+        private TextBox TxtNombres;
+        private TextBox TxtTelefono;
+        private TextBox TxtApellidos;
+        private DataGridView DgvArbitros;
+        private Label Lbl6;
+        private Button BtnNuevo;
+        private Button BtnEliminar;
         private Button BtnEditar;
-        private Button btnGuardar;
+        private Button BtnGuardar;
         private Button BtnRegresarMenuCompeticiones;
-        private ComboBox cmbDeporte;
+        private ComboBox CmbDeporte;
     }
 }

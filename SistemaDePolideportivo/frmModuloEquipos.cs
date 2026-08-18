@@ -4,16 +4,16 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmModuloEquipos : Form
+    public partial class FrmModuloEquipos : Form
     {
-        public frmModuloEquipos()
+        public FrmModuloEquipos()
         {
             InitializeComponent();
 
-            btnEquipos.Click += btnEquipos_Click;
-            btnEntrenadores.Click += btnEntrenadores_Click;
-            btnJugadores.Click += btnJugadores_Click;
-            btnPosiciones.Click += btnPosiciones_Click;
+            BtnEquipos.Click += BtnEquipos_Click;
+            BtnEntrenadores.Click += BtnEntrenadores_Click;
+            BtnJugadores.Click += BtnJugadores_Click;
+            BtnPosiciones.Click += BtnPosiciones_Click;
         }
 
         private void AbrirFormulario(Form formulario)
@@ -30,42 +30,42 @@ namespace SistemaDePolideportivo
             Show();
         }
 
-        private void btnEquipos_Click(object? sender, EventArgs e)
+        private void BtnEquipos_Click(object? sender, EventArgs e)
         {
-            AbrirFormulario(new frmEquipos());
+            AbrirFormulario(new FrmEquipos());
         }
 
-        private void btnEntrenadores_Click(object? sender, EventArgs e)
+        private void BtnEntrenadores_Click(object? sender, EventArgs e)
         {
-            AbrirFormulario(new frmEntrenadores());
+            AbrirFormulario(new FrmEntrenadores());
         }
 
-        private void btnJugadores_Click(object? sender, EventArgs e)
+        private void BtnJugadores_Click(object? sender, EventArgs e)
         {
-            AbrirFormulario(new frmJugadores());
+            AbrirFormulario(new FrmJugadores());
         }
 
-        private void btnPosiciones_Click(object? sender, EventArgs e)
+        private void BtnPosiciones_Click(object? sender, EventArgs e)
         {
-            AbrirFormulario(new frmPosiciones());
+            AbrirFormulario(new FrmPosiciones());
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Lbl1_Click(object sender, EventArgs e)
         {
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnEquipos_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void BtnJugadores_Click_1(object sender, EventArgs e)
         {
         }
 
         private void BtnMenu_Click(object sender, EventArgs e)
         {
-            frmMenú nuevoform = new frmMenú();
+            FrmMenu nuevoform = new FrmMenu();
             nuevoform.Show();
             Hide();
         }

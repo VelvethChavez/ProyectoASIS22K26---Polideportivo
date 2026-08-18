@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmRegistrarResultado : Form
+    public partial class FrmRegistrarResultado : Form
     {
         private const int ModoNuevo = 1;
         private const int ModoActualizar = 2;
@@ -22,7 +22,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         // CONSTRUCTOR
         // ============================================================
-        public frmRegistrarResultado()
+        public FrmRegistrarResultado()
         {
             InitializeComponent();
         }
@@ -31,7 +31,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         // LOAD
         // ============================================================
-        private void frmRegistrarResultado_Load(object sender, EventArgs e)
+        private void FrmRegistrarResultado_Load(object sender, EventArgs e)
         {
             CargarPartidos();
             CargarEstados();
@@ -49,19 +49,19 @@ namespace SistemaDePolideportivo
             DataTable tabla =
                 new CResultado().Listado_Partidos();
 
-            cmbPartido.DataSource = null;
+            CmbPartido.DataSource = null;
 
             if (tabla.Rows.Count > 0)
             {
-                cmbPartido.DataSource = tabla;
+                CmbPartido.DataSource = tabla;
 
-                cmbPartido.DisplayMember =
+                CmbPartido.DisplayMember =
                     "partido";
 
-                cmbPartido.ValueMember =
+                CmbPartido.ValueMember =
                     "id_partido";
 
-                cmbPartido.SelectedIndex = -1;
+                CmbPartido.SelectedIndex = -1;
             }
             else
             {
@@ -82,19 +82,19 @@ namespace SistemaDePolideportivo
             DataTable tabla =
                 new CResultado().Listado_Estados();
 
-            cmbEstado.DataSource = null;
+            CmbEstado.DataSource = null;
 
             if (tabla.Rows.Count > 0)
             {
-                cmbEstado.DataSource = tabla;
+                CmbEstado.DataSource = tabla;
 
-                cmbEstado.DisplayMember =
+                CmbEstado.DisplayMember =
                     "nombre_estado";
 
-                cmbEstado.ValueMember =
+                CmbEstado.ValueMember =
                     "id_estado_partido";
 
-                cmbEstado.SelectedIndex = -1;
+                CmbEstado.SelectedIndex = -1;
             }
             else
             {
@@ -112,37 +112,37 @@ namespace SistemaDePolideportivo
         // ============================================================
         private void CargarResultados(string filtro)
         {
-            dgvResultados.DataSource =
+            DgvResultados.DataSource =
                 new CResultado().Listado_Resultados(filtro);
 
-            if (dgvResultados.Columns.Count >= 9)
+            if (DgvResultados.Columns.Count >= 9)
             {
-                dgvResultados.Columns[0].Width = 60;
-                dgvResultados.Columns[0].HeaderText = "ID";
+                DgvResultados.Columns[0].Width = 60;
+                DgvResultados.Columns[0].HeaderText = "ID";
 
-                dgvResultados.Columns[1].Width = 120;
-                dgvResultados.Columns[1].HeaderText = "JORNADA";
+                DgvResultados.Columns[1].Width = 120;
+                DgvResultados.Columns[1].HeaderText = "JORNADA";
 
-                dgvResultados.Columns[2].Width = 130;
-                dgvResultados.Columns[2].HeaderText = "EQUIPO LOCAL";
+                DgvResultados.Columns[2].Width = 130;
+                DgvResultados.Columns[2].HeaderText = "EQUIPO LOCAL";
 
-                dgvResultados.Columns[3].Width = 70;
-                dgvResultados.Columns[3].HeaderText = "MARC. L";
+                DgvResultados.Columns[3].Width = 70;
+                DgvResultados.Columns[3].HeaderText = "MARC. L";
 
-                dgvResultados.Columns[4].Width = 130;
-                dgvResultados.Columns[4].HeaderText = "EQUIPO VISITANTE";
+                DgvResultados.Columns[4].Width = 130;
+                DgvResultados.Columns[4].HeaderText = "EQUIPO VISITANTE";
 
-                dgvResultados.Columns[5].Width = 70;
-                dgvResultados.Columns[5].HeaderText = "MARC. V";
+                DgvResultados.Columns[5].Width = 70;
+                DgvResultados.Columns[5].HeaderText = "MARC. V";
 
-                dgvResultados.Columns[6].Width = 100;
-                dgvResultados.Columns[6].HeaderText = "ESTADO";
+                DgvResultados.Columns[6].Width = 100;
+                DgvResultados.Columns[6].HeaderText = "ESTADO";
 
-                dgvResultados.Columns[7].Width = 90;
-                dgvResultados.Columns[7].HeaderText = "FECHA";
+                DgvResultados.Columns[7].Width = 90;
+                DgvResultados.Columns[7].HeaderText = "FECHA";
 
                 // Ocultamos el ID del estado.
-                dgvResultados.Columns[8].Visible = false;
+                DgvResultados.Columns[8].Visible = false;
             }
         }
 
@@ -155,49 +155,49 @@ namespace SistemaDePolideportivo
             _idPartido = 0;
             _modoGuardado = 0;
 
-            cmbPartido.SelectedIndex = -1;
+            CmbPartido.SelectedIndex = -1;
 
-            numMarcadorLocal.Value = 0;
-            numMarcadorVisitante.Value = 0;
+            NudNumMarcadorLocal.Value = 0;
+            NudNumMarcadorVisitante.Value = 0;
 
-            cmbEstado.SelectedIndex = -1;
+            CmbEstado.SelectedIndex = -1;
 
-            cmbPartido.Enabled = false;
-            numMarcadorLocal.Enabled = false;
-            numMarcadorVisitante.Enabled = false;
-            cmbEstado.Enabled = false;
+            CmbPartido.Enabled = false;
+            NudNumMarcadorLocal.Enabled = false;
+            NudNumMarcadorVisitante.Enabled = false;
+            CmbEstado.Enabled = false;
 
-            btnGuardar.Enabled = false;
+            BtnGuardar.Enabled = false;
 
-            btnNuevo.Enabled = true;
+            BtnNuevo.Enabled = true;
             BtnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
+            BtnEliminar.Enabled = true;
         }
 
 
         // ============================================================
         // NUEVO
         // ============================================================
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             _idPartido = 0;
             _modoGuardado = ModoNuevo;
 
-            cmbPartido.SelectedIndex = -1;
+            CmbPartido.SelectedIndex = -1;
 
-            numMarcadorLocal.Value = 0;
-            numMarcadorVisitante.Value = 0;
+            NudNumMarcadorLocal.Value = 0;
+            NudNumMarcadorVisitante.Value = 0;
 
-            cmbEstado.SelectedIndex = -1;
+            CmbEstado.SelectedIndex = -1;
 
-            cmbPartido.Enabled = true;
-            numMarcadorLocal.Enabled = true;
-            numMarcadorVisitante.Enabled = true;
-            cmbEstado.Enabled = true;
+            CmbPartido.Enabled = true;
+            NudNumMarcadorLocal.Enabled = true;
+            NudNumMarcadorVisitante.Enabled = true;
+            CmbEstado.Enabled = true;
 
-            btnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            cmbPartido.Focus();
+            CmbPartido.Focus();
         }
 
 
@@ -207,10 +207,10 @@ namespace SistemaDePolideportivo
         // ============================================================
         // ELIMINAR / RESTABLECER
         // ============================================================
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
-            if (dgvResultados.CurrentRow == null ||
-                dgvResultados.CurrentRow.IsNewRow)
+            if (DgvResultados.CurrentRow == null ||
+                DgvResultados.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione un resultado de la tabla.",
@@ -224,16 +224,16 @@ namespace SistemaDePolideportivo
 
             int id =
                 Convert.ToInt32(
-                    dgvResultados.CurrentRow.Cells[0].Value);
+                    DgvResultados.CurrentRow.Cells[0].Value);
 
 
             string local =
-                dgvResultados.CurrentRow.Cells[2]
+                DgvResultados.CurrentRow.Cells[2]
                     .Value?.ToString() ?? "";
 
 
             string visitante =
-                dgvResultados.CurrentRow.Cells[4]
+                DgvResultados.CurrentRow.Cells[4]
                     .Value?.ToString() ?? "";
 
 
@@ -290,7 +290,7 @@ namespace SistemaDePolideportivo
 
 
 
-        private void dgvResultados_CellContentClick(
+        private void DgvResultados_CellContentClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
@@ -302,19 +302,19 @@ namespace SistemaDePolideportivo
             object sender,
             EventArgs e)
         {
-            frmCompeticiones nuevoform =
-                new frmCompeticiones();
+            FrmCompeticiones nuevoform =
+                new FrmCompeticiones();
 
             nuevoform.Show();
 
             Hide();
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
 
-            if (cmbPartido.SelectedIndex == -1 ||
-                cmbPartido.SelectedValue == null)
+            if (CmbPartido.SelectedIndex == -1 ||
+                CmbPartido.SelectedValue == null)
             {
                 MessageBox.Show(
                     "Seleccione el partido.",
@@ -322,14 +322,14 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbPartido.Focus();
+                CmbPartido.Focus();
                 return;
             }
 
 
 
-            if (cmbEstado.SelectedIndex == -1 ||
-                cmbEstado.SelectedValue == null)
+            if (CmbEstado.SelectedIndex == -1 ||
+                CmbEstado.SelectedValue == null)
             {
                 MessageBox.Show(
                     "Seleccione el estado del partido.",
@@ -337,7 +337,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbEstado.Focus();
+                CmbEstado.Focus();
                 return;
             }
 
@@ -350,11 +350,11 @@ namespace SistemaDePolideportivo
             {
                 idPartido =
                     Convert.ToInt32(
-                        cmbPartido.SelectedValue);
+                        CmbPartido.SelectedValue);
 
                 idEstado =
                     Convert.ToInt32(
-                        cmbEstado.SelectedValue);
+                        CmbEstado.SelectedValue);
             }
             catch
             {
@@ -370,11 +370,11 @@ namespace SistemaDePolideportivo
 
             int marcadorLocal =
                 Convert.ToInt32(
-                    numMarcadorLocal.Value);
+                    NudNumMarcadorLocal.Value);
 
             int marcadorVisitante =
                 Convert.ToInt32(
-                    numMarcadorVisitante.Value);
+                    NudNumMarcadorVisitante.Value);
 
 
             CResultado resultado =
@@ -412,8 +412,8 @@ namespace SistemaDePolideportivo
 
         private void BtnEditar_Click_1(object sender, EventArgs e)
         {
-            if (dgvResultados.CurrentRow == null ||
-                dgvResultados.CurrentRow.IsNewRow)
+            if (DgvResultados.CurrentRow == null ||
+                DgvResultados.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione un resultado de la tabla.",
@@ -430,7 +430,7 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             _idPartido =
                 Convert.ToInt32(
-                    dgvResultados.CurrentRow.Cells[0].Value);
+                    DgvResultados.CurrentRow.Cells[0].Value);
 
             _modoGuardado = ModoActualizar;
 
@@ -438,18 +438,18 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             // SELECCIONAR PARTIDO EN COMBOBOX
             // --------------------------------------------------------
-            cmbPartido.SelectedValue = _idPartido;
+            CmbPartido.SelectedValue = _idPartido;
 
 
             // --------------------------------------------------------
             // MARCADOR LOCAL
             // --------------------------------------------------------
             if (int.TryParse(
-                dgvResultados.CurrentRow.Cells[3]
+                DgvResultados.CurrentRow.Cells[3]
                     .Value?.ToString(),
                 out int marcadorLocal))
             {
-                numMarcadorLocal.Value =
+                NudNumMarcadorLocal.Value =
                     marcadorLocal;
             }
 
@@ -458,11 +458,11 @@ namespace SistemaDePolideportivo
             // MARCADOR VISITANTE
             // --------------------------------------------------------
             if (int.TryParse(
-                dgvResultados.CurrentRow.Cells[5]
+                DgvResultados.CurrentRow.Cells[5]
                     .Value?.ToString(),
                 out int marcadorVisitante))
             {
-                numMarcadorVisitante.Value =
+                NudNumMarcadorVisitante.Value =
                     marcadorVisitante;
             }
 
@@ -470,14 +470,14 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             // ESTADO
             // --------------------------------------------------------
-            if (dgvResultados.Columns.Count > 8 &&
-                dgvResultados.CurrentRow.Cells[8].Value != null)
+            if (DgvResultados.Columns.Count > 8 &&
+                DgvResultados.CurrentRow.Cells[8].Value != null)
             {
                 int idEstado =
                     Convert.ToInt32(
-                        dgvResultados.CurrentRow.Cells[8].Value);
+                        DgvResultados.CurrentRow.Cells[8].Value);
 
-                cmbEstado.SelectedValue =
+                CmbEstado.SelectedValue =
                     idEstado;
             }
 
@@ -485,20 +485,20 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             // HABILITAR CONTROLES
             // --------------------------------------------------------
-            cmbPartido.Enabled = true;
-            numMarcadorLocal.Enabled = true;
-            numMarcadorVisitante.Enabled = true;
-            cmbEstado.Enabled = true;
+            CmbPartido.Enabled = true;
+            NudNumMarcadorLocal.Enabled = true;
+            NudNumMarcadorVisitante.Enabled = true;
+            CmbEstado.Enabled = true;
 
-            btnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            numMarcadorLocal.Focus();
+            NudNumMarcadorLocal.Focus();
         }
 
-        private void btnRegresarMenuCompeticiones_Click_1(object sender, EventArgs e)
+        private void BtnRegresarMenuCompeticiones_Click_1(object sender, EventArgs e)
         {
-            frmCompeticiones nuevoform =
-                new frmCompeticiones();
+            FrmCompeticiones nuevoform =
+                new FrmCompeticiones();
 
             nuevoform.Show();
 

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmArbitro : Form
+    public partial class FrmArbitro : Form
     {
 
         private const int ModoNuevo = 1;
@@ -21,13 +21,13 @@ namespace SistemaDePolideportivo
         private int _modoGuardado = 0;
 
 
-        public frmArbitro()
+        public FrmArbitro()
         {
             InitializeComponent();
         }
 
 
-        private void frmArbitro_Load_1(object sender, EventArgs e)
+        private void FrmArbitro_Load_1(object sender, EventArgs e)
         {
             CargarDeportes();
             CargarArbitros("%");
@@ -37,38 +37,38 @@ namespace SistemaDePolideportivo
 
         private void CargarDeportes()
         {
-            cmbDeporte.Items.Clear();
+            CmbDeporte.Items.Clear();
 
-            cmbDeporte.Items.Add("Fútbol");
-            cmbDeporte.Items.Add("Baloncesto");
-            cmbDeporte.Items.Add("Voleibol");
-            cmbDeporte.Items.Add("Tenis Individual");
+            CmbDeporte.Items.Add("Fútbol");
+            CmbDeporte.Items.Add("Baloncesto");
+            CmbDeporte.Items.Add("Voleibol");
+            CmbDeporte.Items.Add("Tenis Individual");
 
-            cmbDeporte.SelectedIndex = -1;
+            CmbDeporte.SelectedIndex = -1;
         }
 
 
         private void CargarArbitros(string filtro)
         {
-            dgvArbitros.DataSource =
+            DgvArbitros.DataSource =
                 new CArbitro().Listado_Arbitros(filtro);
 
-            if (dgvArbitros.Columns.Count >= 5)
+            if (DgvArbitros.Columns.Count >= 5)
             {
-                dgvArbitros.Columns[0].Width = 70;
-                dgvArbitros.Columns[0].HeaderText = "ID ÁRBITRO";
+                DgvArbitros.Columns[0].Width = 70;
+                DgvArbitros.Columns[0].HeaderText = "ID ÁRBITRO";
 
-                dgvArbitros.Columns[1].Width = 150;
-                dgvArbitros.Columns[1].HeaderText = "NOMBRES";
+                DgvArbitros.Columns[1].Width = 150;
+                DgvArbitros.Columns[1].HeaderText = "NOMBRES";
 
-                dgvArbitros.Columns[2].Width = 150;
-                dgvArbitros.Columns[2].HeaderText = "APELLIDOS";
+                DgvArbitros.Columns[2].Width = 150;
+                DgvArbitros.Columns[2].HeaderText = "APELLIDOS";
 
-                dgvArbitros.Columns[3].Width = 100;
-                dgvArbitros.Columns[3].HeaderText = "TELÉFONO";
+                DgvArbitros.Columns[3].Width = 100;
+                DgvArbitros.Columns[3].HeaderText = "TELÉFONO";
 
-                dgvArbitros.Columns[4].Width = 150;
-                dgvArbitros.Columns[4].HeaderText = "DEPORTE";
+                DgvArbitros.Columns[4].Width = 150;
+                DgvArbitros.Columns[4].HeaderText = "DEPORTE";
             }
         }
 
@@ -78,56 +78,56 @@ namespace SistemaDePolideportivo
             _idArbitro = 0;
             _modoGuardado = 0;
 
-            txtNombres.Clear();
-            txtApellidos.Clear();
-            txtTelefono.Clear();
+            TxtNombres.Clear();
+            TxtApellidos.Clear();
+            TxtTelefono.Clear();
 
-            cmbDeporte.SelectedIndex = -1;
+            CmbDeporte.SelectedIndex = -1;
 
-            txtNombres.Enabled = false;
-            txtApellidos.Enabled = false;
-            txtTelefono.Enabled = false;
-            cmbDeporte.Enabled = false;
+            TxtNombres.Enabled = false;
+            TxtApellidos.Enabled = false;
+            TxtTelefono.Enabled = false;
+            CmbDeporte.Enabled = false;
 
-            btnGuardar.Enabled = false;
+            BtnGuardar.Enabled = false;
 
-            btnNuevo.Enabled = true;
+            BtnNuevo.Enabled = true;
             BtnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
+            BtnEliminar.Enabled = true;
 
-            if (dgvArbitros.DataSource != null)
+            if (DgvArbitros.DataSource != null)
             {
-                dgvArbitros.ClearSelection();
+                DgvArbitros.ClearSelection();
             }
         }
 
 
-        private void btnNuevo_Click_1(object sender, EventArgs e)
+        private void BtnNuevo_Click_1(object sender, EventArgs e)
         {
             _idArbitro = 0;
             _modoGuardado = ModoNuevo;
 
-            txtNombres.Clear();
-            txtApellidos.Clear();
-            txtTelefono.Clear();
+            TxtNombres.Clear();
+            TxtApellidos.Clear();
+            TxtTelefono.Clear();
 
-            cmbDeporte.SelectedIndex = -1;
+            CmbDeporte.SelectedIndex = -1;
 
-            txtNombres.Enabled = true;
-            txtApellidos.Enabled = true;
-            txtTelefono.Enabled = true;
-            cmbDeporte.Enabled = true;
+            TxtNombres.Enabled = true;
+            TxtApellidos.Enabled = true;
+            TxtTelefono.Enabled = true;
+            CmbDeporte.Enabled = true;
 
-            btnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            txtNombres.Focus();
+            TxtNombres.Focus();
         }
 
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
 
-            if (string.IsNullOrWhiteSpace(txtNombres.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombres.Text))
             {
                 MessageBox.Show(
                     "Ingrese los nombres del árbitro.",
@@ -135,11 +135,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombres.Focus();
+                TxtNombres.Focus();
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtApellidos.Text))
+            if (string.IsNullOrWhiteSpace(TxtApellidos.Text))
             {
                 MessageBox.Show(
                     "Ingrese los apellidos del árbitro.",
@@ -147,12 +147,12 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtApellidos.Focus();
+                TxtApellidos.Focus();
                 return;
             }
 
 
-            if (cmbDeporte.SelectedIndex == -1)
+            if (CmbDeporte.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Seleccione el deporte del árbitro.",
@@ -160,7 +160,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbDeporte.Focus();
+                CmbDeporte.Focus();
                 return;
             }
 
@@ -175,10 +175,10 @@ namespace SistemaDePolideportivo
 
             string respuesta = arbitro.Guardar_Arbitro(
                 _modoGuardado,
-                txtNombres.Text.Trim(),
-                txtApellidos.Text.Trim(),
-                txtTelefono.Text.Trim(),
-                cmbDeporte.Text.Trim(),
+                TxtNombres.Text.Trim(),
+                TxtApellidos.Text.Trim(),
+                TxtTelefono.Text.Trim(),
+                CmbDeporte.Text.Trim(),
                 _idArbitro
             );
 
@@ -215,8 +215,8 @@ namespace SistemaDePolideportivo
         private void BtnEditar_Click_1(object sender, EventArgs e)
         {
 
-            if (dgvArbitros.CurrentRow == null ||
-                dgvArbitros.CurrentRow.IsNewRow)
+            if (DgvArbitros.CurrentRow == null ||
+                DgvArbitros.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione un registro de la tabla.",
@@ -229,44 +229,44 @@ namespace SistemaDePolideportivo
 
 
             _idArbitro = Convert.ToInt32(
-                dgvArbitros.CurrentRow.Cells[0].Value);
+                DgvArbitros.CurrentRow.Cells[0].Value);
 
             _modoGuardado = ModoActualizar;
 
 
-            txtNombres.Text =
-                dgvArbitros.CurrentRow.Cells[1]
+            TxtNombres.Text =
+                DgvArbitros.CurrentRow.Cells[1]
                 .Value?.ToString() ?? string.Empty;
 
-            txtApellidos.Text =
-                dgvArbitros.CurrentRow.Cells[2]
+            TxtApellidos.Text =
+                DgvArbitros.CurrentRow.Cells[2]
                 .Value?.ToString() ?? string.Empty;
 
-            txtTelefono.Text =
-                dgvArbitros.CurrentRow.Cells[3]
+            TxtTelefono.Text =
+                DgvArbitros.CurrentRow.Cells[3]
                 .Value?.ToString() ?? string.Empty;
 
-            cmbDeporte.Text =
-                dgvArbitros.CurrentRow.Cells[4]
+            CmbDeporte.Text =
+                DgvArbitros.CurrentRow.Cells[4]
                 .Value?.ToString() ?? string.Empty;
 
 
-            txtNombres.Enabled = true;
-            txtApellidos.Enabled = true;
-            txtTelefono.Enabled = true;
-            cmbDeporte.Enabled = true;
+            TxtNombres.Enabled = true;
+            TxtApellidos.Enabled = true;
+            TxtTelefono.Enabled = true;
+            CmbDeporte.Enabled = true;
 
-            btnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            txtNombres.Focus();
+            TxtNombres.Focus();
         }
 
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void BtnEliminar_Click_1(object sender, EventArgs e)
         {
 
-            if (dgvArbitros.CurrentRow == null ||
-                dgvArbitros.CurrentRow.IsNewRow)
+            if (DgvArbitros.CurrentRow == null ||
+                DgvArbitros.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione un registro de la tabla.",
@@ -279,15 +279,15 @@ namespace SistemaDePolideportivo
 
 
             int id = Convert.ToInt32(
-                dgvArbitros.CurrentRow.Cells[0].Value);
+                DgvArbitros.CurrentRow.Cells[0].Value);
 
 
             string nombres =
-                dgvArbitros.CurrentRow.Cells[1]
+                DgvArbitros.CurrentRow.Cells[1]
                 .Value?.ToString() ?? string.Empty;
 
             string apellidos =
-                dgvArbitros.CurrentRow.Cells[2]
+                DgvArbitros.CurrentRow.Cells[2]
                 .Value?.ToString() ?? string.Empty;
 
             string nombreCompleto =
@@ -335,7 +335,7 @@ namespace SistemaDePolideportivo
         }
 
 
-        private void dgvArbitros_CellContentClick(
+        private void DgvArbitros_CellContentClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
@@ -346,17 +346,17 @@ namespace SistemaDePolideportivo
             object sender,
             EventArgs e)
         {
-            frmCompeticiones nuevoform =
-                new frmCompeticiones();
+            FrmCompeticiones nuevoform =
+                new FrmCompeticiones();
 
             nuevoform.Show();
 
             Hide();
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtNombres.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombres.Text))
             {
                 MessageBox.Show(
                     "Ingrese los nombres del árbitro.",
@@ -364,11 +364,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombres.Focus();
+                TxtNombres.Focus();
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(txtApellidos.Text))
+            if (string.IsNullOrWhiteSpace(TxtApellidos.Text))
             {
                 MessageBox.Show(
                     "Ingrese los apellidos del árbitro.",
@@ -376,12 +376,12 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtApellidos.Focus();
+                TxtApellidos.Focus();
                 return;
             }
 
 
-            if (cmbDeporte.SelectedIndex == -1)
+            if (CmbDeporte.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Seleccione el deporte del árbitro.",
@@ -389,7 +389,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbDeporte.Focus();
+                CmbDeporte.Focus();
                 return;
             }
 
@@ -404,10 +404,10 @@ namespace SistemaDePolideportivo
 
             string respuesta = arbitro.Guardar_Arbitro(
                 _modoGuardado,
-                txtNombres.Text.Trim(),
-                txtApellidos.Text.Trim(),
-                txtTelefono.Text.Trim(),
-                cmbDeporte.Text.Trim(),
+                TxtNombres.Text.Trim(),
+                TxtApellidos.Text.Trim(),
+                TxtTelefono.Text.Trim(),
+                CmbDeporte.Text.Trim(),
                 _idArbitro
             );
 

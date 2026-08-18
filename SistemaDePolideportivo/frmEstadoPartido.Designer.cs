@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmEstadoPartido
+    partial class FrmEstadoPartido
     {
         /// <summary>
         /// Required designer variable.
@@ -28,106 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEstadoPartido));
-            label1 = new Label();
-            label2 = new Label();
-            txtNombreEstado = new TextBox();
-            label3 = new Label();
-            txtDescripcion = new RichTextBox();
-            dgvEstados = new DataGridView();
-            btnNuevo = new Button();
-            btnEliminar = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEstadoPartido));
+            Lbl1 = new Label();
+            Lbl2 = new Label();
+            TxtNombreEstado = new TextBox();
+            Lbl3 = new Label();
+            RtbTxtDescripcion = new RichTextBox();
+            DgvEstados = new DataGridView();
+            BtnNuevo = new Button();
+            BtnEliminar = new Button();
             BtnEditar = new Button();
-            btnGuardar = new Button();
-            label4 = new Label();
-            txtBuscar = new TextBox();
+            BtnGuardar = new Button();
+            Lbl4 = new Label();
+            TxtBuscar = new TextBox();
             BtnMenu = new Button();
-            ((System.ComponentModel.ISupportInitialize)dgvEstados).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DgvEstados).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(80, 13);
-            label1.Name = "label1";
-            label1.Size = new Size(178, 30);
-            label1.TabIndex = 0;
-            label1.Text = "Datos del Partido";
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl1.Location = new Point(80, 13);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(178, 30);
+            Lbl1.TabIndex = 0;
+            Lbl1.Text = "Datos del Partido";
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(19, 70);
-            label2.Name = "label2";
-            label2.Size = new Size(158, 21);
-            label2.TabIndex = 1;
-            label2.Text = "Estado del encuentro:";
+            Lbl2.AutoSize = true;
+            Lbl2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl2.Location = new Point(19, 70);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(158, 21);
+            Lbl2.TabIndex = 1;
+            Lbl2.Text = "Estado del encuentro:";
             // 
-            // txtNombreEstado
+            // TxtNombreEstado
             // 
-            txtNombreEstado.Font = new Font("Bell MT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombreEstado.Location = new Point(213, 73);
-            txtNombreEstado.Margin = new Padding(3, 2, 3, 2);
-            txtNombreEstado.Name = "txtNombreEstado";
-            txtNombreEstado.Size = new Size(196, 21);
-            txtNombreEstado.TabIndex = 2;
-            txtNombreEstado.Text = "Programado, Finalizado";
+            TxtNombreEstado.Font = new Font("Bell MT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TxtNombreEstado.Location = new Point(213, 73);
+            TxtNombreEstado.Margin = new Padding(3, 2, 3, 2);
+            TxtNombreEstado.Name = "TxtNombreEstado";
+            TxtNombreEstado.Size = new Size(196, 21);
+            TxtNombreEstado.TabIndex = 2;
+            TxtNombreEstado.Text = "Programado, Finalizado";
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(26, 98);
-            label3.Name = "label3";
-            label3.Size = new Size(94, 21);
-            label3.TabIndex = 3;
-            label3.Text = "Descripción:";
+            Lbl3.AutoSize = true;
+            Lbl3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl3.Location = new Point(26, 98);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(94, 21);
+            Lbl3.TabIndex = 3;
+            Lbl3.Text = "Descripción:";
             // 
-            // txtDescripcion
+            // RtbTxtDescripcion
             // 
-            txtDescripcion.BorderStyle = BorderStyle.FixedSingle;
-            txtDescripcion.Font = new Font("Bell MT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtDescripcion.Location = new Point(135, 104);
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(316, 96);
-            txtDescripcion.TabIndex = 13;
-            txtDescripcion.Text = "Ingresa descripción";
+            RtbTxtDescripcion.BorderStyle = BorderStyle.FixedSingle;
+            RtbTxtDescripcion.Font = new Font("Bell MT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            RtbTxtDescripcion.Location = new Point(135, 104);
+            RtbTxtDescripcion.Name = "RtbTxtDescripcion";
+            RtbTxtDescripcion.Size = new Size(316, 96);
+            RtbTxtDescripcion.TabIndex = 13;
+            RtbTxtDescripcion.Text = "Ingresa descripción";
             // 
-            // dgvEstados
+            // DgvEstados
             // 
-            dgvEstados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvEstados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvEstados.Location = new Point(19, 239);
-            dgvEstados.Margin = new Padding(3, 2, 3, 2);
-            dgvEstados.Name = "dgvEstados";
-            dgvEstados.RowHeadersWidth = 51;
-            dgvEstados.Size = new Size(670, 82);
-            dgvEstados.TabIndex = 14;
+            DgvEstados.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DgvEstados.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvEstados.Location = new Point(19, 239);
+            DgvEstados.Margin = new Padding(3, 2, 3, 2);
+            DgvEstados.Name = "DgvEstados";
+            DgvEstados.RowHeadersWidth = 51;
+            DgvEstados.Size = new Size(670, 82);
+            DgvEstados.TabIndex = 14;
             // 
-            // btnNuevo
+            // BtnNuevo
             // 
-            btnNuevo.BackgroundImage = Properties.Resources.nuevo;
-            btnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            btnNuevo.Location = new Point(632, 185);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(58, 47);
-            btnNuevo.TabIndex = 22;
-            btnNuevo.UseVisualStyleBackColor = true;
-            btnNuevo.Click += btnNuevo_Click_1;
+            BtnNuevo.BackgroundImage = Properties.Resources.nuevo;
+            BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnNuevo.Location = new Point(632, 185);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(58, 47);
+            BtnNuevo.TabIndex = 22;
+            BtnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Click += BtnNuevo_Click_1;
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            btnEliminar.BackgroundImage = Properties.Resources.eliminar;
-            btnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnEliminar.Cursor = Cursors.Hand;
-            btnEliminar.Location = new Point(632, 123);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(58, 47);
-            btnEliminar.TabIndex = 21;
-            btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEliminar_Click_1;
+            BtnEliminar.BackgroundImage = Properties.Resources.eliminar;
+            BtnEliminar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnEliminar.Cursor = Cursors.Hand;
+            BtnEliminar.Location = new Point(632, 123);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(58, 47);
+            BtnEliminar.TabIndex = 21;
+            BtnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.Click += BtnEliminar_Click_1;
             // 
             // BtnEditar
             // 
@@ -141,39 +141,39 @@
             BtnEditar.UseVisualStyleBackColor = true;
             BtnEditar.Click += BtnEditar_Click;
             // 
-            // btnGuardar
+            // BtnGuardar
             // 
-            btnGuardar.BackColor = Color.Transparent;
-            btnGuardar.BackgroundImage = Properties.Resources.guardar;
-            btnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
-            btnGuardar.Cursor = Cursors.Hand;
-            btnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardar.ForeColor = SystemColors.ActiveCaptionText;
-            btnGuardar.ImageAlign = ContentAlignment.TopCenter;
-            btnGuardar.Location = new Point(632, 7);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(58, 50);
-            btnGuardar.TabIndex = 19;
-            btnGuardar.UseVisualStyleBackColor = false;
-            btnGuardar.Click += btnGuardar_Click_1;
+            BtnGuardar.BackColor = Color.Transparent;
+            BtnGuardar.BackgroundImage = Properties.Resources.guardar;
+            BtnGuardar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnGuardar.Cursor = Cursors.Hand;
+            BtnGuardar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            BtnGuardar.ForeColor = SystemColors.ActiveCaptionText;
+            BtnGuardar.ImageAlign = ContentAlignment.TopCenter;
+            BtnGuardar.Location = new Point(632, 7);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(58, 50);
+            BtnGuardar.TabIndex = 19;
+            BtnGuardar.UseVisualStyleBackColor = false;
+            BtnGuardar.Click += BtnGuardar_Click_1;
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label4.Location = new Point(66, 212);
-            label4.Name = "label4";
-            label4.Size = new Size(59, 21);
-            label4.TabIndex = 23;
-            label4.Text = "Buscar:";
+            Lbl4.AutoSize = true;
+            Lbl4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl4.Location = new Point(66, 212);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(59, 21);
+            Lbl4.TabIndex = 23;
+            Lbl4.Text = "Buscar:";
             // 
-            // txtBuscar
+            // TxtBuscar
             // 
-            txtBuscar.Location = new Point(135, 212);
-            txtBuscar.Margin = new Padding(3, 2, 3, 2);
-            txtBuscar.Name = "txtBuscar";
-            txtBuscar.Size = new Size(316, 23);
-            txtBuscar.TabIndex = 24;
+            TxtBuscar.Location = new Point(135, 212);
+            TxtBuscar.Margin = new Padding(3, 2, 3, 2);
+            TxtBuscar.Name = "TxtBuscar";
+            TxtBuscar.Size = new Size(316, 23);
+            TxtBuscar.TabIndex = 24;
             // 
             // BtnMenu
             // 
@@ -186,50 +186,50 @@
             BtnMenu.UseVisualStyleBackColor = true;
             BtnMenu.Click += BtnMenu_Click;
             // 
-            // frmEstadoPartido
+            // FrmEstadoPartido
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Window;
             ClientSize = new Size(700, 338);
             Controls.Add(BtnMenu);
-            Controls.Add(txtBuscar);
-            Controls.Add(label4);
-            Controls.Add(btnNuevo);
-            Controls.Add(btnEliminar);
+            Controls.Add(TxtBuscar);
+            Controls.Add(Lbl4);
+            Controls.Add(BtnNuevo);
+            Controls.Add(BtnEliminar);
             Controls.Add(BtnEditar);
-            Controls.Add(btnGuardar);
-            Controls.Add(dgvEstados);
-            Controls.Add(txtDescripcion);
-            Controls.Add(label3);
-            Controls.Add(txtNombreEstado);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(BtnGuardar);
+            Controls.Add(DgvEstados);
+            Controls.Add(RtbTxtDescripcion);
+            Controls.Add(Lbl3);
+            Controls.Add(TxtNombreEstado);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl1);
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmEstadoPartido";
+            Name = "FrmEstadoPartido";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmEstadoPartido";
-            ((System.ComponentModel.ISupportInitialize)dgvEstados).EndInit();
+            Text = "FrmEstadoPartido";
+            ((System.ComponentModel.ISupportInitialize)DgvEstados).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private TextBox txtNombreEstado;
-        private Label label3;
-        private RichTextBox txtDescripcion;
-        private DataGridView dgvEstados;
-        private Button btnNuevo;
-        private Button btnEliminar;
+        private Label Lbl1;
+        private Label Lbl2;
+        private TextBox TxtNombreEstado;
+        private Label Lbl3;
+        private RichTextBox RtbTxtDescripcion;
+        private DataGridView DgvEstados;
+        private Button BtnNuevo;
+        private Button BtnEliminar;
         private Button BtnEditar;
-        private Button btnGuardar;
-        private Label label4;
-        private TextBox txtBuscar;
+        private Button BtnGuardar;
+        private Label Lbl4;
+        private TextBox TxtBuscar;
         private Button BtnMenu;
     }
 }

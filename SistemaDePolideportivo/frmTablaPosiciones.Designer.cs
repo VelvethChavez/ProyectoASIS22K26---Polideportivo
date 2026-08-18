@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmTablaPosiciones
+    partial class FrmTablaPosiciones
     {
         /// <summary>
         /// Required designer variable.
@@ -28,82 +28,82 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTablaPosiciones));
-            label1 = new Label();
-            dgvPosiciones = new DataGridView();
-            btnRegresarMenuCompeticiones = new Button();
-            cboCampeonato = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dgvPosiciones).BeginInit();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTablaPosiciones));
+            Lbl1 = new Label();
+            DgvPosiciones = new DataGridView();
+            BtnRegresarMenuCompeticiones = new Button();
+            CmbCboCampeonato = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)DgvPosiciones).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 51);
-            label1.Name = "label1";
-            label1.Size = new Size(266, 31);
-            label1.TabIndex = 0;
-            label1.Text = "CAMPEONATO/TORNEO:";
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Lbl1.Location = new Point(12, 51);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(266, 31);
+            Lbl1.TabIndex = 0;
+            Lbl1.Text = "CAMPEONATO/TORNEO:";
             // 
-            // dgvPosiciones
+            // DgvPosiciones
             // 
-            dgvPosiciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPosiciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPosiciones.Location = new Point(12, 218);
-            dgvPosiciones.Name = "dgvPosiciones";
-            dgvPosiciones.RowHeadersWidth = 51;
-            dgvPosiciones.Size = new Size(776, 220);
-            dgvPosiciones.TabIndex = 1;
-            dgvPosiciones.CellContentClick += dgvPosiciones_CellContentClick;
+            DgvPosiciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DgvPosiciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DgvPosiciones.Location = new Point(12, 218);
+            DgvPosiciones.Name = "DgvPosiciones";
+            DgvPosiciones.RowHeadersWidth = 51;
+            DgvPosiciones.Size = new Size(776, 220);
+            DgvPosiciones.TabIndex = 1;
+            DgvPosiciones.CellContentClick += DgvPosiciones_CellContentClick;
             // 
-            // btnRegresarMenuCompeticiones
+            // BtnRegresarMenuCompeticiones
             // 
-            btnRegresarMenuCompeticiones.BackgroundImage = (Image)resources.GetObject("btnRegresarMenuCompeticiones.BackgroundImage");
-            btnRegresarMenuCompeticiones.BackgroundImageLayout = ImageLayout.Zoom;
-            btnRegresarMenuCompeticiones.Cursor = Cursors.Hand;
-            btnRegresarMenuCompeticiones.Location = new Point(722, 13);
-            btnRegresarMenuCompeticiones.Margin = new Padding(3, 4, 3, 4);
-            btnRegresarMenuCompeticiones.Name = "btnRegresarMenuCompeticiones";
-            btnRegresarMenuCompeticiones.Size = new Size(66, 63);
-            btnRegresarMenuCompeticiones.TabIndex = 36;
-            btnRegresarMenuCompeticiones.UseVisualStyleBackColor = true;
-            btnRegresarMenuCompeticiones.Click += btnRegresarMenuCompeticiones_Click;
+            BtnRegresarMenuCompeticiones.BackgroundImage = (Image)resources.GetObject("BtnRegresarMenuCompeticiones.BackgroundImage");
+            BtnRegresarMenuCompeticiones.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRegresarMenuCompeticiones.Cursor = Cursors.Hand;
+            BtnRegresarMenuCompeticiones.Location = new Point(722, 13);
+            BtnRegresarMenuCompeticiones.Margin = new Padding(3, 4, 3, 4);
+            BtnRegresarMenuCompeticiones.Name = "BtnRegresarMenuCompeticiones";
+            BtnRegresarMenuCompeticiones.Size = new Size(66, 63);
+            BtnRegresarMenuCompeticiones.TabIndex = 36;
+            BtnRegresarMenuCompeticiones.UseVisualStyleBackColor = true;
+            BtnRegresarMenuCompeticiones.Click += BtnRegresarMenuCompeticiones_Click;
             // 
-            // cboCampeonato
+            // CmbCboCampeonato
             // 
-            cboCampeonato.FormattingEnabled = true;
-            cboCampeonato.Location = new Point(284, 54);
-            cboCampeonato.Name = "cboCampeonato";
-            cboCampeonato.Size = new Size(250, 28);
-            cboCampeonato.TabIndex = 37;
-            cboCampeonato.SelectedIndexChanged += cboCampeonato_SelectedIndexChanged_1;
+            CmbCboCampeonato.FormattingEnabled = true;
+            CmbCboCampeonato.Location = new Point(284, 54);
+            CmbCboCampeonato.Name = "CmbCboCampeonato";
+            CmbCboCampeonato.Size = new Size(250, 28);
+            CmbCboCampeonato.TabIndex = 37;
+            CmbCboCampeonato.SelectedIndexChanged += CmbCboCampeonato_SelectedIndexChanged_1;
             // 
-            // frmTablaPosiciones
+            // FrmTablaPosiciones
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(800, 450);
-            Controls.Add(cboCampeonato);
-            Controls.Add(btnRegresarMenuCompeticiones);
-            Controls.Add(dgvPosiciones);
-            Controls.Add(label1);
+            Controls.Add(CmbCboCampeonato);
+            Controls.Add(BtnRegresarMenuCompeticiones);
+            Controls.Add(DgvPosiciones);
+            Controls.Add(Lbl1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmTablaPosiciones";
-            Text = "frmTablaPosiciones";
-            Load += frmTablaPosiciones_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvPosiciones).EndInit();
+            Name = "FrmTablaPosiciones";
+            Text = "FrmTablaPosiciones";
+            Load += FrmTablaPosiciones_Load;
+            ((System.ComponentModel.ISupportInitialize)DgvPosiciones).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private DataGridView dgvPosiciones;
-        private Button btnRegresarMenuCompeticiones;
-        private ComboBox cboCampeonato;
+        private Label Lbl1;
+        private DataGridView DgvPosiciones;
+        private Button BtnRegresarMenuCompeticiones;
+        private ComboBox CmbCboCampeonato;
     }
 }

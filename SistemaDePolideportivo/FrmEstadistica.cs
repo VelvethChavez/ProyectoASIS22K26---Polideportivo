@@ -8,12 +8,12 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class FormEstadistica : Form
+    public partial class FrmEstadistica : Form
     {
         private readonly EstadisticaDAO estadisticaDAO;
         private int idEstadisticaSeleccionada;
 
-        public FormEstadistica()
+        public FrmEstadistica()
         {
             InitializeComponent();
 
@@ -25,7 +25,7 @@ namespace SistemaDePolideportivo
         // CARGAR FORMULARIO
         //=========================================================
 
-        private void FormEstadistica_Load(object sender, EventArgs e)
+        private void FrmEstadistica_Load(object sender, EventArgs e)
         {
             try
             {
@@ -51,32 +51,32 @@ namespace SistemaDePolideportivo
         {
             DataTable tablaJugadores = estadisticaDAO.CargarJugadores();
 
-            cmbJugador.DataSource = tablaJugadores;
-            cmbJugador.DisplayMember = "jugador";
-            cmbJugador.ValueMember = "id_jugador";
-            cmbJugador.SelectedIndex = -1;
+            CmbJugador.DataSource = tablaJugadores;
+            CmbJugador.DisplayMember = "jugador";
+            CmbJugador.ValueMember = "id_jugador";
+            CmbJugador.SelectedIndex = -1;
         }
 
         private void CargarPartidos()
         {
             DataTable tablaPartidos = estadisticaDAO.CargarPartidos();
 
-            cmbPartido.DataSource = tablaPartidos;
-            cmbPartido.DisplayMember = "partido";
-            cmbPartido.ValueMember = "id_partido";
-            cmbPartido.SelectedIndex = -1;
+            CmbPartido.DataSource = tablaPartidos;
+            CmbPartido.DisplayMember = "partido";
+            CmbPartido.ValueMember = "id_partido";
+            CmbPartido.SelectedIndex = -1;
         }
 
         private void CargarDeportes()
         {
-            cmbDeporte.Items.Clear();
+            CmbDeporte.Items.Clear();
 
-            cmbDeporte.Items.Add("Fútbol");
-            cmbDeporte.Items.Add("Baloncesto");
-            cmbDeporte.Items.Add("Voleibol");
-            cmbDeporte.Items.Add("Tenis");
+            CmbDeporte.Items.Add("Fútbol");
+            CmbDeporte.Items.Add("Baloncesto");
+            CmbDeporte.Items.Add("Voleibol");
+            CmbDeporte.Items.Add("Tenis");
 
-            cmbDeporte.SelectedIndex = 0;
+            CmbDeporte.SelectedIndex = 0;
         }
 
         //=========================================================
@@ -85,44 +85,44 @@ namespace SistemaDePolideportivo
 
         private void ConfigurarCampos()
         {
-            string deporte = cmbDeporte.Text;
+            string deporte = CmbDeporte.Text;
 
-            MostrarCampo(lblCampo1, nudCampo1, true);
-            MostrarCampo(lblCampo2, nudCampo2, true);
-            MostrarCampo(lblCampo3, nudCampo3, true);
-            MostrarCampo(lblCampo4, nudCampo4, true);
+            MostrarCampo(LblCampo1, NudCampo1, true);
+            MostrarCampo(LblCampo2, NudCampo2, true);
+            MostrarCampo(LblCampo3, NudCampo3, true);
+            MostrarCampo(LblCampo4, NudCampo4, true);
 
             switch (deporte)
             {
                 case "Fútbol":
-                    lblCampo1.Text = "Goles";
-                    lblCampo2.Text = "Asistencias";
-                    lblCampo3.Text = "Tarjetas Amarillas";
-                    lblCampo4.Text = "Tarjetas Rojas";
+                    LblCampo1.Text = "Goles";
+                    LblCampo2.Text = "Asistencias";
+                    LblCampo3.Text = "Tarjetas Amarillas";
+                    LblCampo4.Text = "Tarjetas Rojas";
                     break;
 
                 case "Baloncesto":
-                    lblCampo1.Text = "Puntos";
-                    lblCampo2.Text = "Asistencias";
-                    lblCampo3.Text = "Canastas";
+                    LblCampo1.Text = "Puntos";
+                    LblCampo2.Text = "Asistencias";
+                    LblCampo3.Text = "Canastas";
 
-                    MostrarCampo(lblCampo4, nudCampo4, false);
+                    MostrarCampo(LblCampo4, NudCampo4, false);
                     break;
 
                 case "Voleibol":
-                    lblCampo1.Text = "Puntos";
-                    lblCampo2.Text = "Sets Ganados";
+                    LblCampo1.Text = "Puntos";
+                    LblCampo2.Text = "Sets Ganados";
 
-                    MostrarCampo(lblCampo3, nudCampo3, false);
-                    MostrarCampo(lblCampo4, nudCampo4, false);
+                    MostrarCampo(LblCampo3, NudCampo3, false);
+                    MostrarCampo(LblCampo4, NudCampo4, false);
                     break;
 
                 case "Tenis":
-                    lblCampo1.Text = "Puntos";
-                    lblCampo2.Text = "Sets Ganados";
+                    LblCampo1.Text = "Puntos";
+                    LblCampo2.Text = "Sets Ganados";
 
-                    MostrarCampo(lblCampo3, nudCampo3, false);
-                    MostrarCampo(lblCampo4, nudCampo4, false);
+                    MostrarCampo(LblCampo3, NudCampo3, false);
+                    MostrarCampo(LblCampo4, NudCampo4, false);
                     break;
             }
 
@@ -140,7 +140,7 @@ namespace SistemaDePolideportivo
 
         // Este es el evento que Visual Studio creó originalmente
         // para el ComboBox de deporte.
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbDeporte_SelectedIndexChanged(object sender, EventArgs e)
         {
             ConfigurarCampos();
         }
@@ -154,45 +154,45 @@ namespace SistemaDePolideportivo
             EstadisticaJugador estadistica = new EstadisticaJugador
             {
                 IdEstadistica = idEstadisticaSeleccionada,
-                IdJugador = Convert.ToInt32(cmbJugador.SelectedValue),
-                IdPartido = Convert.ToInt32(cmbPartido.SelectedValue),
-                Deporte = cmbDeporte.Text,
-                Observaciones = txtObservaciones.Text.Trim()
+                IdJugador = Convert.ToInt32(CmbJugador.SelectedValue),
+                IdPartido = Convert.ToInt32(CmbPartido.SelectedValue),
+                Deporte = CmbDeporte.Text,
+                Observaciones = TxtObservaciones.Text.Trim()
             };
 
             switch (estadistica.Deporte)
             {
                 case "Fútbol":
-                    estadistica.Goles = Convert.ToInt32(nudCampo1.Value);
+                    estadistica.Goles = Convert.ToInt32(NudCampo1.Value);
                     estadistica.AsistenciasFutbol =
-                        Convert.ToInt32(nudCampo2.Value);
+                        Convert.ToInt32(NudCampo2.Value);
                     estadistica.TarjetasAmarillas =
-                        Convert.ToInt32(nudCampo3.Value);
+                        Convert.ToInt32(NudCampo3.Value);
                     estadistica.TarjetasRojas =
-                        Convert.ToInt32(nudCampo4.Value);
+                        Convert.ToInt32(NudCampo4.Value);
                     break;
 
                 case "Baloncesto":
                     estadistica.PuntosBaloncesto =
-                        Convert.ToInt32(nudCampo1.Value);
+                        Convert.ToInt32(NudCampo1.Value);
                     estadistica.AsistenciasBaloncesto =
-                        Convert.ToInt32(nudCampo2.Value);
+                        Convert.ToInt32(NudCampo2.Value);
                     estadistica.Canastas =
-                        Convert.ToInt32(nudCampo3.Value);
+                        Convert.ToInt32(NudCampo3.Value);
                     break;
 
                 case "Voleibol":
                     estadistica.PuntosVoleibol =
-                        Convert.ToInt32(nudCampo1.Value);
+                        Convert.ToInt32(NudCampo1.Value);
                     estadistica.SetsGanadosVoleibol =
-                        Convert.ToInt32(nudCampo2.Value);
+                        Convert.ToInt32(NudCampo2.Value);
                     break;
 
                 case "Tenis":
                     estadistica.PuntosTenis =
-                        Convert.ToInt32(nudCampo1.Value);
+                        Convert.ToInt32(NudCampo1.Value);
                     estadistica.SetsGanadosTenis =
-                        Convert.ToInt32(nudCampo2.Value);
+                        Convert.ToInt32(NudCampo2.Value);
                     break;
             }
 
@@ -205,7 +205,7 @@ namespace SistemaDePolideportivo
 
         private bool ValidarFormulario()
         {
-            if (cmbJugador.SelectedIndex < 0)
+            if (CmbJugador.SelectedIndex < 0)
             {
                 MessageBox.Show(
                     "Seleccione un jugador.",
@@ -213,11 +213,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbJugador.Focus();
+                CmbJugador.Focus();
                 return false;
             }
 
-            if (cmbPartido.SelectedIndex < 0)
+            if (CmbPartido.SelectedIndex < 0)
             {
                 MessageBox.Show(
                     "Seleccione un partido.",
@@ -225,11 +225,11 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbPartido.Focus();
+                CmbPartido.Focus();
                 return false;
             }
 
-            if (cmbDeporte.SelectedIndex < 0)
+            if (CmbDeporte.SelectedIndex < 0)
             {
                 MessageBox.Show(
                     "Seleccione un deporte.",
@@ -237,7 +237,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbDeporte.Focus();
+                CmbDeporte.Focus();
                 return false;
             }
 
@@ -248,7 +248,7 @@ namespace SistemaDePolideportivo
         // BOTÓN NUEVO
         //=========================================================
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
         }
@@ -257,7 +257,7 @@ namespace SistemaDePolideportivo
         // BOTÓN GUARDAR
         //=========================================================
 
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -290,7 +290,7 @@ namespace SistemaDePolideportivo
         // BOTÓN EDITAR
         //=========================================================
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -334,7 +334,7 @@ namespace SistemaDePolideportivo
         // BOTÓN ELIMINAR
         //=========================================================
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -383,11 +383,11 @@ namespace SistemaDePolideportivo
         // BOTÓN BUSCAR
         //=========================================================
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void BtnBuscar_Click(object sender, EventArgs e)
         {
             try
             {
-                string texto = txtBuscar.Text.Trim();
+                string texto = TxtBuscar.Text.Trim();
 
                 if (string.IsNullOrWhiteSpace(texto))
                 {
@@ -395,7 +395,7 @@ namespace SistemaDePolideportivo
                     return;
                 }
 
-                dgvEstadisticas.DataSource =
+                DgvEstadisticas.DataSource =
                     estadisticaDAO.Buscar(texto);
 
                 ConfigurarColumnasDataGridView();
@@ -406,9 +406,9 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        private void TxtBuscar_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+            if (string.IsNullOrWhiteSpace(TxtBuscar.Text))
             {
                 CargarEstadisticas();
             }
@@ -420,15 +420,15 @@ namespace SistemaDePolideportivo
 
         private void CargarEstadisticas()
         {
-            dgvEstadisticas.DataSource = null;
-            dgvEstadisticas.DataSource = estadisticaDAO.Listar();
+            DgvEstadisticas.DataSource = null;
+            DgvEstadisticas.DataSource = estadisticaDAO.Listar();
 
             ConfigurarColumnasDataGridView();
         }
 
         private void ConfigurarColumnasDataGridView()
         {
-            if (dgvEstadisticas.Columns.Count == 0)
+            if (DgvEstadisticas.Columns.Count == 0)
                 return;
 
             OcultarColumna("id_jugador");
@@ -449,24 +449,24 @@ namespace SistemaDePolideportivo
             OcultarColumna("puntos_tenis");
             OcultarColumna("sets_tenis");
 
-            if (dgvEstadisticas.Columns.Contains("id_estadistica"))
+            if (DgvEstadisticas.Columns.Contains("id_estadistica"))
             {
-                dgvEstadisticas.Columns["id_estadistica"].HeaderText = "ID";
-                dgvEstadisticas.Columns["id_estadistica"].Width = 55;
+                DgvEstadisticas.Columns["id_estadistica"].HeaderText = "ID";
+                DgvEstadisticas.Columns["id_estadistica"].Width = 55;
             }
 
-            if (dgvEstadisticas.Columns.Contains("observaciones"))
+            if (DgvEstadisticas.Columns.Contains("observaciones"))
             {
-                dgvEstadisticas.Columns["observaciones"].HeaderText =
+                DgvEstadisticas.Columns["observaciones"].HeaderText =
                     "Observaciones";
             }
         }
 
         private void OcultarColumna(string nombre)
         {
-            if (dgvEstadisticas.Columns.Contains(nombre))
+            if (DgvEstadisticas.Columns.Contains(nombre))
             {
-                dgvEstadisticas.Columns[nombre].Visible = false;
+                DgvEstadisticas.Columns[nombre].Visible = false;
             }
         }
 
@@ -474,7 +474,7 @@ namespace SistemaDePolideportivo
         // SELECCIONAR REGISTRO DEL DATAGRIDVIEW
         //=========================================================
 
-        private void dgvEstadisticas_CellContentClick(
+        private void DgvEstadisticas_CellContentClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
@@ -484,7 +484,7 @@ namespace SistemaDePolideportivo
             try
             {
                 DataGridViewRow fila =
-                    dgvEstadisticas.Rows[e.RowIndex];
+                    DgvEstadisticas.Rows[e.RowIndex];
 
                 if (!fila.DataGridView.Columns.Contains(
                         "id_estadistica"))
@@ -521,47 +521,47 @@ namespace SistemaDePolideportivo
                 return;
             }
 
-            cmbJugador.SelectedValue = estadistica.IdJugador;
-            cmbPartido.SelectedValue = estadistica.IdPartido;
-            cmbDeporte.SelectedItem = estadistica.Deporte;
-            txtObservaciones.Text = estadistica.Observaciones;
+            CmbJugador.SelectedValue = estadistica.IdJugador;
+            CmbPartido.SelectedValue = estadistica.IdPartido;
+            CmbDeporte.SelectedItem = estadistica.Deporte;
+            TxtObservaciones.Text = estadistica.Observaciones;
 
             ConfigurarCampos();
 
             switch (estadistica.Deporte)
             {
                 case "Fútbol":
-                    nudCampo1.Value = estadistica.Goles;
-                    nudCampo2.Value = estadistica.AsistenciasFutbol;
-                    nudCampo3.Value = estadistica.TarjetasAmarillas;
-                    nudCampo4.Value = estadistica.TarjetasRojas;
+                    NudCampo1.Value = estadistica.Goles;
+                    NudCampo2.Value = estadistica.AsistenciasFutbol;
+                    NudCampo3.Value = estadistica.TarjetasAmarillas;
+                    NudCampo4.Value = estadistica.TarjetasRojas;
                     break;
 
                 case "Baloncesto":
-                    nudCampo1.Value = estadistica.PuntosBaloncesto;
-                    nudCampo2.Value =
+                    NudCampo1.Value = estadistica.PuntosBaloncesto;
+                    NudCampo2.Value =
                         estadistica.AsistenciasBaloncesto;
-                    nudCampo3.Value = estadistica.Canastas;
+                    NudCampo3.Value = estadistica.Canastas;
                     break;
 
                 case "Voleibol":
-                    nudCampo1.Value = estadistica.PuntosVoleibol;
-                    nudCampo2.Value =
+                    NudCampo1.Value = estadistica.PuntosVoleibol;
+                    NudCampo2.Value =
                         estadistica.SetsGanadosVoleibol;
                     break;
 
                 case "Tenis":
-                    nudCampo1.Value = estadistica.PuntosTenis;
-                    nudCampo2.Value =
+                    NudCampo1.Value = estadistica.PuntosTenis;
+                    NudCampo2.Value =
                         estadistica.SetsGanadosTenis;
                     break;
             }
 
             // Evita cambiar el deporte de una estadística existente.
-            cmbDeporte.Enabled = false;
-            btnGuardar.Enabled = false;
-            btnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
+            CmbDeporte.Enabled = false;
+            BtnGuardar.Enabled = false;
+            BtnEditar.Enabled = true;
+            BtnEliminar.Enabled = true;
         }
 
         //=========================================================
@@ -572,37 +572,37 @@ namespace SistemaDePolideportivo
         {
             idEstadisticaSeleccionada = 0;
 
-            cmbJugador.SelectedIndex = -1;
-            cmbPartido.SelectedIndex = -1;
+            CmbJugador.SelectedIndex = -1;
+            CmbPartido.SelectedIndex = -1;
 
-            if (cmbDeporte.Items.Count > 0)
+            if (CmbDeporte.Items.Count > 0)
             {
-                cmbDeporte.SelectedIndex = 0;
+                CmbDeporte.SelectedIndex = 0;
             }
 
-            cmbDeporte.Enabled = true;
+            CmbDeporte.Enabled = true;
 
-            txtObservaciones.Clear();
-            txtBuscar.Clear();
+            TxtObservaciones.Clear();
+            TxtBuscar.Clear();
 
             LimpiarCamposEstadisticos();
             ConfigurarCampos();
 
-            dgvEstadisticas.ClearSelection();
+            DgvEstadisticas.ClearSelection();
 
-            btnGuardar.Enabled = true;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
+            BtnGuardar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
 
-            cmbJugador.Focus();
+            CmbJugador.Focus();
         }
 
         private void LimpiarCamposEstadisticos()
         {
-            nudCampo1.Value = 0;
-            nudCampo2.Value = 0;
-            nudCampo3.Value = 0;
-            nudCampo4.Value = 0;
+            NudCampo1.Value = 0;
+            NudCampo2.Value = 0;
+            NudCampo3.Value = 0;
+            NudCampo4.Value = 0;
         }
 
         //=========================================================
@@ -613,18 +613,18 @@ namespace SistemaDePolideportivo
         {
             BackColor = Color.FromArgb(241, 248, 233);
 
-            lblTitulo.ForeColor = Color.FromArgb(27, 94, 32);
-            lblTitulo.Font =
+            LblTitulo.ForeColor = Color.FromArgb(27, 94, 32);
+            LblTitulo.Font =
                 new Font("Segoe UI", 18, FontStyle.Bold);
 
-            grpEstadisticas.ForeColor =
+            GrpEstadisticas.ForeColor =
                 Color.FromArgb(46, 125, 50);
 
-            AplicarEstiloBoton(btnNuevo);
-            AplicarEstiloBoton(btnGuardar);
-            AplicarEstiloBoton(btnEditar);
-            AplicarEstiloBoton(btnEliminar);
-            AplicarEstiloBoton(btnBuscar);
+            AplicarEstiloBoton(BtnNuevo);
+            AplicarEstiloBoton(BtnGuardar);
+            AplicarEstiloBoton(BtnEditar);
+            AplicarEstiloBoton(BtnEliminar);
+            AplicarEstiloBoton(BtnBuscar);
 
             AplicarEstiloDataGridView();
         }
@@ -642,44 +642,44 @@ namespace SistemaDePolideportivo
 
         private void AplicarEstiloDataGridView()
         {
-            dgvEstadisticas.BackgroundColor = Color.White;
-            dgvEstadisticas.BorderStyle = BorderStyle.None;
+            DgvEstadisticas.BackgroundColor = Color.White;
+            DgvEstadisticas.BorderStyle = BorderStyle.None;
 
-            dgvEstadisticas.EnableHeadersVisualStyles = false;
+            DgvEstadisticas.EnableHeadersVisualStyles = false;
 
-            dgvEstadisticas.ColumnHeadersDefaultCellStyle.BackColor =
+            DgvEstadisticas.ColumnHeadersDefaultCellStyle.BackColor =
                 Color.FromArgb(46, 125, 50);
 
-            dgvEstadisticas.ColumnHeadersDefaultCellStyle.ForeColor =
+            DgvEstadisticas.ColumnHeadersDefaultCellStyle.ForeColor =
                 Color.White;
 
-            dgvEstadisticas.ColumnHeadersDefaultCellStyle.Font =
+            DgvEstadisticas.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
 
-            dgvEstadisticas.DefaultCellStyle.Font =
+            DgvEstadisticas.DefaultCellStyle.Font =
                 new Font("Segoe UI", 9);
 
-            dgvEstadisticas.DefaultCellStyle.SelectionBackColor =
+            DgvEstadisticas.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(165, 214, 167);
 
-            dgvEstadisticas.DefaultCellStyle.SelectionForeColor =
+            DgvEstadisticas.DefaultCellStyle.SelectionForeColor =
                 Color.Black;
 
-            dgvEstadisticas.AlternatingRowsDefaultCellStyle.BackColor =
+            DgvEstadisticas.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(241, 248, 233);
 
-            dgvEstadisticas.AutoSizeColumnsMode =
+            DgvEstadisticas.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
 
-            dgvEstadisticas.SelectionMode =
+            DgvEstadisticas.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
 
-            dgvEstadisticas.MultiSelect = false;
-            dgvEstadisticas.ReadOnly = true;
-            dgvEstadisticas.AllowUserToAddRows = false;
-            dgvEstadisticas.AllowUserToDeleteRows = false;
-            dgvEstadisticas.RowHeadersVisible = false;
-            dgvEstadisticas.ColumnHeadersHeight = 38;
+            DgvEstadisticas.MultiSelect = false;
+            DgvEstadisticas.ReadOnly = true;
+            DgvEstadisticas.AllowUserToAddRows = false;
+            DgvEstadisticas.AllowUserToDeleteRows = false;
+            DgvEstadisticas.RowHeadersVisible = false;
+            DgvEstadisticas.ColumnHeadersHeight = 38;
         }
 
         //=========================================================
@@ -697,7 +697,7 @@ namespace SistemaDePolideportivo
 
         private void BtnMenu_Click(object sender, EventArgs e)
         {
-            frmMenú nuevoform = new frmMenú();
+            FrmMenu nuevoform = new FrmMenu();
             nuevoform.Show();
             Hide();
         }

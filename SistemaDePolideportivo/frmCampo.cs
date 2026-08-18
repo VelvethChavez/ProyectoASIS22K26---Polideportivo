@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmCampo : Form
+    public partial class FrmCampo : Form
     {
         // ============================================================
         // MODOS
@@ -29,7 +29,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         // CONSTRUCTOR
         // ============================================================
-        public frmCampo()
+        public FrmCampo()
         {
             InitializeComponent();
         }
@@ -38,7 +38,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         // LOAD
         // ============================================================
-        private void frmCampo_Load(object sender, EventArgs e)
+        private void FrmCampo_Load(object sender, EventArgs e)
         {
             CargarTiposCampo();
 
@@ -56,19 +56,19 @@ namespace SistemaDePolideportivo
             DataTable tabla =
                 new CCampo().Listado_TiposCampo();
 
-            cmbTipoCampo.DataSource = null;
+            CmbTipoCampo.DataSource = null;
 
             if (tabla.Rows.Count > 0)
             {
-                cmbTipoCampo.DataSource = tabla;
+                CmbTipoCampo.DataSource = tabla;
 
-                cmbTipoCampo.DisplayMember =
+                CmbTipoCampo.DisplayMember =
                     "nombre_tipo";
 
-                cmbTipoCampo.ValueMember =
+                CmbTipoCampo.ValueMember =
                     "id_tipo_campo";
 
-                cmbTipoCampo.SelectedIndex = -1;
+                CmbTipoCampo.SelectedIndex = -1;
             }
             else
             {
@@ -86,37 +86,37 @@ namespace SistemaDePolideportivo
         // ============================================================
         private void CargarCampos(string filtro)
         {
-            dgvCampos.DataSource =
+            DgvCampos.DataSource =
                 new CCampo().Listado_Campos(filtro);
 
-            if (dgvCampos.Columns.Count >= 6)
+            if (DgvCampos.Columns.Count >= 6)
             {
                 // ID
-                dgvCampos.Columns[0].Width = 70;
-                dgvCampos.Columns[0].HeaderText =
+                DgvCampos.Columns[0].Width = 70;
+                DgvCampos.Columns[0].HeaderText =
                     "ID CAMPO";
 
                 // Nombre
-                dgvCampos.Columns[1].Width = 180;
-                dgvCampos.Columns[1].HeaderText =
+                DgvCampos.Columns[1].Width = 180;
+                DgvCampos.Columns[1].HeaderText =
                     "NOMBRE DEL CAMPO";
 
                 // Ubicación
-                dgvCampos.Columns[2].Width = 150;
-                dgvCampos.Columns[2].HeaderText =
+                DgvCampos.Columns[2].Width = 150;
+                DgvCampos.Columns[2].HeaderText =
                     "UBICACIÓN";
 
                 // Capacidad
-                dgvCampos.Columns[3].Width = 100;
-                dgvCampos.Columns[3].HeaderText =
+                DgvCampos.Columns[3].Width = 100;
+                DgvCampos.Columns[3].HeaderText =
                     "CAPACIDAD";
 
                 // ID Tipo
-                dgvCampos.Columns[4].Visible = false;
+                DgvCampos.Columns[4].Visible = false;
 
                 // Nombre Tipo
-                dgvCampos.Columns[5].Width = 180;
-                dgvCampos.Columns[5].HeaderText =
+                DgvCampos.Columns[5].Width = 180;
+                DgvCampos.Columns[5].HeaderText =
                     "TIPO DE CAMPO";
             }
         }
@@ -130,61 +130,61 @@ namespace SistemaDePolideportivo
             _idCampo = 0;
             _modoGuardado = 0;
 
-            txtNombreCampo.Clear();
-            txtUbicacion.Clear();
-            txtCapacidad.Clear();
+            TxtNombreCampo.Clear();
+            TxtUbicacion.Clear();
+            TxtCapacidad.Clear();
 
-            cmbTipoCampo.SelectedIndex = -1;
+            CmbTipoCampo.SelectedIndex = -1;
 
-            txtNombreCampo.Enabled = false;
-            txtUbicacion.Enabled = false;
-            txtCapacidad.Enabled = false;
+            TxtNombreCampo.Enabled = false;
+            TxtUbicacion.Enabled = false;
+            TxtCapacidad.Enabled = false;
 
-            cmbTipoCampo.Enabled = false;
+            CmbTipoCampo.Enabled = false;
 
-            btnGuardar.Enabled = false;
+            BtnGuardar.Enabled = false;
 
-            btnNuevo.Enabled = true;
+            BtnNuevo.Enabled = true;
             BtnEditar.Enabled = true;
-            btnEliminar.Enabled = true;
+            BtnEliminar.Enabled = true;
         }
 
 
         // ============================================================
         // NUEVO
         // ============================================================
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             _idCampo = 0;
             _modoGuardado = ModoNuevo;
 
-            txtNombreCampo.Clear();
-            txtUbicacion.Clear();
-            txtCapacidad.Clear();
+            TxtNombreCampo.Clear();
+            TxtUbicacion.Clear();
+            TxtCapacidad.Clear();
 
-            cmbTipoCampo.SelectedIndex = -1;
+            CmbTipoCampo.SelectedIndex = -1;
 
-            txtNombreCampo.Enabled = true;
-            txtUbicacion.Enabled = true;
-            txtCapacidad.Enabled = true;
+            TxtNombreCampo.Enabled = true;
+            TxtUbicacion.Enabled = true;
+            TxtCapacidad.Enabled = true;
 
-            cmbTipoCampo.Enabled = true;
+            CmbTipoCampo.Enabled = true;
 
-            btnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            txtNombreCampo.Focus();
+            TxtNombreCampo.Focus();
         }
 
 
         // ============================================================
         // GUARDAR
         // ============================================================
-        private void btnGuardar_Click(object sender, EventArgs e)
+        private void BtnGuardar_Click(object sender, EventArgs e)
         {
             // --------------------------------------------------------
             // VALIDAR NOMBRE
             // --------------------------------------------------------
-            if (string.IsNullOrWhiteSpace(txtNombreCampo.Text))
+            if (string.IsNullOrWhiteSpace(TxtNombreCampo.Text))
             {
                 MessageBox.Show(
                     "Ingrese el nombre del campo.",
@@ -192,7 +192,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombreCampo.Focus();
+                TxtNombreCampo.Focus();
                 return;
             }
 
@@ -200,7 +200,7 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             // VALIDAR UBICACIÓN
             // --------------------------------------------------------
-            if (string.IsNullOrWhiteSpace(txtUbicacion.Text))
+            if (string.IsNullOrWhiteSpace(TxtUbicacion.Text))
             {
                 MessageBox.Show(
                     "Ingrese la ubicación del campo.",
@@ -208,7 +208,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtUbicacion.Focus();
+                TxtUbicacion.Focus();
                 return;
             }
 
@@ -216,7 +216,7 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             // VALIDAR CAPACIDAD
             // --------------------------------------------------------
-            if (string.IsNullOrWhiteSpace(txtCapacidad.Text))
+            if (string.IsNullOrWhiteSpace(TxtCapacidad.Text))
             {
                 MessageBox.Show(
                     "Ingrese la capacidad del campo.",
@@ -224,7 +224,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtCapacidad.Focus();
+                TxtCapacidad.Focus();
                 return;
             }
 
@@ -232,7 +232,7 @@ namespace SistemaDePolideportivo
             int capacidad;
 
             if (!int.TryParse(
-                txtCapacidad.Text.Trim(),
+                TxtCapacidad.Text.Trim(),
                 out capacidad))
             {
                 MessageBox.Show(
@@ -241,7 +241,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtCapacidad.Focus();
+                TxtCapacidad.Focus();
                 return;
             }
 
@@ -254,7 +254,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtCapacidad.Focus();
+                TxtCapacidad.Focus();
                 return;
             }
 
@@ -262,8 +262,8 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             // VALIDAR TIPO DE CAMPO
             // --------------------------------------------------------
-            if (cmbTipoCampo.SelectedIndex == -1 ||
-                cmbTipoCampo.SelectedValue == null)
+            if (CmbTipoCampo.SelectedIndex == -1 ||
+                CmbTipoCampo.SelectedValue == null)
             {
                 MessageBox.Show(
                     "Seleccione el tipo de campo.",
@@ -271,7 +271,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                cmbTipoCampo.Focus();
+                CmbTipoCampo.Focus();
                 return;
             }
 
@@ -285,7 +285,7 @@ namespace SistemaDePolideportivo
             {
                 idTipoCampo =
                     Convert.ToInt32(
-                        cmbTipoCampo.SelectedValue);
+                        CmbTipoCampo.SelectedValue);
             }
             catch
             {
@@ -316,8 +316,8 @@ namespace SistemaDePolideportivo
             string respuesta =
                 campo.Guardar_Campo(
                     _modoGuardado,
-                    txtNombreCampo.Text.Trim(),
-                    txtUbicacion.Text.Trim(),
+                    TxtNombreCampo.Text.Trim(),
+                    TxtUbicacion.Text.Trim(),
                     capacidad,
                     idTipoCampo,
                     _idCampo
@@ -353,8 +353,8 @@ namespace SistemaDePolideportivo
     
         private void BtnEditar_Click(object sender, EventArgs e)
         {
-            if (dgvCampos.CurrentRow == null ||
-                dgvCampos.CurrentRow.IsNewRow)
+            if (DgvCampos.CurrentRow == null ||
+                DgvCampos.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione un registro de la tabla.",
@@ -368,7 +368,7 @@ namespace SistemaDePolideportivo
 
             _idCampo =
                 Convert.ToInt32(
-                    dgvCampos.CurrentRow.Cells[0].Value);
+                    DgvCampos.CurrentRow.Cells[0].Value);
 
             _modoGuardado = ModoActualizar;
 
@@ -376,37 +376,37 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             // NOMBRE
             // --------------------------------------------------------
-            txtNombreCampo.Text =
-                dgvCampos.CurrentRow.Cells[1]
+            TxtNombreCampo.Text =
+                DgvCampos.CurrentRow.Cells[1]
                 .Value?.ToString() ?? "";
 
 
             // --------------------------------------------------------
             // UBICACIÓN
             // --------------------------------------------------------
-            txtUbicacion.Text =
-                dgvCampos.CurrentRow.Cells[2]
+            TxtUbicacion.Text =
+                DgvCampos.CurrentRow.Cells[2]
                 .Value?.ToString() ?? "";
 
 
             // --------------------------------------------------------
             // CAPACIDAD
             // --------------------------------------------------------
-            txtCapacidad.Text =
-                dgvCampos.CurrentRow.Cells[3]
+            TxtCapacidad.Text =
+                DgvCampos.CurrentRow.Cells[3]
                 .Value?.ToString() ?? "";
 
 
             // --------------------------------------------------------
             // ID TIPO DE CAMPO
             // --------------------------------------------------------
-            if (dgvCampos.CurrentRow.Cells[4].Value != null)
+            if (DgvCampos.CurrentRow.Cells[4].Value != null)
             {
                 int idTipoCampo =
                     Convert.ToInt32(
-                        dgvCampos.CurrentRow.Cells[4].Value);
+                        DgvCampos.CurrentRow.Cells[4].Value);
 
-                cmbTipoCampo.SelectedValue =
+                CmbTipoCampo.SelectedValue =
                     idTipoCampo;
             }
 
@@ -414,15 +414,15 @@ namespace SistemaDePolideportivo
             // --------------------------------------------------------
             // HABILITAR CONTROLES
             // --------------------------------------------------------
-            txtNombreCampo.Enabled = true;
-            txtUbicacion.Enabled = true;
-            txtCapacidad.Enabled = true;
+            TxtNombreCampo.Enabled = true;
+            TxtUbicacion.Enabled = true;
+            TxtCapacidad.Enabled = true;
 
-            cmbTipoCampo.Enabled = true;
+            CmbTipoCampo.Enabled = true;
 
-            btnGuardar.Enabled = true;
+            BtnGuardar.Enabled = true;
 
-            txtNombreCampo.Focus();
+            TxtNombreCampo.Focus();
         }
 
 
@@ -435,7 +435,7 @@ namespace SistemaDePolideportivo
 
 
 
-        private void dgvCampos_CellContentClick(
+        private void DgvCampos_CellContentClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
@@ -446,16 +446,16 @@ namespace SistemaDePolideportivo
 
         private void BtnMenu_Click(object sender, EventArgs e)
         {
-            frmCompeticiones nuevoform =
-               new frmCompeticiones();
+            FrmCompeticiones nuevoform =
+               new FrmCompeticiones();
 
             nuevoform.Show();
         }
 
-        private void btnEliminar_Click_1(object sender, EventArgs e)
+        private void BtnEliminar_Click_1(object sender, EventArgs e)
         {
-            if (dgvCampos.CurrentRow == null ||
-                            dgvCampos.CurrentRow.IsNewRow)
+            if (DgvCampos.CurrentRow == null ||
+                            DgvCampos.CurrentRow.IsNewRow)
             {
                 MessageBox.Show(
                     "Seleccione un registro de la tabla.",
@@ -469,11 +469,11 @@ namespace SistemaDePolideportivo
 
             int idCampo =
                 Convert.ToInt32(
-                    dgvCampos.CurrentRow.Cells[0].Value);
+                    DgvCampos.CurrentRow.Cells[0].Value);
 
 
             string nombreCampo =
-                dgvCampos.CurrentRow.Cells[1]
+                DgvCampos.CurrentRow.Cells[1]
                 .Value?.ToString() ?? "";
 
 

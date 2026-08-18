@@ -8,28 +8,28 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmPosiciones : Form
+    public partial class FrmPosiciones : Form
     {
         private readonly ConexionBD conexionBD = new ConexionBD();
         private int idPosicionSeleccionada = 0;
 
-        public frmPosiciones()
+        public FrmPosiciones()
         {
             InitializeComponent();
 
-            Load += frmPosiciones_Load;
+            Load += FrmPosiciones_Load;
 
-            btnGuardar.Click += btnGuardar_Click;
-            btnEditar.Click += btnEditar_Click;
-            btnEliminar.Click += btnEliminar_Click;
-            btnNuevo.Click += btnNuevo_Click;
+            BtnGuardar.Click += BtnGuardar_Click;
+            BtnEditar.Click += BtnEditar_Click;
+            BtnEliminar.Click += BtnEliminar_Click;
+            BtnNuevo.Click += BtnNuevo_Click;
 
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            Dgv1.CellClick += Dgv1_CellClick;
 
-            NombrePosicion.KeyPress += SoloLetras_KeyPress;
+            TxtNombrePosicion.KeyPress += SoloLetras_KeyPress;
         }
 
-        private void frmPosiciones_Load(object? sender, EventArgs e)
+        private void FrmPosiciones_Load(object? sender, EventArgs e)
         {
             try
             {
@@ -49,57 +49,57 @@ namespace SistemaDePolideportivo
         {
             BackColor = Color.FromArgb(241, 248, 233);
 
-            label1.Text = "GESTIÓN DE POSICIONES";
-            label1.ForeColor = Color.FromArgb(27, 94, 32);
-            label1.Font =
+            Lbl1.Text = "GESTIÓN DE POSICIONES";
+            Lbl1.ForeColor = Color.FromArgb(27, 94, 32);
+            Lbl1.Font =
                 new Font("Segoe UI", 16, FontStyle.Bold);
 
-            NombrePosicion.MaxLength = 50;
-            txtDescripcion.MaxLength = 255;
+            TxtNombrePosicion.MaxLength = 50;
+            TxtDescripcion.MaxLength = 255;
 
-            AplicarEstiloBoton(btnNuevo);
-            AplicarEstiloBoton(btnGuardar);
-            AplicarEstiloBoton(btnEditar);
-            AplicarEstiloBoton(btnEliminar);
+            AplicarEstiloBoton(BtnNuevo);
+            AplicarEstiloBoton(BtnGuardar);
+            AplicarEstiloBoton(BtnEditar);
+            AplicarEstiloBoton(BtnEliminar);
 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.MultiSelect = false;
-            dataGridView1.RowHeadersVisible = false;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeRows = false;
+            Dgv1.BackgroundColor = Color.White;
+            Dgv1.BorderStyle = BorderStyle.None;
+            Dgv1.ReadOnly = true;
+            Dgv1.MultiSelect = false;
+            Dgv1.RowHeadersVisible = false;
+            Dgv1.AllowUserToAddRows = false;
+            Dgv1.AllowUserToDeleteRows = false;
+            Dgv1.AllowUserToResizeRows = false;
 
-            dataGridView1.SelectionMode =
+            Dgv1.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
 
-            dataGridView1.AutoSizeColumnsMode =
+            Dgv1.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
 
-            dataGridView1.EnableHeadersVisualStyles = false;
+            Dgv1.EnableHeadersVisualStyles = false;
 
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor =
+            Dgv1.ColumnHeadersDefaultCellStyle.BackColor =
                 Color.FromArgb(46, 125, 50);
 
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor =
+            Dgv1.ColumnHeadersDefaultCellStyle.ForeColor =
                 Color.White;
 
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font =
+            Dgv1.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
 
-            dataGridView1.DefaultCellStyle.SelectionBackColor =
+            Dgv1.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(165, 214, 167);
 
-            dataGridView1.DefaultCellStyle.SelectionForeColor =
+            Dgv1.DefaultCellStyle.SelectionForeColor =
                 Color.Black;
 
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor =
+            Dgv1.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(241, 248, 233);
 
-            btnGuardar.Enabled = true;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
+            BtnGuardar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
         }
 
         private void AplicarEstiloBoton(Button boton)
@@ -153,12 +153,12 @@ namespace SistemaDePolideportivo
                     }
                 }
 
-                dataGridView1.DataSource = tabla;
-                dataGridView1.ClearSelection();
+                Dgv1.DataSource = tabla;
+                Dgv1.ClearSelection();
 
-                if (dataGridView1.Columns.Contains("ID"))
+                if (Dgv1.Columns.Contains("ID"))
                 {
-                    dataGridView1.Columns["ID"].FillWeight = 35;
+                    Dgv1.Columns["ID"].FillWeight = 35;
                 }
             }
             catch (Exception ex)
@@ -171,8 +171,8 @@ namespace SistemaDePolideportivo
 
         private bool ValidarFormulario()
         {
-            string nombre = NombrePosicion.Text.Trim();
-            string descripcion = txtDescripcion.Text.Trim();
+            string nombre = TxtNombrePosicion.Text.Trim();
+            string descripcion = TxtDescripcion.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(nombre))
             {
@@ -182,7 +182,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                NombrePosicion.Focus();
+                TxtNombrePosicion.Focus();
                 return false;
             }
 
@@ -195,8 +195,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                NombrePosicion.Focus();
-                NombrePosicion.SelectAll();
+                TxtNombrePosicion.Focus();
+                TxtNombrePosicion.SelectAll();
                 return false;
             }
 
@@ -209,8 +209,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                NombrePosicion.Focus();
-                NombrePosicion.SelectAll();
+                TxtNombrePosicion.Focus();
+                TxtNombrePosicion.SelectAll();
                 return false;
             }
 
@@ -222,7 +222,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtDescripcion.Focus();
+                TxtDescripcion.Focus();
                 return false;
             }
 
@@ -235,8 +235,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtDescripcion.Focus();
-                txtDescripcion.SelectAll();
+                TxtDescripcion.Focus();
+                TxtDescripcion.SelectAll();
                 return false;
             }
 
@@ -271,7 +271,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnGuardar_Click(object? sender, EventArgs e)
+        private void BtnGuardar_Click(object? sender, EventArgs e)
         {
             if (!ValidarFormulario())
                 return;
@@ -283,7 +283,7 @@ namespace SistemaDePolideportivo
                 {
                     conexion.Open();
 
-                    string nombre = NombrePosicion.Text.Trim();
+                    string nombre = TxtNombrePosicion.Text.Trim();
 
                     if (PosicionDuplicada(conexion, nombre))
                     {
@@ -293,7 +293,7 @@ namespace SistemaDePolideportivo
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
 
-                        NombrePosicion.Focus();
+                        TxtNombrePosicion.Focus();
                         return;
                     }
 
@@ -318,9 +318,9 @@ namespace SistemaDePolideportivo
 
                         comando.Parameters.AddWithValue(
                             "@descripcion",
-                            string.IsNullOrWhiteSpace(txtDescripcion.Text)
+                            string.IsNullOrWhiteSpace(TxtDescripcion.Text)
                                 ? DBNull.Value
-                                : txtDescripcion.Text.Trim());
+                                : TxtDescripcion.Text.Trim());
 
                         comando.ExecuteNonQuery();
                     }
@@ -341,7 +341,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnEditar_Click(object? sender, EventArgs e)
+        private void BtnEditar_Click(object? sender, EventArgs e)
         {
             if (idPosicionSeleccionada == 0)
             {
@@ -364,7 +364,7 @@ namespace SistemaDePolideportivo
                 {
                     conexion.Open();
 
-                    string nombre = NombrePosicion.Text.Trim();
+                    string nombre = TxtNombrePosicion.Text.Trim();
 
                     if (PosicionDuplicada(
                             conexion,
@@ -377,7 +377,7 @@ namespace SistemaDePolideportivo
                             MessageBoxButtons.OK,
                             MessageBoxIcon.Warning);
 
-                        NombrePosicion.Focus();
+                        TxtNombrePosicion.Focus();
                         return;
                     }
 
@@ -397,9 +397,9 @@ namespace SistemaDePolideportivo
 
                         comando.Parameters.AddWithValue(
                             "@descripcion",
-                            string.IsNullOrWhiteSpace(txtDescripcion.Text)
+                            string.IsNullOrWhiteSpace(TxtDescripcion.Text)
                                 ? DBNull.Value
-                                : txtDescripcion.Text.Trim());
+                                : TxtDescripcion.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@idPosicion",
@@ -435,7 +435,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnEliminar_Click(object? sender, EventArgs e)
+        private void BtnEliminar_Click(object? sender, EventArgs e)
         {
             if (idPosicionSeleccionada == 0)
             {
@@ -526,12 +526,12 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnNuevo_Click(object? sender, EventArgs e)
+        private void BtnNuevo_Click(object? sender, EventArgs e)
         {
             LimpiarCampos();
         }
 
-        private void dataGridView1_CellClick(
+        private void Dgv1_CellClick(
             object? sender,
             DataGridViewCellEventArgs e)
         {
@@ -541,22 +541,22 @@ namespace SistemaDePolideportivo
             try
             {
                 DataGridViewRow fila =
-                    dataGridView1.Rows[e.RowIndex];
+                    Dgv1.Rows[e.RowIndex];
 
                 idPosicionSeleccionada =
                     Convert.ToInt32(fila.Cells["ID"].Value);
 
-                NombrePosicion.Text =
+                TxtNombrePosicion.Text =
                     Convert.ToString(
                         fila.Cells["Posición"].Value) ?? "";
 
-                txtDescripcion.Text =
+                TxtDescripcion.Text =
                     Convert.ToString(
                         fila.Cells["Descripción"].Value) ?? "";
 
-                btnGuardar.Enabled = false;
-                btnEditar.Enabled = true;
-                btnEliminar.Enabled = true;
+                BtnGuardar.Enabled = false;
+                BtnEditar.Enabled = true;
+                BtnEliminar.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -570,16 +570,16 @@ namespace SistemaDePolideportivo
         {
             idPosicionSeleccionada = 0;
 
-            NombrePosicion.Clear();
-            txtDescripcion.Clear();
+            TxtNombrePosicion.Clear();
+            TxtDescripcion.Clear();
 
-            dataGridView1.ClearSelection();
+            Dgv1.ClearSelection();
 
-            btnGuardar.Enabled = true;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
+            BtnGuardar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
 
-            NombrePosicion.Focus();
+            TxtNombrePosicion.Focus();
         }
 
         private void MostrarError(string mensaje, Exception ex)

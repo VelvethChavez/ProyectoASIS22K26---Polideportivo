@@ -1,6 +1,6 @@
 ﻿namespace ProyectoASIS22K26___Polideportivo
 {
-    partial class frmLogin
+    partial class FrmLogin
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
-            btnAyuda = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmLogin));
+            BtnAyuda = new Button();
             PicAdmin = new PictureBox();
             PicGerente = new PictureBox();
             PicArbitro = new PictureBox();
@@ -39,26 +39,26 @@
             BtnLoginGerente = new Button();
             BtnLoginEquipo = new Button();
             LblBienvenido1 = new Label();
-            label1 = new Label();
+            Lbl1 = new Label();
             ((System.ComponentModel.ISupportInitialize)PicAdmin).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicGerente).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicArbitro).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PicEquipo).BeginInit();
             SuspendLayout();
             // 
-            // btnAyuda
+            // BtnAyuda
             // 
-            btnAyuda.Anchor = AnchorStyles.None;
-            btnAyuda.BackColor = Color.Transparent;
-            btnAyuda.BackgroundImage = SistemaDePolideportivo.Properties.Resources.ayuda;
-            btnAyuda.BackgroundImageLayout = ImageLayout.Zoom;
-            btnAyuda.Cursor = Cursors.Hand;
-            btnAyuda.Location = new Point(719, 19);
-            btnAyuda.Margin = new Padding(0);
-            btnAyuda.Name = "btnAyuda";
-            btnAyuda.Size = new Size(50, 50);
-            btnAyuda.TabIndex = 19;
-            btnAyuda.UseVisualStyleBackColor = false;
+            BtnAyuda.Anchor = AnchorStyles.None;
+            BtnAyuda.BackColor = Color.Transparent;
+            BtnAyuda.BackgroundImage = SistemaDePolideportivo.Properties.Resources.ayuda;
+            BtnAyuda.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnAyuda.Cursor = Cursors.Hand;
+            BtnAyuda.Location = new Point(719, 19);
+            BtnAyuda.Margin = new Padding(0);
+            BtnAyuda.Name = "BtnAyuda";
+            BtnAyuda.Size = new Size(50, 50);
+            BtnAyuda.TabIndex = 19;
+            BtnAyuda.UseVisualStyleBackColor = false;
             // 
             // PicAdmin
             // 
@@ -189,21 +189,21 @@
             LblBienvenido1.Text = "Bienvenido al Sistema \r\nPolideportivo";
             LblBienvenido1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.FlatStyle = FlatStyle.Flat;
-            label1.Font = new Font("Segoe Print", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Navy;
-            label1.Location = new Point(57, 228);
-            label1.Name = "label1";
-            label1.Size = new Size(368, 43);
-            label1.TabIndex = 29;
-            label1.Text = "Selecciona el tipo de usuario:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            Lbl1.AutoSize = true;
+            Lbl1.BackColor = Color.Transparent;
+            Lbl1.FlatStyle = FlatStyle.Flat;
+            Lbl1.Font = new Font("Segoe Print", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lbl1.ForeColor = Color.Navy;
+            Lbl1.Location = new Point(57, 228);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(368, 43);
+            Lbl1.TabIndex = 29;
+            Lbl1.Text = "Selecciona el tipo de usuario:";
+            Lbl1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // frmLogin
+            // FrmLogin
             // 
             AutoScaleMode = AutoScaleMode.None;
             AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -211,7 +211,7 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Zoom;
             ClientSize = new Size(795, 549);
-            Controls.Add(label1);
+            Controls.Add(Lbl1);
             Controls.Add(BtnLoginEquipo);
             Controls.Add(BtnLoginGerente);
             Controls.Add(BtnLoginArbitro);
@@ -220,15 +220,15 @@
             Controls.Add(PicArbitro);
             Controls.Add(PicGerente);
             Controls.Add(PicAdmin);
-            Controls.Add(btnAyuda);
+            Controls.Add(BtnAyuda);
             Controls.Add(LblBienvenido1);
             Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmLogin";
+            Name = "FrmLogin";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Inicio de Sesión";
-            Load += frmLogin_Load;
+            Load += FrmLogin_Load;
             ((System.ComponentModel.ISupportInitialize)PicAdmin).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicGerente).EndInit();
             ((System.ComponentModel.ISupportInitialize)PicArbitro).EndInit();
@@ -239,7 +239,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAyuda;
+        private System.Windows.Forms.Button BtnAyuda;
         private PictureBox PicAdmin;
         private PictureBox PicGerente;
         private PictureBox PicArbitro;
@@ -249,6 +249,6 @@
         private Button BtnLoginGerente;
         private Button BtnLoginEquipo;
         private Label LblBienvenido1;
-        private Label label1;
+        private Label Lbl1;
     }
 }

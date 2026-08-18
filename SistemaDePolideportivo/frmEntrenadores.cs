@@ -9,30 +9,30 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmEntrenadores : Form
+    public partial class FrmEntrenadores : Form
     {
         private readonly ConexionBD conexionBD = new ConexionBD();
         private int idEntrenadorSeleccionado = 0;
 
-        public frmEntrenadores()
+        public FrmEntrenadores()
         {
             InitializeComponent();
 
-            Load += frmEntrenadores_Load;
+            Load += FrmEntrenadores_Load;
 
-            btnGuardar.Click += btnGuardar_Click;
-            btnEditar.Click += btnEditar_Click;
-            btnEliminar.Click += btnEliminar_Click;
-            btnNuevo.Click += btnNuevo_Click;
+            BtnGuardar.Click += BtnGuardar_Click;
+            BtnEditar.Click += BtnEditar_Click;
+            BtnEliminar.Click += BtnEliminar_Click;
+            BtnNuevo.Click += BtnNuevo_Click;
 
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            Dgv1.CellClick += Dgv1_CellClick;
 
-            txtNombreEntrenador.KeyPress += SoloLetras_KeyPress;
-            txtApellidoEntrenador.KeyPress += SoloLetras_KeyPress;
-            txtTelefonoEntrenador.KeyPress += SoloNumeros_KeyPress;
+            TxtNombreEntrenador.KeyPress += SoloLetras_KeyPress;
+            TxtApellidoEntrenador.KeyPress += SoloLetras_KeyPress;
+            TxtTelefonoEntrenador.KeyPress += SoloNumeros_KeyPress;
         }
 
-        private void frmEntrenadores_Load(object? sender, EventArgs e)
+        private void FrmEntrenadores_Load(object? sender, EventArgs e)
         {
             try
             {
@@ -50,58 +50,58 @@ namespace SistemaDePolideportivo
         {
             BackColor = Color.FromArgb(241, 248, 233);
 
-            label1.Text = "GESTIÓN DE ENTRENADORES";
-            label1.ForeColor = Color.FromArgb(27, 94, 32);
-            label1.Font = new Font("Segoe UI", 16, FontStyle.Bold);
+            Lbl1.Text = "GESTIÓN DE ENTRENADORES";
+            Lbl1.ForeColor = Color.FromArgb(27, 94, 32);
+            Lbl1.Font = new Font("Segoe UI", 16, FontStyle.Bold);
 
-            txtNombreEntrenador.MaxLength = 100;
-            txtApellidoEntrenador.MaxLength = 100;
-            txtTelefonoEntrenador.MaxLength = 8;
-            txtCorreoEntrenador.MaxLength = 100;
+            TxtNombreEntrenador.MaxLength = 100;
+            TxtApellidoEntrenador.MaxLength = 100;
+            TxtTelefonoEntrenador.MaxLength = 8;
+            TxtCorreoEntrenador.MaxLength = 100;
 
-            AplicarEstiloBoton(btnNuevo);
-            AplicarEstiloBoton(btnGuardar);
-            AplicarEstiloBoton(btnEditar);
-            AplicarEstiloBoton(btnEliminar);
+            AplicarEstiloBoton(BtnNuevo);
+            AplicarEstiloBoton(BtnGuardar);
+            AplicarEstiloBoton(BtnEditar);
+            AplicarEstiloBoton(BtnEliminar);
 
-            dataGridView1.BackgroundColor = Color.White;
-            dataGridView1.BorderStyle = BorderStyle.None;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.MultiSelect = false;
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.AllowUserToDeleteRows = false;
-            dataGridView1.AllowUserToResizeRows = false;
-            dataGridView1.RowHeadersVisible = false;
+            Dgv1.BackgroundColor = Color.White;
+            Dgv1.BorderStyle = BorderStyle.None;
+            Dgv1.ReadOnly = true;
+            Dgv1.MultiSelect = false;
+            Dgv1.AllowUserToAddRows = false;
+            Dgv1.AllowUserToDeleteRows = false;
+            Dgv1.AllowUserToResizeRows = false;
+            Dgv1.RowHeadersVisible = false;
 
-            dataGridView1.SelectionMode =
+            Dgv1.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
 
-            dataGridView1.AutoSizeColumnsMode =
+            Dgv1.AutoSizeColumnsMode =
                 DataGridViewAutoSizeColumnsMode.Fill;
 
-            dataGridView1.EnableHeadersVisualStyles = false;
+            Dgv1.EnableHeadersVisualStyles = false;
 
-            dataGridView1.ColumnHeadersDefaultCellStyle.BackColor =
+            Dgv1.ColumnHeadersDefaultCellStyle.BackColor =
                 Color.FromArgb(46, 125, 50);
 
-            dataGridView1.ColumnHeadersDefaultCellStyle.ForeColor =
+            Dgv1.ColumnHeadersDefaultCellStyle.ForeColor =
                 Color.White;
 
-            dataGridView1.ColumnHeadersDefaultCellStyle.Font =
+            Dgv1.ColumnHeadersDefaultCellStyle.Font =
                 new Font("Segoe UI", 10, FontStyle.Bold);
 
-            dataGridView1.DefaultCellStyle.SelectionBackColor =
+            Dgv1.DefaultCellStyle.SelectionBackColor =
                 Color.FromArgb(165, 214, 167);
 
-            dataGridView1.DefaultCellStyle.SelectionForeColor =
+            Dgv1.DefaultCellStyle.SelectionForeColor =
                 Color.Black;
 
-            dataGridView1.AlternatingRowsDefaultCellStyle.BackColor =
+            Dgv1.AlternatingRowsDefaultCellStyle.BackColor =
                 Color.FromArgb(241, 248, 233);
 
-            btnGuardar.Enabled = true;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
+            BtnGuardar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
         }
 
         private void AplicarEstiloBoton(Button boton)
@@ -161,17 +161,17 @@ namespace SistemaDePolideportivo
                     }
                 }
 
-                dataGridView1.DataSource = tabla;
-                dataGridView1.ClearSelection();
+                Dgv1.DataSource = tabla;
+                Dgv1.ClearSelection();
 
-                if (dataGridView1.Columns.Contains("ID"))
+                if (Dgv1.Columns.Contains("ID"))
                 {
-                    dataGridView1.Columns["ID"].FillWeight = 35;
+                    Dgv1.Columns["ID"].FillWeight = 35;
                 }
 
-                if (dataGridView1.Columns.Contains("Teléfono"))
+                if (Dgv1.Columns.Contains("Teléfono"))
                 {
-                    dataGridView1.Columns["Teléfono"].FillWeight = 70;
+                    Dgv1.Columns["Teléfono"].FillWeight = 70;
                 }
             }
             catch (Exception ex)
@@ -182,10 +182,10 @@ namespace SistemaDePolideportivo
 
         private bool ValidarFormulario()
         {
-            string nombres = txtNombreEntrenador.Text.Trim();
-            string apellidos = txtApellidoEntrenador.Text.Trim();
-            string telefono = txtTelefonoEntrenador.Text.Trim();
-            string correo = txtCorreoEntrenador.Text.Trim();
+            string nombres = TxtNombreEntrenador.Text.Trim();
+            string apellidos = TxtApellidoEntrenador.Text.Trim();
+            string telefono = TxtTelefonoEntrenador.Text.Trim();
+            string correo = TxtCorreoEntrenador.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(nombres))
             {
@@ -195,7 +195,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombreEntrenador.Focus();
+                TxtNombreEntrenador.Focus();
                 return false;
             }
 
@@ -207,8 +207,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtNombreEntrenador.Focus();
-                txtNombreEntrenador.SelectAll();
+                TxtNombreEntrenador.Focus();
+                TxtNombreEntrenador.SelectAll();
                 return false;
             }
 
@@ -220,7 +220,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtApellidoEntrenador.Focus();
+                TxtApellidoEntrenador.Focus();
                 return false;
             }
 
@@ -232,8 +232,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtApellidoEntrenador.Focus();
-                txtApellidoEntrenador.SelectAll();
+                TxtApellidoEntrenador.Focus();
+                TxtApellidoEntrenador.SelectAll();
                 return false;
             }
 
@@ -245,7 +245,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtTelefonoEntrenador.Focus();
+                TxtTelefonoEntrenador.Focus();
                 return false;
             }
 
@@ -257,8 +257,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtTelefonoEntrenador.Focus();
-                txtTelefonoEntrenador.SelectAll();
+                TxtTelefonoEntrenador.Focus();
+                TxtTelefonoEntrenador.SelectAll();
                 return false;
             }
 
@@ -270,7 +270,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtCorreoEntrenador.Focus();
+                TxtCorreoEntrenador.Focus();
                 return false;
             }
 
@@ -282,8 +282,8 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                txtCorreoEntrenador.Focus();
-                txtCorreoEntrenador.SelectAll();
+                TxtCorreoEntrenador.Focus();
+                TxtCorreoEntrenador.SelectAll();
                 return false;
             }
 
@@ -303,7 +303,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnGuardar_Click(object? sender, EventArgs e)
+        private void BtnGuardar_Click(object? sender, EventArgs e)
         {
             if (!ValidarFormulario())
                 return;
@@ -336,19 +336,19 @@ namespace SistemaDePolideportivo
                     {
                         comando.Parameters.AddWithValue(
                             "@nombres",
-                            txtNombreEntrenador.Text.Trim());
+                            TxtNombreEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@apellidos",
-                            txtApellidoEntrenador.Text.Trim());
+                            TxtApellidoEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@telefono",
-                            txtTelefonoEntrenador.Text.Trim());
+                            TxtTelefonoEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@correo",
-                            txtCorreoEntrenador.Text.Trim());
+                            TxtCorreoEntrenador.Text.Trim());
 
                         comando.ExecuteNonQuery();
                     }
@@ -373,7 +373,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnEditar_Click(object? sender, EventArgs e)
+        private void BtnEditar_Click(object? sender, EventArgs e)
         {
             if (idEntrenadorSeleccionado == 0)
             {
@@ -410,19 +410,19 @@ namespace SistemaDePolideportivo
                     {
                         comando.Parameters.AddWithValue(
                             "@nombres",
-                            txtNombreEntrenador.Text.Trim());
+                            TxtNombreEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@apellidos",
-                            txtApellidoEntrenador.Text.Trim());
+                            TxtApellidoEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@telefono",
-                            txtTelefonoEntrenador.Text.Trim());
+                            TxtTelefonoEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@correo",
-                            txtCorreoEntrenador.Text.Trim());
+                            TxtCorreoEntrenador.Text.Trim());
 
                         comando.Parameters.AddWithValue(
                             "@idEntrenador",
@@ -462,7 +462,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnEliminar_Click(object? sender, EventArgs e)
+        private void BtnEliminar_Click(object? sender, EventArgs e)
         {
             if (idEntrenadorSeleccionado == 0)
             {
@@ -557,12 +557,12 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnNuevo_Click(object? sender, EventArgs e)
+        private void BtnNuevo_Click(object? sender, EventArgs e)
         {
             LimpiarFormulario();
         }
 
-        private void dataGridView1_CellClick(
+        private void Dgv1_CellClick(
             object? sender,
             DataGridViewCellEventArgs e)
         {
@@ -572,30 +572,30 @@ namespace SistemaDePolideportivo
             try
             {
                 DataGridViewRow fila =
-                    dataGridView1.Rows[e.RowIndex];
+                    Dgv1.Rows[e.RowIndex];
 
                 idEntrenadorSeleccionado =
                     Convert.ToInt32(fila.Cells["ID"].Value);
 
-                txtNombreEntrenador.Text =
+                TxtNombreEntrenador.Text =
                     Convert.ToString(
                         fila.Cells["Nombres"].Value) ?? "";
 
-                txtApellidoEntrenador.Text =
+                TxtApellidoEntrenador.Text =
                     Convert.ToString(
                         fila.Cells["Apellidos"].Value) ?? "";
 
-                txtTelefonoEntrenador.Text =
+                TxtTelefonoEntrenador.Text =
                     Convert.ToString(
                         fila.Cells["Teléfono"].Value) ?? "";
 
-                txtCorreoEntrenador.Text =
+                TxtCorreoEntrenador.Text =
                     Convert.ToString(
                         fila.Cells["Correo"].Value) ?? "";
 
-                btnGuardar.Enabled = false;
-                btnEditar.Enabled = true;
-                btnEliminar.Enabled = true;
+                BtnGuardar.Enabled = false;
+                BtnEditar.Enabled = true;
+                BtnEliminar.Enabled = true;
             }
             catch (Exception ex)
             {
@@ -609,27 +609,27 @@ namespace SistemaDePolideportivo
         {
             idEntrenadorSeleccionado = 0;
 
-            txtNombreEntrenador.Clear();
-            txtApellidoEntrenador.Clear();
-            txtTelefonoEntrenador.Clear();
-            txtCorreoEntrenador.Clear();
+            TxtNombreEntrenador.Clear();
+            TxtApellidoEntrenador.Clear();
+            TxtTelefonoEntrenador.Clear();
+            TxtCorreoEntrenador.Clear();
 
-            dataGridView1.ClearSelection();
+            Dgv1.ClearSelection();
 
-            btnGuardar.Enabled = true;
-            btnEditar.Enabled = false;
-            btnEliminar.Enabled = false;
+            BtnGuardar.Enabled = true;
+            BtnEditar.Enabled = false;
+            BtnEliminar.Enabled = false;
 
-            txtNombreEntrenador.Focus();
+            TxtNombreEntrenador.Focus();
         }
 
-        private void dataGridView1_CellContentClick(
+        private void Dgv1_CellContentClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Lbl4_Click(object sender, EventArgs e)
         {
         }
 
@@ -642,12 +642,12 @@ namespace SistemaDePolideportivo
                 MessageBoxIcon.Error);
         }
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void btnEditar_Click_1(object sender, EventArgs e)
+        private void BtnEditar_Click_1(object sender, EventArgs e)
         {
 
         }

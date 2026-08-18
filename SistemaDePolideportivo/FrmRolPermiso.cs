@@ -7,13 +7,13 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class RolPermiso : Form
+    public partial class FrmRolPermiso : Form
     {
 
         ConexionBD conexionBD = new ConexionBD();
 
 
-        public RolPermiso()
+        public FrmRolPermiso()
         {
             InitializeComponent();
         }
@@ -23,11 +23,11 @@ namespace SistemaDePolideportivo
         //==========================
         // LOAD
         //==========================
-        private void RolPermiso_Load(object sender, EventArgs e)
+        private void FrmRolPermiso_Load(object sender, EventArgs e)
         {
-            dgvRolPermiso.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvRolPermiso.MultiSelect = false;
-            dgvRolPermiso.ReadOnly = true;
+            DgvRolPermiso.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvRolPermiso.MultiSelect = false;
+            DgvRolPermiso.ReadOnly = true;
 
 
             CargarRoles();
@@ -50,7 +50,7 @@ namespace SistemaDePolideportivo
                     conexion.Open();
 
 
-                    string sql = "SELECT id_rol, nombre_rol FROM Rol";
+                    string sql = "SELECT id_rol, nombre_rol FROM FrmRol";
 
 
                     MySqlDataAdapter da =
@@ -64,13 +64,13 @@ namespace SistemaDePolideportivo
 
 
 
-                    rolrp.DataSource = dt;
+                    CmbRolrp.DataSource = dt;
 
-                    rolrp.DisplayMember = "nombre_rol";
+                    CmbRolrp.DisplayMember = "nombre_rol";
 
-                    rolrp.ValueMember = "id_rol";
+                    CmbRolrp.ValueMember = "id_rol";
 
-                    rolrp.SelectedIndex = -1;
+                    CmbRolrp.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
@@ -109,11 +109,11 @@ namespace SistemaDePolideportivo
 
 
 
-                    clbPermisos.DataSource = dt;
+                    ClbPermisos.DataSource = dt;
 
-                    clbPermisos.DisplayMember = "nombre";
+                    ClbPermisos.DisplayMember = "nombre";
 
-                    clbPermisos.ValueMember = "id_permiso";
+                    ClbPermisos.ValueMember = "id_permiso";
 
                 }
             }
@@ -141,10 +141,10 @@ namespace SistemaDePolideportivo
 
                     string sql = @"
                     SELECT 
-                    r.nombre_rol AS Rol,
+                    r.nombre_rol AS FrmRol,
                     p.nombre AS Permiso
-                    FROM Rol_Permiso rp
-                    INNER JOIN Rol r 
+                    FROM FrmRol_Permiso rp
+                    INNER JOIN FrmRol r 
                     ON rp.id_rol = r.id_rol
                     INNER JOIN Permiso p
                     ON rp.id_permiso = p.id_permiso";
@@ -160,7 +160,7 @@ namespace SistemaDePolideportivo
                     da.Fill(dt);
 
 
-                    dgvRolPermiso.DataSource = dt;
+                    DgvRolPermiso.DataSource = dt;
 
                 }
             }
@@ -189,11 +189,11 @@ namespace SistemaDePolideportivo
 
 
 
-                    foreach (DataRowView item in clbPermisos.CheckedItems)
+                    foreach (DataRowView item in ClbPermisos.CheckedItems)
                     {
 
                         string sql = @"
-                        INSERT INTO Rol_Permiso
+                        INSERT INTO FrmRol_Permiso
                         (id_rol,id_permiso)
                         VALUES
                         (@rol,@permiso)";
@@ -205,7 +205,7 @@ namespace SistemaDePolideportivo
 
 
                         cmd.Parameters.AddWithValue("@rol",
-                        rolrp.SelectedValue);
+                        CmbRolrp.SelectedValue);
 
 
                         cmd.Parameters.AddWithValue("@permiso",
@@ -218,7 +218,7 @@ namespace SistemaDePolideportivo
                     }
 
 
-                    MessageBox.Show("Permisos asignados correctamente");
+                    MessageBox.Show("FrmPermisos asignados correctamente");
 
 
                     CargarDatos();
@@ -253,7 +253,7 @@ namespace SistemaDePolideportivo
 
 
                     string eliminar =
-                    "DELETE FROM Rol_Permiso WHERE id_rol=@rol";
+                    "DELETE FROM FrmRol_Permiso WHERE id_rol=@rol";
 
 
                     MySqlCommand cmdEliminar =
@@ -261,18 +261,18 @@ namespace SistemaDePolideportivo
 
 
                     cmdEliminar.Parameters.AddWithValue("@rol",
-                    rolrp.SelectedValue);
+                    CmbRolrp.SelectedValue);
 
 
                     cmdEliminar.ExecuteNonQuery();
 
 
 
-                    foreach (DataRowView item in clbPermisos.CheckedItems)
+                    foreach (DataRowView item in ClbPermisos.CheckedItems)
                     {
 
                         string sql = @"
-                        INSERT INTO Rol_Permiso
+                        INSERT INTO FrmRol_Permiso
                         (id_rol,id_permiso)
                         VALUES
                         (@rol,@permiso)";
@@ -283,7 +283,7 @@ namespace SistemaDePolideportivo
 
 
                         cmd.Parameters.AddWithValue("@rol",
-                        rolrp.SelectedValue);
+                        CmbRolrp.SelectedValue);
 
 
                         cmd.Parameters.AddWithValue("@permiso",
@@ -296,7 +296,7 @@ namespace SistemaDePolideportivo
 
 
 
-                    MessageBox.Show("Permisos actualizados correctamente");
+                    MessageBox.Show("FrmPermisos actualizados correctamente");
 
 
                     CargarDatos();
@@ -319,7 +319,7 @@ namespace SistemaDePolideportivo
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
 
-            if (dgvRolPermiso.SelectedRows.Count == 0)
+            if (DgvRolPermiso.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione un permiso");
                 return;
@@ -338,8 +338,8 @@ namespace SistemaDePolideportivo
 
                     string sql = @"
                     DELETE rp
-                    FROM Rol_Permiso rp
-                    INNER JOIN Rol r
+                    FROM FrmRol_Permiso rp
+                    INNER JOIN FrmRol r
                     ON rp.id_rol=r.id_rol
                     INNER JOIN Permiso p
                     ON rp.id_permiso=p.id_permiso
@@ -354,11 +354,11 @@ namespace SistemaDePolideportivo
 
 
                     cmd.Parameters.AddWithValue("@rol",
-                    dgvRolPermiso.SelectedRows[0].Cells["Rol"].Value);
+                    DgvRolPermiso.SelectedRows[0].Cells["FrmRol"].Value);
 
 
                     cmd.Parameters.AddWithValue("@permiso",
-                    dgvRolPermiso.SelectedRows[0].Cells["Permiso"].Value);
+                    DgvRolPermiso.SelectedRows[0].Cells["Permiso"].Value);
 
 
 
@@ -395,16 +395,16 @@ namespace SistemaDePolideportivo
         private void LimpiarCampos()
         {
 
-            rolrp.SelectedIndex = -1;
+            CmbRolrp.SelectedIndex = -1;
 
 
-            for (int i = 0; i < clbPermisos.Items.Count; i++)
+            for (int i = 0; i < ClbPermisos.Items.Count; i++)
             {
-                clbPermisos.SetItemChecked(i, false);
+                ClbPermisos.SetItemChecked(i, false);
             }
 
 
-            dgvRolPermiso.ClearSelection();
+            DgvRolPermiso.ClearSelection();
 
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class FrmEstadoCampeonato
+    partial class FrmTipoCampeonato
     {
         /// <summary>
         /// Required designer variable.
@@ -28,57 +28,58 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEstadoCampeonato));
-            PnlPanelEstado = new Panel();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTipoCampeonato));
+            Pnl1 = new Panel();
             BtnNuevo = new Button();
             Lbl5 = new Label();
             Lbl4 = new Label();
             Pic1 = new PictureBox();
             Dgv1 = new DataGridView();
             Lbl3 = new Label();
-            TxtNombreEstadoCampeonato = new TextBox();
+            TxtNomTipoCampeonato = new TextBox();
             RtbDescripcion = new RichTextBox();
             BtnEliminar = new Button();
             Lbl1 = new Label();
             BtnEditar = new Button();
             BtnGuardar = new Button();
             BtnRegresar = new Button();
-            PnlPanelEstado.SuspendLayout();
+            Pnl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)Pic1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)Dgv1).BeginInit();
             SuspendLayout();
             // 
-            // PnlPanelEstado
+            // Pnl1
             // 
-            PnlPanelEstado.BackColor = Color.White;
-            PnlPanelEstado.Controls.Add(BtnRegresar);
-            PnlPanelEstado.Controls.Add(BtnNuevo);
-            PnlPanelEstado.Controls.Add(Lbl5);
-            PnlPanelEstado.Controls.Add(Lbl4);
-            PnlPanelEstado.Controls.Add(Pic1);
-            PnlPanelEstado.Controls.Add(Dgv1);
-            PnlPanelEstado.Controls.Add(Lbl3);
-            PnlPanelEstado.Controls.Add(TxtNombreEstadoCampeonato);
-            PnlPanelEstado.Controls.Add(RtbDescripcion);
-            PnlPanelEstado.Controls.Add(BtnEliminar);
-            PnlPanelEstado.Controls.Add(Lbl1);
-            PnlPanelEstado.Controls.Add(BtnEditar);
-            PnlPanelEstado.Controls.Add(BtnGuardar);
-            PnlPanelEstado.Location = new Point(-3, -7);
-            PnlPanelEstado.Name = "PnlPanelEstado";
-            PnlPanelEstado.Size = new Size(694, 455);
-            PnlPanelEstado.TabIndex = 15;
+            Pnl1.BackColor = Color.White;
+            Pnl1.Controls.Add(BtnRegresar);
+            Pnl1.Controls.Add(BtnNuevo);
+            Pnl1.Controls.Add(Lbl5);
+            Pnl1.Controls.Add(Lbl4);
+            Pnl1.Controls.Add(Pic1);
+            Pnl1.Controls.Add(Dgv1);
+            Pnl1.Controls.Add(Lbl3);
+            Pnl1.Controls.Add(TxtNomTipoCampeonato);
+            Pnl1.Controls.Add(RtbDescripcion);
+            Pnl1.Controls.Add(BtnEliminar);
+            Pnl1.Controls.Add(Lbl1);
+            Pnl1.Controls.Add(BtnEditar);
+            Pnl1.Controls.Add(BtnGuardar);
+            Pnl1.Location = new Point(-3, -7);
+            Pnl1.Name = "Pnl1";
+            Pnl1.Size = new Size(694, 455);
+            Pnl1.TabIndex = 15;
             // 
             // BtnNuevo
             // 
             BtnNuevo.BackgroundImage = Properties.Resources.nuevo;
             BtnNuevo.BackgroundImageLayout = ImageLayout.Zoom;
-            BtnNuevo.Location = new Point(614, 200);
+            BtnNuevo.Location = new Point(614, 191);
             BtnNuevo.Name = "BtnNuevo";
             BtnNuevo.Size = new Size(58, 47);
-            BtnNuevo.TabIndex = 18;
+            BtnNuevo.TabIndex = 17;
             BtnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Click += BtnNuevo_Click;
             // 
             // Lbl5
             // 
@@ -100,9 +101,10 @@
             Lbl4.ForeColor = Color.Black;
             Lbl4.Location = new Point(15, 110);
             Lbl4.Name = "Lbl4";
-            Lbl4.Size = new Size(152, 19);
+            Lbl4.Size = new Size(160, 19);
             Lbl4.TabIndex = 15;
-            Lbl4.Text = "Nombre del estado: \r\n";
+            Lbl4.Text = "Tipo de campeonato:";
+            Lbl4.Click += Lbl4_Click;
             // 
             // Pic1
             // 
@@ -120,23 +122,24 @@
             // 
             Dgv1.AllowUserToResizeRows = false;
             Dgv1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            Dgv1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            Dgv1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             Dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             Dgv1.EditMode = DataGridViewEditMode.EditProgrammatically;
-            Dgv1.Location = new Point(107, 253);
+            Dgv1.Location = new Point(107, 267);
             Dgv1.MultiSelect = false;
             Dgv1.Name = "Dgv1";
             Dgv1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             Dgv1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             Dgv1.Size = new Size(492, 150);
             Dgv1.TabIndex = 13;
+            Dgv1.CellClick += Dgv1_CellClick;
             // 
             // Lbl3
             // 
@@ -147,19 +150,20 @@
             Lbl3.ForeColor = Color.Black;
             Lbl3.Location = new Point(15, 67);
             Lbl3.Name = "Lbl3";
-            Lbl3.Size = new Size(251, 19);
+            Lbl3.Size = new Size(222, 19);
             Lbl3.TabIndex = 2;
-            Lbl3.Text = "Datos del Estado del Campeonato";
+            Lbl3.Text = "Datos del tipo de campeonato";
+            Lbl3.Click += Lbl3_Click;
             // 
-            // TxtNombreEstadoCampeonato
+            // TxtNomTipoCampeonato
             // 
-            TxtNombreEstadoCampeonato.BorderStyle = BorderStyle.FixedSingle;
-            TxtNombreEstadoCampeonato.Font = new Font("Bell MT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            TxtNombreEstadoCampeonato.Location = new Point(182, 109);
-            TxtNombreEstadoCampeonato.Name = "TxtNombreEstadoCampeonato";
-            TxtNombreEstadoCampeonato.Size = new Size(183, 21);
-            TxtNombreEstadoCampeonato.TabIndex = 4;
-            TxtNombreEstadoCampeonato.Text = "Ingrese nombre del deporte";
+            TxtNomTipoCampeonato.BorderStyle = BorderStyle.FixedSingle;
+            TxtNomTipoCampeonato.Font = new Font("Bell MT", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TxtNomTipoCampeonato.Location = new Point(182, 109);
+            TxtNomTipoCampeonato.Name = "TxtNomTipoCampeonato";
+            TxtNomTipoCampeonato.Size = new Size(183, 21);
+            TxtNomTipoCampeonato.TabIndex = 4;
+            TxtNomTipoCampeonato.Text = "Ingrese el tipo de campeonato";
             // 
             // RtbDescripcion
             // 
@@ -181,6 +185,7 @@
             BtnEliminar.Size = new Size(58, 47);
             BtnEliminar.TabIndex = 10;
             BtnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.Click += BtnEliminar_Click_1;
             // 
             // Lbl1
             // 
@@ -190,9 +195,9 @@
             Lbl1.ForeColor = Color.Black;
             Lbl1.Location = new Point(58, 13);
             Lbl1.Name = "Lbl1";
-            Lbl1.Size = new Size(216, 33);
+            Lbl1.Size = new Size(191, 33);
             Lbl1.TabIndex = 0;
-            Lbl1.Text = "Estado de Campeonato";
+            Lbl1.Text = "Tipo de campeonato";
             // 
             // BtnEditar
             // 
@@ -225,28 +230,28 @@
             // BtnRegresar
             // 
             BtnRegresar.BackgroundImage = (Image)resources.GetObject("BtnRegresar.BackgroundImage");
-            BtnRegresar.BackgroundImageLayout = ImageLayout.Stretch;
-            BtnRegresar.Location = new Point(15, 356);
+            BtnRegresar.BackgroundImageLayout = ImageLayout.Zoom;
+            BtnRegresar.Location = new Point(15, 374);
             BtnRegresar.Name = "BtnRegresar";
-            BtnRegresar.Size = new Size(56, 47);
-            BtnRegresar.TabIndex = 19;
+            BtnRegresar.Size = new Size(53, 43);
+            BtnRegresar.TabIndex = 18;
             BtnRegresar.UseVisualStyleBackColor = true;
             BtnRegresar.Click += BtnRegresar_Click;
             // 
-            // FrmEstadoCampeonato
+            // FrmTipoCampeonato
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(688, 440);
-            Controls.Add(PnlPanelEstado);
+            Controls.Add(Pnl1);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "FrmEstadoCampeonato";
+            Name = "FrmTipoCampeonato";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Estado de campeonato";
-            Load += FrmEstadoCampeonato_Load;
-            PnlPanelEstado.ResumeLayout(false);
-            PnlPanelEstado.PerformLayout();
+            Text = "Tipo de Campeonato";
+            Load += FrmTipoCampeonato_Load;
+            Pnl1.ResumeLayout(false);
+            Pnl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Pic1).EndInit();
             ((System.ComponentModel.ISupportInitialize)Dgv1).EndInit();
             ResumeLayout(false);
@@ -254,19 +259,19 @@
 
         #endregion
 
-        private Panel PnlPanelEstado;
-        private Button BtnNuevo;
+        private Panel Pnl1;
         private Label Lbl5;
         private Label Lbl4;
         private PictureBox Pic1;
         private DataGridView Dgv1;
         private Label Lbl3;
-        private TextBox TxtNombreEstadoCampeonato;
+        private TextBox TxtNomTipoCampeonato;
         private RichTextBox RtbDescripcion;
         private Button BtnEliminar;
         private Label Lbl1;
         private Button BtnEditar;
         private Button BtnGuardar;
+        private Button BtnNuevo;
         private Button BtnRegresar;
     }
 }

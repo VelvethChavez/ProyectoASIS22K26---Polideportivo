@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmPosiciones
+    partial class FrmPosiciones
     {
         /// <summary>
         /// Required designer variable.
@@ -28,150 +28,150 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            NombrePosicion = new TextBox();
-            txtDescripcion = new TextBox();
-            dataGridView1 = new DataGridView();
-            btnGuardar = new Button();
-            btnEditar = new Button();
-            btnEliminar = new Button();
-            btnNuevo = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            Lbl1 = new Label();
+            Lbl2 = new Label();
+            Lbl3 = new Label();
+            TxtNombrePosicion = new TextBox();
+            TxtDescripcion = new TextBox();
+            Dgv1 = new DataGridView();
+            BtnGuardar = new Button();
+            BtnEditar = new Button();
+            BtnEliminar = new Button();
+            BtnNuevo = new Button();
+            ((System.ComponentModel.ISupportInitialize)Dgv1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(312, 22);
-            label1.Name = "label1";
-            label1.Size = new Size(100, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Posiciones";
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 14F);
+            Lbl1.Location = new Point(312, 22);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(100, 25);
+            Lbl1.TabIndex = 0;
+            Lbl1.Text = "Posiciones";
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(40, 61);
-            label2.Name = "label2";
-            label2.Size = new Size(99, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Nombre posición";
+            Lbl2.AutoSize = true;
+            Lbl2.Location = new Point(40, 61);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(99, 15);
+            Lbl2.TabIndex = 1;
+            Lbl2.Text = "Nombre posición";
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(40, 101);
-            label3.Name = "label3";
-            label3.Size = new Size(69, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Descripción";
+            Lbl3.AutoSize = true;
+            Lbl3.Location = new Point(40, 101);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(69, 15);
+            Lbl3.TabIndex = 2;
+            Lbl3.Text = "Descripción";
             // 
-            // NombrePosicion
+            // TxtNombrePosicion
             // 
-            NombrePosicion.Location = new Point(168, 61);
-            NombrePosicion.Margin = new Padding(3, 2, 3, 2);
-            NombrePosicion.Name = "NombrePosicion";
-            NombrePosicion.Size = new Size(213, 23);
-            NombrePosicion.TabIndex = 3;
+            TxtNombrePosicion.Location = new Point(168, 61);
+            TxtNombrePosicion.Margin = new Padding(3, 2, 3, 2);
+            TxtNombrePosicion.Name = "TxtNombrePosicion";
+            TxtNombrePosicion.Size = new Size(213, 23);
+            TxtNombrePosicion.TabIndex = 3;
             // 
-            // txtDescripcion
+            // TxtDescripcion
             // 
-            txtDescripcion.Location = new Point(168, 96);
-            txtDescripcion.Margin = new Padding(3, 2, 3, 2);
-            txtDescripcion.Name = "txtDescripcion";
-            txtDescripcion.Size = new Size(213, 23);
-            txtDescripcion.TabIndex = 4;
+            TxtDescripcion.Location = new Point(168, 96);
+            TxtDescripcion.Margin = new Padding(3, 2, 3, 2);
+            TxtDescripcion.Name = "TxtDescripcion";
+            TxtDescripcion.Size = new Size(213, 23);
+            TxtDescripcion.TabIndex = 4;
             // 
-            // dataGridView1
+            // Dgv1
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(32, 188);
-            dataGridView1.Margin = new Padding(3, 2, 3, 2);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(637, 141);
-            dataGridView1.TabIndex = 5;
+            Dgv1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Dgv1.Location = new Point(32, 188);
+            Dgv1.Margin = new Padding(3, 2, 3, 2);
+            Dgv1.Name = "Dgv1";
+            Dgv1.RowHeadersWidth = 51;
+            Dgv1.Size = new Size(637, 141);
+            Dgv1.TabIndex = 5;
             // 
-            // btnGuardar
+            // BtnGuardar
             // 
-            btnGuardar.Location = new Point(32, 161);
-            btnGuardar.Margin = new Padding(3, 2, 3, 2);
-            btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(82, 22);
-            btnGuardar.TabIndex = 6;
-            btnGuardar.Text = "Guardar";
-            btnGuardar.UseVisualStyleBackColor = true;
+            BtnGuardar.Location = new Point(32, 161);
+            BtnGuardar.Margin = new Padding(3, 2, 3, 2);
+            BtnGuardar.Name = "BtnGuardar";
+            BtnGuardar.Size = new Size(82, 22);
+            BtnGuardar.TabIndex = 6;
+            BtnGuardar.Text = "Guardar";
+            BtnGuardar.UseVisualStyleBackColor = true;
             // 
-            // btnEditar
+            // BtnEditar
             // 
-            btnEditar.Location = new Point(217, 161);
-            btnEditar.Margin = new Padding(3, 2, 3, 2);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(82, 22);
-            btnEditar.TabIndex = 7;
-            btnEditar.Text = "Editar";
-            btnEditar.UseVisualStyleBackColor = true;
+            BtnEditar.Location = new Point(217, 161);
+            BtnEditar.Margin = new Padding(3, 2, 3, 2);
+            BtnEditar.Name = "BtnEditar";
+            BtnEditar.Size = new Size(82, 22);
+            BtnEditar.TabIndex = 7;
+            BtnEditar.Text = "Editar";
+            BtnEditar.UseVisualStyleBackColor = true;
             // 
-            // btnEliminar
+            // BtnEliminar
             // 
-            btnEliminar.Location = new Point(405, 161);
-            btnEliminar.Margin = new Padding(3, 2, 3, 2);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(82, 22);
-            btnEliminar.TabIndex = 8;
-            btnEliminar.Text = "Eliminar";
-            btnEliminar.UseVisualStyleBackColor = true;
+            BtnEliminar.Location = new Point(405, 161);
+            BtnEliminar.Margin = new Padding(3, 2, 3, 2);
+            BtnEliminar.Name = "BtnEliminar";
+            BtnEliminar.Size = new Size(82, 22);
+            BtnEliminar.TabIndex = 8;
+            BtnEliminar.Text = "Eliminar";
+            BtnEliminar.UseVisualStyleBackColor = true;
             // 
-            // btnNuevo
+            // BtnNuevo
             // 
-            btnNuevo.Location = new Point(586, 161);
-            btnNuevo.Margin = new Padding(3, 2, 3, 2);
-            btnNuevo.Name = "btnNuevo";
-            btnNuevo.Size = new Size(82, 22);
-            btnNuevo.TabIndex = 9;
-            btnNuevo.Text = "Nuevo";
-            btnNuevo.UseVisualStyleBackColor = true;
+            BtnNuevo.Location = new Point(586, 161);
+            BtnNuevo.Margin = new Padding(3, 2, 3, 2);
+            BtnNuevo.Name = "BtnNuevo";
+            BtnNuevo.Size = new Size(82, 22);
+            BtnNuevo.TabIndex = 9;
+            BtnNuevo.Text = "Nuevo";
+            BtnNuevo.UseVisualStyleBackColor = true;
             // 
-            // frmPosiciones
+            // FrmPosiciones
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(700, 338);
-            Controls.Add(btnNuevo);
-            Controls.Add(btnEliminar);
-            Controls.Add(btnEditar);
-            Controls.Add(btnGuardar);
-            Controls.Add(dataGridView1);
-            Controls.Add(txtDescripcion);
-            Controls.Add(NombrePosicion);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
+            Controls.Add(BtnNuevo);
+            Controls.Add(BtnEliminar);
+            Controls.Add(BtnEditar);
+            Controls.Add(BtnGuardar);
+            Controls.Add(Dgv1);
+            Controls.Add(TxtDescripcion);
+            Controls.Add(TxtNombrePosicion);
+            Controls.Add(Lbl3);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl1);
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmPosiciones";
+            Name = "FrmPosiciones";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmPosiciones";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Text = "FrmPosiciones";
+            ((System.ComponentModel.ISupportInitialize)Dgv1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private TextBox NombrePosicion;
-        private TextBox txtDescripcion;
-        private DataGridView dataGridView1;
-        private Button btnGuardar;
-        private Button btnEditar;
-        private Button btnEliminar;
-        private Button btnNuevo;
+        private Label Lbl1;
+        private Label Lbl2;
+        private Label Lbl3;
+        private TextBox TxtNombrePosicion;
+        private TextBox TxtDescripcion;
+        private DataGridView Dgv1;
+        private Button BtnGuardar;
+        private Button BtnEditar;
+        private Button BtnEliminar;
+        private Button BtnNuevo;
     }
 }

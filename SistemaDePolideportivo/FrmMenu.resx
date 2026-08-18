@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pboxCampeonatos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PicPboxCampeonatos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABpAAAAWtCAYAAADlLxMvAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         /Q/MZdV534+OEhchgghCCBGECHJdCyFKKUWUIIIQQsihCBHkIkQJP1/H6k0i19fXcR0rcnrrX5KmbeQ6
@@ -14187,7 +14187,7 @@
         EEIIIYQQsgH+f8jq/J0V3gEuAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pboxEquipos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PicPboxEquipos.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA+wAAAMACAYAAAC+X+1xAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
         dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAP+iSURBVHhe7J0HdBRH9vV7v93979prnHO2cSDnYLAJ
@@ -28395,7 +28395,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="pboxReglamento.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PicPboxReglamento.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABAAAAALUCAYAAACVYkCAAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF7s
         /Q24JNV13wvvqTOeTCZkgrmYEIIxl9PBMiEEnyZ0h0t4efUSwpUJIYQQgjFXUWQFc7mYlxCMubzk9EvI
@@ -30724,7 +30724,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pboxEmpleados.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PicPboxEmpleados.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAA/cAAAHWCAYAAAAy6Xl1AAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACH
         DwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKOWlDQ1BQaG90b3Nob3AgSUNDIHByb2Zp
@@ -31904,7 +31904,7 @@
         EBEREREREVFlsTUQERERERERUWX5/wFknb8JzMq1WwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pboxAyuda.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="PicPboxAyuda.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB9AAAAfQCAYAAACaOMR5AAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
         MAAA6mAAADqYAAAXb5JfxUYAAAAJcEhZcwAACwwAAAsMAT9AIsgAAP+WSURBVHhe7N0HfBTXufdxgSSE
@@ -40600,7 +40600,7 @@
         AAAAgEaUWwAAAAAAAACARvS/AS0EK29tP64lAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="Pic1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAN
         0AAADdABEGw9BwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAD1sSURBVHhe7d1t

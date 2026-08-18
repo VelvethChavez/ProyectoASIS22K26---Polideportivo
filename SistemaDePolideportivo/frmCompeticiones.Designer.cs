@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmCompeticiones
+    partial class FrmCompeticiones
     {
         
         private System.ComponentModel.IContainer components = null;
@@ -19,214 +19,214 @@
 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCompeticiones));
-            USUARIOS = new Label();
-            label1 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            btnCompetencias = new Button();
-            button1 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button2 = new Button();
-            button5 = new Button();
-            button6 = new Button();
-            label2 = new Label();
-            label5 = new Label();
-            label6 = new Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCompeticiones));
+            LblUSUARIOS = new Label();
+            Lbl1 = new Label();
+            Lbl3 = new Label();
+            Lbl4 = new Label();
+            BtnCompetencias = new Button();
+            Btn1 = new Button();
+            Btn3 = new Button();
+            Btn4 = new Button();
+            Btn2 = new Button();
+            Btn5 = new Button();
+            Btn6 = new Button();
+            Lbl2 = new Label();
+            Lbl5 = new Label();
+            Lbl6 = new Label();
             BtnMenu = new Button();
             SuspendLayout();
             // 
-            // USUARIOS
+            // LblUSUARIOS
             // 
-            USUARIOS.AutoSize = true;
-            USUARIOS.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            USUARIOS.Location = new Point(304, 140);
-            USUARIOS.Name = "USUARIOS";
-            USUARIOS.Size = new Size(87, 28);
-            USUARIOS.TabIndex = 7;
-            USUARIOS.Text = "CAMPO";
-            USUARIOS.Click += USUARIOS_Click;
+            LblUSUARIOS.AutoSize = true;
+            LblUSUARIOS.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblUSUARIOS.Location = new Point(304, 140);
+            LblUSUARIOS.Name = "LblUSUARIOS";
+            LblUSUARIOS.Size = new Size(87, 28);
+            LblUSUARIOS.TabIndex = 7;
+            LblUSUARIOS.Text = "CAMPO";
+            LblUSUARIOS.Click += LblUSUARIOS_Click;
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(603, 29);
-            label1.Name = "label1";
-            label1.Size = new Size(117, 28);
-            label1.TabIndex = 8;
-            label1.Text = "ARBITRO";
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lbl1.Location = new Point(603, 29);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(117, 28);
+            Lbl1.TabIndex = 8;
+            Lbl1.Text = "ARBITRO";
             // 
-            // label3
+            // Lbl3
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(532, 140);
-            label3.Name = "label3";
-            label3.Size = new Size(267, 28);
-            label3.TabIndex = 10;
-            label3.Text = "ESTADO DE PARTIDO";
+            Lbl3.AutoSize = true;
+            Lbl3.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lbl3.Location = new Point(532, 140);
+            Lbl3.Name = "Lbl3";
+            Lbl3.Size = new Size(267, 28);
+            Lbl3.TabIndex = 10;
+            Lbl3.Text = "ESTADO DE PARTIDO";
             // 
-            // label4
+            // Lbl4
             // 
-            label4.AutoSize = true;
-            label4.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(65, 140);
-            label4.Name = "label4";
-            label4.Size = new Size(117, 28);
-            label4.TabIndex = 11;
-            label4.Text = "JORNADA";
-            label4.Click += label4_Click;
+            Lbl4.AutoSize = true;
+            Lbl4.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lbl4.Location = new Point(65, 140);
+            Lbl4.Name = "Lbl4";
+            Lbl4.Size = new Size(117, 28);
+            Lbl4.TabIndex = 11;
+            Lbl4.Text = "JORNADA";
+            Lbl4.Click += Lbl4_Click;
             // 
-            // btnCompetencias
+            // BtnCompetencias
             // 
-            btnCompetencias.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnCompetencias.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btnCompetencias.BackColor = Color.RoyalBlue;
-            btnCompetencias.FlatAppearance.MouseDownBackColor = Color.Black;
-            btnCompetencias.Font = new Font("Microsoft Sans Serif", 12F);
-            btnCompetencias.ForeColor = SystemColors.ControlLightLight;
-            btnCompetencias.Location = new Point(255, 182);
-            btnCompetencias.Margin = new Padding(0);
-            btnCompetencias.Name = "btnCompetencias";
-            btnCompetencias.Size = new Size(187, 59);
-            btnCompetencias.TabIndex = 12;
-            btnCompetencias.Text = "Campo";
-            btnCompetencias.UseVisualStyleBackColor = false;
-            btnCompetencias.Click += btnCompetencias_Click;
+            BtnCompetencias.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            BtnCompetencias.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            BtnCompetencias.BackColor = Color.RoyalBlue;
+            BtnCompetencias.FlatAppearance.MouseDownBackColor = Color.Black;
+            BtnCompetencias.Font = new Font("Microsoft Sans Serif", 12F);
+            BtnCompetencias.ForeColor = SystemColors.ControlLightLight;
+            BtnCompetencias.Location = new Point(255, 182);
+            BtnCompetencias.Margin = new Padding(0);
+            BtnCompetencias.Name = "BtnCompetencias";
+            BtnCompetencias.Size = new Size(187, 59);
+            BtnCompetencias.TabIndex = 12;
+            BtnCompetencias.Text = "Campo";
+            BtnCompetencias.UseVisualStyleBackColor = false;
+            BtnCompetencias.Click += BtnCompetencias_Click;
             // 
-            // button1
+            // Btn1
             // 
-            button1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button1.BackColor = Color.RoyalBlue;
-            button1.FlatAppearance.MouseDownBackColor = Color.Black;
-            button1.Font = new Font("Microsoft Sans Serif", 12F);
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(30, 182);
-            button1.Margin = new Padding(0);
-            button1.Name = "button1";
-            button1.Size = new Size(187, 59);
-            button1.TabIndex = 13;
-            button1.Text = "Jornada";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += button1_Click;
+            Btn1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            Btn1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Btn1.BackColor = Color.RoyalBlue;
+            Btn1.FlatAppearance.MouseDownBackColor = Color.Black;
+            Btn1.Font = new Font("Microsoft Sans Serif", 12F);
+            Btn1.ForeColor = SystemColors.ControlLightLight;
+            Btn1.Location = new Point(30, 182);
+            Btn1.Margin = new Padding(0);
+            Btn1.Name = "Btn1";
+            Btn1.Size = new Size(187, 59);
+            Btn1.TabIndex = 13;
+            Btn1.Text = "Jornada";
+            Btn1.UseVisualStyleBackColor = false;
+            Btn1.Click += Btn1_Click;
             // 
-            // button3
+            // Btn3
             // 
-            button3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button3.BackColor = Color.RoyalBlue;
-            button3.FlatAppearance.MouseDownBackColor = Color.Black;
-            button3.Font = new Font("Microsoft Sans Serif", 12F);
-            button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(570, 69);
-            button3.Margin = new Padding(0);
-            button3.Name = "button3";
-            button3.Size = new Size(187, 59);
-            button3.TabIndex = 15;
-            button3.Text = "Arbitro";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += button3_Click;
+            Btn3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            Btn3.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Btn3.BackColor = Color.RoyalBlue;
+            Btn3.FlatAppearance.MouseDownBackColor = Color.Black;
+            Btn3.Font = new Font("Microsoft Sans Serif", 12F);
+            Btn3.ForeColor = SystemColors.ControlLightLight;
+            Btn3.Location = new Point(570, 69);
+            Btn3.Margin = new Padding(0);
+            Btn3.Name = "Btn3";
+            Btn3.Size = new Size(187, 59);
+            Btn3.TabIndex = 15;
+            Btn3.Text = "Arbitro";
+            Btn3.UseVisualStyleBackColor = false;
+            Btn3.Click += Btn3_Click;
             // 
-            // button4
+            // Btn4
             // 
-            button4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button4.BackColor = Color.RoyalBlue;
-            button4.FlatAppearance.MouseDownBackColor = Color.Black;
-            button4.Font = new Font("Microsoft Sans Serif", 12F);
-            button4.ForeColor = SystemColors.ControlLightLight;
-            button4.Location = new Point(570, 182);
-            button4.Margin = new Padding(0);
-            button4.Name = "button4";
-            button4.Size = new Size(187, 59);
-            button4.TabIndex = 16;
-            button4.Text = "Estado Partido";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += button4_Click;
+            Btn4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            Btn4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Btn4.BackColor = Color.RoyalBlue;
+            Btn4.FlatAppearance.MouseDownBackColor = Color.Black;
+            Btn4.Font = new Font("Microsoft Sans Serif", 12F);
+            Btn4.ForeColor = SystemColors.ControlLightLight;
+            Btn4.Location = new Point(570, 182);
+            Btn4.Margin = new Padding(0);
+            Btn4.Name = "Btn4";
+            Btn4.Size = new Size(187, 59);
+            Btn4.TabIndex = 16;
+            Btn4.Text = "Estado Partido";
+            Btn4.UseVisualStyleBackColor = false;
+            Btn4.Click += Btn4_Click;
             // 
-            // button2
+            // Btn2
             // 
-            button2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button2.BackColor = Color.RoyalBlue;
-            button2.FlatAppearance.MouseDownBackColor = Color.Black;
-            button2.Font = new Font("Microsoft Sans Serif", 12F);
-            button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(570, 316);
-            button2.Margin = new Padding(0);
-            button2.Name = "button2";
-            button2.Size = new Size(187, 60);
-            button2.TabIndex = 24;
-            button2.Text = "Tabla de Posiciones";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += button2_Click_1;
+            Btn2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            Btn2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Btn2.BackColor = Color.RoyalBlue;
+            Btn2.FlatAppearance.MouseDownBackColor = Color.Black;
+            Btn2.Font = new Font("Microsoft Sans Serif", 12F);
+            Btn2.ForeColor = SystemColors.ControlLightLight;
+            Btn2.Location = new Point(570, 316);
+            Btn2.Margin = new Padding(0);
+            Btn2.Name = "Btn2";
+            Btn2.Size = new Size(187, 60);
+            Btn2.TabIndex = 24;
+            Btn2.Text = "Tabla de Posiciones";
+            Btn2.UseVisualStyleBackColor = false;
+            Btn2.Click += Btn2_Click_1;
             // 
-            // button5
+            // Btn5
             // 
-            button5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button5.BackColor = Color.RoyalBlue;
-            button5.FlatAppearance.MouseDownBackColor = Color.Black;
-            button5.Font = new Font("Microsoft Sans Serif", 12F);
-            button5.ForeColor = SystemColors.ControlLightLight;
-            button5.Location = new Point(255, 316);
-            button5.Margin = new Padding(0);
-            button5.Name = "button5";
-            button5.Size = new Size(187, 59);
-            button5.TabIndex = 23;
-            button5.Text = "Registrar Resultados";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += button5_Click;
+            Btn5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            Btn5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Btn5.BackColor = Color.RoyalBlue;
+            Btn5.FlatAppearance.MouseDownBackColor = Color.Black;
+            Btn5.Font = new Font("Microsoft Sans Serif", 12F);
+            Btn5.ForeColor = SystemColors.ControlLightLight;
+            Btn5.Location = new Point(255, 316);
+            Btn5.Margin = new Padding(0);
+            Btn5.Name = "Btn5";
+            Btn5.Size = new Size(187, 59);
+            Btn5.TabIndex = 23;
+            Btn5.Text = "Registrar Resultados";
+            Btn5.UseVisualStyleBackColor = false;
+            Btn5.Click += Btn5_Click;
             // 
-            // button6
+            // Btn6
             // 
-            button6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            button6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            button6.BackColor = Color.RoyalBlue;
-            button6.FlatAppearance.MouseDownBackColor = Color.Black;
-            button6.Font = new Font("Microsoft Sans Serif", 12F);
-            button6.ForeColor = SystemColors.ControlLightLight;
-            button6.Location = new Point(255, 69);
-            button6.Margin = new Padding(0);
-            button6.Name = "button6";
-            button6.Size = new Size(187, 59);
-            button6.TabIndex = 22;
-            button6.Text = "Programar Partido";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += button6_Click;
+            Btn6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            Btn6.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            Btn6.BackColor = Color.RoyalBlue;
+            Btn6.FlatAppearance.MouseDownBackColor = Color.Black;
+            Btn6.Font = new Font("Microsoft Sans Serif", 12F);
+            Btn6.ForeColor = SystemColors.ControlLightLight;
+            Btn6.Location = new Point(255, 69);
+            Btn6.Margin = new Padding(0);
+            Btn6.Name = "Btn6";
+            Btn6.Size = new Size(187, 59);
+            Btn6.TabIndex = 22;
+            Btn6.Text = "Programar Partido";
+            Btn6.UseVisualStyleBackColor = false;
+            Btn6.Click += Btn6_Click;
             // 
-            // label2
+            // Lbl2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(211, 29);
-            label2.Name = "label2";
-            label2.Size = new Size(267, 28);
-            label2.TabIndex = 20;
-            label2.Text = "PROGRAMAR PARTIDO";
+            Lbl2.AutoSize = true;
+            Lbl2.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lbl2.Location = new Point(211, 29);
+            Lbl2.Name = "Lbl2";
+            Lbl2.Size = new Size(267, 28);
+            Lbl2.TabIndex = 20;
+            Lbl2.Text = "PROGRAMAR PARTIDO";
             // 
-            // label5
+            // Lbl5
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(502, 275);
-            label5.Name = "label5";
-            label5.Size = new Size(297, 28);
-            label5.TabIndex = 19;
-            label5.Text = "TABLA DE POSICIONES";
+            Lbl5.AutoSize = true;
+            Lbl5.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lbl5.Location = new Point(502, 275);
+            Lbl5.Name = "Lbl5";
+            Lbl5.Size = new Size(297, 28);
+            Lbl5.TabIndex = 19;
+            Lbl5.Text = "TABLA DE POSICIONES";
             // 
-            // label6
+            // Lbl6
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(166, 275);
-            label6.Name = "label6";
-            label6.Size = new Size(312, 28);
-            label6.TabIndex = 18;
-            label6.Text = "REGISTRAR RESULTADOS";
+            Lbl6.AutoSize = true;
+            Lbl6.Font = new Font("MS Gothic", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Lbl6.Location = new Point(166, 275);
+            Lbl6.Name = "Lbl6";
+            Lbl6.Size = new Size(312, 28);
+            Lbl6.TabIndex = 18;
+            Lbl6.Text = "REGISTRAR RESULTADOS";
             // 
             // BtnMenu
             // 
@@ -240,53 +240,53 @@
             BtnMenu.UseVisualStyleBackColor = true;
             BtnMenu.Click += BtnMenu_Click;
             // 
-            // frmCompeticiones
+            // FrmCompeticiones
             // 
             AutoScaleMode = AutoScaleMode.None;
             BackColor = SystemColors.Window;
             ClientSize = new Size(800, 451);
-            Controls.Add(button2);
-            Controls.Add(button5);
-            Controls.Add(button6);
-            Controls.Add(label2);
-            Controls.Add(label5);
-            Controls.Add(label6);
+            Controls.Add(Btn2);
+            Controls.Add(Btn5);
+            Controls.Add(Btn6);
+            Controls.Add(Lbl2);
+            Controls.Add(Lbl5);
+            Controls.Add(Lbl6);
             Controls.Add(BtnMenu);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button1);
-            Controls.Add(btnCompetencias);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label1);
-            Controls.Add(USUARIOS);
+            Controls.Add(Btn4);
+            Controls.Add(Btn3);
+            Controls.Add(Btn1);
+            Controls.Add(BtnCompetencias);
+            Controls.Add(Lbl4);
+            Controls.Add(Lbl3);
+            Controls.Add(Lbl1);
+            Controls.Add(LblUSUARIOS);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmCompeticiones";
+            Name = "FrmCompeticiones";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "frmCompeticiones";
-            Load += frmCompeticiones_Load;
+            Text = "FrmCompeticiones";
+            Load += FrmCompeticiones_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label USUARIOS;
-        private Label label1;
-        private Label label3;
-        private Label label4;
-        private Button btnCompetencias;
-        private Button button1;
-        private Button button3;
-        private Button button4;
+        private Label LblUSUARIOS;
+        private Label Lbl1;
+        private Label Lbl3;
+        private Label Lbl4;
+        private Button BtnCompetencias;
+        private Button Btn1;
+        private Button Btn3;
+        private Button Btn4;
 
-        private Button button2;
-        private Button button5;
-        private Button button6;
-        private Label label2;
-        private Label label5;
-        private Label label6;
+        private Button Btn2;
+        private Button Btn5;
+        private Button Btn6;
+        private Label Lbl2;
+        private Label Lbl5;
+        private Label Lbl6;
 
         private Button BtnMenu;
 

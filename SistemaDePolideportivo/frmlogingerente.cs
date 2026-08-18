@@ -6,37 +6,25 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmlogingerente : Form
+    public partial class FrmLoginGerente : Form
     {
         ConexionBD conexionBD = new ConexionBD();
 
-        public frmlogingerente()
+        public FrmLoginGerente()
         {
             InitializeComponent();
         }
 
-        // ============================================================
-        // CARGA DEL FORMULARIO
-        // ============================================================
-
-        private void frmlogingerente_Load(object sender, EventArgs e)
+        private void FrmLoginGerente_Load(object sender, EventArgs e)
         {
-            textBox1.Focus();
+            Txt1.Focus();
         }
 
-        // ============================================================
-        // BOTÓN INICIAR SESIÓN
-        // ============================================================
-
-        private void button1_Click(object sender, EventArgs e)
+        private void Btn1_Click(object sender, EventArgs e)
         {
             try
             {
-                // ----------------------------------------------------
-                // VALIDAR USUARIO
-                // ----------------------------------------------------
-
-                if (string.IsNullOrWhiteSpace(textBox1.Text))
+                if (string.IsNullOrWhiteSpace(Txt1.Text))
                 {
                     MessageBox.Show(
                         "Ingrese su nombre de usuario.",
@@ -45,15 +33,11 @@ namespace SistemaDePolideportivo
                         MessageBoxIcon.Warning
                     );
 
-                    textBox1.Focus();
+                    Txt1.Focus();
                     return;
                 }
 
-                // ----------------------------------------------------
-                // VALIDAR CONTRASEÑA
-                // ----------------------------------------------------
-
-                if (string.IsNullOrWhiteSpace(textBox2.Text))
+                if (string.IsNullOrWhiteSpace(Txt2.Text))
                 {
                     MessageBox.Show(
                         "Ingrese su contraseña.",
@@ -62,13 +46,9 @@ namespace SistemaDePolideportivo
                         MessageBoxIcon.Warning
                     );
 
-                    textBox2.Focus();
+                    Txt2.Focus();
                     return;
                 }
-
-                // ----------------------------------------------------
-                // CONEXIÓN A LA BASE DE DATOS
-                // ----------------------------------------------------
 
                 using (MySqlConnection conexion = conexionBD.ObtenerConexion())
                 {
@@ -93,12 +73,12 @@ namespace SistemaDePolideportivo
                     {
                         cmd.Parameters.AddWithValue(
                             "@usuario",
-                            textBox1.Text.Trim()
+                            Txt1.Text.Trim()
                         );
 
                         cmd.Parameters.AddWithValue(
                             "@contrasena",
-                            textBox2.Text
+                            Txt2.Text
                         );
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
@@ -115,8 +95,7 @@ namespace SistemaDePolideportivo
                                     MessageBoxIcon.Information
                                 );
 
-                                // Abrir Reportes
-                                Reportes nuevoform = new Reportes();
+                                FrmReportes nuevoform = new FrmReportes();
 
                                 nuevoform.Show();
 
@@ -132,8 +111,8 @@ namespace SistemaDePolideportivo
                                     MessageBoxIcon.Error
                                 );
 
-                                textBox2.Clear();
-                                textBox2.Focus();
+                                Txt2.Clear();
+                                Txt2.Focus();
                             }
                         }
                     }
@@ -142,8 +121,7 @@ namespace SistemaDePolideportivo
             catch (MySqlException ex)
             {
                 MessageBox.Show(
-                    "Error de conexión con la base de datos:\n\n" +
-                    ex.Message,
+                    "Error de MySQL:\n\n" + ex.Message,
                     "Error de MySQL",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -152,8 +130,7 @@ namespace SistemaDePolideportivo
             catch (Exception ex)
             {
                 MessageBox.Show(
-                    "Ocurrió un error:\n\n" +
-                    ex.Message,
+                    "Ocurrió un error:\n\n" + ex.Message,
                     "Error",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
@@ -161,13 +138,9 @@ namespace SistemaDePolideportivo
             }
         }
 
-        // ============================================================
-        // BOTÓN REGRESAR
-        // ============================================================
-
         private void BtnRegresar_Click(object sender, EventArgs e)
         {
-            frmLogin nuevoform = new frmLogin();
+            FrmLogin nuevoform = new FrmLogin();
 
             nuevoform.Show();
 

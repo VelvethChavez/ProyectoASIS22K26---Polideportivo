@@ -13,67 +13,67 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmCampeonato : Form
+    public partial class FrmCampeonato : Form
     {
         ConexionBD conexionBD = new ConexionBD();
 
         // Guarda el ID del campeonato seleccionado
         private int idCampeonato = 0;
 
-        public frmCampeonato()
+        public FrmCampeonato()
         {
             InitializeComponent();
 
-            // El dataGridView1 no tiene el evento CellClick enlazado en el diseñador,
+            // El Dgv1 no tiene el evento CellClick enlazado en el diseñador,
             // así que lo conectamos aquí.
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            Dgv1.CellClick += Dgv1_CellClick;
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Lbl1_Click(object sender, EventArgs e)
         {
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void Lbl4_Click(object sender, EventArgs e)
         {
         }
 
-        private void label5_Click(object sender, EventArgs e)
+        private void Lbl5_Click(object sender, EventArgs e)
         {
         }
 
-        private void label7_Click(object sender, EventArgs e)
+        private void Lbl7_Click(object sender, EventArgs e)
         {
         }
 
-        private void label8_Click(object sender, EventArgs e)
+        private void Lbl8_Click(object sender, EventArgs e)
         {
         }
 
-        private void dateInicio_ValueChanged(object sender, EventArgs e)
+        private void DtpDateInicio_ValueChanged(object sender, EventArgs e)
         {
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void Dtp1_ValueChanged(object sender, EventArgs e)
         {
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbComboBoxtipoCampeonato_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void Cmb2_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
 
         //==========================
         // CARGA DEL FORMULARIO
         //==========================
-        private void frmCampeonato_Load(object sender, EventArgs e)
+        private void FrmCampeonato_Load(object sender, EventArgs e)
         {
-            dataGridView1.Enabled = true;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.MultiSelect = false;
+            Dgv1.Enabled = true;
+            Dgv1.ReadOnly = true;
+            Dgv1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            Dgv1.MultiSelect = false;
 
             CargarComboBoxes();
             CargarDatos();
@@ -95,30 +95,30 @@ namespace SistemaDePolideportivo
                         "SELECT id_deporte, nombre_deporte FROM Deporte", conexion);
                     DataTable dtDeporte = new DataTable();
                     daDeporte.Fill(dtDeporte);
-                    ComboBoxDeporte.DataSource = dtDeporte;
-                    ComboBoxDeporte.DisplayMember = "nombre_deporte";
-                    ComboBoxDeporte.ValueMember = "id_deporte";
-                    ComboBoxDeporte.SelectedIndex = -1;
+                    CmbComboBoxDeporte.DataSource = dtDeporte;
+                    CmbComboBoxDeporte.DisplayMember = "nombre_deporte";
+                    CmbComboBoxDeporte.ValueMember = "id_deporte";
+                    CmbComboBoxDeporte.SelectedIndex = -1;
 
                     // Tipos de campeonato
                     MySqlDataAdapter daTipo = new MySqlDataAdapter(
                         "SELECT id_tipo, nombre_tipoCampeonato FROM Tipo_Campeonato", conexion);
                     DataTable dtTipo = new DataTable();
                     daTipo.Fill(dtTipo);
-                    comboBoxtipoCampeonato.DataSource = dtTipo;
-                    comboBoxtipoCampeonato.DisplayMember = "nombre_tipoCampeonato";
-                    comboBoxtipoCampeonato.ValueMember = "id_tipo";
-                    comboBoxtipoCampeonato.SelectedIndex = -1;
+                    CmbComboBoxtipoCampeonato.DataSource = dtTipo;
+                    CmbComboBoxtipoCampeonato.DisplayMember = "nombre_tipoCampeonato";
+                    CmbComboBoxtipoCampeonato.ValueMember = "id_tipo";
+                    CmbComboBoxtipoCampeonato.SelectedIndex = -1;
 
                     // Estados de campeonato
                     MySqlDataAdapter daEstado = new MySqlDataAdapter(
                         "SELECT id_estado_campeonato, nombre_estado FROM Estado_Campeonato", conexion);
                     DataTable dtEstado = new DataTable();
                     daEstado.Fill(dtEstado);
-                    comboBox2.DataSource = dtEstado;
-                    comboBox2.DisplayMember = "nombre_estado";
-                    comboBox2.ValueMember = "id_estado_campeonato";
-                    comboBox2.SelectedIndex = -1;
+                    Cmb2.DataSource = dtEstado;
+                    Cmb2.DisplayMember = "nombre_estado";
+                    Cmb2.ValueMember = "id_estado_campeonato";
+                    Cmb2.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
@@ -133,43 +133,43 @@ namespace SistemaDePolideportivo
         //==========================
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(textBox1.Text) || textBox1.Text == "Ingrese nombre del campeonato")
+            if (string.IsNullOrWhiteSpace(Txt1.Text) || Txt1.Text == "Ingrese nombre del campeonato")
             {
                 MessageBox.Show("Debe completar el campo Nombre del campeonato.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox1.Focus();
+                Txt1.Focus();
                 return;
             }
 
-            if (ComboBoxDeporte.SelectedIndex == -1)
+            if (CmbComboBoxDeporte.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un deporte.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                ComboBoxDeporte.Focus();
+                CmbComboBoxDeporte.Focus();
                 return;
             }
 
-            if (comboBoxtipoCampeonato.SelectedIndex == -1)
+            if (CmbComboBoxtipoCampeonato.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un tipo de campeonato.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                comboBoxtipoCampeonato.Focus();
+                CmbComboBoxtipoCampeonato.Focus();
                 return;
             }
 
-            if (comboBox2.SelectedIndex == -1)
+            if (Cmb2.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un estado del campeonato.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                comboBox2.Focus();
+                Cmb2.Focus();
                 return;
             }
 
-            if (dateTimePicker1.Value.Date < dateInicio.Value.Date)
+            if (Dtp1.Value.Date < DtpDateInicio.Value.Date)
             {
                 MessageBox.Show("La fecha final no puede ser anterior a la fecha de inicio.",
                     "Fechas inválidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dateTimePicker1.Focus();
+                Dtp1.Focus();
                 return;
             }
 
@@ -185,12 +185,12 @@ namespace SistemaDePolideportivo
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", textBox1.Text.Trim());
-                        cmd.Parameters.AddWithValue("@fechaInicio", dateInicio.Value.Date);
-                        cmd.Parameters.AddWithValue("@fechaFin", dateTimePicker1.Value.Date);
-                        cmd.Parameters.AddWithValue("@idDeporte", ComboBoxDeporte.SelectedValue);
-                        cmd.Parameters.AddWithValue("@idTipo", comboBoxtipoCampeonato.SelectedValue);
-                        cmd.Parameters.AddWithValue("@idEstado", comboBox2.SelectedValue);
+                        cmd.Parameters.AddWithValue("@nombre", Txt1.Text.Trim());
+                        cmd.Parameters.AddWithValue("@fechaInicio", DtpDateInicio.Value.Date);
+                        cmd.Parameters.AddWithValue("@fechaFin", Dtp1.Value.Date);
+                        cmd.Parameters.AddWithValue("@idDeporte", CmbComboBoxDeporte.SelectedValue);
+                        cmd.Parameters.AddWithValue("@idTipo", CmbComboBoxtipoCampeonato.SelectedValue);
+                        cmd.Parameters.AddWithValue("@idEstado", Cmb2.SelectedValue);
                         cmd.ExecuteNonQuery();
                     }
 
@@ -229,7 +229,7 @@ namespace SistemaDePolideportivo
                     MySqlDataAdapter da = new MySqlDataAdapter(sql, conexion);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
-                    dataGridView1.DataSource = dt;
+                    Dgv1.DataSource = dt;
                 }
             }
             catch (Exception ex)
@@ -241,35 +241,35 @@ namespace SistemaDePolideportivo
         //==========================
         // SELECCIONAR REGISTRO
         //==========================
-        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Dgv1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow fila = dataGridView1.Rows[e.RowIndex];
+                DataGridViewRow fila = Dgv1.Rows[e.RowIndex];
 
                 idCampeonato = Convert.ToInt32(fila.Cells["id_campeonato"].Value);
-                textBox1.Text = fila.Cells["nombre_campeonato"].Value.ToString();
-                dateInicio.Value = Convert.ToDateTime(fila.Cells["fecha_inicio"].Value);
-                dateTimePicker1.Value = Convert.ToDateTime(fila.Cells["fecha_fin"].Value);
-                ComboBoxDeporte.SelectedValue = Convert.ToInt32(fila.Cells["id_deporte"].Value);
-                comboBoxtipoCampeonato.SelectedValue = Convert.ToInt32(fila.Cells["id_tipo"].Value);
-                comboBox2.SelectedValue = Convert.ToInt32(fila.Cells["id_estado_campeonato"].Value);
+                Txt1.Text = fila.Cells["nombre_campeonato"].Value.ToString();
+                DtpDateInicio.Value = Convert.ToDateTime(fila.Cells["fecha_inicio"].Value);
+                Dtp1.Value = Convert.ToDateTime(fila.Cells["fecha_fin"].Value);
+                CmbComboBoxDeporte.SelectedValue = Convert.ToInt32(fila.Cells["id_deporte"].Value);
+                CmbComboBoxtipoCampeonato.SelectedValue = Convert.ToInt32(fila.Cells["id_tipo"].Value);
+                Cmb2.SelectedValue = Convert.ToInt32(fila.Cells["id_estado_campeonato"].Value);
             }
         }
 
         //==========================
         // NUEVO
         //==========================
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
-            textBox1.Focus();
+            Txt1.Focus();
         }
 
         //==========================
         // EDITAR
         //==========================
-        private void button2_Click(object sender, EventArgs e)
+        private void BtnEditar_Click(object sender, EventArgs e)
         {
             if (idCampeonato == 0)
             {
@@ -278,43 +278,43 @@ namespace SistemaDePolideportivo
                 return;
             }
 
-            if (string.IsNullOrWhiteSpace(textBox1.Text))
+            if (string.IsNullOrWhiteSpace(Txt1.Text))
             {
                 MessageBox.Show("Debe completar el campo Nombre del campeonato.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                textBox1.Focus();
+                Txt1.Focus();
                 return;
             }
 
-            if (ComboBoxDeporte.SelectedIndex == -1)
+            if (CmbComboBoxDeporte.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un deporte.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                ComboBoxDeporte.Focus();
+                CmbComboBoxDeporte.Focus();
                 return;
             }
 
-            if (comboBoxtipoCampeonato.SelectedIndex == -1)
+            if (CmbComboBoxtipoCampeonato.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un tipo de campeonato.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                comboBoxtipoCampeonato.Focus();
+                CmbComboBoxtipoCampeonato.Focus();
                 return;
             }
 
-            if (comboBox2.SelectedIndex == -1)
+            if (Cmb2.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un estado del campeonato.",
                     "Campo requerido", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                comboBox2.Focus();
+                Cmb2.Focus();
                 return;
             }
 
-            if (dateTimePicker1.Value.Date < dateInicio.Value.Date)
+            if (Dtp1.Value.Date < DtpDateInicio.Value.Date)
             {
                 MessageBox.Show("La fecha final no puede ser anterior a la fecha de inicio.",
                     "Fechas inválidas", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                dateTimePicker1.Focus();
+                Dtp1.Focus();
                 return;
             }
 
@@ -334,12 +334,12 @@ namespace SistemaDePolideportivo
 
                     using (MySqlCommand cmd = new MySqlCommand(sql, conexion))
                     {
-                        cmd.Parameters.AddWithValue("@nombre", textBox1.Text.Trim());
-                        cmd.Parameters.AddWithValue("@fechaInicio", dateInicio.Value.Date);
-                        cmd.Parameters.AddWithValue("@fechaFin", dateTimePicker1.Value.Date);
-                        cmd.Parameters.AddWithValue("@idDeporte", ComboBoxDeporte.SelectedValue);
-                        cmd.Parameters.AddWithValue("@idTipo", comboBoxtipoCampeonato.SelectedValue);
-                        cmd.Parameters.AddWithValue("@idEstado", comboBox2.SelectedValue);
+                        cmd.Parameters.AddWithValue("@nombre", Txt1.Text.Trim());
+                        cmd.Parameters.AddWithValue("@fechaInicio", DtpDateInicio.Value.Date);
+                        cmd.Parameters.AddWithValue("@fechaFin", Dtp1.Value.Date);
+                        cmd.Parameters.AddWithValue("@idDeporte", CmbComboBoxDeporte.SelectedValue);
+                        cmd.Parameters.AddWithValue("@idTipo", CmbComboBoxtipoCampeonato.SelectedValue);
+                        cmd.Parameters.AddWithValue("@idEstado", Cmb2.SelectedValue);
                         cmd.Parameters.AddWithValue("@id", idCampeonato);
 
                         int filasAfectadas = cmd.ExecuteNonQuery();
@@ -368,7 +368,7 @@ namespace SistemaDePolideportivo
         //==========================
         // ELIMINAR
         //==========================
-        private void button3_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
             if (idCampeonato == 0)
             {
@@ -377,7 +377,7 @@ namespace SistemaDePolideportivo
                 return;
             }
 
-            DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar el campeonato '{textBox1.Text}'?",
+            DialogResult respuesta = MessageBox.Show($"¿Está seguro de que desea eliminar el campeonato '{Txt1.Text}'?",
                 "Confirmar Eliminación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (respuesta == DialogResult.Yes)
@@ -422,16 +422,16 @@ namespace SistemaDePolideportivo
         private void LimpiarCampos()
         {
             idCampeonato = 0;
-            textBox1.Clear();
-            dateInicio.Value = DateTime.Today;
-            dateTimePicker1.Value = DateTime.Today;
-            ComboBoxDeporte.SelectedIndex = -1;
-            comboBoxtipoCampeonato.SelectedIndex = -1;
-            comboBox2.SelectedIndex = -1;
+            Txt1.Clear();
+            DtpDateInicio.Value = DateTime.Today;
+            Dtp1.Value = DateTime.Today;
+            CmbComboBoxDeporte.SelectedIndex = -1;
+            CmbComboBoxtipoCampeonato.SelectedIndex = -1;
+            Cmb2.SelectedIndex = -1;
 
-            if (dataGridView1.DataSource != null)
+            if (Dgv1.DataSource != null)
             {
-                dataGridView1.ClearSelection();
+                Dgv1.ClearSelection();
             }
         }
 
@@ -440,37 +440,37 @@ namespace SistemaDePolideportivo
         //==========================
         private void BtnDeportes_Click(object sender, EventArgs e)
         {
-            frmDeportes nuevoForm = new frmDeportes();
+            FrmDeportes nuevoForm = new FrmDeportes();
             nuevoForm.Show();
             this.Hide();
         }
 
         private void BtnEstados_Click(object sender, EventArgs e)
         {
-            frmEstadoCampeonato nuevoForm = new frmEstadoCampeonato();
+            FrmEstadoCampeonato nuevoForm = new FrmEstadoCampeonato();
             nuevoForm.Show();
             this.Hide();
         }
 
         private void BtnTipoCampeonato_Click(object sender, EventArgs e)
         {
-            TipoCampeonato nuevoForm = new TipoCampeonato();
+            FrmTipoCampeonato nuevoForm = new FrmTipoCampeonato();
             nuevoForm.Show();
             this.Hide();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void Pnl1_Paint(object sender, PaintEventArgs e)
         {
         }
 
         private void BtnMenu_Click(object sender, EventArgs e)
         {
-            frmMenú newform = new frmMenú();
+            FrmMenu newform = new FrmMenu();
             newform.Show();
             this.Hide();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void Txt1_TextChanged(object sender, EventArgs e)
         {
 
         }

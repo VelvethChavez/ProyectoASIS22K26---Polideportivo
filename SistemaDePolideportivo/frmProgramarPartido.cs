@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace SistemaDePolideportivo
 {
-    public partial class frmProgramarPartido : Form
+    public partial class FrmProgramarPartido : Form
     {
         // ============================================================
         // OBJETO DE LA CLASE CPartido
@@ -28,11 +28,11 @@ namespace SistemaDePolideportivo
         // ============================================================
         // CONSTRUCTOR
         // ============================================================
-        public frmProgramarPartido()
+        public FrmProgramarPartido()
         {
             InitializeComponent();
 
-            dataGridView1.CellClick += dataGridView1_CellClick;
+            Dgv1.CellClick += Dgv1_CellClick;
         }
 
 
@@ -44,14 +44,14 @@ namespace SistemaDePolideportivo
         // ============================================================
         private void ConfigurarGrid()
         {
-            dataGridView1.Enabled = true;
-            dataGridView1.ReadOnly = true;
-            dataGridView1.SelectionMode =
+            Dgv1.Enabled = true;
+            Dgv1.ReadOnly = true;
+            Dgv1.SelectionMode =
                 DataGridViewSelectionMode.FullRowSelect;
 
-            dataGridView1.MultiSelect = false;
+            Dgv1.MultiSelect = false;
 
-            dataGridView1.AllowUserToAddRows = false;
+            Dgv1.AllowUserToAddRows = false;
         }
 
 
@@ -67,10 +67,10 @@ namespace SistemaDePolideportivo
                 // ----------------------------------------------------
                 DataTable jornadas = partido.Listado_Jornadas();
 
-                comboBoxJornada.DataSource = jornadas;
-                comboBoxJornada.DisplayMember = "nombre_jornada";
-                comboBoxJornada.ValueMember = "id_jornada";
-                comboBoxJornada.SelectedIndex = -1;
+                CmbComboBoxJornada.DataSource = jornadas;
+                CmbComboBoxJornada.DisplayMember = "nombre_jornada";
+                CmbComboBoxJornada.ValueMember = "id_jornada";
+                CmbComboBoxJornada.SelectedIndex = -1;
 
 
                 // ----------------------------------------------------
@@ -78,15 +78,15 @@ namespace SistemaDePolideportivo
                 // ----------------------------------------------------
                 DataTable equipos = partido.Listado_Equipos();
 
-                comboBoxEquipoLocal.DataSource = equipos.Copy();
-                comboBoxEquipoLocal.DisplayMember = "nombre_equipo";
-                comboBoxEquipoLocal.ValueMember = "id_equipo";
-                comboBoxEquipoLocal.SelectedIndex = -1;
+                CmbComboBoxEquipoLocal.DataSource = equipos.Copy();
+                CmbComboBoxEquipoLocal.DisplayMember = "nombre_equipo";
+                CmbComboBoxEquipoLocal.ValueMember = "id_equipo";
+                CmbComboBoxEquipoLocal.SelectedIndex = -1;
 
-                comboBoxEquipoVisitante.DataSource = equipos;
-                comboBoxEquipoVisitante.DisplayMember = "nombre_equipo";
-                comboBoxEquipoVisitante.ValueMember = "id_equipo";
-                comboBoxEquipoVisitante.SelectedIndex = -1;
+                CmbComboBoxEquipoVisitante.DataSource = equipos;
+                CmbComboBoxEquipoVisitante.DisplayMember = "nombre_equipo";
+                CmbComboBoxEquipoVisitante.ValueMember = "id_equipo";
+                CmbComboBoxEquipoVisitante.SelectedIndex = -1;
 
 
                 // ----------------------------------------------------
@@ -94,10 +94,10 @@ namespace SistemaDePolideportivo
                 // ----------------------------------------------------
                 DataTable campos = partido.Listado_Campos();
 
-                comboBoxCampo.DataSource = campos;
-                comboBoxCampo.DisplayMember = "nombre_campo";
-                comboBoxCampo.ValueMember = "id_campo";
-                comboBoxCampo.SelectedIndex = -1;
+                CmbComboBoxCampo.DataSource = campos;
+                CmbComboBoxCampo.DisplayMember = "nombre_campo";
+                CmbComboBoxCampo.ValueMember = "id_campo";
+                CmbComboBoxCampo.SelectedIndex = -1;
 
 
                 // ----------------------------------------------------
@@ -105,10 +105,10 @@ namespace SistemaDePolideportivo
                 // ----------------------------------------------------
                 DataTable arbitros = partido.Listado_Arbitros();
 
-                comboBoxArbitro.DataSource = arbitros;
-                comboBoxArbitro.DisplayMember = "nombre_arbitro";
-                comboBoxArbitro.ValueMember = "id_arbitro";
-                comboBoxArbitro.SelectedIndex = -1;
+                CmbComboBoxArbitro.DataSource = arbitros;
+                CmbComboBoxArbitro.DisplayMember = "nombre_arbitro";
+                CmbComboBoxArbitro.ValueMember = "id_arbitro";
+                CmbComboBoxArbitro.SelectedIndex = -1;
 
 
                 // ----------------------------------------------------
@@ -116,10 +116,10 @@ namespace SistemaDePolideportivo
                 // ----------------------------------------------------
                 DataTable estados = partido.Listado_Estados();
 
-                comboBoxEstado.DataSource = estados;
-                comboBoxEstado.DisplayMember = "nombre_estado";
-                comboBoxEstado.ValueMember = "id_estado_partido";
-                comboBoxEstado.SelectedIndex = -1;
+                CmbComboBoxEstado.DataSource = estados;
+                CmbComboBoxEstado.DisplayMember = "nombre_estado";
+                CmbComboBoxEstado.ValueMember = "id_estado_partido";
+                CmbComboBoxEstado.SelectedIndex = -1;
             }
             catch (Exception ex)
             {
@@ -139,7 +139,7 @@ namespace SistemaDePolideportivo
         {
             try
             {
-                dataGridView1.DataSource =
+                Dgv1.DataSource =
                     partido.Listado_Partidos("");
             }
 
@@ -161,7 +161,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         private bool ValidarCampos()
         {
-            if (comboBoxJornada.SelectedIndex == -1)
+            if (CmbComboBoxJornada.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Debe seleccionar una jornada.",
@@ -169,12 +169,12 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                comboBoxJornada.Focus();
+                CmbComboBoxJornada.Focus();
                 return false;
             }
 
 
-            if (comboBoxEquipoLocal.SelectedIndex == -1)
+            if (CmbComboBoxEquipoLocal.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Debe seleccionar el equipo local.",
@@ -182,12 +182,12 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                comboBoxEquipoLocal.Focus();
+                CmbComboBoxEquipoLocal.Focus();
                 return false;
             }
 
 
-            if (comboBoxEquipoVisitante.SelectedIndex == -1)
+            if (CmbComboBoxEquipoVisitante.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Debe seleccionar el equipo visitante.",
@@ -195,13 +195,13 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                comboBoxEquipoVisitante.Focus();
+                CmbComboBoxEquipoVisitante.Focus();
                 return false;
             }
 
 
-            if (Convert.ToInt32(comboBoxEquipoLocal.SelectedValue) ==
-                Convert.ToInt32(comboBoxEquipoVisitante.SelectedValue))
+            if (Convert.ToInt32(CmbComboBoxEquipoLocal.SelectedValue) ==
+                Convert.ToInt32(CmbComboBoxEquipoVisitante.SelectedValue))
             {
                 MessageBox.Show(
                     "El equipo local y visitante no pueden ser el mismo.",
@@ -213,7 +213,7 @@ namespace SistemaDePolideportivo
             }
 
 
-            if (comboBoxCampo.SelectedIndex == -1)
+            if (CmbComboBoxCampo.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Debe seleccionar un campo.",
@@ -221,12 +221,12 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                comboBoxCampo.Focus();
+                CmbComboBoxCampo.Focus();
                 return false;
             }
 
 
-            if (comboBoxEstado.SelectedIndex == -1)
+            if (CmbComboBoxEstado.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Debe seleccionar un estado.",
@@ -234,7 +234,7 @@ namespace SistemaDePolideportivo
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Warning);
 
-                comboBoxEstado.Focus();
+                CmbComboBoxEstado.Focus();
                 return false;
             }
 
@@ -246,7 +246,7 @@ namespace SistemaDePolideportivo
         // ============================================================
         // SELECCIONAR PARTIDO DEL GRID
         // ============================================================
-        private void dataGridView1_CellClick(
+        private void Dgv1_CellClick(
             object sender,
             DataGridViewCellEventArgs e)
         {
@@ -255,7 +255,7 @@ namespace SistemaDePolideportivo
 
 
             DataGridViewRow fila =
-                dataGridView1.Rows[e.RowIndex];
+                Dgv1.Rows[e.RowIndex];
 
 
             idPartido =
@@ -264,7 +264,7 @@ namespace SistemaDePolideportivo
 
 
             // Fecha
-            dateTimePickerFecha.Value =
+            DtpDateTimePickerFecha.Value =
                 Convert.ToDateTime(
                     fila.Cells["fecha_partido"].Value);
 
@@ -273,30 +273,30 @@ namespace SistemaDePolideportivo
             TimeSpan hora =
                 (TimeSpan)fila.Cells["hora_partido"].Value;
 
-            dateTimePickerHora.Value =
+            DtpDateTimePickerHora.Value =
                 DateTime.Today.Add(hora);
 
 
             // Jornada
-            comboBoxJornada.SelectedValue =
+            CmbComboBoxJornada.SelectedValue =
                 Convert.ToInt32(
                     fila.Cells["id_jornada"].Value);
 
 
             // Equipo local
-            comboBoxEquipoLocal.SelectedValue =
+            CmbComboBoxEquipoLocal.SelectedValue =
                 Convert.ToInt32(
                     fila.Cells["id_equipo_local"].Value);
 
 
             // Equipo visitante
-            comboBoxEquipoVisitante.SelectedValue =
+            CmbComboBoxEquipoVisitante.SelectedValue =
                 Convert.ToInt32(
                     fila.Cells["id_equipo_visitante"].Value);
 
 
             // Campo
-            comboBoxCampo.SelectedValue =
+            CmbComboBoxCampo.SelectedValue =
                 Convert.ToInt32(
                     fila.Cells["id_campo"].Value);
 
@@ -304,18 +304,18 @@ namespace SistemaDePolideportivo
             // Árbitro
             if (fila.Cells["id_arbitro"].Value != DBNull.Value)
             {
-                comboBoxArbitro.SelectedValue =
+                CmbComboBoxArbitro.SelectedValue =
                     Convert.ToInt32(
                         fila.Cells["id_arbitro"].Value);
             }
             else
             {
-                comboBoxArbitro.SelectedIndex = -1;
+                CmbComboBoxArbitro.SelectedIndex = -1;
             }
 
 
             // Estado
-            comboBoxEstado.SelectedValue =
+            CmbComboBoxEstado.SelectedValue =
                 Convert.ToInt32(
                     fila.Cells["id_estado_partido"].Value);
         }
@@ -331,57 +331,57 @@ namespace SistemaDePolideportivo
             idPartido = 0;
 
 
-            comboBoxJornada.SelectedIndex = -1;
-            comboBoxEquipoLocal.SelectedIndex = -1;
-            comboBoxEquipoVisitante.SelectedIndex = -1;
-            comboBoxCampo.SelectedIndex = -1;
-            comboBoxArbitro.SelectedIndex = -1;
-            comboBoxEstado.SelectedIndex = -1;
+            CmbComboBoxJornada.SelectedIndex = -1;
+            CmbComboBoxEquipoLocal.SelectedIndex = -1;
+            CmbComboBoxEquipoVisitante.SelectedIndex = -1;
+            CmbComboBoxCampo.SelectedIndex = -1;
+            CmbComboBoxArbitro.SelectedIndex = -1;
+            CmbComboBoxEstado.SelectedIndex = -1;
 
 
-            dateTimePickerFecha.Value =
+            DtpDateTimePickerFecha.Value =
                 DateTime.Today;
 
-            dateTimePickerHora.Value =
+            DtpDateTimePickerHora.Value =
                 DateTime.Now;
 
 
-            if (dataGridView1.DataSource != null)
+            if (Dgv1.DataSource != null)
             {
-                dataGridView1.ClearSelection();
+                Dgv1.ClearSelection();
             }
         }
 
 
 
-        private void btnGuardar_Click_1(object sender, EventArgs e)
+        private void BtnGuardar_Click_1(object sender, EventArgs e)
         {
             if (!ValidarCampos())
                 return;
 
 
             int idJornada =
-                Convert.ToInt32(comboBoxJornada.SelectedValue);
+                Convert.ToInt32(CmbComboBoxJornada.SelectedValue);
 
             int idLocal =
-                Convert.ToInt32(comboBoxEquipoLocal.SelectedValue);
+                Convert.ToInt32(CmbComboBoxEquipoLocal.SelectedValue);
 
             int idVisitante =
-                Convert.ToInt32(comboBoxEquipoVisitante.SelectedValue);
+                Convert.ToInt32(CmbComboBoxEquipoVisitante.SelectedValue);
 
             int idCampo =
-                Convert.ToInt32(comboBoxCampo.SelectedValue);
+                Convert.ToInt32(CmbComboBoxCampo.SelectedValue);
 
             int idEstado =
-                Convert.ToInt32(comboBoxEstado.SelectedValue);
+                Convert.ToInt32(CmbComboBoxEstado.SelectedValue);
 
 
             int? idArbitro = null;
 
-            if (comboBoxArbitro.SelectedIndex != -1)
+            if (CmbComboBoxArbitro.SelectedIndex != -1)
             {
                 idArbitro =
-                    Convert.ToInt32(comboBoxArbitro.SelectedValue);
+                    Convert.ToInt32(CmbComboBoxArbitro.SelectedValue);
             }
 
 
@@ -393,8 +393,8 @@ namespace SistemaDePolideportivo
                 idCampo,
                 idArbitro,
                 idEstado,
-                dateTimePickerFecha.Value,
-                dateTimePickerHora.Value.TimeOfDay);
+                DtpDateTimePickerFecha.Value,
+                DtpDateTimePickerHora.Value.TimeOfDay);
 
 
             if (resultado == "OK")
@@ -418,11 +418,11 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
+        private void BtnNuevo_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
 
-            comboBoxJornada.Focus();
+            CmbComboBoxJornada.Focus();
         }
 
         private void BtnEditar_Click(object sender, EventArgs e)
@@ -444,27 +444,27 @@ namespace SistemaDePolideportivo
 
 
             int idJornada =
-                Convert.ToInt32(comboBoxJornada.SelectedValue);
+                Convert.ToInt32(CmbComboBoxJornada.SelectedValue);
 
             int idLocal =
-                Convert.ToInt32(comboBoxEquipoLocal.SelectedValue);
+                Convert.ToInt32(CmbComboBoxEquipoLocal.SelectedValue);
 
             int idVisitante =
-                Convert.ToInt32(comboBoxEquipoVisitante.SelectedValue);
+                Convert.ToInt32(CmbComboBoxEquipoVisitante.SelectedValue);
 
             int idCampo =
-                Convert.ToInt32(comboBoxCampo.SelectedValue);
+                Convert.ToInt32(CmbComboBoxCampo.SelectedValue);
 
             int idEstado =
-                Convert.ToInt32(comboBoxEstado.SelectedValue);
+                Convert.ToInt32(CmbComboBoxEstado.SelectedValue);
 
 
             int? idArbitro = null;
 
-            if (comboBoxArbitro.SelectedIndex != -1)
+            if (CmbComboBoxArbitro.SelectedIndex != -1)
             {
                 idArbitro =
-                    Convert.ToInt32(comboBoxArbitro.SelectedValue);
+                    Convert.ToInt32(CmbComboBoxArbitro.SelectedValue);
             }
 
 
@@ -476,8 +476,8 @@ namespace SistemaDePolideportivo
                 idCampo,
                 idArbitro,
                 idEstado,
-                dateTimePickerFecha.Value,
-                dateTimePickerHora.Value.TimeOfDay,
+                DtpDateTimePickerFecha.Value,
+                DtpDateTimePickerHora.Value.TimeOfDay,
                 idPartido);
 
 
@@ -502,7 +502,7 @@ namespace SistemaDePolideportivo
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void BtnEliminar_Click(object sender, EventArgs e)
         {
             if (idPartido == 0)
             {
@@ -555,13 +555,13 @@ namespace SistemaDePolideportivo
 
         private void BtnRegresarMenu_Click(object sender, EventArgs e)
         {
-            frmCompeticiones nuevoform =
-                           new frmCompeticiones();
+            FrmCompeticiones nuevoform =
+                           new FrmCompeticiones();
 
             nuevoform.Show();
         }
 
-        private void frmProgramarPartido_Load_1(object sender, EventArgs e)
+        private void FrmProgramarPartido_Load_1(object sender, EventArgs e)
         {
             ConfigurarGrid();
 

@@ -1,6 +1,6 @@
 ﻿namespace SistemaDePolideportivo
 {
-    partial class frmModuloEquipos
+    partial class FrmModuloEquipos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,122 +28,122 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            btnEquipos = new Button();
-            btnEntrenadores = new Button();
-            btnJugadores = new Button();
-            btnPosiciones = new Button();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
+            Lbl1 = new Label();
+            BtnEquipos = new Button();
+            BtnEntrenadores = new Button();
+            BtnJugadores = new Button();
+            BtnPosiciones = new Button();
+            Pic1 = new PictureBox();
+            Pic2 = new PictureBox();
+            Pic3 = new PictureBox();
+            Pic4 = new PictureBox();
             BtnMenu = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Pic1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Pic2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Pic3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Pic4).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // Lbl1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 14F);
-            label1.Location = new Point(253, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(176, 25);
-            label1.TabIndex = 0;
-            label1.Text = "Modulo de equipos";
-            label1.Click += label1_Click;
+            Lbl1.AutoSize = true;
+            Lbl1.Font = new Font("Segoe UI", 14F);
+            Lbl1.Location = new Point(253, 16);
+            Lbl1.Name = "Lbl1";
+            Lbl1.Size = new Size(176, 25);
+            Lbl1.TabIndex = 0;
+            Lbl1.Text = "Modulo de equipos";
+            Lbl1.Click += Lbl1_Click;
             // 
-            // btnEquipos
+            // BtnEquipos
             // 
-            btnEquipos.BackColor = Color.Green;
-            btnEquipos.Cursor = Cursors.Hand;
-            btnEquipos.ForeColor = Color.Snow;
-            btnEquipos.Location = new Point(71, 139);
-            btnEquipos.Margin = new Padding(3, 2, 3, 2);
-            btnEquipos.Name = "btnEquipos";
-            btnEquipos.Size = new Size(164, 30);
-            btnEquipos.TabIndex = 1;
-            btnEquipos.Text = "Gestión de equipos";
-            btnEquipos.UseVisualStyleBackColor = false;
-            btnEquipos.Click += button1_Click;
+            BtnEquipos.BackColor = Color.Green;
+            BtnEquipos.Cursor = Cursors.Hand;
+            BtnEquipos.ForeColor = Color.Snow;
+            BtnEquipos.Location = new Point(71, 139);
+            BtnEquipos.Margin = new Padding(3, 2, 3, 2);
+            BtnEquipos.Name = "BtnEquipos";
+            BtnEquipos.Size = new Size(164, 30);
+            BtnEquipos.TabIndex = 1;
+            BtnEquipos.Text = "Gestión de equipos";
+            BtnEquipos.UseVisualStyleBackColor = false;
+            BtnEquipos.Click += BtnEquipos_Click_1;
             // 
-            // btnEntrenadores
+            // BtnEntrenadores
             // 
-            btnEntrenadores.BackColor = Color.Green;
-            btnEntrenadores.Cursor = Cursors.Hand;
-            btnEntrenadores.ForeColor = Color.Snow;
-            btnEntrenadores.Location = new Point(455, 139);
-            btnEntrenadores.Margin = new Padding(3, 2, 3, 2);
-            btnEntrenadores.Name = "btnEntrenadores";
-            btnEntrenadores.Size = new Size(164, 30);
-            btnEntrenadores.TabIndex = 2;
-            btnEntrenadores.Text = "Gestión de entrenadores";
-            btnEntrenadores.UseVisualStyleBackColor = false;
+            BtnEntrenadores.BackColor = Color.Green;
+            BtnEntrenadores.Cursor = Cursors.Hand;
+            BtnEntrenadores.ForeColor = Color.Snow;
+            BtnEntrenadores.Location = new Point(455, 139);
+            BtnEntrenadores.Margin = new Padding(3, 2, 3, 2);
+            BtnEntrenadores.Name = "BtnEntrenadores";
+            BtnEntrenadores.Size = new Size(164, 30);
+            BtnEntrenadores.TabIndex = 2;
+            BtnEntrenadores.Text = "Gestión de entrenadores";
+            BtnEntrenadores.UseVisualStyleBackColor = false;
             // 
-            // btnJugadores
+            // BtnJugadores
             // 
-            btnJugadores.BackColor = Color.Green;
-            btnJugadores.Cursor = Cursors.Hand;
-            btnJugadores.ForeColor = Color.Snow;
-            btnJugadores.Location = new Point(71, 270);
-            btnJugadores.Margin = new Padding(3, 2, 3, 2);
-            btnJugadores.Name = "btnJugadores";
-            btnJugadores.Size = new Size(164, 30);
-            btnJugadores.TabIndex = 4;
-            btnJugadores.Text = "Gestión de jugadores";
-            btnJugadores.UseVisualStyleBackColor = false;
-            btnJugadores.Click += button3_Click;
+            BtnJugadores.BackColor = Color.Green;
+            BtnJugadores.Cursor = Cursors.Hand;
+            BtnJugadores.ForeColor = Color.Snow;
+            BtnJugadores.Location = new Point(71, 270);
+            BtnJugadores.Margin = new Padding(3, 2, 3, 2);
+            BtnJugadores.Name = "BtnJugadores";
+            BtnJugadores.Size = new Size(164, 30);
+            BtnJugadores.TabIndex = 4;
+            BtnJugadores.Text = "Gestión de jugadores";
+            BtnJugadores.UseVisualStyleBackColor = false;
+            BtnJugadores.Click += BtnJugadores_Click_1;
             // 
-            // btnPosiciones
+            // BtnPosiciones
             // 
-            btnPosiciones.BackColor = Color.Green;
-            btnPosiciones.Cursor = Cursors.Hand;
-            btnPosiciones.ForeColor = Color.Snow;
-            btnPosiciones.Location = new Point(455, 270);
-            btnPosiciones.Margin = new Padding(3, 2, 3, 2);
-            btnPosiciones.Name = "btnPosiciones";
-            btnPosiciones.Size = new Size(164, 30);
-            btnPosiciones.TabIndex = 5;
-            btnPosiciones.Text = "Gestión de posiciones";
-            btnPosiciones.UseVisualStyleBackColor = false;
+            BtnPosiciones.BackColor = Color.Green;
+            BtnPosiciones.Cursor = Cursors.Hand;
+            BtnPosiciones.ForeColor = Color.Snow;
+            BtnPosiciones.Location = new Point(455, 270);
+            BtnPosiciones.Margin = new Padding(3, 2, 3, 2);
+            BtnPosiciones.Name = "BtnPosiciones";
+            BtnPosiciones.Size = new Size(164, 30);
+            BtnPosiciones.TabIndex = 5;
+            BtnPosiciones.Text = "Gestión de posiciones";
+            BtnPosiciones.UseVisualStyleBackColor = false;
             // 
-            // pictureBox1
+            // Pic1
             // 
-            pictureBox1.Location = new Point(455, 51);
-            pictureBox1.Margin = new Padding(3, 2, 3, 2);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(164, 83);
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            Pic1.Location = new Point(455, 51);
+            Pic1.Margin = new Padding(3, 2, 3, 2);
+            Pic1.Name = "Pic1";
+            Pic1.Size = new Size(164, 83);
+            Pic1.TabIndex = 6;
+            Pic1.TabStop = false;
             // 
-            // pictureBox2
+            // Pic2
             // 
-            pictureBox2.Location = new Point(455, 183);
-            pictureBox2.Margin = new Padding(3, 2, 3, 2);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(164, 82);
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
+            Pic2.Location = new Point(455, 183);
+            Pic2.Margin = new Padding(3, 2, 3, 2);
+            Pic2.Name = "Pic2";
+            Pic2.Size = new Size(164, 82);
+            Pic2.TabIndex = 7;
+            Pic2.TabStop = false;
             // 
-            // pictureBox3
+            // Pic3
             // 
-            pictureBox3.Location = new Point(71, 183);
-            pictureBox3.Margin = new Padding(3, 2, 3, 2);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(164, 82);
-            pictureBox3.TabIndex = 8;
-            pictureBox3.TabStop = false;
+            Pic3.Location = new Point(71, 183);
+            Pic3.Margin = new Padding(3, 2, 3, 2);
+            Pic3.Name = "Pic3";
+            Pic3.Size = new Size(164, 82);
+            Pic3.TabIndex = 8;
+            Pic3.TabStop = false;
             // 
-            // pictureBox4
+            // Pic4
             // 
-            pictureBox4.Location = new Point(71, 51);
-            pictureBox4.Margin = new Padding(3, 2, 3, 2);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(164, 82);
-            pictureBox4.TabIndex = 9;
-            pictureBox4.TabStop = false;
+            Pic4.Location = new Point(71, 51);
+            Pic4.Margin = new Padding(3, 2, 3, 2);
+            Pic4.Name = "Pic4";
+            Pic4.Size = new Size(164, 82);
+            Pic4.TabIndex = 9;
+            Pic4.TabStop = false;
             // 
             // BtnMenu
             // 
@@ -157,47 +157,47 @@
             BtnMenu.UseVisualStyleBackColor = true;
             BtnMenu.Click += BtnMenu_Click;
             // 
-            // frmModuloEquipos
+            // FrmModuloEquipos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(700, 338);
             Controls.Add(BtnMenu);
-            Controls.Add(pictureBox4);
-            Controls.Add(pictureBox3);
-            Controls.Add(pictureBox2);
-            Controls.Add(pictureBox1);
-            Controls.Add(btnPosiciones);
-            Controls.Add(btnJugadores);
-            Controls.Add(btnEntrenadores);
-            Controls.Add(btnEquipos);
-            Controls.Add(label1);
+            Controls.Add(Pic4);
+            Controls.Add(Pic3);
+            Controls.Add(Pic2);
+            Controls.Add(Pic1);
+            Controls.Add(BtnPosiciones);
+            Controls.Add(BtnJugadores);
+            Controls.Add(BtnEntrenadores);
+            Controls.Add(BtnEquipos);
+            Controls.Add(Lbl1);
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "frmModuloEquipos";
+            Name = "FrmModuloEquipos";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Modulo de Equipos";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Pic1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Pic2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Pic3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Pic4).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Button btnEquipos;
-        private Button btnEntrenadores;
-        private Button btnJugadores;
-        private Button btnPosiciones;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
+        private Label Lbl1;
+        private Button BtnEquipos;
+        private Button BtnEntrenadores;
+        private Button BtnJugadores;
+        private Button BtnPosiciones;
+        private PictureBox Pic1;
+        private PictureBox Pic2;
+        private PictureBox Pic3;
+        private PictureBox Pic4;
         private Button BtnMenu;
     }
 }

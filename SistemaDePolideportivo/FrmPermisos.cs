@@ -27,9 +27,9 @@ namespace SistemaDePolideportivo
         //==========================
         private void Permiso_Load(object sender, EventArgs e)
         {
-            dgvPermisos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPermisos.MultiSelect = false;
-            dgvPermisos.ReadOnly = true;
+            DgvPermisos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DgvPermisos.MultiSelect = false;
+            DgvPermisos.ReadOnly = true;
 
 
             CargarDatos();
@@ -63,7 +63,7 @@ namespace SistemaDePolideportivo
                 da.Fill(dt);
 
 
-                dgvPermisos.DataSource = dt;
+                DgvPermisos.DataSource = dt;
 
             }
 
@@ -99,12 +99,12 @@ namespace SistemaDePolideportivo
 
 
                     cmd.Parameters.AddWithValue("@nombre",
-                    nombrepermiso.Text);
+                    TxtNombrepermiso.Text);
 
 
 
                     cmd.Parameters.AddWithValue("@descripcion",
-                    descripcionpermiso.Text);
+                    TxtDescripcionpermiso.Text);
 
 
 
@@ -112,7 +112,7 @@ namespace SistemaDePolideportivo
 
                     Bitacora.Registrar(
                         "Permiso",
-                        "Agregó el permiso: " + nombrepermiso.Text
+                        "Agregó el permiso: " + TxtNombrepermiso.Text
                     );
 
                     MessageBox.Show("Permiso agregado correctamente");
@@ -137,14 +137,14 @@ namespace SistemaDePolideportivo
         //==========================
         // SELECCIONAR GRID
         //==========================
-        private void dgvPermisos_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void DgvPermisos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
             if (e.RowIndex >= 0)
             {
 
                 DataGridViewRow fila =
-                dgvPermisos.Rows[e.RowIndex];
+                DgvPermisos.Rows[e.RowIndex];
 
 
 
@@ -154,12 +154,12 @@ namespace SistemaDePolideportivo
 
 
 
-                nombrepermiso.Text =
+                TxtNombrepermiso.Text =
                 fila.Cells["nombre"].Value.ToString();
 
 
 
-                descripcionpermiso.Text =
+                TxtDescripcionpermiso.Text =
                 fila.Cells["descripcion"].Value.ToString();
 
             }
@@ -176,7 +176,7 @@ namespace SistemaDePolideportivo
         private void BtnEditar_Click(object sender, EventArgs e)
         {
 
-            if (dgvPermisos.SelectedRows.Count == 0)
+            if (DgvPermisos.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione un permiso");
                 return;
@@ -184,7 +184,7 @@ namespace SistemaDePolideportivo
 
             int id =
             Convert.ToInt32(
-            dgvPermisos.SelectedRows[0]
+            DgvPermisos.SelectedRows[0]
             .Cells["id_permiso"].Value);
 
 
@@ -203,10 +203,10 @@ namespace SistemaDePolideportivo
                 new MySqlCommand(sql, conexion);
 
                 cmd.Parameters.AddWithValue("@nombre",
-                nombrepermiso.Text);
+                TxtNombrepermiso.Text);
 
                 cmd.Parameters.AddWithValue("@descripcion",
-                descripcionpermiso.Text);
+                TxtDescripcionpermiso.Text);
 
                 cmd.Parameters.AddWithValue("@id",
                 id);
@@ -215,7 +215,7 @@ namespace SistemaDePolideportivo
 
                 Bitacora.Registrar(
                     "Permiso",
-                    "Editó el permiso: " + nombrepermiso.Text
+                    "Editó el permiso: " + TxtNombrepermiso.Text
                 );
 
                 MessageBox.Show("Permiso actualizado correctamente");
@@ -234,7 +234,7 @@ namespace SistemaDePolideportivo
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
 
-            if (dgvPermisos.SelectedRows.Count == 0)
+            if (DgvPermisos.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Seleccione un permiso");
                 return;
@@ -242,7 +242,7 @@ namespace SistemaDePolideportivo
 
             int id =
             Convert.ToInt32(
-            dgvPermisos.SelectedRows[0]
+            DgvPermisos.SelectedRows[0]
             .Cells["id_permiso"].Value);
 
 
@@ -281,7 +281,7 @@ namespace SistemaDePolideportivo
         {
             LimpiarCampos();
 
-            nombrepermiso.Focus();
+            TxtNombrepermiso.Focus();
         }
 
 
@@ -304,12 +304,12 @@ namespace SistemaDePolideportivo
             idPermiso = 0;
 
 
-            nombrepermiso.Clear();
+            TxtNombrepermiso.Clear();
 
-            descripcionpermiso.Clear();
+            TxtDescripcionpermiso.Clear();
 
 
-            dgvPermisos.ClearSelection();
+            DgvPermisos.ClearSelection();
 
         }
 
